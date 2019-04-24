@@ -150,9 +150,12 @@ namespace Capa_Presentacion
                     th = new Thread(open);
                     th.SetApartmentState(ApartmentState.STA);
                     th.Start();
-                    Program.cargo = Loguear["Cargo"].ToString();
                     Program.nickname = txtNickname.Text;
+                    Program.contraseña = txtContra.Text;
+                    Program.cargo = Loguear["Cargo"].ToString();
                     Program.nombre = Loguear["Nombre"].ToString();
+                    Program.apellidos = Loguear["Apellidos"].ToString();
+                    Program.correo = Loguear["Correo"].ToString();
                 }
                 else
                 {

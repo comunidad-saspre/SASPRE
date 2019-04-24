@@ -187,7 +187,7 @@ namespace Capa_Presentacion
         private void Menu_Load(object sender, EventArgs e)
         {
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
-
+            PrivilegioUsuario();
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
            // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
@@ -325,6 +325,18 @@ namespace Capa_Presentacion
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void PrivilegioUsuario()
+        {
+            if(Program.cargo != "Admin")
+            {
+                btnConfiguracion.Enabled = false;
+            }
+        }
+
+        private void bunifuFlatButton10_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

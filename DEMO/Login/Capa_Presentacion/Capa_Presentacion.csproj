@@ -40,6 +40,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Negocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Capa_Negocio.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MySql.Data.dll</HintPath>
@@ -262,12 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Forward_32px_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.csproj">
-      <Project>{057fbda6-8e76-43d9-8ef6-d1d104c71b38}</Project>
-      <Name>Capa_Negocio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

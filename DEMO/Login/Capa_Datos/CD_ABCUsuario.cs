@@ -28,5 +28,23 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
+
+        public void EditarUsuario(int idusuario, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarUsuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_Idusuario", idusuario);
+            comando.Parameters.AddWithValue("_Nombre", nombre);
+            comando.Parameters.AddWithValue("_Apellidos", apellidos);
+            comando.Parameters.AddWithValue("_Contra", contra);
+            comando.Parameters.AddWithValue("_Cargo", cargo);
+            comando.Parameters.AddWithValue("_Nickname", nickname);
+            comando.Parameters.AddWithValue("_Correo", correo);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
     }
 }

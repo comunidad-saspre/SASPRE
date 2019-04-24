@@ -256,6 +256,8 @@ INSERT INTO usuario(Nombre,Apellidos,Contra,Cargo,Nickname,Correo)
 VALUES (_Nombre,_Apellidos,_Contra,_Cargo,_Nickname,_Correo)//
 DELIMITER ;
 
+
+
 -- Volcando estructura para tabla saspre.usuario
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (

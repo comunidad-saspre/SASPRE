@@ -46,7 +46,8 @@ namespace Capa_Negocio
             byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_Cifrar, 0, Arreglo_a_Cifrar.Length);
             tdes.Clear();
             //se regresa el resultado en forma de una cadena
-            MySqlDataReader leer = _CD_Login.IniciarSesion(Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length), contraseña);
+            //Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length)
+            MySqlDataReader leer = _CD_Login.IniciarSesion(nickname, contraseña);
             return leer;
         }
 

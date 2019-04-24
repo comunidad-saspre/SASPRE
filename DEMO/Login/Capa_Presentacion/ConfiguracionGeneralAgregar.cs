@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
@@ -16,10 +17,18 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
         }
-
+        private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
         private void button3_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

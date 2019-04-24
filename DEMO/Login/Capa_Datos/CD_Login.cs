@@ -19,7 +19,6 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             comando.Parameters.Clear();
             comando.Connection = conexion.AbrirConexion();
-            
             comando.CommandText = "IniciarSesion";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("_nickname", nickname);

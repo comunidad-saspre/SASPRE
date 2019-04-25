@@ -116,19 +116,15 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
             m_aeroEnabled = false;
+            //Donde se llama el ImageList y se coloca la imagen en el picturebox.
+            picClimaPrimero.Image = Vectores.Images[21];
+            picClimaSegundo.Image = Vectores.Images[3];
+            picClimaTercero.Image = Vectores.Images[5];
+            picClimaCuarto.Image = Vectores.Images[7];
+            picClimaQuinto.Image = Vectores.Images[9];
         }
 
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        const int CS_DROPSHADOW = 0x20000;
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ClassStyle |= CS_DROPSHADOW;
-        //        cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED   
-        //        return cp;
-        //    }
-        //}
+
 
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
         public void AbrirFormEnPanel<Forms>() where Forms : Form, new()

@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion
 {
-    partial class Menu
+    partial class Menu : System.Windows.Forms.Form
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.MouseDetect = new System.Timers.Timer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelClima = new Capa_Presentacion.MyPanel();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
@@ -71,6 +71,7 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
             this.lblTemp = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPrecipitacionmm = new System.Windows.Forms.Label();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -86,9 +87,7 @@
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.timerClima = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
             this.myPanel5.SuspendLayout();
@@ -97,6 +96,7 @@
             this.myPanel7.SuspendLayout();
             this.myPanel3.SuspendLayout();
             this.panelDerecho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,19 +106,11 @@
             this.MouseDetect.SynchronizingObject = this;
             this.MouseDetect.Elapsed += new System.Timers.ElapsedEventHandler(this.MouseDetect_Elapsed);
             // 
-            // pictureBox1
+            // timerClima
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.timerClima.Enabled = true;
+            this.timerClima.Interval = 1000;
+            this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
             // myPanel1
             // 
@@ -602,6 +594,20 @@
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // lblPrecipitacionmm
             // 
             this.lblPrecipitacionmm.AutoSize = true;
@@ -964,12 +970,6 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // timerClima
-            // 
-            this.timerClima.Enabled = true;
-            this.timerClima.Interval = 3600000;
-            this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -985,7 +985,6 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
@@ -1001,6 +1000,7 @@
             this.myPanel3.PerformLayout();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
             this.ResumeLayout(false);

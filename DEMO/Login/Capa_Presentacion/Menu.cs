@@ -12,7 +12,6 @@ using System.Net.Http;
 using System.IO.Compression;
 using System.IO;
 using Newtonsoft.Json;
-using System.Runtime.Serialization.Json;
 using System.Globalization;
 
 namespace Capa_Presentacion
@@ -375,7 +374,11 @@ namespace Capa_Presentacion
 
         private void timerClima_Tick(object sender, EventArgs e)
         {
-            GetRequest();
+            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            {
+                MessageBox.Show("Hola");
+                GetRequest();
+            }
         }
     }
 }

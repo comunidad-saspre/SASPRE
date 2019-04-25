@@ -28,5 +28,15 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
+        public void EliminarUsuario(String NickName)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "eliminarUsuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_nickname", NickName);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
     }
 }

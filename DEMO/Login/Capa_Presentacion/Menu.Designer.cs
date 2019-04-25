@@ -36,7 +36,6 @@
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelClima = new Capa_Presentacion.MyPanel();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
-            this.picClimaQuinto = new System.Windows.Forms.PictureBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
-            this.picClimaSegundo = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -53,7 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
-            this.picClimaTercero = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -61,7 +58,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
-            this.picClimaCuarto = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -93,22 +89,28 @@
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenuPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.picClimaSegundo = new System.Windows.Forms.PictureBox();
+            this.picClimaTercero = new System.Windows.Forms.PictureBox();
+            this.picClimaCuarto = new System.Windows.Forms.PictureBox();
+            this.picClimaQuinto = new System.Windows.Forms.PictureBox();
+            this.picClimaActual = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
             this.myPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).BeginInit();
             this.myPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).BeginInit();
             this.myPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).BeginInit();
             this.myPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).BeginInit();
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).BeginInit();
             this.panelDerecho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
             this.SuspendLayout();
             // 
             // MouseDetect
@@ -128,21 +130,17 @@
             this.Vectores.Images.SetKeyName(4, "Llovizna color.png");
             this.Vectores.Images.SetKeyName(5, "Llovizna negro.png");
             this.Vectores.Images.SetKeyName(6, "Luna blanca.png");
-            this.Vectores.Images.SetKeyName(7, "Luna negra.png");
-            this.Vectores.Images.SetKeyName(8, "Noche lluviosa blanca.png");
-            this.Vectores.Images.SetKeyName(9, "Noche lluviosa negro.png");
-            this.Vectores.Images.SetKeyName(10, "Nublado Blanco.png");
-            this.Vectores.Images.SetKeyName(11, "Nublado colorizado.png");
-            this.Vectores.Images.SetKeyName(12, "Nublado negro.png");
-            this.Vectores.Images.SetKeyName(13, "Nublado noche blanca.png");
-            this.Vectores.Images.SetKeyName(14, "Nublado noche negro.png");
-            this.Vectores.Images.SetKeyName(15, "Parcialmente nublado blanco.png");
-            this.Vectores.Images.SetKeyName(16, "Parcialmente nublado color.png");
-            this.Vectores.Images.SetKeyName(17, "Parcialmente nublado negro.png");
-            this.Vectores.Images.SetKeyName(18, "Soleado Blanco.png");
-            this.Vectores.Images.SetKeyName(19, "Soleado Color.png");
-            this.Vectores.Images.SetKeyName(20, "Soleado Negro.png");
-            this.Vectores.Images.SetKeyName(21, "Clima.png");
+            this.Vectores.Images.SetKeyName(7, "Noche lluviosa blanca.png");
+            this.Vectores.Images.SetKeyName(8, "Noche lluviosa negro.png");
+            this.Vectores.Images.SetKeyName(9, "Nublado Blanco.png");
+            this.Vectores.Images.SetKeyName(10, "Nublado colorizado.png");
+            this.Vectores.Images.SetKeyName(11, "Nublado negro.png");
+            this.Vectores.Images.SetKeyName(12, "Nublado noche blanca.png");
+            this.Vectores.Images.SetKeyName(13, "Nublado noche negro.png");
+            this.Vectores.Images.SetKeyName(14, "Parcialmente nublado color.png");
+            this.Vectores.Images.SetKeyName(15, "Parcialmente nublado negro.png");
+            this.Vectores.Images.SetKeyName(16, "Soleado Color.png");
+            this.Vectores.Images.SetKeyName(17, "Soleado Negro.png");
             // 
             // myPanel1
             // 
@@ -161,6 +159,7 @@
             // panelClima
             // 
             this.panelClima.BackColor = System.Drawing.Color.Transparent;
+            this.panelClima.Controls.Add(this.picClimaActual);
             this.panelClima.Controls.Add(this.myPanel5);
             this.panelClima.Controls.Add(this.label5);
             this.panelClima.Controls.Add(this.myPanel10);
@@ -188,15 +187,6 @@
             this.myPanel5.Name = "myPanel5";
             this.myPanel5.Size = new System.Drawing.Size(160, 350);
             this.myPanel5.TabIndex = 53;
-            // 
-            // picClimaQuinto
-            // 
-            this.picClimaQuinto.Location = new System.Drawing.Point(14, 104);
-            this.picClimaQuinto.Name = "picClimaQuinto";
-            this.picClimaQuinto.Size = new System.Drawing.Size(128, 128);
-            this.picClimaQuinto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaQuinto.TabIndex = 39;
-            this.picClimaQuinto.TabStop = false;
             // 
             // label26
             // 
@@ -283,15 +273,6 @@
             this.myPanel10.Name = "myPanel10";
             this.myPanel10.Size = new System.Drawing.Size(160, 350);
             this.myPanel10.TabIndex = 7;
-            // 
-            // picClimaSegundo
-            // 
-            this.picClimaSegundo.Location = new System.Drawing.Point(17, 104);
-            this.picClimaSegundo.Name = "picClimaSegundo";
-            this.picClimaSegundo.Size = new System.Drawing.Size(128, 128);
-            this.picClimaSegundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaSegundo.TabIndex = 39;
-            this.picClimaSegundo.TabStop = false;
             // 
             // label11
             // 
@@ -391,15 +372,6 @@
             this.myPanel8.Size = new System.Drawing.Size(160, 350);
             this.myPanel8.TabIndex = 5;
             // 
-            // picClimaTercero
-            // 
-            this.picClimaTercero.Location = new System.Drawing.Point(18, 104);
-            this.picClimaTercero.Name = "picClimaTercero";
-            this.picClimaTercero.Size = new System.Drawing.Size(128, 128);
-            this.picClimaTercero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaTercero.TabIndex = 43;
-            this.picClimaTercero.TabStop = false;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -486,15 +458,6 @@
             this.myPanel7.Size = new System.Drawing.Size(160, 350);
             this.myPanel7.TabIndex = 4;
             // 
-            // picClimaCuarto
-            // 
-            this.picClimaCuarto.Location = new System.Drawing.Point(21, 104);
-            this.picClimaCuarto.Name = "picClimaCuarto";
-            this.picClimaCuarto.Size = new System.Drawing.Size(128, 128);
-            this.picClimaCuarto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaCuarto.TabIndex = 48;
-            this.picClimaCuarto.TabStop = false;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -572,9 +535,9 @@
             // 
             // picClimaPrimero
             // 
-            this.picClimaPrimero.Location = new System.Drawing.Point(16, 102);
+            this.picClimaPrimero.Location = new System.Drawing.Point(48, 133);
             this.picClimaPrimero.Name = "picClimaPrimero";
-            this.picClimaPrimero.Size = new System.Drawing.Size(128, 128);
+            this.picClimaPrimero.Size = new System.Drawing.Size(70, 70);
             this.picClimaPrimero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClimaPrimero.TabIndex = 38;
             this.picClimaPrimero.TabStop = false;
@@ -585,7 +548,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(54, 279);
+            this.label10.Location = new System.Drawing.Point(55, 279);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 37;
@@ -597,7 +560,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(85, 235);
+            this.label9.Location = new System.Drawing.Point(90, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 20);
             this.label9.TabIndex = 36;
@@ -621,7 +584,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(23, 62);
+            this.label7.Location = new System.Drawing.Point(29, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 37);
             this.label7.TabIndex = 34;
@@ -633,7 +596,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(41, 20);
+            this.label6.Location = new System.Drawing.Point(47, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 37);
             this.label6.TabIndex = 33;
@@ -1052,6 +1015,51 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // picClimaSegundo
+            // 
+            this.picClimaSegundo.Location = new System.Drawing.Point(48, 133);
+            this.picClimaSegundo.Name = "picClimaSegundo";
+            this.picClimaSegundo.Size = new System.Drawing.Size(70, 70);
+            this.picClimaSegundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaSegundo.TabIndex = 39;
+            this.picClimaSegundo.TabStop = false;
+            // 
+            // picClimaTercero
+            // 
+            this.picClimaTercero.Location = new System.Drawing.Point(48, 133);
+            this.picClimaTercero.Name = "picClimaTercero";
+            this.picClimaTercero.Size = new System.Drawing.Size(70, 70);
+            this.picClimaTercero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaTercero.TabIndex = 43;
+            this.picClimaTercero.TabStop = false;
+            // 
+            // picClimaCuarto
+            // 
+            this.picClimaCuarto.Location = new System.Drawing.Point(52, 133);
+            this.picClimaCuarto.Name = "picClimaCuarto";
+            this.picClimaCuarto.Size = new System.Drawing.Size(70, 70);
+            this.picClimaCuarto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaCuarto.TabIndex = 48;
+            this.picClimaCuarto.TabStop = false;
+            // 
+            // picClimaQuinto
+            // 
+            this.picClimaQuinto.Location = new System.Drawing.Point(51, 133);
+            this.picClimaQuinto.Name = "picClimaQuinto";
+            this.picClimaQuinto.Size = new System.Drawing.Size(70, 70);
+            this.picClimaQuinto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaQuinto.TabIndex = 53;
+            this.picClimaQuinto.TabStop = false;
+            // 
+            // picClimaActual
+            // 
+            this.picClimaActual.Location = new System.Drawing.Point(8, 25);
+            this.picClimaActual.Name = "picClimaActual";
+            this.picClimaActual.Size = new System.Drawing.Size(90, 90);
+            this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaActual.TabIndex = 39;
+            this.picClimaActual.TabStop = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1072,16 +1080,12 @@
             this.panelClima.PerformLayout();
             this.myPanel5.ResumeLayout(false);
             this.myPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).EndInit();
             this.myPanel10.ResumeLayout(false);
             this.myPanel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).EndInit();
             this.myPanel8.ResumeLayout(false);
             this.myPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).EndInit();
             this.myPanel7.ResumeLayout(false);
             this.myPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).EndInit();
             this.myPanel3.ResumeLayout(false);
             this.myPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).EndInit();
@@ -1090,6 +1094,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1154,6 +1163,7 @@
         private System.Windows.Forms.Label label30;
         public System.Windows.Forms.ImageList Vectores;
         private System.Windows.Forms.PictureBox picClimaPrimero;
+        private System.Windows.Forms.PictureBox picClimaActual;
         private System.Windows.Forms.PictureBox picClimaQuinto;
         private System.Windows.Forms.PictureBox picClimaSegundo;
         private System.Windows.Forms.PictureBox picClimaTercero;

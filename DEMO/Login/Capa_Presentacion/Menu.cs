@@ -117,11 +117,12 @@ namespace Capa_Presentacion
             InitializeComponent();
             m_aeroEnabled = false;
             //Donde se llama el ImageList y se coloca la imagen en el picturebox.
-            picClimaPrimero.Image = Vectores.Images[21];
-            picClimaSegundo.Image = Vectores.Images[3];
+            picClimaPrimero.Image = Vectores.Images[17];
+            picClimaSegundo.Image = Vectores.Images[15];
             picClimaTercero.Image = Vectores.Images[5];
             picClimaCuarto.Image = Vectores.Images[7];
             picClimaQuinto.Image = Vectores.Images[9];
+            picClimaActual.Image = Vectores.Images[2];
         }
 
 

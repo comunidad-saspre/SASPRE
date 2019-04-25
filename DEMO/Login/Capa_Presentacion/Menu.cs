@@ -116,13 +116,7 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
             m_aeroEnabled = false;
-            //Donde se llama el ImageList y se coloca la imagen en el picturebox.
-            picClimaPrimero.Image = Vectores.Images[17];
-            picClimaSegundo.Image = Vectores.Images[15];
-            picClimaTercero.Image = Vectores.Images[5];
-            picClimaCuarto.Image = Vectores.Images[7];
-            picClimaQuinto.Image = Vectores.Images[9];
-            picClimaActual.Image = Vectores.Images[2];
+
         }
 
 
@@ -183,12 +177,26 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
+
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
+
             PrivilegioUsuario();
+
+
+            //Donde se llama el ImageList y se coloca la imagen en el picturebox.
+            picClimaPrimero.Image = Vectores.Images[17];
+            picClimaSegundo.Image = Vectores.Images[15];
+            picClimaTercero.Image = Vectores.Images[5];
+            picClimaCuarto.Image = Vectores.Images[7];
+            picClimaQuinto.Image = Vectores.Images[9];
+            picClimaActual.Image = Vectores.Images[2];
+
+
+
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-           // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
+            // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-          //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
+            //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
         }
 
         bool mnuExpanded = false;

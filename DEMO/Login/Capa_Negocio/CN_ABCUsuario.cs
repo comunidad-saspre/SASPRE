@@ -17,6 +17,10 @@ namespace Capa_Negocio
         {
             _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo);
         }
+        public void EliminarUsuario( String NickName)
+        {
+            _ABCUsuario.EliminarUsuario(NickName);
+        }
         public string Encriptar(string texto)
         {
             //arreglo de bytes donde guardaremos la llave

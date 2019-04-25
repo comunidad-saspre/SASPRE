@@ -23,7 +23,7 @@ namespace Capa_Presentacion
             try
             {
                 //_ABCUsuario.EliminarUsuario("itzfilisalsa");
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtA.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
                 MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

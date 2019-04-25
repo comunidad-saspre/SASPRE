@@ -28,86 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtSintoma = new System.Windows.Forms.TextBox();
+            this.txtCausa = new System.Windows.Forms.TextBox();
+            this.txtFechaDeCosecha = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtFechaDePlantado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCaracteristicas = new System.Windows.Forms.TextBox();
+            this.txtNombreCientifico = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picCultivo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btnAgregar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(598, 650);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 34);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(598, 650);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(155, 34);
+            this.btnAgregar.TabIndex = 52;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(427, 650);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 34);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(427, 650);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(155, 34);
+            this.btnCancelar.TabIndex = 50;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox8
+            // txtEstado
             // 
-            this.textBox8.Location = new System.Drawing.Point(374, 494);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(232, 20);
-            this.textBox8.TabIndex = 49;
+            this.txtEstado.Location = new System.Drawing.Point(374, 494);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(232, 20);
+            this.txtEstado.TabIndex = 49;
             // 
-            // textBox7
+            // txtSintoma
             // 
-            this.textBox7.Location = new System.Drawing.Point(374, 410);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(232, 20);
-            this.textBox7.TabIndex = 48;
+            this.txtSintoma.Location = new System.Drawing.Point(374, 410);
+            this.txtSintoma.Name = "txtSintoma";
+            this.txtSintoma.Size = new System.Drawing.Size(232, 20);
+            this.txtSintoma.TabIndex = 48;
             // 
-            // textBox6
+            // txtCausa
             // 
-            this.textBox6.Location = new System.Drawing.Point(31, 578);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(232, 20);
-            this.textBox6.TabIndex = 47;
+            this.txtCausa.Location = new System.Drawing.Point(31, 578);
+            this.txtCausa.Name = "txtCausa";
+            this.txtCausa.Size = new System.Drawing.Size(232, 20);
+            this.txtCausa.TabIndex = 47;
             // 
-            // textBox5
+            // txtFechaDeCosecha
             // 
-            this.textBox5.Location = new System.Drawing.Point(31, 494);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(232, 20);
-            this.textBox5.TabIndex = 46;
+            this.txtFechaDeCosecha.Location = new System.Drawing.Point(31, 494);
+            this.txtFechaDeCosecha.Name = "txtFechaDeCosecha";
+            this.txtFechaDeCosecha.Size = new System.Drawing.Size(232, 20);
+            this.txtFechaDeCosecha.TabIndex = 46;
             // 
             // label10
             // 
@@ -153,12 +153,12 @@
             this.label7.TabIndex = 42;
             this.label7.Text = "Fecha de Cosecha";
             // 
-            // textBox4
+            // txtFechaDePlantado
             // 
-            this.textBox4.Location = new System.Drawing.Point(31, 410);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(232, 20);
-            this.textBox4.TabIndex = 41;
+            this.txtFechaDePlantado.Location = new System.Drawing.Point(31, 410);
+            this.txtFechaDePlantado.Name = "txtFechaDePlantado";
+            this.txtFechaDePlantado.Size = new System.Drawing.Size(232, 20);
+            this.txtFechaDePlantado.TabIndex = 41;
             // 
             // label6
             // 
@@ -184,26 +184,26 @@
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
-            // textBox3
+            // txtCaracteristicas
             // 
-            this.textBox3.Location = new System.Drawing.Point(321, 295);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(432, 20);
-            this.textBox3.TabIndex = 38;
+            this.txtCaracteristicas.Location = new System.Drawing.Point(321, 295);
+            this.txtCaracteristicas.Name = "txtCaracteristicas";
+            this.txtCaracteristicas.Size = new System.Drawing.Size(432, 20);
+            this.txtCaracteristicas.TabIndex = 38;
             // 
-            // textBox2
+            // txtNombreCientifico
             // 
-            this.textBox2.Location = new System.Drawing.Point(321, 217);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(432, 20);
-            this.textBox2.TabIndex = 37;
+            this.txtNombreCientifico.Location = new System.Drawing.Point(321, 217);
+            this.txtNombreCientifico.Name = "txtNombreCientifico";
+            this.txtNombreCientifico.Size = new System.Drawing.Size(432, 20);
+            this.txtNombreCientifico.TabIndex = 37;
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(321, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(432, 20);
-            this.textBox1.TabIndex = 36;
+            this.txtNombre.Location = new System.Drawing.Point(321, 139);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(432, 20);
+            this.txtNombre.TabIndex = 36;
             // 
             // label5
             // 
@@ -260,49 +260,49 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Administrar Cultivos";
             // 
-            // pictureBox1
+            // picCultivo
             // 
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.Captura;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 103);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.picCultivo.Image = global::Capa_Presentacion.Properties.Resources.Captura;
+            this.picCultivo.Location = new System.Drawing.Point(31, 103);
+            this.picCultivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picCultivo.Name = "picCultivo";
+            this.picCultivo.Size = new System.Drawing.Size(269, 218);
+            this.picCultivo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCultivo.TabIndex = 32;
+            this.picCultivo.TabStop = false;
             // 
             // AdministrarCultivosEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 720);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.txtSintoma);
+            this.Controls.Add(this.txtCausa);
+            this.Controls.Add(this.txtFechaDeCosecha);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtFechaDePlantado);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.bunifuSeparator1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCaracteristicas);
+            this.Controls.Add(this.txtNombreCientifico);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picCultivo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdministrarCultivosEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCultivosEditar";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,26 +310,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtSintoma;
+        private System.Windows.Forms.TextBox txtCausa;
+        private System.Windows.Forms.TextBox txtFechaDeCosecha;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtFechaDePlantado;
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCaracteristicas;
+        private System.Windows.Forms.TextBox txtNombreCientifico;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picCultivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

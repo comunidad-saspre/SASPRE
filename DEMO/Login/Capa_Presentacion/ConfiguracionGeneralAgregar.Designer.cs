@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panelContenedor = new Capa_Presentacion.MyPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.picUsuario = new System.Windows.Forms.PictureBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.txtNick = new System.Windows.Forms.TextBox();
-            this.txtAM = new System.Windows.Forms.TextBox();
+            this.txtA = new System.Windows.Forms.TextBox();
             this.txtAP = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,22 +47,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
             // 
             this.panelContenedor.Controls.Add(this.txtCorreo);
             this.panelContenedor.Controls.Add(this.label9);
-            this.panelContenedor.Controls.Add(this.pictureBox1);
+            this.panelContenedor.Controls.Add(this.picUsuario);
             this.panelContenedor.Controls.Add(this.txtCargo);
             this.panelContenedor.Controls.Add(this.txtContra);
             this.panelContenedor.Controls.Add(this.txtNick);
-            this.panelContenedor.Controls.Add(this.txtAM);
+            this.panelContenedor.Controls.Add(this.txtA);
             this.panelContenedor.Controls.Add(this.txtAP);
             this.panelContenedor.Controls.Add(this.label8);
             this.panelContenedor.Controls.Add(this.label7);
@@ -72,23 +72,41 @@
             this.panelContenedor.Controls.Add(this.label2);
             this.panelContenedor.Controls.Add(this.txtNombre);
             this.panelContenedor.Controls.Add(this.btnAgregar);
-            this.panelContenedor.Controls.Add(this.button2);
+            this.panelContenedor.Controls.Add(this.btnCancelar);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1030, 720);
             this.panelContenedor.TabIndex = 0;
             // 
-            // pictureBox1
+            // txtCorreo
             // 
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.Captura;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 114);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
+            this.txtCorreo.Location = new System.Drawing.Point(352, 593);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(408, 20);
+            this.txtCorreo.TabIndex = 71;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(352, 557);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.TabIndex = 70;
+            this.label9.Text = "Correo";
+            // 
+            // picUsuario
+            // 
+            this.picUsuario.Image = global::Capa_Presentacion.Properties.Resources.Captura;
+            this.picUsuario.Location = new System.Drawing.Point(41, 114);
+            this.picUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picUsuario.Name = "picUsuario";
+            this.picUsuario.Size = new System.Drawing.Size(269, 218);
+            this.picUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUsuario.TabIndex = 69;
+            this.picUsuario.TabStop = false;
             // 
             // txtCargo
             // 
@@ -111,12 +129,12 @@
             this.txtNick.Size = new System.Drawing.Size(408, 20);
             this.txtNick.TabIndex = 66;
             // 
-            // txtAM
+            // txtA
             // 
-            this.txtAM.Location = new System.Drawing.Point(352, 294);
-            this.txtAM.Name = "txtAM";
-            this.txtAM.Size = new System.Drawing.Size(408, 20);
-            this.txtAM.TabIndex = 65;
+            this.txtA.Location = new System.Drawing.Point(352, 294);
+            this.txtA.Name = "txtA";
+            this.txtA.Size = new System.Drawing.Size(408, 20);
+            this.txtA.TabIndex = 65;
             // 
             // txtAP
             // 
@@ -234,36 +252,18 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(444, 629);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 34);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(352, 593);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(408, 20);
-            this.txtCorreo.TabIndex = 71;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(352, 557);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 20);
-            this.label9.TabIndex = 70;
-            this.label9.Text = "Correo";
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(444, 629);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(155, 34);
+            this.btnCancelar.TabIndex = 56;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // ConfiguracionGeneralAgregar
             // 
@@ -278,7 +278,7 @@
             this.Text = "ConfiguracionGeneralAgregar";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,7 +289,7 @@
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.TextBox txtNick;
-        private System.Windows.Forms.TextBox txtAM;
+        private System.Windows.Forms.TextBox txtA;
         private System.Windows.Forms.TextBox txtAP;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -301,8 +301,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.PictureBox picUsuario;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label9;
     }

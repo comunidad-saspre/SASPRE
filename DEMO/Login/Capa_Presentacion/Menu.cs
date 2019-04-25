@@ -330,7 +330,7 @@ namespace Capa_Presentacion
         {
             if(Program.cargo != "Admin")
             {
-                btnConfiguracion.Enabled = false;
+                btnConfiguracionGeneral.Enabled = false;
             }
         }
 

@@ -83,7 +83,7 @@ namespace Capa_Presentacion
         public void MostrarUsuarios()
         {
             CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
-            dtgUsuarios.DataSource = _ABCUsuario.MostrarUsuarios();
+            dvgUsuarios.DataSource = _ABCUsuario.MostrarUsuarios();
         }
     }
 }

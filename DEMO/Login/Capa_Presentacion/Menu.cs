@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.IO.Compression;
+using System.IO;
+using Newtonsoft.Json;
+using System.Runtime.Serialization.Json;
+using System.Globalization;
 
 namespace Capa_Presentacion
 {
@@ -188,10 +194,12 @@ namespace Capa_Presentacion
         {
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
             PrivilegioUsuario();
+            GetRequest();
+
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-           // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
+            // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-          //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
+            //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
         }
 
         bool mnuExpanded = false;
@@ -331,12 +339,43 @@ namespace Capa_Presentacion
             if(Program.cargo != "Admin")
             {
                 btnConfiguracion.Enabled = false;
+                
             }
         }
 
         private void bunifuFlatButton10_Load(object sender, EventArgs e)
         {
             
+        }
+        async void GetRequest()
+        {
+            Cursor = Cursors.WaitCursor;
+            String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    StreamReader reader = new StreamReader(descomprimido);
+                    String data = reader.ReadLine();
+                    var listInfo = JsonConvert.DeserializeObject<List<Ciudad>>(data);
+                    foreach (var info in listInfo)
+                    {
+                        if (info.CityId.Equals("MXTS2043") && info.HourNumber == 0)
+                        {
+                            labelClimaHoy.Text = info.TempC.ToString()+"° C";
+                        }
+                    }
+                }
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void timerClima_Tick(object sender, EventArgs e)
+        {
+            GetRequest();
         }
     }
 }

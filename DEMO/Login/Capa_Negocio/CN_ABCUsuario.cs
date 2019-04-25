@@ -6,30 +6,21 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Capa_Datos;
 using System.Security.Cryptography;
-using System.Data;
 
 namespace Capa_Negocio
 {
     public class CN_ABCUsuario
     {
-        CD_ABCUsuario _ABCUsuario = new CD_ABCUsuario();
-        CD_ABCUsuario obj = new CD_ABCUsuario();
+        private CD_ABCUsuario _ABCUsuario = new CD_ABCUsuario();
         string key = "mikey";
-        DataTable tablaUsuarios = new DataTable();
-
         public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
             _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo);
         }
-
-        public DataTable MostrarUsuarios()
+        public void EliminarUsuario( String NickName)
         {
-            tablaUsuarios = _ABCUsuario.MostrarUsuarios();
-            return tablaUsuarios;
+            _ABCUsuario.EliminarUsuario(NickName);
         }
-
-
-
         public string Encriptar(string texto)
         {
             //arreglo de bytes donde guardaremos la llave

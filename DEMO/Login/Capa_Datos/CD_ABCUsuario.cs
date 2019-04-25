@@ -12,8 +12,6 @@ namespace Capa_Datos
     {
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlCommand comando = new MySqlCommand();
-        DataTable tablaUsuarios = new DataTable();
-        MySqlDataReader leer;
 
         public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
@@ -30,16 +28,15 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
-
-         public DataTable MostrarUsuarios()
+        public void EliminarUsuario(String NickName)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarUsuarios";
+            comando.CommandText = "eliminarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tablaUsuarios.Load(leer);
+            comando.Parameters.AddWithValue("_nickname", NickName);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             conexion.CerrarConexion();
-            return tablaUsuarios;
         }
     }
 }

@@ -232,7 +232,7 @@ namespace Capa_Presentacion
          
         }
 
-        private async void bunifuFlatButton5_Click(object sender, EventArgs e)
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
             panelClima.Visible = false;

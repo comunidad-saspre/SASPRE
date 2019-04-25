@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
@@ -73,6 +74,16 @@ namespace Capa_Presentacion
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ConfiguracionGeneral_Load(object sender, EventArgs e)
+        {
+            MostrarUsuarios();
+        }
+        public void MostrarUsuarios()
+        {
+            CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
+            dtgUsuarios.DataSource = _ABCUsuario.MostrarUsuarios();
         }
     }
 }

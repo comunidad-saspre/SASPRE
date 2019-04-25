@@ -32,43 +32,43 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContenedor = new Capa_Presentacion.MyPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtgUsuarios = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.picUsuario = new System.Windows.Forms.PictureBox();
+            this.dvgUsuarios = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtConsultaGeneralDeLosUsuarios = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblCargo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
             // 
             this.panelContenedor.Controls.Add(this.label1);
-            this.panelContenedor.Controls.Add(this.label4);
+            this.panelContenedor.Controls.Add(this.lblNombre);
             this.panelContenedor.Controls.Add(this.label2);
-            this.panelContenedor.Controls.Add(this.label3);
-            this.panelContenedor.Controls.Add(this.pictureBox1);
-            this.panelContenedor.Controls.Add(this.dtgUsuarios);
-            this.panelContenedor.Controls.Add(this.textBox1);
-            this.panelContenedor.Controls.Add(this.button3);
+            this.panelContenedor.Controls.Add(this.lblUsuario);
+            this.panelContenedor.Controls.Add(this.picUsuario);
+            this.panelContenedor.Controls.Add(this.dvgUsuarios);
+            this.panelContenedor.Controls.Add(this.txtConsultaGeneralDeLosUsuarios);
+            this.panelContenedor.Controls.Add(this.btnAgregar);
             this.panelContenedor.Controls.Add(this.label6);
-            this.panelContenedor.Controls.Add(this.button2);
+            this.panelContenedor.Controls.Add(this.btnEditar);
             this.panelContenedor.Controls.Add(this.label7);
-            this.panelContenedor.Controls.Add(this.label8);
+            this.panelContenedor.Controls.Add(this.lblCargo);
             this.panelContenedor.Controls.Add(this.label9);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
@@ -87,17 +87,17 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Configuración general";
             // 
-            // label4
+            // lblNombre
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Location = new System.Drawing.Point(330, 418);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 20);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "André Ibarra Perez";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblNombre.Location = new System.Drawing.Point(330, 418);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(143, 20);
+            this.lblNombre.TabIndex = 55;
+            this.lblNombre.Text = "André Ibarra Perez";
             // 
             // label2
             // 
@@ -110,37 +110,37 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "Consulta general de los usuarios";
             // 
-            // label3
+            // lblUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label3.Location = new System.Drawing.Point(330, 492);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Muski";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblUsuario.Location = new System.Drawing.Point(330, 492);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(50, 20);
+            this.lblUsuario.TabIndex = 54;
+            this.lblUsuario.Text = "Muski";
             // 
-            // pictureBox1
+            // picUsuario
             // 
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources._54516082_831687770532189_4577809296376463360_o;
-            this.pictureBox1.Location = new System.Drawing.Point(42, 381);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(255, 207);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.picUsuario.Image = global::Capa_Presentacion.Properties.Resources._54516082_831687770532189_4577809296376463360_o;
+            this.picUsuario.Location = new System.Drawing.Point(42, 381);
+            this.picUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picUsuario.Name = "picUsuario";
+            this.picUsuario.Size = new System.Drawing.Size(255, 207);
+            this.picUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUsuario.TabIndex = 32;
+            this.picUsuario.TabStop = false;
             // 
-            // dtgUsuarios
+            // dvgUsuarios
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgUsuarios.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dtgUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dvgUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgUsuarios.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dvgUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,28 +148,28 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dvgUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dvgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Apellidos,
             this.Contraseña,
             this.Cargo,
             this.Usuario,
             this.Correo});
-            this.dtgUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtgUsuarios.DoubleBuffered = true;
-            this.dtgUsuarios.EnableHeadersVisualStyles = false;
-            this.dtgUsuarios.HeaderBgColor = System.Drawing.Color.DarkGreen;
-            this.dtgUsuarios.HeaderForeColor = System.Drawing.Color.White;
-            this.dtgUsuarios.Location = new System.Drawing.Point(42, 135);
-            this.dtgUsuarios.MultiSelect = false;
-            this.dtgUsuarios.Name = "dtgUsuarios";
-            this.dtgUsuarios.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtgUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgUsuarios.Size = new System.Drawing.Size(650, 215);
-            this.dtgUsuarios.TabIndex = 53;
+            this.dvgUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dvgUsuarios.DoubleBuffered = true;
+            this.dvgUsuarios.EnableHeadersVisualStyles = false;
+            this.dvgUsuarios.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dvgUsuarios.HeaderForeColor = System.Drawing.Color.White;
+            this.dvgUsuarios.Location = new System.Drawing.Point(42, 135);
+            this.dvgUsuarios.MultiSelect = false;
+            this.dvgUsuarios.Name = "dvgUsuarios";
+            this.dvgUsuarios.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dvgUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dvgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dvgUsuarios.Size = new System.Drawing.Size(650, 215);
+            this.dvgUsuarios.TabIndex = 53;
             // 
             // Nombre
             // 
@@ -207,26 +207,26 @@
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
             // 
-            // textBox1
+            // txtConsultaGeneralDeLosUsuarios
             // 
-            this.textBox1.Location = new System.Drawing.Point(284, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(408, 20);
-            this.textBox1.TabIndex = 36;
+            this.txtConsultaGeneralDeLosUsuarios.Location = new System.Drawing.Point(284, 66);
+            this.txtConsultaGeneralDeLosUsuarios.Name = "txtConsultaGeneralDeLosUsuarios";
+            this.txtConsultaGeneralDeLosUsuarios.Size = new System.Drawing.Size(408, 20);
+            this.txtConsultaGeneralDeLosUsuarios.TabIndex = 36;
             // 
-            // button3
+            // btnAgregar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(537, 649);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 34);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(537, 649);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(155, 34);
+            this.btnAgregar.TabIndex = 52;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
             // label6
             // 
@@ -239,19 +239,19 @@
             this.label6.TabIndex = 40;
             this.label6.Text = "Cargo";
             // 
-            // button2
+            // btnEditar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(376, 649);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 34);
-            this.button2.TabIndex = 51;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.ForeColor = System.Drawing.Color.Black;
+            this.btnEditar.Location = new System.Drawing.Point(376, 649);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(155, 34);
+            this.btnEditar.TabIndex = 51;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
             // label7
             // 
@@ -264,17 +264,17 @@
             this.label7.TabIndex = 42;
             this.label7.Text = "Usuario";
             // 
-            // label8
+            // lblCargo
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(330, 566);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 20);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "Estudiante";
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCargo.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblCargo.Location = new System.Drawing.Point(330, 566);
+            this.lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(86, 20);
+            this.lblCargo.TabIndex = 43;
+            this.lblCargo.Text = "Estudiante";
             // 
             // label9
             // 
@@ -301,8 +301,8 @@
             this.Load += new System.EventHandler(this.ConfiguracionGeneral_Load);
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,17 +311,17 @@
 
         private MyPanel panelContenedor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid dtgUsuarios;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.PictureBox picUsuario;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dvgUsuarios;
+        private System.Windows.Forms.TextBox txtConsultaGeneralDeLosUsuarios;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;

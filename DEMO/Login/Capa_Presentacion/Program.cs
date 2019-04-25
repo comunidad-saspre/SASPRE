@@ -10,10 +10,12 @@ namespace Capa_Presentacion
     {
 
         //Privilegios
-        public static String cargo;
-        public static String nickname;
-        public static String contraseña;
-        public static String nombre;
+        public static String cargo = null;
+        public static String nickname = null;
+        public static String contraseña = null;
+        public static String nombre = null;
+        public static String apellidos = null;
+        public static String correo = null;
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.

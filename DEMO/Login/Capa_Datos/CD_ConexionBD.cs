@@ -36,7 +36,7 @@ namespace Capa_Datos
             try
             {
                 if (Conexion.State == System.Data.ConnectionState.Open)
-                    Conexion.Close();
+                    Conexion.Close();       
             }
             catch (Exception ex)
             {

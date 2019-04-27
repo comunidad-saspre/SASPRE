@@ -269,5 +269,23 @@
       <Name>Capa_Negocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoprueba2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarioprueba.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

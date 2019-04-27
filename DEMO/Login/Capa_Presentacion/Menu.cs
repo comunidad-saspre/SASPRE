@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.IO.Compression;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Capa_Presentacion
 {
@@ -181,7 +185,7 @@ namespace Capa_Presentacion
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
 
             PrivilegioUsuario();
-
+            GetRequest();
 
             //Donde se llama el ImageList y se coloca la imagen en el picturebox.
             picClimaPrimero.Image = Vectores.Images[17];
@@ -342,6 +346,41 @@ namespace Capa_Presentacion
         private void bunifuFlatButton10_Load(object sender, EventArgs e)
         {
             
+        }
+
+        async void GetRequest()
+        {
+            Cursor = Cursors.WaitCursor;
+            String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    StreamReader reader = new StreamReader(descomprimido);
+                    String data = reader.ReadLine();
+                    var listInfo = JsonConvert.DeserializeObject<List<Ciudad>>(data);
+                    foreach (var info in listInfo)
+                    {
+                        if (info.CityId.Equals("MXTS2043") && info.HourNumber == 0)
+                        {
+                            labelClimaHoy.Text = info.TempC.ToString() + "° C";
+                        }
+                    }
+                }
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void timerClima_Tick(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            {
+                MessageBox.Show("Hola");
+                GetRequest();
+            }
         }
     }
 }

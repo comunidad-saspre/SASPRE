@@ -32,10 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MouseDetect = new System.Timers.Timer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelClima = new Capa_Presentacion.MyPanel();
+            this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
+            this.picClimaQuinto = new System.Windows.Forms.PictureBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -43,14 +46,16 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
+            this.picClimaSegundo = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelClimaHoy = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
+            this.picClimaTercero = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -58,6 +63,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
+            this.picClimaCuarto = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -73,7 +79,6 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
             this.lblTemp = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPrecipitacionmm = new System.Windows.Forms.Label();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -89,28 +94,24 @@
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenuPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.picClimaSegundo = new System.Windows.Forms.PictureBox();
-            this.picClimaTercero = new System.Windows.Forms.PictureBox();
-            this.picClimaCuarto = new System.Windows.Forms.PictureBox();
-            this.picClimaQuinto = new System.Windows.Forms.PictureBox();
-            this.picClimaActual = new System.Windows.Forms.PictureBox();
+            this.timerClima = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
             this.myPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).BeginInit();
             this.myPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).BeginInit();
             this.myPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).BeginInit();
             this.myPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).BeginInit();
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).BeginInit();
             this.panelDerecho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
             this.SuspendLayout();
             // 
             // MouseDetect
@@ -118,6 +119,20 @@
             this.MouseDetect.Enabled = true;
             this.MouseDetect.SynchronizingObject = this;
             this.MouseDetect.Elapsed += new System.Timers.ElapsedEventHandler(this.MouseDetect_Elapsed);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Vectores
             // 
@@ -163,7 +178,7 @@
             this.panelClima.Controls.Add(this.myPanel5);
             this.panelClima.Controls.Add(this.label5);
             this.panelClima.Controls.Add(this.myPanel10);
-            this.panelClima.Controls.Add(this.label4);
+            this.panelClima.Controls.Add(this.labelClimaHoy);
             this.panelClima.Controls.Add(this.label3);
             this.panelClima.Controls.Add(this.myPanel8);
             this.panelClima.Controls.Add(this.label2);
@@ -173,6 +188,15 @@
             this.panelClima.Name = "panelClima";
             this.panelClima.Size = new System.Drawing.Size(906, 586);
             this.panelClima.TabIndex = 28;
+            // 
+            // picClimaActual
+            // 
+            this.picClimaActual.Location = new System.Drawing.Point(8, 25);
+            this.picClimaActual.Name = "picClimaActual";
+            this.picClimaActual.Size = new System.Drawing.Size(90, 90);
+            this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaActual.TabIndex = 39;
+            this.picClimaActual.TabStop = false;
             // 
             // myPanel5
             // 
@@ -187,6 +211,15 @@
             this.myPanel5.Name = "myPanel5";
             this.myPanel5.Size = new System.Drawing.Size(160, 350);
             this.myPanel5.TabIndex = 53;
+            // 
+            // picClimaQuinto
+            // 
+            this.picClimaQuinto.Location = new System.Drawing.Point(51, 133);
+            this.picClimaQuinto.Name = "picClimaQuinto";
+            this.picClimaQuinto.Size = new System.Drawing.Size(70, 70);
+            this.picClimaQuinto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaQuinto.TabIndex = 53;
+            this.picClimaQuinto.TabStop = false;
             // 
             // label26
             // 
@@ -274,6 +307,15 @@
             this.myPanel10.Size = new System.Drawing.Size(160, 350);
             this.myPanel10.TabIndex = 7;
             // 
+            // picClimaSegundo
+            // 
+            this.picClimaSegundo.Location = new System.Drawing.Point(48, 133);
+            this.picClimaSegundo.Name = "picClimaSegundo";
+            this.picClimaSegundo.Size = new System.Drawing.Size(70, 70);
+            this.picClimaSegundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaSegundo.TabIndex = 39;
+            this.picClimaSegundo.TabStop = false;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -334,17 +376,17 @@
             this.label14.TabIndex = 39;
             this.label14.Text = "6 Abril";
             // 
-            // label4
+            // labelClimaHoy
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(146, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 76);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "29° C";
+            this.labelClimaHoy.AutoSize = true;
+            this.labelClimaHoy.BackColor = System.Drawing.Color.Transparent;
+            this.labelClimaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClimaHoy.ForeColor = System.Drawing.Color.White;
+            this.labelClimaHoy.Location = new System.Drawing.Point(146, 25);
+            this.labelClimaHoy.Name = "labelClimaHoy";
+            this.labelClimaHoy.Size = new System.Drawing.Size(126, 76);
+            this.labelClimaHoy.TabIndex = 31;
+            this.labelClimaHoy.Text = "° C";
             // 
             // label3
             // 
@@ -371,6 +413,15 @@
             this.myPanel8.Name = "myPanel8";
             this.myPanel8.Size = new System.Drawing.Size(160, 350);
             this.myPanel8.TabIndex = 5;
+            // 
+            // picClimaTercero
+            // 
+            this.picClimaTercero.Location = new System.Drawing.Point(48, 133);
+            this.picClimaTercero.Name = "picClimaTercero";
+            this.picClimaTercero.Size = new System.Drawing.Size(70, 70);
+            this.picClimaTercero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaTercero.TabIndex = 43;
+            this.picClimaTercero.TabStop = false;
             // 
             // label16
             // 
@@ -457,6 +508,15 @@
             this.myPanel7.Name = "myPanel7";
             this.myPanel7.Size = new System.Drawing.Size(160, 350);
             this.myPanel7.TabIndex = 4;
+            // 
+            // picClimaCuarto
+            // 
+            this.picClimaCuarto.Location = new System.Drawing.Point(52, 133);
+            this.picClimaCuarto.Name = "picClimaCuarto";
+            this.picClimaCuarto.Size = new System.Drawing.Size(70, 70);
+            this.picClimaCuarto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picClimaCuarto.TabIndex = 48;
+            this.picClimaCuarto.TabStop = false;
             // 
             // label21
             // 
@@ -638,20 +698,6 @@
             this.lblTemp.TabIndex = 21;
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblPrecipitacionmm
             // 
@@ -1015,50 +1061,11 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // picClimaSegundo
+            // timerClima
             // 
-            this.picClimaSegundo.Location = new System.Drawing.Point(48, 133);
-            this.picClimaSegundo.Name = "picClimaSegundo";
-            this.picClimaSegundo.Size = new System.Drawing.Size(70, 70);
-            this.picClimaSegundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaSegundo.TabIndex = 39;
-            this.picClimaSegundo.TabStop = false;
-            // 
-            // picClimaTercero
-            // 
-            this.picClimaTercero.Location = new System.Drawing.Point(48, 133);
-            this.picClimaTercero.Name = "picClimaTercero";
-            this.picClimaTercero.Size = new System.Drawing.Size(70, 70);
-            this.picClimaTercero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaTercero.TabIndex = 43;
-            this.picClimaTercero.TabStop = false;
-            // 
-            // picClimaCuarto
-            // 
-            this.picClimaCuarto.Location = new System.Drawing.Point(52, 133);
-            this.picClimaCuarto.Name = "picClimaCuarto";
-            this.picClimaCuarto.Size = new System.Drawing.Size(70, 70);
-            this.picClimaCuarto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaCuarto.TabIndex = 48;
-            this.picClimaCuarto.TabStop = false;
-            // 
-            // picClimaQuinto
-            // 
-            this.picClimaQuinto.Location = new System.Drawing.Point(51, 133);
-            this.picClimaQuinto.Name = "picClimaQuinto";
-            this.picClimaQuinto.Size = new System.Drawing.Size(70, 70);
-            this.picClimaQuinto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaQuinto.TabIndex = 53;
-            this.picClimaQuinto.TabStop = false;
-            // 
-            // picClimaActual
-            // 
-            this.picClimaActual.Location = new System.Drawing.Point(8, 25);
-            this.picClimaActual.Name = "picClimaActual";
-            this.picClimaActual.Size = new System.Drawing.Size(90, 90);
-            this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picClimaActual.TabIndex = 39;
-            this.picClimaActual.TabStop = false;
+            this.timerClima.Enabled = true;
+            this.timerClima.Interval = 1000;
+            this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
             // Menu
             // 
@@ -1075,30 +1082,30 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();
             this.myPanel5.ResumeLayout(false);
             this.myPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).EndInit();
             this.myPanel10.ResumeLayout(false);
             this.myPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).EndInit();
             this.myPanel8.ResumeLayout(false);
             this.myPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).EndInit();
             this.myPanel7.ResumeLayout(false);
             this.myPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).EndInit();
             this.myPanel3.ResumeLayout(false);
             this.myPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaSegundo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaTercero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaCuarto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaQuinto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1133,7 +1140,7 @@
         private MyPanel myPanel7;
         private MyPanel myPanel4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelClimaHoy;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -1168,5 +1175,6 @@
         private System.Windows.Forms.PictureBox picClimaSegundo;
         private System.Windows.Forms.PictureBox picClimaTercero;
         private System.Windows.Forms.PictureBox picClimaCuarto;
+        private System.Windows.Forms.Timer timerClima;
     }
 }

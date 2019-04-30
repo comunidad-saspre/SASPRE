@@ -382,5 +382,17 @@ namespace Capa_Presentacion
                 GetRequest();
             }
         }
+
+        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<FromUsuarioABC>();
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
     }
 }

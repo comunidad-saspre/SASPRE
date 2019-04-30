@@ -123,6 +123,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
+            this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
@@ -189,6 +190,7 @@
             // 
             this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.fondomenu;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.myPanel1.Controls.Add(this.btnAdministrarUsuarios);
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
@@ -1403,6 +1405,43 @@
             this.timerClima.Interval = 1000;
             this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
+            // btnAdministrarUsuarios
+            // 
+            this.btnAdministrarUsuarios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdministrarUsuarios.BorderRadius = 0;
+            this.btnAdministrarUsuarios.ButtonText = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdministrarUsuarios.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarUsuarios.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
+            this.btnAdministrarUsuarios.Iconimage_right = null;
+            this.btnAdministrarUsuarios.Iconimage_right_Selected = null;
+            this.btnAdministrarUsuarios.Iconimage_Selected = null;
+            this.btnAdministrarUsuarios.IconMarginLeft = 0;
+            this.btnAdministrarUsuarios.IconMarginRight = 0;
+            this.btnAdministrarUsuarios.IconRightVisible = true;
+            this.btnAdministrarUsuarios.IconRightZoom = 0D;
+            this.btnAdministrarUsuarios.IconVisible = true;
+            this.btnAdministrarUsuarios.IconZoom = 60D;
+            this.btnAdministrarUsuarios.IsTab = false;
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 402);
+            this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
+            this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarUsuarios.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnAdministrarUsuarios.selected = false;
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarUsuarios.TabIndex = 58;
+            this.btnAdministrarUsuarios.Text = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministrarUsuarios.Textcolor = System.Drawing.Color.Black;
+            this.btnAdministrarUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1540,5 +1579,6 @@
         private System.Windows.Forms.Label lbldia5;
         private System.Windows.Forms.Label lblmin5;
         private System.Windows.Forms.Label lblmax5;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarUsuarios;
     }
 }

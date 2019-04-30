@@ -13,10 +13,10 @@ namespace Capa_Datos
     
     public class CD_ConexionBD
     {
-        // server=localhost;user id=root;database=saspre
-        MySqlConnection Conexion = new MySqlConnection(
-            "server=localhost;user id=root;database=saspre;password=root;" );
-        // MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = muski;");
+        //MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3306; Database = saspre; Uid = root; Pwd = oscarraul");
+        //MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = fili");
+        MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = fili");
+        //Aqui cada quien ingrese mejor su MySqlConnection y asi nadamas comenta las demas para no estar borrando y asi
 
         public MySqlConnection AbrirConexion()
         {
@@ -38,7 +38,7 @@ namespace Capa_Datos
             try
             {
                 if (Conexion.State == System.Data.ConnectionState.Open)
-                    Conexion.Close();
+                    Conexion.Close();       
             }
             catch (Exception ex)
             {

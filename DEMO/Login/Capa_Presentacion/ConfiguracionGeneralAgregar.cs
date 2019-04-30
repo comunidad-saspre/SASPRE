@@ -22,8 +22,24 @@ namespace Capa_Presentacion
         {
             try
             {
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
-                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtNombre.Text.Equals("") || txtAP.Text.Equals("") || txtAM.Text.Equals("") || txtNick.Text.Equals("")
+                    || txtContra.Text.Equals("") || txtCargo.Text.Equals("") || txtCorreo.Text.Equals(""))
+                {
+                    MessageBox.Show("Campos incompletos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //_ABCUsuario.EliminarUsuario("itzfilisalsa");
+                    _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                    MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombre.Text = "";
+                    txtAP.Text = "";
+                    txtAM.Text = "";
+                    txtNick.Text = "";
+                    txtContra.Text = "";
+                    txtCargo.Text = "";
+                    txtCorreo.Text = "";
+                }
             }
             catch (Exception ex)
             {

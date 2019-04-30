@@ -30,70 +30,70 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblCaracteristicas = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.dgvCultivo = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.picCultivo = new System.Windows.Forms.PictureBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblNombreCientifico = new System.Windows.Forms.Label();
             this.panelContenedor = new Capa_Presentacion.MyPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button3
+            // btnAgregar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(537, 649);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 34);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(537, 649);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(155, 34);
+            this.btnAgregar.TabIndex = 52;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnEditar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(376, 649);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 34);
-            this.button2.TabIndex = 51;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(376, 649);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(155, 34);
+            this.btnEditar.TabIndex = 51;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label10
+            // lblNombre
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(135, 605);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 20);
-            this.label10.TabIndex = 45;
-            this.label10.Text = "Maíz";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(135, 605);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(42, 20);
+            this.lblNombre.TabIndex = 45;
+            this.lblNombre.Text = "Maíz";
             // 
             // label9
             // 
@@ -106,17 +106,17 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Nombre científico";
             // 
-            // label8
+            // lblCaracteristicas
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(330, 566);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(290, 20);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "Lorem ipsum Lorem ipsum Lorem ipsum";
+            this.lblCaracteristicas.AutoSize = true;
+            this.lblCaracteristicas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaracteristicas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblCaracteristicas.Location = new System.Drawing.Point(330, 566);
+            this.lblCaracteristicas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCaracteristicas.Name = "lblCaracteristicas";
+            this.lblCaracteristicas.Size = new System.Drawing.Size(290, 20);
+            this.lblCaracteristicas.TabIndex = 43;
+            this.lblCaracteristicas.Text = "Lorem ipsum Lorem ipsum Lorem ipsum";
             // 
             // label7
             // 
@@ -140,12 +140,12 @@
             this.label6.TabIndex = 40;
             this.label6.Text = "Caracteristicas";
             // 
-            // textBox1
+            // txtBuscarUnCultivo
             // 
-            this.textBox1.Location = new System.Drawing.Point(215, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(477, 20);
-            this.textBox1.TabIndex = 36;
+            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(215, 66);
+            this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
+            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(477, 20);
+            this.txtBuscarUnCultivo.TabIndex = 36;
             // 
             // label2
             // 
@@ -169,14 +169,14 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Administrar Cultivos";
             // 
-            // bunifuCustomDataGrid1
+            // dgvCultivo
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.bunifuCustomDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCultivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCultivo.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,29 +184,29 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCultivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCultivo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cultivo,
             this.Plantación,
             this.Cosechación,
             this.Causa,
             this.Sintoma,
             this.Estado});
-            this.bunifuCustomDataGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.DarkGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(42, 135);
-            this.bunifuCustomDataGrid1.MultiSelect = false;
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(650, 215);
-            this.bunifuCustomDataGrid1.TabIndex = 53;
-            this.bunifuCustomDataGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
+            this.dgvCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvCultivo.DoubleBuffered = true;
+            this.dgvCultivo.EnableHeadersVisualStyles = false;
+            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvCultivo.HeaderForeColor = System.Drawing.Color.White;
+            this.dgvCultivo.Location = new System.Drawing.Point(42, 135);
+            this.dgvCultivo.MultiSelect = false;
+            this.dgvCultivo.Name = "dgvCultivo";
+            this.dgvCultivo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvCultivo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCultivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCultivo.Size = new System.Drawing.Size(650, 215);
+            this.dgvCultivo.TabIndex = 53;
+            this.dgvCultivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
             // 
             // Cultivo
             // 
@@ -239,56 +239,56 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             // 
-            // pictureBox1
+            // picCultivo
             // 
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.maíz_e1520443706756;
-            this.pictureBox1.Location = new System.Drawing.Point(42, 381);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(255, 207);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
+            this.picCultivo.Image = global::Capa_Presentacion.Properties.Resources.maíz_e1520443706756;
+            this.picCultivo.Location = new System.Drawing.Point(42, 381);
+            this.picCultivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picCultivo.Name = "picCultivo";
+            this.picCultivo.Size = new System.Drawing.Size(255, 207);
+            this.picCultivo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCultivo.TabIndex = 32;
+            this.picCultivo.TabStop = false;
             // 
-            // label3
+            // lblDescripcion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label3.Location = new System.Drawing.Point(330, 492);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(290, 20);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Lorem ipsum Lorem ipsum Lorem ipsum";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblDescripcion.Location = new System.Drawing.Point(330, 492);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(290, 20);
+            this.lblDescripcion.TabIndex = 54;
+            this.lblDescripcion.Text = "Lorem ipsum Lorem ipsum Lorem ipsum";
             // 
-            // label4
+            // lblNombreCientifico
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Location = new System.Drawing.Point(330, 418);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 20);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Zea Mays";
+            this.lblNombreCientifico.AutoSize = true;
+            this.lblNombreCientifico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCientifico.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblNombreCientifico.Location = new System.Drawing.Point(330, 418);
+            this.lblNombreCientifico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreCientifico.Name = "lblNombreCientifico";
+            this.lblNombreCientifico.Size = new System.Drawing.Size(78, 20);
+            this.lblNombreCientifico.TabIndex = 55;
+            this.lblNombreCientifico.Text = "Zea Mays";
             // 
             // panelContenedor
             // 
             this.panelContenedor.Controls.Add(this.label1);
-            this.panelContenedor.Controls.Add(this.label4);
+            this.panelContenedor.Controls.Add(this.lblNombreCientifico);
             this.panelContenedor.Controls.Add(this.label2);
-            this.panelContenedor.Controls.Add(this.label3);
-            this.panelContenedor.Controls.Add(this.pictureBox1);
-            this.panelContenedor.Controls.Add(this.bunifuCustomDataGrid1);
-            this.panelContenedor.Controls.Add(this.textBox1);
-            this.panelContenedor.Controls.Add(this.button3);
+            this.panelContenedor.Controls.Add(this.lblDescripcion);
+            this.panelContenedor.Controls.Add(this.picCultivo);
+            this.panelContenedor.Controls.Add(this.dgvCultivo);
+            this.panelContenedor.Controls.Add(this.txtBuscarUnCultivo);
+            this.panelContenedor.Controls.Add(this.btnAgregar);
             this.panelContenedor.Controls.Add(this.label6);
-            this.panelContenedor.Controls.Add(this.button2);
+            this.panelContenedor.Controls.Add(this.btnEditar);
             this.panelContenedor.Controls.Add(this.label7);
-            this.panelContenedor.Controls.Add(this.label10);
-            this.panelContenedor.Controls.Add(this.label8);
+            this.panelContenedor.Controls.Add(this.lblNombre);
+            this.panelContenedor.Controls.Add(this.lblCaracteristicas);
             this.panelContenedor.Controls.Add(this.label9);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
@@ -306,8 +306,8 @@
             this.Name = "AdministrarCultivos2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCultivos2";
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
             this.ResumeLayout(false);
@@ -316,26 +316,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCaracteristicas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtBuscarUnCultivo;
+        private System.Windows.Forms.PictureBox picCultivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plantación;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cosechación;
         private System.Windows.Forms.DataGridViewTextBoxColumn Causa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sintoma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblNombreCientifico;
         private MyPanel panelContenedor;
     }
 }

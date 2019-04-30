@@ -1,8 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.IO.Compression;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Capa_Presentacion
 {
@@ -111,19 +120,10 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
             m_aeroEnabled = false;
+
         }
 
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        const int CS_DROPSHADOW = 0x20000;
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ClassStyle |= CS_DROPSHADOW;
-        //        cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED   
-        //        return cp;
-        //    }
-        //}
+
 
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
         public void AbrirFormEnPanel<Forms>() where Forms : Form, new()
@@ -181,12 +181,26 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
+
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
 
+            PrivilegioUsuario();
+            GetRequest();
+
+            //Donde se llama el ImageList y se coloca la imagen en el picturebox.
+            picClimaPrimero.Image = Vectores.Images[17];
+            picClimaSegundo.Image = Vectores.Images[15];
+            picClimaTercero.Image = Vectores.Images[5];
+            picClimaCuarto.Image = Vectores.Images[7];
+            picClimaQuinto.Image = Vectores.Images[9];
+            picClimaActual.Image = Vectores.Images[2];
+
+
+
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-           // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
+            // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
             //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-          //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
+            //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
         }
 
         bool mnuExpanded = false;
@@ -227,7 +241,7 @@ namespace Capa_Presentacion
          
         }
 
-        private async void bunifuFlatButton5_Click(object sender, EventArgs e)
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
             panelClima.Visible = false;
@@ -321,22 +335,52 @@ namespace Capa_Presentacion
         {
 
         }
-
-        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        private void PrivilegioUsuario()
         {
-            //Temporal, para abrir desde aqui el form para ABC de pruebas.
-            //var formABC = new Capa_Presentacion.FromUsuarioABC();
-            //formABC.ShowDialog();
+            if(Program.cargo != "Admin")
+            {
+                btnConfiguracionGeneral.Enabled = false;
+            }
+        }
 
-            AbrirFormEnPanel<FromUsuarioABC>();
+        private void bunifuFlatButton10_Load(object sender, EventArgs e)
+        {
+            
+        }
 
-            lblTemp.Visible = true;
-            panelClima.Visible = false;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
+        async void GetRequest()
+        {
+            Cursor = Cursors.WaitCursor;
+            String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    StreamReader reader = new StreamReader(descomprimido);
+                    String data = reader.ReadLine();
+                    var listInfo = JsonConvert.DeserializeObject<List<Ciudad>>(data);
+                    foreach (var info in listInfo)
+                    {
+                        if (info.CityId.Equals("MXTS2043") && info.HourNumber == 0)
+                        {
+                            labelClimaHoy.Text = info.TempC.ToString() + "° C";
+                        }
+                    }
+                }
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void timerClima_Tick(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            {
+                MessageBox.Show("Hola");
+                GetRequest();
+            }
         }
     }
 }

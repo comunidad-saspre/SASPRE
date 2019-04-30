@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion
@@ -325,6 +320,23 @@ namespace Capa_Presentacion
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        {
+            //Temporal, para abrir desde aqui el form para ABC de pruebas.
+            //var formABC = new Capa_Presentacion.FromUsuarioABC();
+            //formABC.ShowDialog();
+
+            AbrirFormEnPanel<FromUsuarioABC>();
+
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
         }
     }
 }

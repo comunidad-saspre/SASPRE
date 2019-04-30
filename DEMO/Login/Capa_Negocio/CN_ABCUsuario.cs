@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Capa_Datos;
 using System.Security.Cryptography;
@@ -17,6 +14,19 @@ namespace Capa_Negocio
         {
             _ABCUsuario.RegistrarUsuario(nombre,apellidos,Encriptar(contra),cargo,nickname,correo);
         }
+
+        public void EditarUsuario(int id, String nombre, String apellidos, String contra, 
+            String cargo, String nickname, String correo)
+        {
+            _ABCUsuario.EditarUsuario(id, nombre, apellidos, Encriptar(contra), cargo, 
+                nickname, correo);
+        }
+
+        public System.Data.DataTable MostrarUsuarios()
+        {
+            return _ABCUsuario.MostrarUsuarios();
+        }
+
         public string Encriptar(string texto)
         {
             //arreglo de bytes donde guardaremos la llave

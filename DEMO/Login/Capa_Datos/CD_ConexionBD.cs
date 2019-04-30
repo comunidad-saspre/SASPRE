@@ -13,7 +13,10 @@ namespace Capa_Datos
     
     public class CD_ConexionBD
     {
-        MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = muski;");
+        // server=localhost;user id=root;database=saspre
+        MySqlConnection Conexion = new MySqlConnection(
+            "server=localhost;user id=root;database=saspre;password=root;" );
+        // MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = muski;");
 
         public MySqlConnection AbrirConexion()
         {

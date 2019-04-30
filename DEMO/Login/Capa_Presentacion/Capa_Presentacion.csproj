@@ -85,11 +85,23 @@
     <Compile Include="ConfiguracionGeneralAgregar.Designer.cs">
       <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogoEditarInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogoEditarInformacion.Designer.cs">
+      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstadisticasDePlagas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EstadisticasDePlagas.Designer.cs">
       <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromUsuarioABC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromUsuarioABC.Designer.cs">
+      <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -135,8 +147,14 @@
     <EmbeddedResource Include="ConfiguracionGeneralAgregar.resx">
       <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogoEditarInformacion.resx">
+      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasDePlagas.resx">
       <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromUsuarioABC.resx">
+      <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

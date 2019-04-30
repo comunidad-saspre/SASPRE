@@ -46,5 +46,31 @@ namespace Capa_Datos
             conexion.CerrarConexion();
         }
 
+
+        public System.Data.DataTable MostrarUsuarios()
+        {
+            var table = new DataTable("Usuarios");
+
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "MostrarUsuarios";
+                comando.CommandType = CommandType.StoredProcedure;
+
+                var adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(comando);
+                adapter.Fill(table);
+
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                table = null;
+                throw;
+            }
+
+            return table;
+        }
+
     }
 }

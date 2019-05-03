@@ -116,6 +116,9 @@ namespace Capa_Presentacion
 
         public Login()
         {
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
             m_aeroEnabled = false;
         }
@@ -135,6 +138,10 @@ namespace Capa_Presentacion
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        public void StartForm()
+        {
+            Application.Run(new PantallaCarga());
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)

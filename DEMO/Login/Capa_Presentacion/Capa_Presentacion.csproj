@@ -125,6 +125,12 @@
     <Compile Include="MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PantallaCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantallaCarga.Designer.cs">
+      <DependentUpon>PantallaCarga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdministrarCultivos.resx">
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaCarga.resx">
+      <DependentUpon>PantallaCarga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -291,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuarioprueba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

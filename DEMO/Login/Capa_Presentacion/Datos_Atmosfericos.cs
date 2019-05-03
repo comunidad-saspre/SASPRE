@@ -23,7 +23,7 @@ namespace Capa_Presentacion
 
         private void Datos_Atmosfericos_Load(object sender, EventArgs e)
         {
-            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE" + thisDay + ".csv";
+            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
             //crear carpeta
             crear_carpeta();
             //geteararchivo

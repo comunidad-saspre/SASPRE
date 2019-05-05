@@ -35,6 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
+            this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelClima = new Capa_Presentacion.MyPanel();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
@@ -123,7 +124,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
-            this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
@@ -200,6 +201,43 @@
             this.myPanel1.Size = new System.Drawing.Size(1280, 720);
             this.myPanel1.TabIndex = 1;
             this.myPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.myPanel1_Paint);
+            // 
+            // btnAdministrarUsuarios
+            // 
+            this.btnAdministrarUsuarios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdministrarUsuarios.BorderRadius = 0;
+            this.btnAdministrarUsuarios.ButtonText = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdministrarUsuarios.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarUsuarios.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
+            this.btnAdministrarUsuarios.Iconimage_right = null;
+            this.btnAdministrarUsuarios.Iconimage_right_Selected = null;
+            this.btnAdministrarUsuarios.Iconimage_Selected = null;
+            this.btnAdministrarUsuarios.IconMarginLeft = 0;
+            this.btnAdministrarUsuarios.IconMarginRight = 0;
+            this.btnAdministrarUsuarios.IconRightVisible = true;
+            this.btnAdministrarUsuarios.IconRightZoom = 0D;
+            this.btnAdministrarUsuarios.IconVisible = true;
+            this.btnAdministrarUsuarios.IconZoom = 60D;
+            this.btnAdministrarUsuarios.IsTab = false;
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 402);
+            this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
+            this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarUsuarios.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnAdministrarUsuarios.selected = false;
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarUsuarios.TabIndex = 58;
+            this.btnAdministrarUsuarios.Text = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministrarUsuarios.Textcolor = System.Drawing.Color.Black;
+            this.btnAdministrarUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
             // 
             // panelClima
             // 
@@ -1100,6 +1138,7 @@
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(222)))), ((int)(((byte)(145)))));
             this.myPanel2.BackgroundImage = global::Capa_Presentacion.Properties.Resources.MenuIzquierdoVerde;
+            this.myPanel2.Controls.Add(this.bunifuFlatButton1);
             this.myPanel2.Controls.Add(this.btnHistorialDePlagas);
             this.myPanel2.Controls.Add(this.label1);
             this.myPanel2.Controls.Add(this.btnConfiguracionGeneral);
@@ -1405,42 +1444,42 @@
             this.timerClima.Interval = 1000;
             this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
-            // btnAdministrarUsuarios
+            // bunifuFlatButton1
             // 
-            this.btnAdministrarUsuarios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdministrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdministrarUsuarios.BorderRadius = 0;
-            this.btnAdministrarUsuarios.ButtonText = " Administrar Usuarios";
-            this.btnAdministrarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdministrarUsuarios.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdministrarUsuarios.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarUsuarios.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
-            this.btnAdministrarUsuarios.Iconimage_right = null;
-            this.btnAdministrarUsuarios.Iconimage_right_Selected = null;
-            this.btnAdministrarUsuarios.Iconimage_Selected = null;
-            this.btnAdministrarUsuarios.IconMarginLeft = 0;
-            this.btnAdministrarUsuarios.IconMarginRight = 0;
-            this.btnAdministrarUsuarios.IconRightVisible = true;
-            this.btnAdministrarUsuarios.IconRightZoom = 0D;
-            this.btnAdministrarUsuarios.IconVisible = true;
-            this.btnAdministrarUsuarios.IconZoom = 60D;
-            this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 402);
-            this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
-            this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnAdministrarUsuarios.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnAdministrarUsuarios.selected = false;
-            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
-            this.btnAdministrarUsuarios.TabIndex = 58;
-            this.btnAdministrarUsuarios.Text = " Administrar Usuarios";
-            this.btnAdministrarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministrarUsuarios.Textcolor = System.Drawing.Color.Black;
-            this.btnAdministrarUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "  Datos Atmosfericos";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 60D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 457);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton1.TabIndex = 58;
+            this.bunifuFlatButton1.Text = "  Datos Atmosfericos";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // Menu
             // 
@@ -1580,5 +1619,6 @@
         private System.Windows.Forms.Label lblmin5;
         private System.Windows.Forms.Label lblmax5;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarUsuarios;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }

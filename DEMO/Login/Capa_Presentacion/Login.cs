@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +18,8 @@ namespace Capa_Presentacion
     public partial class Login : Form
     {
         Thread th;
-
+        private string rutadirectorio;
+        String thisDay = DateTime.Now.ToLongDateString().ToString();
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -175,6 +178,33 @@ namespace Capa_Presentacion
             Application.Run(new Menu());
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+            //crear carpeta
+            crear_carpeta();
+            //Guardar informacion
+            getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
 
+        }
+        //Metodo para descargar archivo de datos atmosfericos
+        public async void getArchivo(String url)
+        {
+            WebClient wc = new WebClient();
+            await Task.Run(() =>
+            {
+                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
+            });
+        }
+        //metodo para crear carpeta donde se almacenara el documento descargado
+        public void crear_carpeta()
+        {
+            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+            if (!Directory.Exists(ruta))
+            {
+                System.IO.Directory.CreateDirectory(ruta);
+            }
+
+        }
     }
 }

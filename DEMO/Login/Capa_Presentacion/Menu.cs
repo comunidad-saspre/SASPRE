@@ -12,11 +12,13 @@ using System.Net.Http;
 using System.IO.Compression;
 using System.IO;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace Capa_Presentacion
 {
     public partial class Menu : Form
     {
+        
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -333,8 +335,9 @@ namespace Capa_Presentacion
 
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+          
         }
+      
         private void PrivilegioUsuario()
         {
             if(Program.cargo != "Admin")
@@ -393,6 +396,13 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            Datos_Atmosfericos datos = new Datos_Atmosfericos();
+            datos.Visible = true;
+          
         }
     }
 }

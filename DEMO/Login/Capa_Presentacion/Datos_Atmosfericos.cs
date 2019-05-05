@@ -24,34 +24,16 @@ namespace Capa_Presentacion
         private void Datos_Atmosfericos_Load(object sender, EventArgs e)
         {
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-            //crear carpeta
-            crear_carpeta();
-            //geteararchivo
-            getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
-            System.Threading.Thread.Sleep(3000);
-            //leer documento de datos
+           
             leercsv(rutadirectorio);
         }
-        public async void getArchivo(String url)
-        {
-            WebClient wc = new WebClient();
-            await Task.Run(() =>
-            {
-                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
-            });
-        }
-        public void crear_carpeta()
-        {
-            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
-            if (!Directory.Exists(ruta))
-            {
-                System.IO.Directory.CreateDirectory(ruta);
-            }
-
-        }
-
+        //lectura del archivo con datos atmosfericos
         private void leercsv(String filepath)
         {
+            bool salir = false;
+            while(!salir==true)
+ {
+                salir = true;
             try
             {
                 DataTable dt = new DataTable();
@@ -93,8 +75,10 @@ namespace Capa_Presentacion
             }
             catch (System.IO.IOException e)
             {
-                MessageBox.Show("Archivo de datos en uso");
+              
+                    salir = false;
             }
+        }
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Data;
 using Capa_Negocio;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace Capa_Presentacion
 {
@@ -176,6 +178,23 @@ namespace Capa_Presentacion
         {
             Eliminar();
             Mostrar();
+        }
+
+        private void pbImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var fileDialog = new OpenFileDialog();
+                fileDialog.Filter = "Image Files | *.jpg | .JPG | *.jpeg | .JPEG ";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbImagen.BackgroundImage = Image.FromFile(fileDialog.FileName);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

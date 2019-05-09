@@ -65,6 +65,7 @@
             // pbImagen
             // 
             this.pbImagen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
             this.pbImagen.Location = new System.Drawing.Point(44, 21);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -73,6 +74,7 @@
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 86;
             this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // txtAM
             // 

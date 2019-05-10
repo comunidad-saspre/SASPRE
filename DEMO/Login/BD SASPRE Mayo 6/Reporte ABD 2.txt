@@ -1,0 +1,60 @@
+-- Tercera actualización de Saspre DB
+-- Implementación de eliminación modo cascada
+-- Mayo 9, 2019
+
+Avances: 
+Se terminó la nueva implementación y funciona bien. El día 8 de Mayo, se nos pidió ingresar información a nuestra tabla Plagas de la base de datos anterior. Nos percatamos del error de no haberla implementado, así que sacamos el parche con la tabla agregada. Hoy empezamos a insertar información, todos los datos faltantes son enviados a los analistas para su posterior modificación.
+
+Código de tabla Plagas:
+
+/* tabla hijo para problematica */
+create table plagas (
+	pk_idplaga int not null auto_increment,
+    fk_plaga_idproblematica int not null,
+    fk_plaga_idlogin int not null,
+    Nombre varchar(100) not null,
+    Dosis varchar(100) not null,
+    NomComercial varchar(100) not null,
+    DosisComercial varchar(10) not null,
+    Control varchar(100) not null,
+    constraint pk_idplaga primary key(pk_idplaga),
+    constraint fk_plaga_idproblematica
+		foreign key(fk_plaga_idproblematica) references problematica(pk_idproblematica)
+        on delete cascade
+)Engine = InnoDB;
+
+Ejemplo de inserción de información:
+
+insert into plagas(fk_plaga_idproblematica, fk_plaga_idlogin, Nombre, Dosis, NomComercial, DosisComercial, Control) values(
+	(select pk_idproblematica from problematica where pk_idproblematica = last_insert_id()),
+    (select pk_idlogin from login where pk_idlogin = 3),
+	"Gusano cogollero",
+    "360",
+    "Lorsban 480 EM",
+    "0.75 L",
+    "Cuando se tenga 20% de plantas dañadas.");
+
+Posibles errores:
+
+Durante la inserción, nos percatamos de varios errores, los cuales son:
+
+- Error Code: 1048 Column 'nombre_columna' cannot be null
+
+	Explicación de posible causa: En los ejemplos puestos en Github, se utiliza la funcion las_insert_id() para definir una búsqueda de la ID que recién se ingresó. Puede arrojar este error cuando no has agregado a la columna idlogin o columna id de cierta tabla. Además de que esa función se deja de ejecutar como alrededor de la tercera consulta debido a que MySQL actualiza la función.
+
+	Solución: Modificar pk_id'nombre_tabla' o fk_'nombre_tabla' en la subconsulta agregando un where especificando una comparación al id actual (o el id que deseas agregar/eliminar/modificar)
+
+	Ejemplo:
+insert into agroinsumos(fk_agroinsumos_idplanta, fk_agroinsumos_idlogin, Nombre, Marca, CantUso, Precio) values((select pk_idplanta from planta where pk_idplanta = 1), (select pk_idlogin from login where pk_idlogin = 1), "Clorpirifos Etil", "Lorsban 480 EM", "0.5 L", " ");
+
+- Error Code: 1242 Subquery returns more than 1 row
+
+	Explicación de posible causa: Es posible que la pk_id o fk_id que estés usando esté relacionada a múltiples filas cuando estás haciendo un insert into con select where. Lo que ocurre es que estás seleccionando una id foránea específica que ya se repitió, lo que buscamos es que tenga la misma id foránea, pero diferente id primaria. 
+
+	Solución:   Por ende, quitamos el where de la subconsulta para evitar especificar la cierta fila redudante y sólo pedir el dato.
+
+	Ejemplo:
+insert into insecpest(fk_insecpest_idagroinsumo, fk_insecpest_idlogin, Quimicos) values((select pk_idagroinsumo from agroinsumos), (select fk_agroinsumos_idlogin from agroinsumos), "Diclofenacol");
+
+	Nota: Notemos que en la consulta anterior, la subconsulta select no contiene el where, lo que significa que no estamos buscando asociar nuestra nueva consulta con la información relacionada ya existente.
+

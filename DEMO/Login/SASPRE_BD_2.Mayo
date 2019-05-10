@@ -1,0 +1,115 @@
+-- Primera actualización de Saspre DB
+-- Implementación de eliminación modo cascada
+-- Prueba 1
+-- Mayo 1, 2019
+
+Ejercicio 1 .- Ingresar información en tabla padre e hijos. 
+
+Código de tablas:
+
+create database prueba;
+use prueba;
+drop database prueba;
+
+-- codigo que hice yo para esta prueba
+-- Tabla padre
+
+create table planta (
+	IDplanta int not null auto_increment,
+    NombreComun varchar(100) not null,
+    NombreCientifico varchar(100) not null,
+    TipoRiego varchar(100) not null,
+    constraint IDplanta primary key(IDplanta)
+)Engine = InnoDB;
+
+-- tablas hijo con formato de cascada
+
+create table FechaSembradio (
+	IDFechasS int not null auto_increment,
+    IDplanta int not null,
+    FechaInicio varchar(50) not null,
+    FechaContempladaCosecha varchar(50) not null,
+    constraint fechasembradio_id primary key (IDFechasS),
+    constraint fechasembradio_planta
+		foreign key (IDplanta) references planta (IDplanta)
+        on delete cascade
+)Engine = InnoDB;
+
+create table BitacoraCapitan (
+	IDBitacora int not null auto_increment,
+    IDplanta int not null,
+    DescripcionPlanta varchar(250) not null,
+    DescripcionSintomas varchar(250) not null,
+    constraint bitacora_id primary key (IDBitacora),
+    constraint bitacora_planta
+		foreign key (IDplanta) references planta (IDplanta)
+		on delete cascade
+)Engine = InnoDB;
+
+create table Problematica (
+	IDproblematica int not null auto_increment,
+    IDplanta int not null, 
+    nombre varchar(100) not null,
+    DescripcionProblematica varchar(300) not null,
+    Causa varchar(350) not null,
+    constraint problematica_id primary key (IDproblematica),
+    constraint problematica_planta
+		foreign key (IDplanta) references planta (IDplanta)
+        on delete cascade
+)Engine = InnoDB; 
+
+-- código para inserción
+-- primer intento 
+
+insert into planta(NombreComun, NombreCientifico, TipoRiego) values("Loto", "Lotus", "diario");
+select * from planta;
+insert into Problematica(nombre, DescripcionProblematica, Causa) values("Loto", "Tiene lama la planta", "Demasiada agua");
+select * from Problematica;
+insert into BitacoraCapitan(DescripcionPlanta, DescripcionSintomas) values("Verde, acuática, bonita", "Tiene lama");
+select * from BitacoraCapitan;
+
+Errores encontrados:
+
+* Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails
+
+Información encontrada del error:
+
+Intentamos ingresar datos a una tabla cuya tabla padre no contiene dicha información requerida o compartida. Las posibles causas son que la tabla padre (en nuestro caso contiene múltiples tablas hijos que, en ésta situación, requieren de la id primaria) tiene tres hijos, los cuales provocan problemas debido a la relación que tienen. Por ejemplo, a los hijos no se les puede insertar dicha información porque al hacerlo, el conteo de la información insertada en otras tablas no será de la misma cantidad en cuanto a ID de las tablas. Dicha situación arroja éste error.
+
+Solución:
+
+Modificamos los insert into agregando el select from. Así podemos especificar qué dato queremos de forma directa.
+
+-- código para inserción
+-- primer intento 
+
+insert into planta(NombreComun, NombreCientifico, TipoRiego) values("Loto", "Lotus", "diario");
+select * from planta;
+insert into Problematica(IDplanta, nombre, DescripcionProblematica, Causa) values((select IDplanta from planta), "Loto", "Tiene lama la planta", "Demasiada agua");
+select * from Problematica;
+insert into BitacoraCapitan(IDplanta, DescripcionPlanta, DescripcionSintomas) values((select IDplanta from planta), "Verde, acuática, bonita", "Tiene lama");
+select * from BitacoraCapitan;
+
+Errores encontrados:
+
+Ningún error, funcionó como solución del problema anterior. El único posible error, es que en múltiples inserciones a la tabla padre afectará a la información de la tabla hijo. En éste ejercicio, la tabla hijo fue insertada justo después de la primera inserción del padre. El error puede ser evitado, insertando información a los hijos seguidamente de haber insertado al padre. 
+
+Conclusión:
+
+-- Información de tabla planta
+IDplanta | NombreComun | NombreCientifico | TipoRiego
+  '1'        'Loto'          'Lotus'        'diario'
+
+-- Información de tabla Problemática
+IDproblematica | IDplanta | nombre | DescripcionProblematica | Causa
+    '2'            '1'      'Loto'   'Tiene lama la planta'    'Demasiada agua'
+
+-- Información de tabla BitacoraCapitan
+IDBitacora | IDplanta |      DescripcionPlanta      | DescripcionSintomas
+   '2'         '1'       'Verde, acuática, bonita'      'Tiene lama'
+
+
+
+
+
+

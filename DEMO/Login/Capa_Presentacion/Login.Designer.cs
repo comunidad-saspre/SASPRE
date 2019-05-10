@@ -182,6 +182,7 @@
             this.txtContra.TabIndex = 7;
             this.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.toolTip1.SetToolTip(this.txtContra, "Ingresa contraseña");
+            this.txtContra.OnValueChanged += new System.EventHandler(this.txtContra_OnValueChanged);
             // 
             // btnIngresar
             // 
@@ -253,6 +254,7 @@
             this.linklblcontrasena.TabStop = true;
             this.linklblcontrasena.Text = "Olvide mi contraseña";
             this.linklblcontrasena.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linklblcontrasena.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblcontrasena_LinkClicked);
             // 
             // Login
             // 
@@ -279,6 +281,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

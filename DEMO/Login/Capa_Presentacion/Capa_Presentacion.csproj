@@ -80,6 +80,7 @@
       <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
     </Compile>
     <Compile Include="Ciudad.cs" />
+    <Compile Include="CiudadDia.cs" />
     <Compile Include="ConfiguracionGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +92,12 @@
     </Compile>
     <Compile Include="ConfiguracionGeneralAgregar.Designer.cs">
       <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datos_Atmosfericos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Datos_Atmosfericos.Designer.cs">
+      <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogoEditarInformacion.cs">
       <SubType>Form</SubType>
@@ -153,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfiguracionGeneralAgregar.resx">
       <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Datos_Atmosfericos.resx">
+      <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogoEditarInformacion.resx">
       <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>

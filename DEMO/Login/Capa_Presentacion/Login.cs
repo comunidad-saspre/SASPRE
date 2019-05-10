@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Negocio;
 using MySql.Data.MySqlClient;
+using System.Runtime;
+using System.Runtime.InteropServices;
 
 namespace Capa_Presentacion
 {
     public partial class Login : Form
     {
         Thread th;
-
+        private string rutadirectorio;
+        String thisDay = DateTime.Now.ToLongDateString().ToString();
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -30,7 +35,8 @@ namespace Capa_Presentacion
         private const int CS_DROPSHADOW = 0x00020000;
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
-
+        [DllImport("wininet.dll")]
+        public extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
@@ -139,35 +145,55 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            try
+            if(ConexionAInternet() == true)
             {
-                CN_Login _Login = new CN_Login();
-                MySqlDataReader Loguear;
-                Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
-                if (Loguear.Read() == true)
+                try
                 {
-                    Application.Exit();
-                    th = new Thread(open);
-                    th.SetApartmentState(ApartmentState.STA);
-                    th.Start();
-                    Program.nickname = txtNickname.Text;
-                    Program.contraseña = txtContra.Text;
-                    Program.cargo = Loguear["Cargo"].ToString();
-                    Program.nombre = Loguear["Nombre"].ToString();
-                    Program.apellidos = Loguear["Apellidos"].ToString();
-                    Program.correo = Loguear["Correo"].ToString();
+                    rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+                    //crear carpeta
+                    crear_carpeta();
+                    //Guardar informacion
+                    getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
+                    CN_Login _Login = new CN_Login();
+                    MySqlDataReader Loguear;
+                    Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
+                    if (Loguear.Read() == true)
+                    {
+                        Application.Exit();
+                        th = new Thread(open);
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
+                        Program.nickname = txtNickname.Text;
+                        Program.contraseña = txtContra.Text;
+                        Program.cargo = Loguear["Cargo"].ToString();
+                        Program.nombre = Loguear["Nombre"].ToString();
+                        Program.apellidos = Loguear["Apellidos"].ToString();
+                        Program.correo = Loguear["Correo"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtContra.Focus();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Usuario o contraseña incorrectos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtContra.Focus();
+                    MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Compruebe su conexión a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            
+        }
+
+        public bool ConexionAInternet()
+        {
+            int Desc;
+            if (InternetGetConnectedState(out Desc, 0) == true)
+                return true;
+            else
+                return false;
         }
 
         private void open()
@@ -175,6 +201,75 @@ namespace Capa_Presentacion
             Application.Run(new Menu());
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            if(ConexionAInternet() == true)
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
+        //Metodo para descargar archivo de datos atmosfericos
+        public async void getArchivo(String url)
+        {
+            WebClient wc = new WebClient();
+            await Task.Run(() =>
+            {
+                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
+            });
+        }
+        //metodo para crear carpeta donde se almacenara el documento descargado
+        public void crear_carpeta()
+        {
+            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+            if (!Directory.Exists(ruta))
+            {
+                System.IO.Directory.CreateDirectory(ruta);
+            }
+
+        }
+
+        private void txtContra_OnValueChanged(object sender, EventArgs e)
+        {
+            txtContra.isPassword = true;
+        }
+
+        private void linklblcontrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(ConexionAInternet() == true)
+            {
+                var correo = new System.Net.Mail.MailMessage();
+                correo.From = new System.Net.Mail.MailAddress("sistemarhvb@gmail.com");
+                correo.To.Add("sk8muski@gmail.com");
+                correo.Subject = "Recuperacion de contraseña";
+                correo.Body = "Su contraseña es: *****";
+                correo.IsBodyHtml = false;
+                correo.Priority = System.Net.Mail.MailPriority.Normal;
+
+                var smtp = new System.Net.Mail.SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential("sistemarhvb@gmail.com", "Skate1234");
+                try
+                {
+                    smtp.Send(correo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex);
+                    throw;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

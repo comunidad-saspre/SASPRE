@@ -2,6 +2,8 @@
 using System.Data;
 using Capa_Negocio;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace Capa_Presentacion
 {
@@ -25,14 +27,10 @@ namespace Capa_Presentacion
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             IsEditar(isEditar = true);
+
             var fila = dgvUsers.SelectedRows[0];
             txtNombre.Text = fila.Cells[1].Value.ToString();
-            var apellidos = fila.Cells[2].Value.ToString();
-            var espacio = apellidos.IndexOf(' ');
-            var apellidoMaterno = apellidos.Substring(0, espacio);
-            var apellidoPaterno = apellidos.Substring(espacio, apellidos.Length - (apellidoMaterno.Length+1));
-            txtAM.Text = apellidoMaterno;
-            txtAP.Text = apellidoPaterno;
+            txtApellidos.Text = fila.Cells[2].Value.ToString();
             txtContra.Text = fila.Cells[3].Value.ToString();
             txtCargo.Text = fila.Cells[4].Value.ToString();
             txtNick.Text = fila.Cells[5].Value.ToString();
@@ -48,32 +46,65 @@ namespace Capa_Presentacion
         {
             if (ValidarCampos() == true)
             {
-                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtAM.Text + " " + txtAP.Text, 
-                    txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
-                IsEditar(isEditar = false);
+                Editar();
+                VaciarCampos();
+                Mostrar();
             }
-
-            Mostrar();
         }
 
         private void Agregar()
         {
-
+            try
+            {
+                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,
+                    txtNick.Text, txtCorreo.Text);
+                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Editar()
         {
+            try
+            {
+                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
+                txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
 
+                IsEditar(isEditar = false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void Eliminar()
         {
+            var selectedRows = dgvUsers.SelectedRows;
 
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                //MessageBox.Show($"Row: {row.}");
+                try
+                {
+                    _ABCUsuario.EliminarUsuario(row.Cells["NickName"].Value.ToString());
+                    MessageBox.Show("Usuario eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void Mostrar()
         {
-            var tablaUsuarios = _ABCUsuario.MostrarUsuarios();
+            CN_ABCUsuario _ABCUsuarioo = new CN_ABCUsuario();
+            var tablaUsuarios = _ABCUsuarioo.MostrarUsuarios();
             dgvUsers.DataSource = tablaUsuarios;
         }
 
@@ -95,8 +126,7 @@ namespace Capa_Presentacion
         {
             var validos = true;
 
-            if (!EsCampoValido(txtAM)) validos = false;
-            if (!EsCampoValido(txtAP)) validos = false;
+            if (!EsCampoValido(txtApellidos)) validos = false;
             if (!EsCampoValido(txtNombre)) validos = false;
             if (!EsCampoValido(txtContra)) validos = false;
             if (!EsCampoValido(txtCorreo)) validos = false;
@@ -118,8 +148,7 @@ namespace Capa_Presentacion
         private void VaciarCampos()
         {
             txtNombre.Text = string.Empty;
-            txtAM.Text = string.Empty;
-            txtAP.Text = string.Empty;
+            txtApellidos.Text = string.Empty;
             txtNick.Text = string.Empty;
             txtContra.Text = string.Empty;
             txtCorreo.Text = string.Empty;
@@ -135,17 +164,33 @@ namespace Capa_Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Agregar();
+            VaciarCampos();
+            Mostrar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+            VaciarCampos();
+            Mostrar();
+        }
+
+        private void pbImagen_Click(object sender, EventArgs e)
+        {
             try
             {
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, 
-                    txtNick.Text, txtCorreo.Text);
-                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var fileDialog = new OpenFileDialog();
+                fileDialog.Filter = "Image Files | *.jpg | .JPG | *.jpeg | .JPEG ";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbImagen.BackgroundImage = Image.FromFile(fileDialog.FileName);
+                }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
-            Mostrar();
         }
     }
 }

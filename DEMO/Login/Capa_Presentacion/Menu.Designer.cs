@@ -51,11 +51,6 @@
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.lblsensacion = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
             this.lblmm2 = new System.Windows.Forms.Label();
@@ -70,7 +65,6 @@
             this.labelFecha1Max = new System.Windows.Forms.Label();
             this.labelFecha1 = new System.Windows.Forms.Label();
             this.labelClimaHoy = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblgrados = new System.Windows.Forms.Label();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.labelFechaHoy = new System.Windows.Forms.Label();
@@ -86,20 +80,9 @@
             this.labelFecha2Min = new System.Windows.Forms.Label();
             this.labelFecha2Max = new System.Windows.Forms.Label();
             this.labelDia2 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.lblmante = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
             this.picClimaCuarto = new System.Windows.Forms.PictureBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.lblmm4 = new System.Windows.Forms.Label();
             this.lblfecha4 = new System.Windows.Forms.Label();
             this.lbldia4 = new System.Windows.Forms.Label();
@@ -140,9 +123,8 @@
             this.btnEstadisticasDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenuPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.timerClima = new System.Windows.Forms.Timer(this.components);
+
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
@@ -259,7 +241,6 @@
             this.panelClima.Controls.Add(this.myPanel10);
             this.panelClima.Controls.Add(this.labelClimaHoy);
             this.panelClima.Controls.Add(this.labelFechaHoy);
-            this.panelClima.Controls.Add(this.label3);
             this.panelClima.Controls.Add(this.lblgrados);
             this.panelClima.Controls.Add(this.lblfechaprincipal);
             this.panelClima.Controls.Add(this.myPanel8);
@@ -391,10 +372,7 @@
             this.labelFecha4.Size = new System.Drawing.Size(109, 37);
             this.labelFecha4.TabIndex = 49;
             this.labelFecha4.Text = "9 Abril";
-            this.label27.Location = new System.Drawing.Point(0, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(100, 23);
-            this.label27.TabIndex = 54;
+
             // 
             // labelDia4
             // 
@@ -407,10 +385,7 @@
             this.labelDia4.Size = new System.Drawing.Size(114, 37);
             this.labelDia4.TabIndex = 48;
             this.labelDia4.Text = "Martes";
-            this.label28.Location = new System.Drawing.Point(0, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(100, 23);
-            this.label28.TabIndex = 55;
+
             // 
             // labelFecha4Min
             // 
@@ -571,10 +546,6 @@
             this.labelDia1.Size = new System.Drawing.Size(128, 37);
             this.labelDia1.TabIndex = 38;
             this.labelDia1.Text = "Sabado";
-            this.label15.Location = new System.Drawing.Point(0, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 23);
-            this.label15.TabIndex = 43;
             // 
             // labelFecha1Max
             // 
@@ -599,10 +570,7 @@
             this.labelFecha1.Size = new System.Drawing.Size(109, 37);
             this.labelFecha1.TabIndex = 39;
             this.labelFecha1.Text = "6 Abril";
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 23);
-            this.label14.TabIndex = 44;
+
             // 
             // labelClimaHoy
             // 
@@ -627,10 +595,6 @@
             this.labelFechaHoy.Size = new System.Drawing.Size(270, 37);
             this.labelFechaHoy.TabIndex = 30;
             this.labelFechaHoy.Text = "Viernes 5 de Abril";
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 54;
             // 
             // lblgrados
             // 
@@ -767,10 +731,6 @@
             this.labelFecha2.Size = new System.Drawing.Size(109, 37);
             this.labelFecha2.TabIndex = 44;
             this.labelFecha2.Text = "7 Abril";
-            this.label20.Location = new System.Drawing.Point(0, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 23);
-            this.label20.TabIndex = 48;
             // 
             // labelFecha2Min
             // 
@@ -807,10 +767,6 @@
             this.labelDia2.Size = new System.Drawing.Size(146, 37);
             this.labelDia2.TabIndex = 43;
             this.labelDia2.Text = "Domingo";
-            this.label18.Location = new System.Drawing.Point(0, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(100, 23);
-            this.label18.TabIndex = 49;
             // 
             // lblmante
             // 
@@ -833,11 +789,6 @@
             this.myPanel7.Controls.Add(this.labelDia3);
             this.myPanel7.Controls.Add(this.labelFecha3Min);
             this.myPanel7.Controls.Add(this.labelFecha3Max);
-            this.myPanel7.Controls.Add(this.label21);
-            this.myPanel7.Controls.Add(this.label22);
-            this.myPanel7.Controls.Add(this.label25);
-            this.myPanel7.Controls.Add(this.label23);
-            this.myPanel7.Controls.Add(this.label24);
             this.myPanel7.Controls.Add(this.lblmm4);
             this.myPanel7.Controls.Add(this.lblfecha4);
             this.myPanel7.Controls.Add(this.lbldia4);
@@ -880,10 +831,6 @@
             this.labelFecha3.Size = new System.Drawing.Size(109, 37);
             this.labelFecha3.TabIndex = 49;
             this.labelFecha3.Text = "8 Abril";
-            this.label22.Location = new System.Drawing.Point(0, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(100, 23);
-            this.label22.TabIndex = 53;
             // 
             // labelDia3
             // 
@@ -896,10 +843,6 @@
             this.labelDia3.Size = new System.Drawing.Size(104, 37);
             this.labelDia3.TabIndex = 48;
             this.labelDia3.Text = "Lunes";
-            this.label25.Location = new System.Drawing.Point(0, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(100, 23);
-            this.label25.TabIndex = 54;
             // 
             // labelFecha3Min
             // 
@@ -1109,10 +1052,6 @@
             this.labelHoyMax.Size = new System.Drawing.Size(32, 20);
             this.labelHoyMax.TabIndex = 35;
             this.labelHoyMax.Text = "29°";
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 23);
-            this.label8.TabIndex = 39;
             // 
             // labelHoy
             // 

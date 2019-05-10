@@ -30,13 +30,7 @@ namespace Capa_Presentacion
 
             var fila = dgvUsers.SelectedRows[0];
             txtNombre.Text = fila.Cells[1].Value.ToString();
-
-            var apellidos = fila.Cells[2].Value.ToString();
-            var espacio = apellidos.IndexOf(' ');
-            var apellidoMaterno = apellidos.Substring(0, espacio);
-            var apellidoPaterno = apellidos.Substring(espacio, apellidos.Length - (apellidoMaterno.Length+1));
-            txtAM.Text = apellidoMaterno;
-            txtAP.Text = apellidoPaterno;
+            txtApellidos.Text = fila.Cells[2].Value.ToString();
             txtContra.Text = fila.Cells[3].Value.ToString();
             txtCargo.Text = fila.Cells[4].Value.ToString();
             txtNick.Text = fila.Cells[5].Value.ToString();
@@ -53,6 +47,7 @@ namespace Capa_Presentacion
             if (ValidarCampos() == true)
             {
                 Editar();
+                VaciarCampos();
                 Mostrar();
             }
         }
@@ -61,7 +56,7 @@ namespace Capa_Presentacion
         {
             try
             {
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text,
+                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,
                     txtNick.Text, txtCorreo.Text);
                 MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -75,7 +70,7 @@ namespace Capa_Presentacion
         {
             try
             {
-                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtAM.Text + " " + txtAP.Text,
+                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
                 txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
 
                 IsEditar(isEditar = false);
@@ -130,8 +125,7 @@ namespace Capa_Presentacion
         {
             var validos = true;
 
-            if (!EsCampoValido(txtAM)) validos = false;
-            if (!EsCampoValido(txtAP)) validos = false;
+            if (!EsCampoValido(txtApellidos)) validos = false;
             if (!EsCampoValido(txtNombre)) validos = false;
             if (!EsCampoValido(txtContra)) validos = false;
             if (!EsCampoValido(txtCorreo)) validos = false;
@@ -153,8 +147,7 @@ namespace Capa_Presentacion
         private void VaciarCampos()
         {
             txtNombre.Text = string.Empty;
-            txtAM.Text = string.Empty;
-            txtAP.Text = string.Empty;
+            txtApellidos.Text = string.Empty;
             txtNick.Text = string.Empty;
             txtContra.Text = string.Empty;
             txtCorreo.Text = string.Empty;
@@ -171,12 +164,14 @@ namespace Capa_Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Agregar();
+            VaciarCampos();
             Mostrar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Eliminar();
+            VaciarCampos();
             Mostrar();
         }
 

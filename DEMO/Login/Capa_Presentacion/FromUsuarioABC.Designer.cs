@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.pbImagen = new System.Windows.Forms.PictureBox();
-            this.txtAM = new System.Windows.Forms.TextBox();
-            this.txtAP = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -76,21 +74,13 @@
             this.pbImagen.TabStop = false;
             this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
-            // txtAM
+            // txtApellidos
             // 
-            this.txtAM.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAM.Location = new System.Drawing.Point(345, 79);
-            this.txtAM.Name = "txtAM";
-            this.txtAM.Size = new System.Drawing.Size(217, 20);
-            this.txtAM.TabIndex = 82;
-            // 
-            // txtAP
-            // 
-            this.txtAP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAP.Location = new System.Drawing.Point(346, 125);
-            this.txtAP.Name = "txtAP";
-            this.txtAP.Size = new System.Drawing.Size(217, 20);
-            this.txtAP.TabIndex = 81;
+            this.txtApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtApellidos.Location = new System.Drawing.Point(345, 79);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(217, 20);
+            this.txtApellidos.TabIndex = 82;
             // 
             // label5
             // 
@@ -100,21 +90,9 @@
             this.label5.Location = new System.Drawing.Point(337, 56);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 20);
+            this.label5.Size = new System.Drawing.Size(73, 20);
             this.label5.TabIndex = 77;
-            this.label5.Text = "Apellido materno";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(341, 102);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 20);
-            this.label4.TabIndex = 76;
-            this.label4.Text = "Apellido paterno";
+            this.label5.Text = "Apellidos";
             // 
             // label3
             // 
@@ -277,13 +255,11 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtAM);
+            this.panel1.Controls.Add(this.txtApellidos);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pbImagen);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtAP);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -313,7 +289,7 @@
             // txtCargo
             // 
             this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCargo.Location = new System.Drawing.Point(345, 170);
+            this.txtCargo.Location = new System.Drawing.Point(345, 125);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(217, 20);
             this.txtCargo.TabIndex = 94;
@@ -339,7 +315,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(342, 148);
+            this.label8.Location = new System.Drawing.Point(342, 103);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 20);
@@ -393,10 +369,8 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pbImagen;
-        private System.Windows.Forms.TextBox txtAM;
-        private System.Windows.Forms.TextBox txtAP;
+        private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnAgregar;

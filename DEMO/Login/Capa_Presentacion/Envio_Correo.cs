@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Capa_Negocio;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion
 {
     public partial class Envio_Correo : Form
     {
+        private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
+
         public Envio_Correo()
         {
             InitializeComponent();
@@ -19,11 +15,14 @@ namespace Capa_Presentacion
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            var email = txtCorreo.Text;
+            var contra = _ABCUsuario.ObtenerContra(email).Rows[0][0].ToString();
+            
             var correo = new System.Net.Mail.MailMessage();
             correo.From = new System.Net.Mail.MailAddress("sistemarhvb@gmail.com");
-            correo.To.Add(txtCorreo.Text);
+            correo.To.Add(email);
             correo.Subject = "Recuperacion de contraseña";
-            correo.Body = "Su contraseña es: *****";
+            correo.Body = $"Su contraseña es: {contra}";
             correo.IsBodyHtml = false;
             correo.Priority = System.Net.Mail.MailPriority.Normal;
 

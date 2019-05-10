@@ -30,6 +30,19 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
+
+        public DataTable ObtenerContra(string correo)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "ObtenerContra";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_Correo", correo);
+            leer = comando.ExecuteReader();
+            tablaUsuarios.Load(leer);
+            conexion.CerrarConexion();
+            return tablaUsuarios;
+        }
+
         public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
             comando.Connection = conexion.AbrirConexion();

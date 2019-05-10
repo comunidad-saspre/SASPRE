@@ -24,61 +24,113 @@ namespace Capa_Presentacion
         private void Datos_Atmosfericos_Load(object sender, EventArgs e)
         {
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-           
+           //crear carpeta
+            crear_carpeta();
+            //Guardar informacion
+            getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
+
             leercsv(rutadirectorio);
+        }
+        //Metodo para descargar archivo de datos atmosfericos
+        public async void getArchivo(String url)
+        {
+            WebClient wc = new WebClient();
+            await Task.Run(() =>
+            {
+                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
+            });
+        }
+        //metodo para crear carpeta donde se almacenara el documento descargado
+        public void crear_carpeta()
+        {
+            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+            if (!Directory.Exists(ruta))
+            {
+                System.IO.Directory.CreateDirectory(ruta);
+            }
+
         }
         //lectura del archivo con datos atmosfericos
         private void leercsv(String filepath)
         {
+            int contadordias = 0;
+            String cambiodia = null;
             bool salir = false;
-            while(!salir==true)
- {
-                salir = true;
-            try
+            while (!salir == true)
             {
-                DataTable dt = new DataTable();
-                String[] lines = System.IO.File.ReadAllLines(filepath);
-                if (lines.Length > 0)
+                salir = true;
+                try
                 {
-                    String firsline = "Estación,Fecha Local,Fecha UTC,Dirección del Viento (grados),Dirección de ráfaga (grados),Rapidez de viento (km/h),Rapidez de ráfaga (km/h),Temperatura del Aire (°C),Humedad relativa (%),Presión Atmosférica,Precipitación (mm),Radiación Solar (W/m²)";
-                    String[] headerlabels = firsline.Split(',');
-                    foreach (String headerword in headerlabels)
+                    DataTable dt = new DataTable();
+                    String[] lines = System.IO.File.ReadAllLines(filepath);
+                    if (lines.Length > 0)
                     {
-                        dt.Columns.Add(new DataColumn(headerword));
-                    }
-                    //for data
-                    int columnindex = 0;
-                    for (int r = 5; r < lines.Length; r++)
-                    {
-
-                        String[] dataword = lines[r].Split(',');
-                        DataRow dr = dt.NewRow();
-
+                        String firsline = "Estación,Fecha Local,Fecha UTC,Dirección del Viento (grados),Dirección de ráfaga (grados),Rapidez de viento (km/h),Rapidez de ráfaga (km/h),Temperatura del Aire (°C),Humedad relativa (%),Presión Atmosférica,Precipitación (mm),Radiación Solar (W/m²)";
+                        String[] headerlabels = firsline.Split(',');
                         foreach (String headerword in headerlabels)
                         {
-
-                            dr[headerword] = dataword[columnindex];
-                            columnindex++;
+                            dt.Columns.Add(new DataColumn(headerword));
                         }
-                        dt.Rows.Add(dr);
-                        columnindex = 0;
+                        //for data
+                        int columnindex = 0;
+                        for (int r = 5; r < lines.Length; r++)
+                        {
+                            //separa el csv utilizando las comas
+                            String[] dataword = lines[r].Split(',');
+                            DataRow dr = dt.NewRow();
+                            String[] buscar = dataword[1].Split(':');
+
+                            String aux = buscar[2].Replace("\"", "");
+
+
+
+                            if (buscar[1].Equals("00") && aux.Equals("00"))
+                            {
+                                //llenar valores vacios
+                                if (dataword[11].Equals(""))
+                                {
+                                    dataword[11] = "0";
+
+                                }
+                                //filtro de 7 dias 
+                                String[] sietedias = dataword[1].Split('-');
+                                String[] sietediasaux1 = sietedias[2].Split(' ');
+                                if (!sietediasaux1[0].Equals(cambiodia))
+                                {
+                                    cambiodia = sietediasaux1[0];
+                                    contadordias++;
+                                }
+                                if (contadordias < 8)
+                                {
+                                    foreach (String headerword in headerlabels)
+                                    {
+
+                                        dr[headerword] = dataword[columnindex];
+                                        columnindex++;
+                                    }
+                                    dt.Rows.Add(dr);
+                                    columnindex = 0;
+                                }
+
+                            }
+                            //
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Archivo vacio");
+                    }
+                    if (dt.Rows.Count > 0)
+                    {
+                        Datos_El_Mante.DataSource = dt;
                     }
                 }
-                else
+                catch (System.IO.IOException e)
                 {
-                    MessageBox.Show("Archivo vacio");
-                }
-                if (dt.Rows.Count > 0)
-                {
-                    Datos_El_Mante.DataSource = dt;
-                }
-            }
-            catch (System.IO.IOException e)
-            {
-              
                     salir = false;
+                }
             }
-        }
         }
     }
 }

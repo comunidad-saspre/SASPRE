@@ -180,31 +180,8 @@ namespace Capa_Presentacion
 
         private void Login_Load(object sender, EventArgs e)
         {
-            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-            //crear carpeta
-            crear_carpeta();
-            //Guardar informacion
-            getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
-
+       
         }
-        //Metodo para descargar archivo de datos atmosfericos
-        public async void getArchivo(String url)
-        {
-            WebClient wc = new WebClient();
-            await Task.Run(() =>
-            {
-                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
-            });
-        }
-        //metodo para crear carpeta donde se almacenara el documento descargado
-        public void crear_carpeta()
-        {
-            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
-            if (!Directory.Exists(ruta))
-            {
-                System.IO.Directory.CreateDirectory(ruta);
-            }
-
-        }
+     
     }
 }

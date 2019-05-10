@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.IO.Compression;
 using System.IO;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Capa_Presentacion
 {
@@ -185,15 +186,10 @@ namespace Capa_Presentacion
             panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
 
             PrivilegioUsuario();
-            GetRequest();
+            GetRequestHora();
+            GetRequestDia();
 
             //Donde se llama el ImageList y se coloca la imagen en el picturebox.
-            picClimaPrimero.Image = Vectores.Images[17];
-            picClimaSegundo.Image = Vectores.Images[15];
-            picClimaTercero.Image = Vectores.Images[5];
-            picClimaCuarto.Image = Vectores.Images[7];
-            picClimaQuinto.Image = Vectores.Images[9];
-            picClimaActual.Image = Vectores.Images[2];
 
 
 
@@ -348,7 +344,7 @@ namespace Capa_Presentacion
             
         }
 
-        async void GetRequest()
+        async void GetRequestHora()
         {
             Cursor = Cursors.WaitCursor;
             String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
@@ -374,13 +370,222 @@ namespace Capa_Presentacion
             Cursor = Cursors.Default;
         }
 
+
+        async void GetRequestDia()
+        {
+            Cursor = Cursors.WaitCursor;
+            String url = "https://smn.cna.gob.mx/webservices/index.php?method=1";
+            using (HttpClient client = new HttpClient())
+            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    StreamReader reader = new StreamReader(descomprimido);
+                    String data = reader.ReadLine();
+                    var listInfo = JsonConvert.DeserializeObject<List<CiudadDia>>(data);
+                    var iteracion = 0;
+                    var diasSiguientes = false;
+                    foreach (var info in listInfo)
+                    {
+                        if (info.CityId.Equals("MXTS2043") && DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString().Equals(DateTime.Now.ToLongDateString()))
+                        {
+                            if(iteracion == 0) {
+                                labelFechaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
+                                labelHoy.Text = DateTime.Now.ToString("m");
+                                labelHoyMax.Text = info.HiTempC + "°";
+                                labelHoyMin.Text = info.LowTempC + "°";
+                                labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                picClimaPrimero.Image = vectorClima(info.SkyText, 0);
+                                iteracion++;
+                                diasSiguientes = true;
+                            }
+                        }else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
+                        {
+                            if (iteracion == 1)
+                            {
+                                labelFecha1.Text = DateTime.Now.ToString("m");
+                                labelFecha1Max.Text = info.HiTempC + "°";
+                                labelFecha1Min.Text = info.LowTempC + "°";
+                                labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                picClimaSegundo.Image = vectorClima(info.SkyText, 0);
+                                iteracion++;
+                            }else if(iteracion == 2)
+                            {
+                                labelFecha2.Text = DateTime.Now.ToString("m");
+                                labelFecha2Max.Text = info.HiTempC + "°";
+                                labelFecha2Min.Text = info.LowTempC + "°";
+                                labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                picClimaTercero.Image = vectorClima(info.SkyText, 0);
+                                iteracion++;
+                            }else if (iteracion == 3)
+                            {
+                                labelFecha3.Text = DateTime.Now.ToString("m");
+                                labelFecha3Max.Text = info.HiTempC + "°";
+                                labelFecha3Min.Text = info.LowTempC + "°";
+                                labelFecha3Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                picClimaCuarto.Image = vectorClima(info.SkyText, 0);
+                                iteracion++;
+                            }else if (iteracion == 4)
+                            {
+                                labelFecha4.Text = DateTime.Now.ToString("m");
+                                labelFecha4Max.Text = info.HiTempC + "°";
+                                labelFecha4Min.Text = info.LowTempC + "°";
+                                labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                picClimaQuinto.Image = vectorClima(info.SkyText, 0);
+                                iteracion++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
         private void timerClima_Tick(object sender, EventArgs e)
         {
             if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
-                MessageBox.Show("Hola");
-                GetRequest();
+                MessageBox.Show(DateTime.Now.Day.ToString());
+                GetRequestHora();
             }
+        }
+
+        public Image vectorClima (String texto, int panel)
+        {
+            if (texto.Equals("Nublado") && panel == 0)
+            {
+                return Vectores.Images[11];
+            }else if (texto.Equals("Parcialmente nublado / Viento") && panel == 0) 
+            {
+                return Vectores.Images[15];
+            }
+            else if (texto.Equals("Parcialmente nublado") && panel == 0)
+            {
+                return Vectores.Images[15];
+            }
+            else if(texto.Equals("Aguaceros en la mañana") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }else if(texto.Equals("Soleado") && panel == 0)
+            {
+                return Vectores.Images[17];
+            }else if(texto.Equals("Nubes por la mañana / Sol por la tarde") && panel == 0)
+            {
+                return Vectores.Images[15];
+            }else if (texto.Equals("Lluvia en la mañana") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }else if (texto.Equals("Mayormente soleado / Viento") && panel == 0)
+            {
+                return Vectores.Images[17];
+            }else if (texto.Equals("Tormentas por la tarde") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }else if (texto.Equals("Tormentas aisladas") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Tormentas dispersas") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Tormentas") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Tormentas en la mañana") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Aguaceros por la tarde") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Aguaceros") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Algunos aguaceros") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Lluvia débil por la tarde") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Lluvia por la tarde") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Soleado / Viento") && panel == 0)
+            {
+                return Vectores.Images[17];
+            }
+            else if (texto.Equals("Aguaceros y tormentas") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Lluvia") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else if (texto.Equals("Nublado / Viento") && panel == 0)
+            {
+                return Vectores.Images[11];
+            }
+            else if (texto.Equals("Mayormente nublado/ Viento") && panel == 0)
+            {
+                return Vectores.Images[11];
+            }
+            else if (texto.Equals("Nubes por la mañana / Sol por la tarde / Viento") && panel == 0)
+            {
+                return Vectores.Images[15];
+            }
+            else if (texto.Equals("Tormentas aisladas / Viento") && panel == 0)
+            {
+                return Vectores.Images[2];
+            }
+            else
+            {
+                return null;
+            }
+            
+/*
+Nublado
+Parcialmente nublado / Viento
+Parcialmente nublado
+Aguaceros en la mañana
+Soleado
+Nubes por la mañana / Sol por la tarde
+Lluvia en la mañana
+Mayormente soleado / Viento
+Tormentas por la tarde
+Tormentas aisladas
+Tormentas dispersas
+Tormentas
+Tormentas en la mañana
+Aguaceros por la tarde
+Aguaceros
+Algunos aguaceros
+Lluvia débil por la tarde
+Lluvia por la tarde
+Aguaceros y tormentas por la tarde
+Soleado / Viento
+Aguaceros y tormentas
+Lluvia
+Nublado / Viento
+Mayormente nublado/ Viento
+Nubes por la mañana / Sol por la tarde / Viento
+Tormentas aisladas / Viento
+*/
         }
     }
 }

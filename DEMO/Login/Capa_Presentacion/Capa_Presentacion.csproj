@@ -80,6 +80,7 @@
       <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
     </Compile>
     <Compile Include="Ciudad.cs" />
+    <Compile Include="CiudadDia.cs" />
     <Compile Include="ConfiguracionGeneral.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -2,6 +2,8 @@
 using System.Data;
 using Capa_Negocio;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace Capa_Presentacion
 {
@@ -25,8 +27,10 @@ namespace Capa_Presentacion
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             IsEditar(isEditar = true);
+
             var fila = dgvUsers.SelectedRows[0];
             txtNombre.Text = fila.Cells[1].Value.ToString();
+
             var apellidos = fila.Cells[2].Value.ToString();
             var espacio = apellidos.IndexOf(' ');
             var apellidoMaterno = apellidos.Substring(0, espacio);
@@ -48,27 +52,58 @@ namespace Capa_Presentacion
         {
             if (ValidarCampos() == true)
             {
-                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtAM.Text + " " + txtAP.Text, 
-                    txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
-                IsEditar(isEditar = false);
+                Editar();
+                Mostrar();
             }
-
-            Mostrar();
         }
 
         private void Agregar()
         {
-
+            try
+            {
+                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text,
+                    txtNick.Text, txtCorreo.Text);
+                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Editar()
         {
+            try
+            {
+                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtAM.Text + " " + txtAP.Text,
+                txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
 
+                IsEditar(isEditar = false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void Eliminar()
         {
+            var selectedRows = dgvUsers.SelectedRows;
 
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                //MessageBox.Show($"Row: {row.}");
+                try
+                {
+                    _ABCUsuario.EliminarUsuario(row.Cells["NickName"].Value.ToString());
+                    MessageBox.Show("Usuario eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void Mostrar()
@@ -135,17 +170,31 @@ namespace Capa_Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Agregar();
+            Mostrar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+            Mostrar();
+        }
+
+        private void pbImagen_Click(object sender, EventArgs e)
+        {
             try
             {
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtAP.Text + " " + txtAM.Text, txtContra.Text, txtCargo.Text, 
-                    txtNick.Text, txtCorreo.Text);
-                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var fileDialog = new OpenFileDialog();
+                fileDialog.Filter = "Image Files | *.jpg | .JPG | *.jpeg | .JPEG ";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbImagen.BackgroundImage = Image.FromFile(fileDialog.FileName);
+                }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
-            Mostrar();
         }
     }
 }

@@ -42,6 +42,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -65,6 +65,7 @@
             // pbImagen
             // 
             this.pbImagen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
             this.pbImagen.Location = new System.Drawing.Point(44, 21);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -73,6 +74,7 @@
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 86;
             this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // txtAM
             // 
@@ -239,6 +241,17 @@
             this.dgvUsers.TabIndex = 1;
             this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminar.Location = new System.Drawing.Point(751, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(162, 23);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar Seleccionados";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -356,16 +369,6 @@
             this.label6.Size = new System.Drawing.Size(64, 20);
             this.label6.TabIndex = 89;
             this.label6.Text = "Usuario";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminar.Location = new System.Drawing.Point(751, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(162, 23);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar Seleccionados";
-            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // FromUsuarioABC
             // 

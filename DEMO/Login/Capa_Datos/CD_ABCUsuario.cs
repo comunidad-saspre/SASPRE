@@ -49,7 +49,7 @@ namespace Capa_Datos
         public void EliminarUsuario(String NickName)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "eliminarUsuario";
+            comando.CommandText = "EliminarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("_nickname", NickName);
             comando.ExecuteNonQuery();

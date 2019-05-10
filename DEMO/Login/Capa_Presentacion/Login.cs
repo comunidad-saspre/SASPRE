@@ -242,28 +242,8 @@ namespace Capa_Presentacion
         {
             if(ConexionAInternet() == true)
             {
-                var correo = new System.Net.Mail.MailMessage();
-                correo.From = new System.Net.Mail.MailAddress("sistemarhvb@gmail.com");
-                correo.To.Add("sk8muski@gmail.com");
-                correo.Subject = "Recuperacion de contraseña";
-                correo.Body = "Su contraseña es: *****";
-                correo.IsBodyHtml = false;
-                correo.Priority = System.Net.Mail.MailPriority.Normal;
-
-                var smtp = new System.Net.Mail.SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                smtp.Credentials = new System.Net.NetworkCredential("sistemarhvb@gmail.com", "Skate1234");
-                try
-                {
-                    smtp.Send(correo);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error " + ex);
-                    throw;
-                }
+                Envio_Correo ec = new Envio_Correo();
+                ec.ShowDialog();
             }
             else
             {

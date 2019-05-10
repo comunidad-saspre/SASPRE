@@ -105,6 +105,12 @@
     <Compile Include="DialogoEditarInformacion.Designer.cs">
       <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Envio_Correo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envio_Correo.Designer.cs">
+      <DependentUpon>Envio_Correo.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstadisticasDePlagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogoEditarInformacion.resx">
       <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envio_Correo.resx">
+      <DependentUpon>Envio_Correo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasDePlagas.resx">
       <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>

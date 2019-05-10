@@ -108,7 +108,8 @@ namespace Capa_Presentacion
 
         private void Mostrar()
         {
-            var tablaUsuarios = _ABCUsuario.MostrarUsuarios();
+            CN_ABCUsuario _ABCUsuarioo = new CN_ABCUsuario();
+            var tablaUsuarios = _ABCUsuarioo.MostrarUsuarios();
             dgvUsers.DataSource = tablaUsuarios;
         }
 

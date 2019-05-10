@@ -71,9 +71,10 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<ConfiguracionGeneralAgregar>();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            var dialog = new DialogoEditarInformacion();
+            dialog.Show();
         }
 
         private void ConfiguracionGeneral_Load(object sender, EventArgs e)

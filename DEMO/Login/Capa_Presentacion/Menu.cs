@@ -12,12 +12,14 @@ using System.Net.Http;
 using System.IO.Compression;
 using System.IO;
 using Newtonsoft.Json;
+using System.Net;
 using System.Globalization;
 
 namespace Capa_Presentacion
 {
     public partial class Menu : Form
     {
+        
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -329,8 +331,9 @@ namespace Capa_Presentacion
 
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+          
         }
+      
         private void PrivilegioUsuario()
         {
             if(Program.cargo != "Admin")
@@ -586,6 +589,25 @@ Mayormente nublado/ Viento
 Nubes por la mañana / Sol por la tarde / Viento
 Tormentas aisladas / Viento
 */
+        }
+
+        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<FromUsuarioABC>();
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            Datos_Atmosfericos datos = new Datos_Atmosfericos();
+            datos.Visible = true;
+          
         }
     }
 }

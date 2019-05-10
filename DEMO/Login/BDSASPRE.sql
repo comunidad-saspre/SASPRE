@@ -256,6 +256,8 @@ INSERT INTO usuario(Nombre,Apellidos,Contra,Cargo,Nickname,Correo)
 VALUES (_Nombre,_Apellidos,_Contra,_Cargo,_Nickname,_Correo)//
 DELIMITER ;
 
+
+
 -- Volcando estructura para tabla saspre.usuario
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -292,3 +294,41 @@ CREATE TABLE IF NOT EXISTS `zona` (
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+##### ANDRES #####
+# Editar usuario - Procedimiento Almacenado.
+# CREATE DEFINER=`root`@`localhost` PROCEDURE `EditarUsuario`(
+# 	IN `_Idusuario` INT,
+# 	IN `_Nombre` VARCHAR(100),
+# 	IN `_Apellidos` VARCHAR(100),
+# 	IN `_Contra` VARCHAR(100),
+# 	IN `_Cargo` VARCHAR(100),
+# 	IN `_Nickname` VARCHAR(100),
+# 	IN `_Correo` VARCHAR(100) 
+# )
+# LANGUAGE SQL
+# NOT DETERMINISTIC
+# CONTAINS SQL
+# SQL SECURITY DEFINER
+# COMMENT ''
+# BEGIN
+# 	UPDATE usuario
+    # SET Nombre = _nombre,
+        # Apellidos = _apellidos,
+        # Contra = _contra,
+        # Cargo = _cargo,
+        # Correo = _correo,
+        # NickName = _Nickname
+    # WHERE IDusuario = _Idusuario;
+# END
+
+# Mostrar todos los usuarios - Procedimiento Almacenado
+# CREATE PROCEDURE `MostrarUsuarios`()
+# LANGUAGE SQL
+# NOT DETERMINISTIC
+# CONTAINS SQL
+# SQL SECURITY DEFINER
+# COMMENT 'Muestra todos los usuario existentes en la BD.'
+# BEGIN
+# 	SELECT * FROM Usuario;
+# END

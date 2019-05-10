@@ -20,6 +20,10 @@ namespace Capa_Negocio
         {
             _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo);
         }
+        public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        {
+            _ABCUsuario.EditarUsuario(id, nombre, apellidos, contra, cargo, nickname, correo);
+        }
         public void EliminarUsuario( String NickName)
         {
             _ABCUsuario.EliminarUsuario(NickName);

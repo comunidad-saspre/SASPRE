@@ -106,7 +106,7 @@ namespace Capa_Presentacion
                                     cambiodia = sietediasaux1[0];
                                     contadordias++;
                                 }
-                                if (contadordias < 8)
+                                if (contadordias < Filtro_dia)
                                 {
                                     foreach (String headerword in headerlabels)
                                     {

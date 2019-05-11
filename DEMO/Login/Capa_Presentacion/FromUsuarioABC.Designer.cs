@@ -45,12 +45,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCargo = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.txtNick = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtCargo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -247,9 +247,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtCargo);
             this.panel1.Controls.Add(this.txtCorreo);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtCargo);
             this.panel1.Controls.Add(this.txtContra);
             this.panel1.Controls.Add(this.txtNick);
             this.panel1.Controls.Add(this.label8);
@@ -285,14 +285,6 @@
             this.label9.Size = new System.Drawing.Size(57, 20);
             this.label9.TabIndex = 95;
             this.label9.Text = "Correo";
-            // 
-            // txtCargo
-            // 
-            this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCargo.Location = new System.Drawing.Point(345, 125);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(217, 20);
-            this.txtCargo.TabIndex = 94;
             // 
             // txtContra
             // 
@@ -346,6 +338,18 @@
             this.label6.TabIndex = 89;
             this.label6.Text = "Usuario";
             // 
+            // txtCargo
+            // 
+            this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCargo.FormattingEnabled = true;
+            this.txtCargo.Items.AddRange(new object[] {
+            "Admin",
+            "Estudiante"});
+            this.txtCargo.Location = new System.Drawing.Point(346, 124);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(216, 21);
+            this.txtCargo.TabIndex = 97;
+            // 
             // FromUsuarioABC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,12 +388,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.TextBox txtNick;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ComboBox txtCargo;
     }
 }

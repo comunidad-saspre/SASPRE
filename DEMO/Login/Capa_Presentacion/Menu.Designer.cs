@@ -229,7 +229,7 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 402);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 403);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;

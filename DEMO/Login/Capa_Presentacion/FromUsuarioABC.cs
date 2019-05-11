@@ -22,6 +22,7 @@ namespace Capa_Presentacion
         private void FromUsuarioABC_Load(object sender, EventArgs e)
         {
             Mostrar();
+            txtCargo.SelectedIndex = 0;
         }
 
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -131,7 +132,7 @@ namespace Capa_Presentacion
             if (!EsCampoValido(txtContra)) validos = false;
             if (!EsCampoValido(txtCorreo)) validos = false;
             if (!EsCampoValido(txtNick)) validos = false;
-            if (!EsCampoValido(txtCargo)) validos = false;
+            //if (!EsCampoValido(txtCargo)) validos = false;
 
             return validos;
         }

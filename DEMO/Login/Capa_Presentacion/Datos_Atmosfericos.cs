@@ -14,6 +14,7 @@ namespace Capa_Presentacion
 {
     public partial class Datos_Atmosfericos : Form
     {
+        int Filtro_dia = 100;
         private string rutadirectorio;
         String thisDay = DateTime.Now.ToLongDateString().ToString();
         public Datos_Atmosfericos()
@@ -23,6 +24,11 @@ namespace Capa_Presentacion
 
         private void Datos_Atmosfericos_Load(object sender, EventArgs e)
         {
+            for (int i = 1; i < 31; i++)
+            {
+                dias.Items.Add(i);
+            }
+          
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
            //crear carpeta
             crear_carpeta();
@@ -63,7 +69,7 @@ namespace Capa_Presentacion
                 {
                     DataTable dt = new DataTable();
                     String[] lines = System.IO.File.ReadAllLines(filepath);
-                    if (lines.Length > 0)
+                    if (lines.Length > Filtro_dia)
                     {
                         String firsline = "Estación,Fecha Local,Fecha UTC,Dirección del Viento (grados),Dirección de ráfaga (grados),Rapidez de viento (km/h),Rapidez de ráfaga (km/h),Temperatura del Aire (°C),Humedad relativa (%),Presión Atmosférica,Precipitación (mm),Radiación Solar (W/m²)";
                         String[] headerlabels = firsline.Split(',');
@@ -130,6 +136,16 @@ namespace Capa_Presentacion
                 {
                     salir = false;
                 }
+            }
+        }
+
+        private void filtrar_Click(object sender, EventArgs e)
+        {
+            Filtro_dia = Convert.ToInt32(dias.Text);
+            while (Datos_El_Mante.RowCount > 1)
+            {
+                Datos_El_Mante.Rows.Remove(Datos_El_Mante.CurrentRow);
+
             }
         }
     }

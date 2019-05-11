@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MouseDetect = new System.Timers.Timer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
@@ -50,7 +51,6 @@
             this.labelDia4 = new System.Windows.Forms.Label();
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblsensacion = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
             this.lblmm2 = new System.Windows.Forms.Label();
@@ -65,9 +65,9 @@
             this.labelFecha1Max = new System.Windows.Forms.Label();
             this.labelFecha1 = new System.Windows.Forms.Label();
             this.labelClimaHoy = new System.Windows.Forms.Label();
+            this.labelFechaHoy = new System.Windows.Forms.Label();
             this.lblgrados = new System.Windows.Forms.Label();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
-            this.labelFechaHoy = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
             this.lblmm3 = new System.Windows.Forms.Label();
             this.lblfecha3 = new System.Windows.Forms.Label();
@@ -83,16 +83,16 @@
             this.lblmante = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
             this.picClimaCuarto = new System.Windows.Forms.PictureBox();
-            this.lblmm4 = new System.Windows.Forms.Label();
-            this.lblfecha4 = new System.Windows.Forms.Label();
-            this.lbldia4 = new System.Windows.Forms.Label();
-            this.lblmin4 = new System.Windows.Forms.Label();
-            this.lblmax4 = new System.Windows.Forms.Label();
             this.labelFecha3Precipitacion = new System.Windows.Forms.Label();
             this.labelFecha3 = new System.Windows.Forms.Label();
             this.labelDia3 = new System.Windows.Forms.Label();
             this.labelFecha3Min = new System.Windows.Forms.Label();
             this.labelFecha3Max = new System.Windows.Forms.Label();
+            this.lblmm4 = new System.Windows.Forms.Label();
+            this.lblfecha4 = new System.Windows.Forms.Label();
+            this.lbldia4 = new System.Windows.Forms.Label();
+            this.lblmin4 = new System.Windows.Forms.Label();
+            this.lblmax4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Capa_Presentacion.MyPanel();
             this.lblmm1 = new System.Windows.Forms.Label();
             this.lblmin1 = new System.Windows.Forms.Label();
@@ -108,13 +108,13 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
             this.lblTemp = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPrecipitacionmm = new System.Windows.Forms.Label();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblPrecipitacion = new System.Windows.Forms.Label();
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHistorialDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfiguracionGeneral = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -123,10 +123,10 @@
             this.btnEstadisticasDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMenuPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
@@ -141,7 +141,6 @@
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).BeginInit();
             this.panelDerecho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +149,20 @@
             this.MouseDetect.Enabled = true;
             this.MouseDetect.SynchronizingObject = this;
             this.MouseDetect.Elapsed += new System.Timers.ElapsedEventHandler(this.MouseDetect_Elapsed);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Vectores
             // 
@@ -184,7 +197,6 @@
             // 
             this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.fondomenu;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.myPanel1.Controls.Add(this.btnAdministrarUsuarios);
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
@@ -201,7 +213,7 @@
             this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.Transparent;
             this.btnAdministrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdministrarUsuarios.BorderRadius = 0;
-            this.btnAdministrarUsuarios.ButtonText = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.ButtonText = "   Administrar Usuarios";
             this.btnAdministrarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdministrarUsuarios.DisabledColor = System.Drawing.Color.Gray;
             this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,7 +229,7 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 402);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 403);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
@@ -226,7 +238,7 @@
             this.btnAdministrarUsuarios.selected = false;
             this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
             this.btnAdministrarUsuarios.TabIndex = 58;
-            this.btnAdministrarUsuarios.Text = " Administrar Usuarios";
+            this.btnAdministrarUsuarios.Text = "   Administrar Usuarios";
             this.btnAdministrarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrarUsuarios.Textcolor = System.Drawing.Color.Black;
             this.btnAdministrarUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -372,7 +384,6 @@
             this.labelFecha4.Size = new System.Drawing.Size(109, 37);
             this.labelFecha4.TabIndex = 49;
             this.labelFecha4.Text = "9 Abril";
-
             // 
             // labelDia4
             // 
@@ -385,7 +396,6 @@
             this.labelDia4.Size = new System.Drawing.Size(114, 37);
             this.labelDia4.TabIndex = 48;
             this.labelDia4.Text = "Martes";
-
             // 
             // labelFecha4Min
             // 
@@ -570,7 +580,6 @@
             this.labelFecha1.Size = new System.Drawing.Size(109, 37);
             this.labelFecha1.TabIndex = 39;
             this.labelFecha1.Text = "6 Abril";
-
             // 
             // labelClimaHoy
             // 
@@ -1114,20 +1123,6 @@
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // lblPrecipitacionmm
             // 
             this.lblPrecipitacionmm.AutoSize = true;
@@ -1198,6 +1193,7 @@
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(222)))), ((int)(((byte)(145)))));
             this.myPanel2.BackgroundImage = global::Capa_Presentacion.Properties.Resources.MenuIzquierdoVerde;
+            this.myPanel2.Controls.Add(this.btnAdministrarUsuarios);
             this.myPanel2.Controls.Add(this.bunifuFlatButton1);
             this.myPanel2.Controls.Add(this.btnHistorialDePlagas);
             this.myPanel2.Controls.Add(this.label1);
@@ -1212,6 +1208,43 @@
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
+            // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "  Datos Atmosfericos";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 60D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 457);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton1.TabIndex = 58;
+            this.bunifuFlatButton1.Text = "  Datos Atmosfericos";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // btnHistorialDePlagas
             // 
@@ -1498,49 +1531,6 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // timerClima
-            // 
-            this.timerClima.Enabled = true;
-            this.timerClima.Interval = 1000;
-            this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
-            // 
-            // bunifuFlatButton1
-            // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "  Datos Atmosfericos";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 60D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 457);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
-            this.bunifuFlatButton1.TabIndex = 58;
-            this.bunifuFlatButton1.Text = "  Datos Atmosfericos";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1556,6 +1546,7 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
@@ -1577,7 +1568,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picClimaPrimero)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
             this.ResumeLayout(false);

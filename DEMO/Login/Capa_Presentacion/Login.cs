@@ -145,7 +145,7 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            if(ConexionAInternet() == true)
+            if(HayInternet() == true)
             {
                 try
                 {
@@ -203,7 +203,7 @@ namespace Capa_Presentacion
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if(ConexionAInternet() == true)
+            if(HayInternet() == true)
             {
                 
             }
@@ -250,6 +250,19 @@ namespace Capa_Presentacion
                 MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+        private bool HayInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

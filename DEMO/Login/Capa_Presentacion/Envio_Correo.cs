@@ -17,7 +17,6 @@ namespace Capa_Presentacion
         {
             var email = txtCorreo.Text;
             var contra = _ABCUsuario.ObtenerContra(email).Rows[0][0].ToString();
-            
             var correo = new System.Net.Mail.MailMessage();
             correo.From = new System.Net.Mail.MailAddress("sistemarhvb@gmail.com");
             correo.To.Add(email);

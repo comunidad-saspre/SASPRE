@@ -147,6 +147,7 @@ namespace Capa_Presentacion
                 Datos_El_Mante.Rows.Remove(Datos_El_Mante.CurrentRow);
 
             }
+            leercsv(rutadirectorio);
         }
     }
 }

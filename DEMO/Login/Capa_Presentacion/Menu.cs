@@ -19,7 +19,7 @@ namespace Capa_Presentacion
 {
     public partial class Menu : Form
     {
-        
+
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -33,6 +33,25 @@ namespace Capa_Presentacion
         private const int CS_DROPSHADOW = 0x00020000;
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
+
+        Label[] labelsDia,labelsFecha;
+
+        private const String MON = "Monday";
+        private const String TUE = "Tuesday";
+        private const String WED = "Wednesday";
+        private const String THU = "Thursday";
+        private const String FRI = "Friday";
+        private const String SAT = "Saturday";
+        private const String SUN = "Sunday";
+
+        private const String LUN = "Lunes";
+        private const String MAR = "Martes";
+        private const String MIE = "Miercoles";
+        private const String JUE = "Jueves";
+        private const String VIE = "Viernes";
+        private const String SAB = "Sabado";
+        private const String DOM = "Domingo";
+
 
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
@@ -66,7 +85,7 @@ namespace Capa_Presentacion
                 CreateParams cp = base.CreateParams;
                 if (!m_aeroEnabled)
                     cp.ExStyle |= 0x02000000;
-                    cp.ClassStyle |= CS_DROPSHADOW; return cp;
+                cp.ClassStyle |= CS_DROPSHADOW; return cp;
             }
         }
         private bool CheckAeroEnabled()
@@ -118,12 +137,14 @@ namespace Capa_Presentacion
         private void PanelMove_MouseUp(object sender, MouseEventArgs e) { Drag = false; }
 
 
-
+        DateTime fecha_hora;
         public Menu()
         {
             InitializeComponent();
             m_aeroEnabled = false;
-
+            fecha_hora = DateTime.Now;
+            labelsDia = new Label[] { labelDiaHoyNombre, labelDia1, labelDia2, labelDia3, labelDia4 };
+            labelsFecha = new Label[] { labelHoy, labelFecha1, labelFecha2 , labelFecha3 , labelFecha4 };
         }
 
 
@@ -146,7 +167,7 @@ namespace Capa_Presentacion
                 formulario.Show();
                 formulario.BringToFront();
                 formulario.Opacity = .5;
-              //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
+                //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
             }
             else
             {
@@ -163,14 +184,14 @@ namespace Capa_Presentacion
             }
         }
 
-        private void CerrarFormEnPanel<Forms>() where Forms:Form,new()
+        private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
         {
             Form formulario = new Forms();
             formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
 
             if (!(formulario == null))
             {
-               
+
                 formulario.Close();
             }
 
@@ -185,45 +206,71 @@ namespace Capa_Presentacion
         private void Menu_Load(object sender, EventArgs e)
         {
 
-            panelDerecho.BackColor = Color.FromArgb(0,0,0,0);
+            panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
             PrivilegioUsuario();
-            GetRequestHora();
-            GetRequestDia();
+            //GetRequestHora();
+            //GetRequestDia();
+            labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
+            // Hago el ciclo para agregar hasta 7 días
+            for (int i = 1; i <= 5; i++)
+            {
+                // Este metodo solo pone en los labels el día que está en fecha_hora
+                SetDateTime(labelsDia[i - 1], fecha_hora);
+                PonerFechas(labelsFecha[i - 1], fecha_hora);
+                // Cambia el DateTime fecha_hora a un día después.
+                fecha_hora = fecha_hora.AddDays(1);
+            }
+        }
+        private void PonerFechas(Label lbl,DateTime datetime)
+        {
+            lbl.Text = datetime.ToString("M");
+        }
+        private void SetDateTime(Label lbl, DateTime datetime)
+        {
+            lbl.Text = TranslateDay(datetime.DayOfWeek.ToString());
+            //lbl.Text = "Fecha: " + datetime.ToShortDateString() + ", Hora: " + datetime.ToLongTimeString();
+        }
+        private String TranslateDay(String day)
+        {
 
-            //Donde se llama el ImageList y se coloca la imagen en el picturebox.
+            if (day.Equals(MON)) return LUN;
+            if (day.Equals(TUE)) return MAR;
+            if (day.Equals(WED)) return MIE;
+            if (day.Equals(THU)) return JUE;
+            if (day.Equals(FRI)) return VIE;
+            if (day.Equals(SAT)) return SAB;
+            if (day.Equals(SUN)) return DOM;
+            if (day.Equals(MON)) return LUN;
+            if (day.Equals(MON)) return LUN;
 
+            return $"{day} NOT A DAY";
 
-
-            //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-            // myPanel2.BackColor = Color.FromArgb(120, 204, 222, 145);
-            //panelContenedor.BackColor = Color.FromArgb(0, 0, 0, 0);
-            //  this.ShadowTopleftVisible = true; BUNIFU SHADOW PANEL XDDDD
         }
 
         bool mnuExpanded = false;
         private void MouseDetect_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
 
-            
-           // if (!bunifuTransition1.IsCompleted) return;
-            if(myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+
+            // if (!bunifuTransition1.IsCompleted) return;
+            if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
             {
                 if (!mnuExpanded)
                 {
-                        mnuExpanded = true;
-                        myPanel2.Width = 250;
+                    mnuExpanded = true;
+                    myPanel2.Width = 250;
                 }
             }
             else
             {
-                if(mnuExpanded)
+                if (mnuExpanded)
                 {
-                        mnuExpanded = false;
-                     //   myPanel2.Visible = false;
-                         myPanel2.Width = 45;
+                    mnuExpanded = false;
+                    //   myPanel2.Visible = false;
+                    myPanel2.Width = 45;
                     myPanel2.Visible = true;
-                   // bunifuTransition1.ShowSync(myPanel2);
+                    // bunifuTransition1.ShowSync(myPanel2);
                 }
             }
         }
@@ -236,7 +283,7 @@ namespace Capa_Presentacion
         Thread th;
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
@@ -331,12 +378,12 @@ namespace Capa_Presentacion
 
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
-          
+
         }
-      
+
         private void PrivilegioUsuario()
         {
-            if(Program.cargo != "Admin")
+            if (Program.cargo != "Admin")
             {
                 btnConfiguracionGeneral.Enabled = false;
             }
@@ -344,7 +391,7 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton10_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         async void GetRequestHora()
@@ -394,17 +441,17 @@ namespace Capa_Presentacion
                     {
                         if (info.CityId.Equals("MXTS2043") && DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString().Equals(DateTime.Now.ToLongDateString()))
                         {
-                            if(iteracion == 0) {
-                                labelFechaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
+                            if (iteracion == 0) {
+                                labelFechaCompletaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
                                 labelHoy.Text = DateTime.Now.ToString("m");
                                 labelHoyMax.Text = info.HiTempC + "°";
                                 labelHoyMin.Text = info.LowTempC + "°";
                                 labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaPrimero.Image = vectorClima(info.SkyText, 0);
+                                picClimaHoy.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
                                 diasSiguientes = true;
                             }
-                        }else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
+                        } else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
                         {
                             if (iteracion == 1)
                             {
@@ -412,31 +459,31 @@ namespace Capa_Presentacion
                                 labelFecha1Max.Text = info.HiTempC + "°";
                                 labelFecha1Min.Text = info.LowTempC + "°";
                                 labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaSegundo.Image = vectorClima(info.SkyText, 0);
+                                picClima1.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            }else if(iteracion == 2)
+                            } else if (iteracion == 2)
                             {
                                 labelFecha2.Text = DateTime.Now.ToString("m");
                                 labelFecha2Max.Text = info.HiTempC + "°";
                                 labelFecha2Min.Text = info.LowTempC + "°";
                                 labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaTercero.Image = vectorClima(info.SkyText, 0);
+                                picClima2.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            }else if (iteracion == 3)
+                            } else if (iteracion == 3)
                             {
                                 labelFecha3.Text = DateTime.Now.ToString("m");
-                                labelFecha3Max.Text = info.HiTempC + "°";
-                                labelFecha3Min.Text = info.LowTempC + "°";
-                                labelFecha3Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaCuarto.Image = vectorClima(info.SkyText, 0);
+                                labelMax3.Text = info.HiTempC + "°";
+                                labelMin3.Text = info.LowTempC + "°";
+                                labelPrecipitacion3.Text = info.ProbabilityOfPrecip + "%";
+                                picClima3.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            }else if (iteracion == 4)
+                            } else if (iteracion == 4)
                             {
                                 labelFecha4.Text = DateTime.Now.ToString("m");
                                 labelFecha4Max.Text = info.HiTempC + "°";
                                 labelFecha4Min.Text = info.LowTempC + "°";
                                 labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaQuinto.Image = vectorClima(info.SkyText, 0);
+                                picClima4.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
                                 break;
                             }
@@ -444,6 +491,13 @@ namespace Capa_Presentacion
                     }
                 }
             }
+        }
+
+
+        private void ObtenerDias ()
+        {
+            
+
         }
 
 

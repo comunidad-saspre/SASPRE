@@ -49,7 +49,7 @@
             this.dias.Name = "dias";
             this.dias.Size = new System.Drawing.Size(121, 21);
             this.dias.TabIndex = 1;
-            this.dias.Text = "7";
+            this.dias.Text = "7 días";
             // 
             // filtrar
             // 

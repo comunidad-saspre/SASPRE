@@ -4,6 +4,7 @@ using Capa_Negocio;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
+using System.Net.Mail;
 
 namespace Capa_Presentacion
 {
@@ -53,13 +54,33 @@ namespace Capa_Presentacion
             }
         }
 
+        private bool EsDireccionDeCorreoValida(string correo)
+        {
+            try
+            {
+                var c = new MailAddress(correo);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
         private void Agregar()
         {
             try
             {
-                _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,
+
+                if (!EsDireccionDeCorreoValida(txtCorreo.Text))
+                    throw new Exception("InvalidMailAddressException.");
+                else
+                    _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,
                     txtNick.Text, txtCorreo.Text);
+
                 MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
@@ -71,10 +92,16 @@ namespace Capa_Presentacion
         {
             try
             {
-                _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
-                txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                if (!EsDireccionDeCorreoValida(txtCorreo.Text))
+                    throw new Exception("InvalidMailAddressException.");
+                else
+                {
+                    _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
+                    txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
 
-                IsEditar(isEditar = false);
+                    IsEditar(isEditar = false);
+                }
+                MessageBox.Show("Usuario actualizado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

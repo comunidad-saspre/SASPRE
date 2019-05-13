@@ -30,7 +30,7 @@ namespace Capa_Presentacion
                 mensaje += contra;
                 try
                 {
-                    if (IsValidMailAddress(email))
+                    if (EsDireccionDeCorreoValida(email))
                     {
                         EnviarCorreo(correoPrincipal, contraPrincipal, email, mensaje);
                     }
@@ -71,7 +71,7 @@ namespace Capa_Presentacion
         }
 
 
-        private bool IsValidMailAddress(string address)
+        private bool EsDireccionDeCorreoValida(string address)
         {
             try
             {

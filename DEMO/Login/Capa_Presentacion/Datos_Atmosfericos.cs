@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
@@ -28,6 +29,7 @@ namespace Capa_Presentacion
             {
                 dias.Items.Add(i+" días");
             }
+            dias.SelectedIndex = 6;
           
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
            //crear carpeta
@@ -129,7 +131,7 @@ namespace Capa_Presentacion
                     }
                     if (dt.Rows.Count > 0)
                     {
-                        Datos_El_Mante.DataSource = dt;
+                        dtgDatosElMante.DataSource = dt;
                     }
                 }
                 catch (System.IO.IOException e)
@@ -142,12 +144,29 @@ namespace Capa_Presentacion
         private void filtrar_Click(object sender, EventArgs e)
         {
             Filtro_dia = Convert.ToInt32(dias.Text.Substring(0,2));
-            while (Datos_El_Mante.RowCount > 1)
+            while (dtgDatosElMante.RowCount > 1)
             {
-                Datos_El_Mante.Rows.Remove(Datos_El_Mante.CurrentRow);
+                dtgDatosElMante.Rows.Remove(dtgDatosElMante.CurrentRow);
 
             }
             leercsv(rutadirectorio);
+        }
+
+        private void InsertarDatosClimaMes()
+        {
+            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+            foreach(DataGridViewRow item in dtgDatosElMante.Rows)
+            {
+                String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""","");
+                _DatosClimaMes.InsertarDatosClimaMes(fecha, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                    item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
+                    item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InsertarDatosClimaMes();
         }
     }
 }

@@ -499,6 +499,7 @@ namespace Capa_Presentacion
             
 
         }
+        
 
 
 
@@ -506,8 +507,7 @@ namespace Capa_Presentacion
         {
             if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
-                MessageBox.Show(DateTime.Now.Day.ToString());
-                GetRequestHora();
+                //GetRequestHora();
             }
         }
 

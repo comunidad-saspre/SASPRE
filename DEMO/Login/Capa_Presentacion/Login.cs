@@ -153,7 +153,7 @@ namespace Capa_Presentacion
                     //crear carpeta
                     crear_carpeta();
                     //Guardar informacion
-                    getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
+                    getArchivo();
                     CN_Login _Login = new CN_Login();
                     MySqlDataReader Loguear;
                     Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
@@ -214,9 +214,10 @@ namespace Capa_Presentacion
 
         }
         //Metodo para descargar archivo de datos atmosfericos
-        public async void getArchivo(String url)
+        public async void getArchivo()
         {
             WebClient wc = new WebClient();
+            String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
             await Task.Run(() =>
             {
                 wc.DownloadFileAsync(new Uri(url), rutadirectorio);

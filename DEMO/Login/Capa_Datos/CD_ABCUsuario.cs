@@ -11,12 +11,12 @@ namespace Capa_Datos
     public class CD_ABCUsuario
     {
         private CD_ConexionBD conexion = new CD_ConexionBD();
-        MySqlCommand comando = new MySqlCommand();
         MySqlDataReader leer;
         DataTable tablaUsuarios = new DataTable();
 
         public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
+            var comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "RegistrarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -33,6 +33,7 @@ namespace Capa_Datos
 
         public DataTable ObtenerContra(string correo)
         {
+            var comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "ObtenerContra";
             comando.CommandType = CommandType.StoredProcedure;
@@ -45,6 +46,7 @@ namespace Capa_Datos
 
         public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
+            var comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -61,6 +63,7 @@ namespace Capa_Datos
         }
         public void EliminarUsuario(String NickName)
         {
+            var comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EliminarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -72,6 +75,7 @@ namespace Capa_Datos
 
         public DataTable MostrarUsuarios()
         {
+            var comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "MostrarUsuarios";
             comando.CommandType = CommandType.StoredProcedure;

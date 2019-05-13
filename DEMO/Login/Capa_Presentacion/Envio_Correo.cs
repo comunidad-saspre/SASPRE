@@ -1,6 +1,8 @@
 ﻿using System;
 using Capa_Negocio;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Linq;
 
 namespace Capa_Presentacion
 {
@@ -13,15 +15,48 @@ namespace Capa_Presentacion
             InitializeComponent();
         }
 
+        string correoPrincipal = "sistemarhvb@gmail.com";
+        string contraPrincipal = "Skate1234";
+
         private void btnEnviar_Click(object sender, EventArgs e)
-        {
+        {   
             var email = txtCorreo.Text;
-            var contra = _ABCUsuario.ObtenerContra(email).Rows[0][0].ToString();
+            var table = _ABCUsuario.ObtenerContra(email);
+            var contra = "";
+            var mensaje = "Su contraseña es: ";
+            if (table.Rows.Count != 0)
+            {
+                contra = table.Rows[0][0].ToString();
+                mensaje += contra;
+                try
+                {
+                    if (IsValidMailAddress(email))
+                    {
+                        EnviarCorreo(correoPrincipal, contraPrincipal, email, mensaje);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex);
+                    throw;
+                }
+            }
+            else
+            {
+                //fuente: , contra: 
+                MessageBox.Show("Correo inexistente, ingrese valido.");
+                return;
+            }
+            
+        }
+
+        private void EnviarCorreo(string fuente, string contraFuente, string destino, string mensaje)
+        {
             var correo = new System.Net.Mail.MailMessage();
-            correo.From = new System.Net.Mail.MailAddress("sistemarhvb@gmail.com");
-            correo.To.Add(email);
+            correo.From = new System.Net.Mail.MailAddress(fuente);
+            correo.To.Add(destino);
             correo.Subject = "Recuperacion de contraseña";
-            correo.Body = $"Su contraseña es: {contra}";
+            correo.Body = mensaje;
             correo.IsBodyHtml = false;
             correo.Priority = System.Net.Mail.MailPriority.Normal;
 
@@ -29,16 +64,26 @@ namespace Capa_Presentacion
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("sistemarhvb@gmail.com", "Skate1234");
+            smtp.Credentials = new System.Net.NetworkCredential(fuente, contraFuente);
+
+            smtp.Send(correo);
+
+        }
+
+
+        private bool IsValidMailAddress(string address)
+        {
             try
             {
-                smtp.Send(correo);
+                var m = new MailAddress(address);
+
+                return true;
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-                MessageBox.Show("Error " + ex);
-                throw;
+                return false;
             }
         }
+
     }
 }

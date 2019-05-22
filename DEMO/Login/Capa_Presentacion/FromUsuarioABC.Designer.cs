@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCargo = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtContra = new System.Windows.Forms.TextBox();
@@ -50,29 +50,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtCargo = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
-            this.pbImagen.Location = new System.Drawing.Point(44, 21);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(218, 169);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImagen.TabIndex = 86;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // txtApellidos
             // 
@@ -209,6 +195,7 @@
             // dgvUsers
             // 
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsers.Location = new System.Drawing.Point(3, 32);
@@ -221,13 +208,14 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEliminar.Location = new System.Drawing.Point(751, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(162, 23);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar Seleccionados";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // tableLayoutPanel4
@@ -265,6 +253,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(910, 207);
             this.panel1.TabIndex = 91;
+            // 
+            // txtCargo
+            // 
+            this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCargo.FormattingEnabled = true;
+            this.txtCargo.Items.AddRange(new object[] {
+            "Admin",
+            "Estudiante"});
+            this.txtCargo.Location = new System.Drawing.Point(346, 124);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(216, 21);
+            this.txtCargo.TabIndex = 97;
             // 
             // txtCorreo
             // 
@@ -338,17 +338,19 @@
             this.label6.TabIndex = 89;
             this.label6.Text = "Usuario";
             // 
-            // txtCargo
+            // pbImagen
             // 
-            this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtCargo.FormattingEnabled = true;
-            this.txtCargo.Items.AddRange(new object[] {
-            "Admin",
-            "Estudiante"});
-            this.txtCargo.Location = new System.Drawing.Point(346, 124);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(216, 21);
-            this.txtCargo.TabIndex = 97;
+            this.pbImagen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
+            this.pbImagen.Location = new System.Drawing.Point(44, 21);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(218, 169);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 86;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // FromUsuarioABC
             // 
@@ -359,7 +361,6 @@
             this.Name = "FromUsuarioABC";
             this.Text = "FromUsuarioABC";
             this.Load += new System.EventHandler(this.FromUsuarioABC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -367,6 +368,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }

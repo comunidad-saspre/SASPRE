@@ -332,5 +332,8 @@
   <ItemGroup>
     <None Include="Resources\icons8_Minimize_Window_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Horizontal_Line_64px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

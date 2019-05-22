@@ -672,6 +672,11 @@ Tormentas aisladas / Viento
             lblPrecipitacionmm.Visible = true;
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             Datos_Atmosfericos datos = new Datos_Atmosfericos();

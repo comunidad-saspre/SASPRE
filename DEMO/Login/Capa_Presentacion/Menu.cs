@@ -200,7 +200,14 @@ namespace Capa_Presentacion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -277,7 +284,15 @@ namespace Capa_Presentacion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         Thread th;

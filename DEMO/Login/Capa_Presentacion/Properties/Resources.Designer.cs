@@ -303,6 +303,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Minimize_Window_48px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Minimize_Window_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Partly_Cloudy_Day_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_Partly_Cloudy_Day_32px", resourceCulture);

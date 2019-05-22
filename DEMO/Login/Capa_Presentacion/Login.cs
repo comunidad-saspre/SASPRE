@@ -264,5 +264,10 @@ namespace Capa_Presentacion
                 return false;
             }
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

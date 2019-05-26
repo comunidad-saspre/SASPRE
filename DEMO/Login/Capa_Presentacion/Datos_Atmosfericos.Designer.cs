@@ -34,7 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDatosElMante)).BeginInit();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Datos_El_Mante)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgDatosElMante
@@ -46,12 +45,6 @@
             this.dtgDatosElMante.ReadOnly = true;
             this.dtgDatosElMante.Size = new System.Drawing.Size(1149, 403);
             this.dtgDatosElMante.TabIndex = 0;
-            this.Datos_El_Mante.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.Datos_El_Mante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Datos_El_Mante.Location = new System.Drawing.Point(12, 65);
-            this.Datos_El_Mante.Name = "Datos_El_Mante";
-            this.Datos_El_Mante.Size = new System.Drawing.Size(1149, 559);
-            this.Datos_El_Mante.TabIndex = 0;
             // 
             // dias
             // 

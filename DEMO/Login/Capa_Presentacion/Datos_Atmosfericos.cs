@@ -171,13 +171,6 @@ namespace Capa_Presentacion
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            Filtro_dia = Convert.ToInt32(dias.Text.Substring(0, 2));
-            while (Datos_El_Mante.RowCount > 1)
-            {
-                Datos_El_Mante.Rows.Remove(Datos_El_Mante.CurrentRow);
-
-            }
-            leercsv(rutadirectorio);
         }
     }
 }

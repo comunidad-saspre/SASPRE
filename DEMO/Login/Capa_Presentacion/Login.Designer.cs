@@ -162,7 +162,7 @@
             this.txtNickname.BackColor = System.Drawing.Color.White;
             this.txtNickname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNickname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtNickname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNickname.ForeColor = System.Drawing.Color.Silver;
             this.txtNickname.HintForeColor = System.Drawing.Color.Silver;
             this.txtNickname.HintText = "Correo@Ejemplo.com";
             this.txtNickname.isPassword = false;
@@ -177,13 +177,14 @@
             this.txtNickname.TabIndex = 6;
             this.txtNickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.toolTip1.SetToolTip(this.txtNickname, "Ingresa correo");
+            this.txtNickname.OnValueChanged += new System.EventHandler(this.txtNickname_OnValueChanged);
             // 
             // txtContra
             // 
             this.txtContra.BackColor = System.Drawing.Color.White;
             this.txtContra.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtContra.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtContra.ForeColor = System.Drawing.Color.Silver;
             this.txtContra.HintForeColor = System.Drawing.Color.Silver;
             this.txtContra.HintText = "Contraseña";
             this.txtContra.isPassword = true;

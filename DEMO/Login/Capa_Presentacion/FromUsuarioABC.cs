@@ -193,5 +193,10 @@ namespace Capa_Presentacion
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

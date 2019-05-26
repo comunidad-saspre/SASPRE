@@ -269,5 +269,10 @@ namespace Capa_Presentacion
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void txtNickname_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

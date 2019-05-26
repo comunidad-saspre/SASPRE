@@ -134,7 +134,7 @@
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator1.LineThickness = 5;
+            this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(34, 323);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";

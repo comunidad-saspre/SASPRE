@@ -82,5 +82,10 @@ namespace Capa_Presentacion
         {
             AbrirFormEnPanel<AdministrarCultivos>();
         }
+
+        private void AdministrarCultivos2_Load(object sender, EventArgs e)
+        {
+            cbPlanta.SelectedIndex = 0;
+        }
     }
 }

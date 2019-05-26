@@ -335,5 +335,26 @@
   <ItemGroup>
     <None Include="Resources\icons8_Horizontal_Line_64px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CAÑA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CEBOLLA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAÍZ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SORGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

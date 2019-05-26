@@ -297,6 +297,18 @@
             // 
             this.labelFecha4.AutoSize = true;
             this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha4.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha4.Location = new System.Drawing.Point(0, 58);
+            this.labelFecha4.Name = "labelFecha4";
+            this.labelFecha4.Size = new System.Drawing.Size(109, 37);
+            this.labelFecha4.TabIndex = 49;
+            this.labelFecha4.Text = "9 Abril";
+            // 
+            // labelFecha4
+            // 
+            this.labelFecha4.AutoSize = true;
+            this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelFecha4.ForeColor = System.Drawing.Color.Black;
             this.labelFecha4.Location = new System.Drawing.Point(16, 56);
@@ -717,6 +729,18 @@
             this.lblmm4.Size = new System.Drawing.Size(61, 20);
             this.lblmm4.TabIndex = 52;
             this.lblmm4.Text = "0.3 mm";
+            // 
+            // labelFecha3
+            // 
+            this.labelFecha3.AutoSize = true;
+            this.labelFecha3.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha3.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha3.Location = new System.Drawing.Point(0, 58);
+            this.labelFecha3.Name = "labelFecha3";
+            this.labelFecha3.Size = new System.Drawing.Size(109, 37);
+            this.labelFecha3.TabIndex = 49;
+            this.labelFecha3.Text = "8 Abril";
             // 
             // labelFecha3
             // 

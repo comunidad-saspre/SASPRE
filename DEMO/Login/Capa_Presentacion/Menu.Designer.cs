@@ -44,6 +44,7 @@
             this.labelMax4 = new System.Windows.Forms.Label();
             this.picClima4 = new System.Windows.Forms.PictureBox();
             this.labelFecha4Precipitacion = new System.Windows.Forms.Label();
+            this.labelFecha4 = new System.Windows.Forms.Label();
             this.labelDia4 = new System.Windows.Forms.Label();
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             this.labelFecha1 = new System.Windows.Forms.Label();
             this.labelClimaHoy = new System.Windows.Forms.Label();
             this.labelFechaCompletaHoy = new System.Windows.Forms.Label();
+            this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacion2 = new System.Windows.Forms.Label();
             this.labelMin2 = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@
             this.labelMin3 = new System.Windows.Forms.Label();
             this.labelMax3 = new System.Windows.Forms.Label();
             this.lblmm4 = new System.Windows.Forms.Label();
+            this.labelFecha3 = new System.Windows.Forms.Label();
             this.labelDia3 = new System.Windows.Forms.Label();
             this.lblmin4 = new System.Windows.Forms.Label();
             this.lblmax4 = new System.Windows.Forms.Label();
@@ -111,9 +114,6 @@
             this.btnMenuPrincipal = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.labelFecha4 = new System.Windows.Forms.Label();
-            this.labelFecha3 = new System.Windows.Forms.Label();
-            this.lblfechaprincipal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
@@ -297,6 +297,18 @@
             this.labelFecha4Precipitacion.Size = new System.Drawing.Size(61, 20);
             this.labelFecha4Precipitacion.TabIndex = 52;
             this.labelFecha4Precipitacion.Text = "0.3 mm";
+            // 
+            // labelFecha4
+            // 
+            this.labelFecha4.AutoSize = true;
+            this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha4.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha4.Location = new System.Drawing.Point(0, 58);
+            this.labelFecha4.Name = "labelFecha4";
+            this.labelFecha4.Size = new System.Drawing.Size(109, 37);
+            this.labelFecha4.TabIndex = 49;
+            this.labelFecha4.Text = "9 Abril";
             // 
             // labelDia4
             // 
@@ -490,6 +502,18 @@
             this.labelFechaCompletaHoy.Name = "labelFechaCompletaHoy";
             this.labelFechaCompletaHoy.Size = new System.Drawing.Size(0, 37);
             this.labelFechaCompletaHoy.TabIndex = 30;
+            // 
+            // lblfechaprincipal
+            // 
+            this.lblfechaprincipal.AutoSize = true;
+            this.lblfechaprincipal.BackColor = System.Drawing.Color.Transparent;
+            this.lblfechaprincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfechaprincipal.ForeColor = System.Drawing.Color.White;
+            this.lblfechaprincipal.Location = new System.Drawing.Point(431, 101);
+            this.lblfechaprincipal.Name = "lblfechaprincipal";
+            this.lblfechaprincipal.Size = new System.Drawing.Size(270, 37);
+            this.lblfechaprincipal.TabIndex = 30;
+            this.lblfechaprincipal.Text = "Viernes 5 de Abril";
             // 
             // myPanel8
             // 
@@ -698,6 +722,18 @@
             this.lblmm4.Size = new System.Drawing.Size(61, 20);
             this.lblmm4.TabIndex = 52;
             this.lblmm4.Text = "0.3 mm";
+            // 
+            // labelFecha3
+            // 
+            this.labelFecha3.AutoSize = true;
+            this.labelFecha3.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha3.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha3.Location = new System.Drawing.Point(0, 58);
+            this.labelFecha3.Name = "labelFecha3";
+            this.labelFecha3.Size = new System.Drawing.Size(109, 37);
+            this.labelFecha3.TabIndex = 49;
+            this.labelFecha3.Text = "8 Abril";
             // 
             // labelDia3
             // 
@@ -1339,42 +1375,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // labelFecha4
-            // 
-            this.labelFecha4.AutoSize = true;
-            this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha4.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4.Location = new System.Drawing.Point(0, 58);
-            this.labelFecha4.Name = "labelFecha4";
-            this.labelFecha4.Size = new System.Drawing.Size(109, 37);
-            this.labelFecha4.TabIndex = 49;
-            this.labelFecha4.Text = "9 Abril";
-            // 
-            // labelFecha3
-            // 
-            this.labelFecha3.AutoSize = true;
-            this.labelFecha3.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha3.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha3.Location = new System.Drawing.Point(0, 58);
-            this.labelFecha3.Name = "labelFecha3";
-            this.labelFecha3.Size = new System.Drawing.Size(109, 37);
-            this.labelFecha3.TabIndex = 49;
-            this.labelFecha3.Text = "8 Abril";
-            // 
-            // lblfechaprincipal
-            // 
-            this.lblfechaprincipal.AutoSize = true;
-            this.lblfechaprincipal.BackColor = System.Drawing.Color.Transparent;
-            this.lblfechaprincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfechaprincipal.ForeColor = System.Drawing.Color.White;
-            this.lblfechaprincipal.Location = new System.Drawing.Point(431, 101);
-            this.lblfechaprincipal.Name = "lblfechaprincipal";
-            this.lblfechaprincipal.Size = new System.Drawing.Size(270, 37);
-            this.lblfechaprincipal.TabIndex = 30;
-            this.lblfechaprincipal.Text = "Viernes 5 de Abril";
             // 
             // Menu
             // 

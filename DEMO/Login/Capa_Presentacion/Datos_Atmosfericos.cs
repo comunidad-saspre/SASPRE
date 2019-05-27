@@ -144,13 +144,7 @@ namespace Capa_Presentacion
 
         private void filtrar_Click(object sender, EventArgs e)
         {
-            Filtro_dia = Convert.ToInt32(dias.Text.Substring(0,2));
-            while (dtgDatosElMante.RowCount > 1)
-            {
-                dtgDatosElMante.Rows.Remove(dtgDatosElMante.CurrentRow);
 
-            }
-            leercsv(rutadirectorio);
         }
 
         private void InsertarDatosClimaMes()
@@ -173,6 +167,13 @@ namespace Capa_Presentacion
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            Filtro_dia = Convert.ToInt32(dias.Text.Substring(0, 2));
+            while (dtgDatosElMante.RowCount > 1)
+            {
+                dtgDatosElMante.Rows.Remove(dtgDatosElMante.CurrentRow);
+
+            }
+            leercsv(rutadirectorio);
         }
     }
 }

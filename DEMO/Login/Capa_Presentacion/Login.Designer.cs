@@ -68,6 +68,7 @@
             // BtnMinimizar
             // 
             this.BtnMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMinimizar.Image = global::Capa_Presentacion.Properties.Resources.icons8_Minimize_Window_48px;
             this.BtnMinimizar.Location = new System.Drawing.Point(1231, 3);
             this.BtnMinimizar.Name = "BtnMinimizar";
@@ -81,6 +82,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px;
             this.pictureBox4.Location = new System.Drawing.Point(1257, 3);
             this.pictureBox4.Name = "pictureBox4";

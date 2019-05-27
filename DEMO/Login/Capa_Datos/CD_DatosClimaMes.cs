@@ -14,14 +14,16 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlCommand comando = new MySqlCommand();
 
-        public void InsertarDatosClimaMes(String Fecha_Local, double Direccion_de_Viento, double Direccion_de_Rafaga,
+        public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, double Direccion_de_Viento, double Direccion_de_Rafaga,
             double Rapidez_de_Viento, double Rapidez_de_Rafaga, double Temperatura, int Humedad_Relativa, double Presion_Atmosferica,
             double Precipitacion, int Radiacion_Solar)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "InsertarDatosClimaMes";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_Estacion", Estacion);
             comando.Parameters.AddWithValue("_Fecha_Local", Fecha_Local);
+            comando.Parameters.AddWithValue("_Fecha_UTC", Fecha_UTC);
             comando.Parameters.AddWithValue("_Direccion_del_Viento", Direccion_de_Viento);
             comando.Parameters.AddWithValue("_Direccion_de_Rafaga", Direccion_de_Rafaga);
             comando.Parameters.AddWithValue("_Rapidez_de_Viento", Rapidez_de_Viento);

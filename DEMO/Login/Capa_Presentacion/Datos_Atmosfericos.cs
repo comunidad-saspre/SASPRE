@@ -84,7 +84,8 @@ namespace Capa_Presentacion
                         for (int r = 5; r < lines.Length; r++)
                         {
                             //separa el csv utilizando las comas
-                            String[] dataword = lines[r].Split(',');
+                            String[] dataword = lines[r].Split(','
+                                );
                             DataRow dr = dt.NewRow();
                             String[] buscar = dataword[1].Split(':');
 
@@ -158,7 +159,8 @@ namespace Capa_Presentacion
             foreach(DataGridViewRow item in dtgDatosElMante.Rows)
             {
                 String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""","");
-                _DatosClimaMes.InsertarDatosClimaMes(fecha, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(),fecha,fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                     item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                     item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
             }

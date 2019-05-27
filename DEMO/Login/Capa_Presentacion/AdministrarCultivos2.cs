@@ -87,5 +87,30 @@ namespace Capa_Presentacion
         {
             cbPlanta.SelectedIndex = 0;
         }
+
+        private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbPlanta.SelectedItem == "Sorgo")
+            {
+                picCultivo.Image = imageListPlantas.Images[1];
+            }else if(cbPlanta.SelectedItem == "Maíz")
+            {
+                picCultivo.Image = imageListPlantas.Images[0];
+            }else if(cbPlanta.SelectedItem == "Soya")
+            {
+                picCultivo.Image = imageListPlantas.Images[2];
+            }else if(cbPlanta.SelectedItem == "Caña")
+            {
+                picCultivo.Image = imageListPlantas.Images[3];
+            }else if(cbPlanta.SelectedItem == "Cebolla")
+            {
+                picCultivo.Image = imageListPlantas.Images[4];
+            }
+        }
+
+        private void dtpPlantado_ValueChanged(object sender, EventArgs e)
+        {
+            dtpCosecha.MinDate = dtpPlantado.Value;
+        }
     }
 }

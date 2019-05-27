@@ -356,5 +356,8 @@
   <ItemGroup>
     <None Include="Resources\SOYA3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAÍZFINAL.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

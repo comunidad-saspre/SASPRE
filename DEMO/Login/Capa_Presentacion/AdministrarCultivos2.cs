@@ -75,13 +75,12 @@ namespace Capa_Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.AbrirFormEnPanel<AdministrarCultivosEditar>();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<AdministrarCultivos>();
+
         }
 
         private void AdministrarCultivos2_Load(object sender, EventArgs e)
@@ -120,6 +119,34 @@ namespace Capa_Presentacion
         private void dtpPlantado_ValueChanged(object sender, EventArgs e)
         {
             dtpCosecha.MinDate = dtpPlantado.Value;
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+        private void SoloNumeros(KeyPressEventArgs e)
+        {
+            //Para obligar a que sólo se introduzcan números 
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+              if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso 
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan 
+                e.Handled = true;
+            }
         }
     }
 }

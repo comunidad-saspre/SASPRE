@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Negocio", "Capa_Negoci
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DED261EF-E0C4-41EA-B6E8-77D1504F8E96}"
 	ProjectSection(SolutionItems) = preProject
+		BD010619.sql = BD010619.sql
 		BDFINAL260519.sql = BDFINAL260519.sql
 		BDNUEVA100519.sql = BDNUEVA100519.sql
 		BDSASPRE.sql = BDSASPRE.sql

@@ -90,11 +90,12 @@ CREATE TABLE IF NOT EXISTS `bitacoracap` (
 -- Volcando estructura para tabla saspre.cultivos
 CREATE TABLE IF NOT EXISTS `cultivos` (
   `IDcultivo` int(11) NOT NULL AUTO_INCREMENT,
-  `Nickname` varchar(100) NOT NULL,
-  `FechaInicio` datetime NOT NULL,
-  `FechaListo` datetime NOT NULL,
+  `Usuario_Cultivo` varchar(100) NOT NULL,
+  `Cultivo` varchar(100) NOT NULL,
+  `Fecha_Plantado` datetime NOT NULL,
+  `Fecha_Cosecha` datetime NOT NULL,
   `Cantidad` int(11) NOT NULL,
-  `Estado` varchar(300) NOT NULL,
+  `Estado` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`IDcultivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -2318,6 +2319,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCultivos`()
 SELECT * FROM cultivos//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento saspre.MostrarCultivosUsuario
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCultivosUsuario`()
+SELECT Cultivo,Fecha_Plantado,Fecha_Cosecha,Cantidad,Estado from Cultivos//
+DELIMITER ;
+
 -- Volcando estructura para procedimiento saspre.MostrarUsuarios
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarUsuarios`()
@@ -2504,7 +2511,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `Correo` (`Correo`,`Nickname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.usuario: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla saspre.usuario: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 REPLACE INTO `usuario` (`IDUsuario`, `Nombre`, `Apellidos`, `Contra`, `Cargo`, `Nickname`, `Correo`) VALUES
 	(3, 'Andre', 'Ibarra Perez', '3qi2qtccj', 'Admin', 'Muski', 'sk8muski@gmail.com');

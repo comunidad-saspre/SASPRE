@@ -199,9 +199,13 @@ namespace Capa_Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Eliminar();
-            VaciarCampos();
-            Mostrar();
+            var op = DialogResult.Yes;
+            if(MessageBox.Show("¿Esta seguro de eliminar este usuario?","Confirmación",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==op)
+            {
+                Eliminar();
+                VaciarCampos();
+                Mostrar();
+            }
         }
 
         private void pbImagen_Click(object sender, EventArgs e)

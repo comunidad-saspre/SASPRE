@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CD_ABCUsuario.cs" />
     <Compile Include="CD_ConexionBD.cs" />
+    <Compile Include="CD_Cultivos.cs" />
     <Compile Include="CD_DatosClimaMes.cs" />
     <Compile Include="CD_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

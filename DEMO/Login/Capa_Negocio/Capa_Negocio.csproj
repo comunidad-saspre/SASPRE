@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CN_ABCUsuario.cs" />
+    <Compile Include="CN_Cultivos.cs" />
     <Compile Include="CN_DatosClimaMes.cs" />
     <Compile Include="CN_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

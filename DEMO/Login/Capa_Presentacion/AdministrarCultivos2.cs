@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Presentacion;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
@@ -86,6 +87,14 @@ namespace Capa_Presentacion
         private void AdministrarCultivos2_Load(object sender, EventArgs e)
         {
             cbPlanta.SelectedIndex = 0;
+            MostrarCultivos();
+        }
+
+    private void MostrarCultivos()
+        {
+            CN_Cultivos _Cultivos = new CN_Cultivos();
+            var tablaCultivos = _Cultivos.MostrarCultivos();
+            dgvCultivo.DataSource = tablaCultivos;
         }
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)

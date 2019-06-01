@@ -18,7 +18,7 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarCultivos";
+            comando.CommandText = "MostrarCultivosUsuario";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tablaCultivos.Load(leer);

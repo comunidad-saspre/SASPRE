@@ -29,10 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministrarCultivos2));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.imageListPlantas = new System.Windows.Forms.ImageList(this.components);
             this.panelContenedor = new Capa_Presentacion.MyPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpCosecha = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpPlantado = new System.Windows.Forms.DateTimePicker();
             this.cbPlanta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNombreCientifico = new System.Windows.Forms.Label();
@@ -40,11 +47,6 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picCultivo = new System.Windows.Forms.PictureBox();
             this.dgvCultivo = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,17 +55,26 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCaracteristicas = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.imageListPlantas = new System.Windows.Forms.ImageList(this.components);
-            this.dtpPlantado = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpCosecha = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // imageListPlantas
+            // 
+            this.imageListPlantas.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListPlantas.ImageStream")));
+            this.imageListPlantas.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListPlantas.Images.SetKeyName(0, "MAÍZFINAL.jpg");
+            this.imageListPlantas.Images.SetKeyName(1, "SORGO.png");
+            this.imageListPlantas.Images.SetKeyName(2, "SOYA.jpg");
+            this.imageListPlantas.Images.SetKeyName(3, "CAÑA.jpg");
+            this.imageListPlantas.Images.SetKeyName(4, "CEBOLLA.png");
+            this.imageListPlantas.Images.SetKeyName(5, "SOYA2.jpg");
             // 
             // panelContenedor
             // 
@@ -93,6 +104,62 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(985, 720);
             this.panelContenedor.TabIndex = 56;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(334, 550);
+            this.textBox1.MaxLength = 4;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 62;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(330, 524);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 20);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "Cantidad";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(330, 461);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(209, 20);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Fecha tentativa de cosecha:";
+            // 
+            // dtpCosecha
+            // 
+            this.dtpCosecha.Location = new System.Drawing.Point(334, 491);
+            this.dtpCosecha.Name = "dtpCosecha";
+            this.dtpCosecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpCosecha.TabIndex = 59;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(330, 397);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 20);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Fecha de plantado:";
+            // 
+            // dtpPlantado
+            // 
+            this.dtpPlantado.Location = new System.Drawing.Point(334, 426);
+            this.dtpPlantado.Name = "dtpPlantado";
+            this.dtpPlantado.Size = new System.Drawing.Size(200, 20);
+            this.dtpPlantado.TabIndex = 57;
+            this.dtpPlantado.ValueChanged += new System.EventHandler(this.dtpPlantado_ValueChanged);
             // 
             // cbPlanta
             // 
@@ -169,20 +236,20 @@
             // 
             // dgvCultivo
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCultivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCultivo.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCultivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCultivo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cultivo,
@@ -204,32 +271,6 @@
             this.dgvCultivo.Size = new System.Drawing.Size(650, 215);
             this.dgvCultivo.TabIndex = 53;
             this.dgvCultivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
-            // 
-            // Cultivo
-            // 
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Plantación
-            // 
-            this.Plantación.HeaderText = "Fecha Plantado";
-            this.Plantación.Name = "Plantación";
-            // 
-            // Cosechación
-            // 
-            this.Cosechación.HeaderText = "Fecha Cosecha";
-            this.Cosechación.Name = "Cosechación";
-            // 
-            // Causa
-            // 
-            this.Causa.HeaderText = "Cantidad";
-            this.Causa.Name = "Causa";
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
             // 
             // txtBuscarUnCultivo
             // 
@@ -322,72 +363,36 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Nombre científico";
             // 
-            // imageListPlantas
+            // Cultivo
             // 
-            this.imageListPlantas.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListPlantas.ImageStream")));
-            this.imageListPlantas.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListPlantas.Images.SetKeyName(0, "MAÍZFINAL.jpg");
-            this.imageListPlantas.Images.SetKeyName(1, "SORGO.png");
-            this.imageListPlantas.Images.SetKeyName(2, "SOYA.jpg");
-            this.imageListPlantas.Images.SetKeyName(3, "CAÑA.jpg");
-            this.imageListPlantas.Images.SetKeyName(4, "CEBOLLA.png");
-            this.imageListPlantas.Images.SetKeyName(5, "SOYA2.jpg");
+            this.Cultivo.DataPropertyName = "Cultivo";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // dtpPlantado
+            // Plantación
             // 
-            this.dtpPlantado.Location = new System.Drawing.Point(334, 426);
-            this.dtpPlantado.Name = "dtpPlantado";
-            this.dtpPlantado.Size = new System.Drawing.Size(200, 20);
-            this.dtpPlantado.TabIndex = 57;
-            this.dtpPlantado.ValueChanged += new System.EventHandler(this.dtpPlantado_ValueChanged);
+            this.Plantación.DataPropertyName = "Fecha_Plantado";
+            this.Plantación.HeaderText = "Fecha Plantado";
+            this.Plantación.Name = "Plantación";
             // 
-            // label3
+            // Cosechación
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(330, 397);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 20);
-            this.label3.TabIndex = 58;
-            this.label3.Text = "Fecha de plantado:";
+            this.Cosechación.DataPropertyName = "Fecha_Cosecha";
+            this.Cosechación.HeaderText = "Fecha Cosecha";
+            this.Cosechación.Name = "Cosechación";
             // 
-            // label4
+            // Causa
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(330, 461);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(209, 20);
-            this.label4.TabIndex = 60;
-            this.label4.Text = "Fecha tentativa de cosecha:";
+            this.Causa.DataPropertyName = "Cantidad";
+            this.Causa.HeaderText = "Cantidad";
+            this.Causa.Name = "Causa";
             // 
-            // dtpCosecha
+            // Estado
             // 
-            this.dtpCosecha.Location = new System.Drawing.Point(334, 491);
-            this.dtpCosecha.Name = "dtpCosecha";
-            this.dtpCosecha.Size = new System.Drawing.Size(200, 20);
-            this.dtpCosecha.TabIndex = 59;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(330, 524);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 20);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "Cantidad";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(334, 550);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 62;
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
             // 
             // AdministrarCultivos2
             // 
@@ -425,11 +430,6 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblNombreCientifico;
         private MyPanel panelContenedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plantación;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cosechación;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Causa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.ComboBox cbPlanta;
         private System.Windows.Forms.ImageList imageListPlantas;
         private System.Windows.Forms.TextBox textBox1;
@@ -438,5 +438,10 @@
         private System.Windows.Forms.DateTimePicker dtpCosecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpPlantado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plantación;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cosechación;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Causa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

@@ -14,6 +14,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Net;
 using System.Globalization;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
@@ -145,9 +146,10 @@ namespace Capa_Presentacion
             fecha_hora = DateTime.Now;
             labelsDia = new Label[] { labelDiaHoyNombre, labelDia1, labelDia2, labelDia3, labelDia4 };
             labelsFecha = new Label[] { labelHoy, labelFecha1, labelFecha2 , labelFecha3 , labelFecha4 };
+
+            
+
         }
-
-
 
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
         public void AbrirFormEnPanel<Forms>() where Forms : Form, new()
@@ -183,7 +185,6 @@ namespace Capa_Presentacion
 
             }
         }
-
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
         {
             Form formulario = new Forms();
@@ -196,8 +197,6 @@ namespace Capa_Presentacion
             }
 
         }
-
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             try
@@ -228,8 +227,62 @@ namespace Capa_Presentacion
                 // Cambia el DateTime fecha_hora a un día después.
                 fecha_hora = fecha_hora.AddDays(1);
             }
+            MostrarInformacionClima();
         }
-        private void PonerFechas(Label lbl,DateTime datetime)
+
+        private void MostrarInformacionClima()
+        {
+            MostrarTemperaturaMaxima();
+            MostrarTemperaturaMinima();
+            MostrarPrecipitaciones();
+            MostrarDescripcionDia();
+        }
+
+        private void MostrarTemperaturaMaxima()
+        {
+            var maxTemperature = ScrapperCN.GetMaxTemperature();
+
+            labelHoyMax.Text = maxTemperature["dia1"];
+            labelMax1.Text = maxTemperature["dia2"];
+            labelMax2.Text = maxTemperature["dia3"];
+            labelMax3.Text = maxTemperature["dia4"];
+            labelMax4.Text = maxTemperature["dia5"];
+        }
+
+        private void MostrarTemperaturaMinima()
+        {
+            var minTemperature = ScrapperCN.GetMinTemperature();
+
+            labelHoyMin.Text = minTemperature["dia1"];
+            labelMin1.Text = minTemperature["dia2"];
+            labelMin2.Text = minTemperature["dia3"];
+            labelMin3.Text = minTemperature["dia4"];
+            labelMin4.Text = minTemperature["dia5"];
+        }
+
+        private void MostrarPrecipitaciones()
+        {
+            var precipitations = ScrapperCN.GetPrecipitation();
+
+            labelPrecipitacionHoy.Text = precipitations["dia1"];
+            labelPrecipitacion1.Text = precipitations["dia2"];
+            labelPrecipitacion2.Text = precipitations["dia3"];
+            labelPrecipitacion3.Text = precipitations["dia4"];
+            labelPrecipitacion4.Text = precipitations["dia5"];
+        }
+
+        private void MostrarDescripcionDia()
+        {
+            var descriptions = ScrapperCN.GetDescription();
+
+            foreach (var item in descriptions)
+            {
+                MessageBox.Show($"key: {item.Key}, value: {item.Value}");
+            }
+
+        }
+
+        private void PonerFechas(Label lbl, DateTime datetime)
         {
             lbl.Text = datetime.ToString("M");
         }
@@ -281,7 +334,6 @@ namespace Capa_Presentacion
                 }
             }
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             try
@@ -300,7 +352,6 @@ namespace Capa_Presentacion
         {
 
         }
-
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
@@ -312,7 +363,6 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<EstadisticasDePlagas>();
@@ -324,7 +374,6 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<AdministrarCultivos2>();
@@ -336,7 +385,6 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<GenerarReportes>();
@@ -348,7 +396,6 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void bunifuFlatButton10_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<ConfiguracionGeneral>();
@@ -360,17 +407,14 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void panelDerecho_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void lblEstado_Click(object sender, EventArgs e)
         {
 
         }
-
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
             CerrarFormEnPanel<AdministrarCultivos2>();
@@ -390,12 +434,10 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
         }
-
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void PrivilegioUsuario()
         {
             if (Program.cargo != "Admin")
@@ -403,12 +445,10 @@ namespace Capa_Presentacion
                 btnConfiguracionGeneral.Enabled = false;
             }
         }
-
         private void bunifuFlatButton10_Load(object sender, EventArgs e)
         {
 
         }
-
         async void GetRequestHora()
         {
             Cursor = Cursors.WaitCursor;
@@ -434,8 +474,6 @@ namespace Capa_Presentacion
             }
             Cursor = Cursors.Default;
         }
-
-
         async void GetRequestDia()
         {
             Cursor = Cursors.WaitCursor;
@@ -507,17 +545,11 @@ namespace Capa_Presentacion
                 }
             }
         }
-
-
         private void ObtenerDias ()
         {
             
 
         }
-        
-
-
-
         private void timerClima_Tick(object sender, EventArgs e)
         {
             if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
@@ -525,7 +557,6 @@ namespace Capa_Presentacion
                 //GetRequestHora();
             }
         }
-
         public Image vectorClima (String texto, int panel)
         {
             if (texto.Equals("Nublado") && panel == 0)
@@ -659,7 +690,6 @@ Nubes por la mañana / Sol por la tarde / Viento
 Tormentas aisladas / Viento
 */
         }
-
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<FromUsuarioABC>();
@@ -671,12 +701,10 @@ Tormentas aisladas / Viento
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             Datos_Atmosfericos datos = new Datos_Atmosfericos();

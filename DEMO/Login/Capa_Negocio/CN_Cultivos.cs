@@ -17,5 +17,9 @@ namespace Capa_Negocio
             tablaCultivos = _Cultivos.MostrarCultivos();
             return tablaCultivos;
         }
+        public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha, String Cantidad, String Estado)
+        {
+            _Cultivos.AgregarCultivo(Usuario_Cultivo, Cultivo, Fecha_Plantado, Fecha_Cosecha, Convert.ToString(Cantidad), Estado);
+        }
     }
 }

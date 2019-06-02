@@ -25,5 +25,25 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             return tablaCultivos;
         }
+        public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha,String Cantidad,String Estado)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "AgregarCultivos";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
+            comando.Parameters.AddWithValue("_Cultivo",Cultivo);
+            comando.Parameters.AddWithValue("_Fecha_Plantado",Fecha_Plantado);
+            comando.Parameters.AddWithValue("_Fecha_Cosecha",Fecha_Cosecha);
+            comando.Parameters.AddWithValue("_Cantidad",Cantidad);
+            comando.Parameters.AddWithValue("_Estado",Estado);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+        public void EliminarCultivo()
+        {
+
+        }
     }
 }

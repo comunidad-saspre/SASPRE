@@ -14,6 +14,7 @@ namespace Capa_Presentacion
 {
     public partial class AdministrarCultivos2 : Form
     {
+        private CN_Cultivos _Cultivo = new CN_Cultivos();
         public AdministrarCultivos2()
         {
             InitializeComponent();
@@ -75,7 +76,12 @@ namespace Capa_Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            AgregarCultivo();
+            MostrarCultivos();
+        }
+        private void AgregarCultivo()
+        {
+            _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text,null);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,6 +92,7 @@ namespace Capa_Presentacion
         private void AdministrarCultivos2_Load(object sender, EventArgs e)
         {
             cbPlanta.SelectedIndex = 0;
+            dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
         }
 
@@ -98,19 +105,19 @@ namespace Capa_Presentacion
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbPlanta.SelectedItem == "Sorgo")
+            if(cbPlanta.SelectedItem.ToString() == "Sorgo")
             {
                 picCultivo.Image = imageListPlantas.Images[1];
-            }else if(cbPlanta.SelectedItem == "Maíz")
+            }else if(cbPlanta.SelectedItem.ToString() == "Maíz")
             {
                 picCultivo.Image = imageListPlantas.Images[0];
-            }else if(cbPlanta.SelectedItem == "Soya")
+            }else if(cbPlanta.SelectedItem.ToString() == "Soya")
             {
                 picCultivo.Image = imageListPlantas.Images[2];
-            }else if(cbPlanta.SelectedItem == "Caña")
+            }else if(cbPlanta.SelectedItem.ToString() == "Caña")
             {
                 picCultivo.Image = imageListPlantas.Images[3];
-            }else if(cbPlanta.SelectedItem == "Cebolla")
+            }else if(cbPlanta.SelectedItem.ToString() == "Cebolla")
             {
                 picCultivo.Image = imageListPlantas.Images[4];
             }
@@ -137,8 +144,7 @@ namespace Capa_Presentacion
             {
                 e.Handled = false;
             }
-            else
-              if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso 
+            else if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso 
             {
                 e.Handled = false;
             }

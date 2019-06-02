@@ -72,7 +72,6 @@ namespace Capa_Presentacion
         {
             try
             {
-
                 if (!EsDireccionDeCorreoValida(txtCorreo.Text))
                     throw new Exception("InvalidMailAddressException.");
                 else

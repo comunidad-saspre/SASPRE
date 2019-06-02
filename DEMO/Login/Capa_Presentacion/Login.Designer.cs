@@ -202,6 +202,7 @@
             this.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.toolTip1.SetToolTip(this.txtContra, "Ingresa contraseña");
             this.txtContra.OnValueChanged += new System.EventHandler(this.txtContra_OnValueChanged);
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
             // btnIngresar
             // 

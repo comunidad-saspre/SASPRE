@@ -15,6 +15,7 @@ namespace Capa_Presentacion
     public partial class AdministrarCultivos2 : Form
     {
         private CN_Cultivos _Cultivo = new CN_Cultivos();
+        DataTable tablaCultivos;
         public AdministrarCultivos2()
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace Capa_Presentacion
         }
         private void AgregarCultivo()
         {
+
             _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text,null);
         }
 
@@ -94,13 +96,18 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
+            
         }
 
     private void MostrarCultivos()
         {
             CN_Cultivos _Cultivos = new CN_Cultivos();
-            var tablaCultivos = _Cultivos.MostrarCultivos();
+            tablaCultivos = _Cultivos.MostrarCultivos(Program.cargo,Program.nickname);
             dgvCultivo.DataSource = tablaCultivos;
+            if (Program.cargo != "Admin")
+            {
+                dgvCultivo.Columns["Usuario"].Visible = false;
+            }
         }
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +160,21 @@ namespace Capa_Presentacion
                 //el resto de teclas pulsadas se desactivan 
                 e.Handled = true;
             }
+        }
+
+        private void txtBuscarUnCultivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                
+            }
+        }
+
+        private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = tablaCultivos.DefaultView;
+            dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
+            dgvCultivo.DataSource = dv.ToTable();
         }
     }
 }

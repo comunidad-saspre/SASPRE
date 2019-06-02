@@ -14,11 +14,19 @@ namespace Capa_Datos
         MySqlDataReader leer;
         DataTable tablaCultivos = new DataTable();
         MySqlCommand comando;
-        public DataTable MostrarCultivos()
+        public DataTable MostrarCultivos(String cargo,String usuario)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarCultivosUsuario";
+            if(cargo == "Admin")
+            {
+                comando.CommandText = "MostrarCultivos";
+            }
+            else
+            {
+                comando.CommandText = "MostrarCultivosUsuario";
+                comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
+            }
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tablaCultivos.Load(leer);

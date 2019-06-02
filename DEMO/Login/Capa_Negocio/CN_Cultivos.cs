@@ -12,9 +12,9 @@ namespace Capa_Negocio
     {
         private CD_Cultivos _Cultivos = new CD_Cultivos();
         DataTable tablaCultivos = new DataTable();
-        public DataTable MostrarCultivos()
+        public DataTable MostrarCultivos(String cargo,String usuario)
         {
-            tablaCultivos = _Cultivos.MostrarCultivos();
+            tablaCultivos = _Cultivos.MostrarCultivos(cargo,usuario);
             return tablaCultivos;
         }
         public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha, String Cantidad, String Estado)

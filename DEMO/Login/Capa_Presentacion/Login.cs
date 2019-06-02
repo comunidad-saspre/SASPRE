@@ -145,7 +145,11 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            if(HayInternet() == true)
+            entrar();
+        }
+        private void entrar()
+        {
+            if (HayInternet() == true)
             {
                 try
                 {
@@ -183,7 +187,7 @@ namespace Capa_Presentacion
             }
             else
             {
-                MessageBox.Show("Compruebe su conexión a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -274,6 +278,14 @@ namespace Capa_Presentacion
         private void txtNickname_OnValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                entrar();
+            }
         }
     }
 }

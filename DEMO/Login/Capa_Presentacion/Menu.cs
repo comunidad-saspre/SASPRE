@@ -228,6 +228,7 @@ namespace Capa_Presentacion
                 // Cambia el DateTime fecha_hora a un día después.
                 fecha_hora = fecha_hora.AddDays(1);
             }
+            labelDiaHoyNombre.Text = "Hoy";
         }
         private void PonerFechas(Label lbl,DateTime datetime)
         {
@@ -400,7 +401,8 @@ namespace Capa_Presentacion
         {
             if (Program.cargo != "Admin")
             {
-                btnConfiguracionGeneral.Enabled = false;
+                btnConfiguracionGeneral.Visible = false;
+                btnAdministrarUsuarios.Visible = false;
             }
         }
 

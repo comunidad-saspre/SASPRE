@@ -1102,7 +1102,7 @@
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 457);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 351);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
@@ -1187,7 +1187,7 @@
             this.btnConfiguracionGeneral.IconVisible = true;
             this.btnConfiguracionGeneral.IconZoom = 60D;
             this.btnConfiguracionGeneral.IsTab = false;
-            this.btnConfiguracionGeneral.Location = new System.Drawing.Point(0, 347);
+            this.btnConfiguracionGeneral.Location = new System.Drawing.Point(0, 452);
             this.btnConfiguracionGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfiguracionGeneral.Name = "btnConfiguracionGeneral";
             this.btnConfiguracionGeneral.Normalcolor = System.Drawing.Color.Transparent;

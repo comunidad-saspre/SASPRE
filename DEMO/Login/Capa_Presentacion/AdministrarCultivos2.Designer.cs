@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministrarCultivos2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageListPlantas = new System.Windows.Forms.ImageList(this.components);
             this.panelContenedor = new Capa_Presentacion.MyPanel();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -244,20 +244,20 @@
             // 
             // dgvCultivo
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCultivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCultivo.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCultivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCultivo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCultivo,
@@ -308,9 +308,9 @@
             // Plantado
             // 
             this.Plantado.DataPropertyName = "Fecha_Plantado";
-            dataGridViewCellStyle11.Format = "D";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Plantado.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.Format = "D";
+            dataGridViewCellStyle15.NullValue = null;
+            this.Plantado.DefaultCellStyle = dataGridViewCellStyle15;
             this.Plantado.HeaderText = "Fecha Plantado";
             this.Plantado.Name = "Plantado";
             this.Plantado.ReadOnly = true;
@@ -318,9 +318,9 @@
             // Cosecha
             // 
             this.Cosecha.DataPropertyName = "Fecha_Cosecha";
-            dataGridViewCellStyle12.Format = "D";
-            dataGridViewCellStyle12.NullValue = null;
-            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.Format = "D";
+            dataGridViewCellStyle16.NullValue = null;
+            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle16;
             this.Cosecha.HeaderText = "Fecha Cosecha";
             this.Cosecha.Name = "Cosecha";
             this.Cosecha.ReadOnly = true;
@@ -383,7 +383,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(155, 34);
             this.btnEditar.TabIndex = 51;
-            this.btnEditar.Text = "Editar";
+            this.btnEditar.Text = "Eliminar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 

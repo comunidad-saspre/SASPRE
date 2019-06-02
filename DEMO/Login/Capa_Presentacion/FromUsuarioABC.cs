@@ -228,5 +228,10 @@ namespace Capa_Presentacion
         {
 
         }
+
+        private void dgvUsers_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

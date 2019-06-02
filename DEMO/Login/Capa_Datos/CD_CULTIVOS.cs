@@ -49,9 +49,16 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
-        public void EliminarCultivo()
+        public void EliminarCultivo(String IDCultivo)
         {
-
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EliminarCultivos";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_IDCultivo",IDCultivo);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
     }
 }

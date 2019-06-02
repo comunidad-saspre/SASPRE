@@ -163,16 +163,17 @@ namespace Capa_Presentacion
                     Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
                     if (Loguear.Read() == true)
                     {
-                        Application.Exit();
-                        th = new Thread(open);
-                        th.SetApartmentState(ApartmentState.STA);
-                        th.Start();
+                        Cursor.Current = Cursors.WaitCursor;
                         Program.nickname = txtNickname.Text;
                         Program.contraseña = txtContra.Text;
                         Program.cargo = Loguear["Cargo"].ToString();
                         Program.nombre = Loguear["Nombre"].ToString();
                         Program.apellidos = Loguear["Apellidos"].ToString();
                         Program.correo = Loguear["Correo"].ToString();
+                        Menu mn = new Menu();
+                        mn.Show();
+                        Cursor.Current = Cursors.Default;
+                        this.Hide();
                     }
                     else
                     {

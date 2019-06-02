@@ -212,7 +212,7 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            
             panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
             PrivilegioUsuario();
@@ -261,7 +261,7 @@ namespace Capa_Presentacion
         {
 
 
-            // if (!bunifuTransition1.IsCompleted) return;
+            //if (!bunifuTransition1.IsCompleted) return;
             if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
             {
                 if (!mnuExpanded)
@@ -299,9 +299,12 @@ namespace Capa_Presentacion
         Thread th;
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
+            Login log = new Login();
+            log.Show();
+            Cursor.Current = Cursors.Default;
+            this.Hide();
         }
-
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();

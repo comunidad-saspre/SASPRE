@@ -82,13 +82,23 @@ namespace Capa_Presentacion
         }
         private void AgregarCultivo()
         {
-
             _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text,null);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var op = DialogResult.Yes;
+            if (MessageBox.Show("¿Esta seguro de eliminar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == op)
+            {
+                EliminarCultivo();
+                MostrarCultivos();
+            }
+        }
+        private void EliminarCultivo()
+        {
 
+            String id = dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString();
+            _Cultivo.EliminarCultivo(id);
         }
 
         private void AdministrarCultivos2_Load(object sender, EventArgs e)

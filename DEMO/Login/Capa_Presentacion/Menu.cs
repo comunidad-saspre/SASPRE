@@ -287,7 +287,10 @@ namespace Capa_Presentacion
         {
             try
             {
-                Application.Exit();
+                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
             }
             catch (Exception ex)
             {

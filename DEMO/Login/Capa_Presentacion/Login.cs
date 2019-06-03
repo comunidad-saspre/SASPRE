@@ -140,7 +140,10 @@ namespace Capa_Presentacion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -223,10 +226,11 @@ namespace Capa_Presentacion
         {
             WebClient wc = new WebClient();
             String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
-            await Task.Run(() =>
-            {
-                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
-            });
+            //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
+            Cursor.Current = Cursors.WaitCursor;
+            await wc.DownloadFileTaskAsync(url,rutadirectorio);
+            Cursor.Current = Cursors.Default;
+            //Thread.Sleep(10000);
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()

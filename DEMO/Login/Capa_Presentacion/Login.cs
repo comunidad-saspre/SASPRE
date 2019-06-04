@@ -224,36 +224,26 @@ namespace Capa_Presentacion
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo()
         {
-            try
-            {
+            
                 WebClient wc = new WebClient();
                 String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
                 //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
                 Cursor.Current = Cursors.WaitCursor;
                 await wc.DownloadFileTaskAsync(url, rutadirectorio);
                 Cursor.Current = Cursors.Default;
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN LA DESCARGA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+          
             //Thread.Sleep(10000);
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()
         {
-            try
-            {
+           
                 string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
                 if (!Directory.Exists(ruta))
                 {
                     System.IO.Directory.CreateDirectory(ruta);
                 }
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL CREAR CARPETA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+          
         }
 
         private void txtContra_OnValueChanged(object sender, EventArgs e)
@@ -263,8 +253,7 @@ namespace Capa_Presentacion
 
         private void linklblcontrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try
-            {
+            
                 if (ConexionAInternet() == true)
                 {
                     Envio_Correo ec = new Envio_Correo();
@@ -274,11 +263,8 @@ namespace Capa_Presentacion
                 {
                     MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN LA CONEXION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
+          
         }
         private bool HayInternet()
         {

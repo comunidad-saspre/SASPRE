@@ -94,7 +94,8 @@ namespace Capa_Datos
             {
                 var fDate = GetFormattedDate(day, month, year);
                 var dayInfo = infoclima.Extract($"{fDate}120000", "");
-                DescripcionDia[$"dia{i}"] = dayInfo.Extract("wx: '", "', winds:").ToString();
+                DescripcionDia[$"dia{i}"] = dayInfo.Extract("symb: '", "', wx:").ToString(); // <- extrae symb
+                //DescripcionDia[$"dia{i}"] = dayInfo.Extract("wx: '", "', winds:").ToString(); <- extrae wx
 
                 day = date.AddDays(i).Day;
 

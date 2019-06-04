@@ -35,7 +35,7 @@ namespace Capa_Presentacion
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
 
-        Label[] labelsDia,labelsFecha;
+        Label[] labelsDia, labelsFecha;
 
         private const String MON = "Monday";
         private const String TUE = "Tuesday";
@@ -145,10 +145,7 @@ namespace Capa_Presentacion
             m_aeroEnabled = false;
             fecha_hora = DateTime.Now;
             labelsDia = new Label[] { labelDiaHoyNombre, labelDia1, labelDia2, labelDia3, labelDia4 };
-            labelsFecha = new Label[] { labelHoy, labelFecha1, labelFecha2 , labelFecha3 , labelFecha4 };
-
-            
-
+            labelsFecha = new Label[] { labelHoy, labelFecha1, labelFecha2, labelFecha3, labelFecha4 };
         }
 
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
@@ -242,43 +239,67 @@ namespace Capa_Presentacion
         {
             var maxTemperature = ScrapperCN.GetMaxTemperature();
 
-            labelHoyMax.Text = maxTemperature["dia1"];
-            labelMax1.Text = maxTemperature["dia2"];
-            labelMax2.Text = maxTemperature["dia3"];
-            labelMax3.Text = maxTemperature["dia4"];
-            labelMax4.Text = maxTemperature["dia5"];
+            labelHoyMax.Text = maxTemperature["dia1"] + "°C";
+            labelMax1.Text = maxTemperature["dia2"] + "°C";
+            labelMax2.Text = maxTemperature["dia3"] + "°C";
+            labelMax3.Text = maxTemperature["dia4"] + "°C";
+            labelMax4.Text = maxTemperature["dia5"] + "°C";
         }
 
         private void MostrarTemperaturaMinima()
         {
             var minTemperature = ScrapperCN.GetMinTemperature();
 
-            labelHoyMin.Text = minTemperature["dia1"];
-            labelMin1.Text = minTemperature["dia2"];
-            labelMin2.Text = minTemperature["dia3"];
-            labelMin3.Text = minTemperature["dia4"];
-            labelMin4.Text = minTemperature["dia5"];
+            labelHoyMin.Text = minTemperature["dia1"] + "°C";
+            labelMin1.Text = minTemperature["dia2"] + "°C";
+            labelMin2.Text = minTemperature["dia3"] + "°C";
+            labelMin3.Text = minTemperature["dia4"] + "°C";
+            labelMin4.Text = minTemperature["dia5"] + "°C";
         }
 
         private void MostrarPrecipitaciones()
         {
-            var precipitations = ScrapperCN.GetPrecipitation();
+            labelPrecipitacionHoy.Text = GetPrecipitationDayString(1);
+            labelPrecipitacion1.Text = GetPrecipitationDayString(2);
+            labelPrecipitacion2.Text = GetPrecipitationDayString(3);
+            labelPrecipitacion3.Text = GetPrecipitationDayString(4);
+            labelPrecipitacion4.Text = GetPrecipitationDayString(5);
+        }
 
-            labelPrecipitacionHoy.Text = precipitations["dia1"];
-            labelPrecipitacion1.Text = precipitations["dia2"];
-            labelPrecipitacion2.Text = precipitations["dia3"];
-            labelPrecipitacion3.Text = precipitations["dia4"];
-            labelPrecipitacion4.Text = precipitations["dia5"];
+        private string GetPrecipitationDayString(int day)
+        {
+            string result = "";
+
+            var precipitationsInformation = ScrapperCN.GetPrecipitation();
+
+            var precipitationDay = precipitationsInformation[$"dia{day}"];
+
+            if (precipitationDay.Contains('%'))
+            {
+                var precipitationDayInformation = precipitationDay.Split(' ');
+
+                var precipitationPercentageDay = precipitationDayInformation[0];
+                var precipitationMmDay = precipitationDayInformation[1];
+
+                result += precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
+
+                return result;
+            }
+
+            result += precipitationDay;
+
+            return result;
         }
 
         private void MostrarDescripcionDia()
         {
             var descriptions = ScrapperCN.GetDescription();
 
-            foreach (var item in descriptions)
-            {
-                MessageBox.Show($"key: {item.Key}, value: {item.Value}");
-            }
+            this.picClimaHoy.Image = vectorClima(descriptions["dia1"], 0);
+            this.picClima1.Image = vectorClima(descriptions["dia2"], 0);
+            this.picClima2.Image = vectorClima(descriptions["dia3"], 0);
+            this.picClima3.Image = vectorClima(descriptions["dia4"], 0);
+            this.picClima4.Image = vectorClima(descriptions["dia5"], 0);
 
         }
 
@@ -344,7 +365,7 @@ namespace Capa_Presentacion
             {
 
             }
-            
+
         }
 
         Thread th;
@@ -494,7 +515,8 @@ namespace Capa_Presentacion
                     {
                         if (info.CityId.Equals("MXTS2043") && DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString().Equals(DateTime.Now.ToLongDateString()))
                         {
-                            if (iteracion == 0) {
+                            if (iteracion == 0)
+                            {
                                 labelFechaCompletaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
                                 labelHoy.Text = DateTime.Now.ToString("m");
                                 labelHoyMax.Text = info.HiTempC + "°";
@@ -504,7 +526,8 @@ namespace Capa_Presentacion
                                 iteracion++;
                                 diasSiguientes = true;
                             }
-                        } else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
+                        }
+                        else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
                         {
                             if (iteracion == 1)
                             {
@@ -514,7 +537,8 @@ namespace Capa_Presentacion
                                 labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
                                 picClima1.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            } else if (iteracion == 2)
+                            }
+                            else if (iteracion == 2)
                             {
                                 labelFecha2.Text = DateTime.Now.ToString("m");
                                 labelFecha2Max.Text = info.HiTempC + "°";
@@ -522,7 +546,8 @@ namespace Capa_Presentacion
                                 labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
                                 picClima2.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            } else if (iteracion == 3)
+                            }
+                            else if (iteracion == 3)
                             {
                                 labelFecha3.Text = DateTime.Now.ToString("m");
                                 labelMax3.Text = info.HiTempC + "°";
@@ -530,7 +555,8 @@ namespace Capa_Presentacion
                                 labelPrecipitacion3.Text = info.ProbabilityOfPrecip + "%";
                                 picClima3.Image = vectorClima(info.SkyText, 0);
                                 iteracion++;
-                            } else if (iteracion == 4)
+                            }
+                            else if (iteracion == 4)
                             {
                                 labelFecha4.Text = DateTime.Now.ToString("m");
                                 labelFecha4Max.Text = info.HiTempC + "°";
@@ -545,9 +571,9 @@ namespace Capa_Presentacion
                 }
             }
         }
-        private void ObtenerDias ()
+        private void ObtenerDias()
         {
-            
+
 
         }
         private void timerClima_Tick(object sender, EventArgs e)
@@ -557,138 +583,125 @@ namespace Capa_Presentacion
                 //GetRequestHora();
             }
         }
-        public Image vectorClima (String texto, int panel)
+        public Image vectorClima(String texto, int panel)
         {
-            if (texto.Equals("Nublado") && panel == 0)
-            {
-                return Vectores.Images[11];
-            }else if (texto.Equals("Parcialmente nublado / Viento") && panel == 0) 
-            {
-                return Vectores.Images[15];
-            }
-            else if (texto.Equals("Parcialmente nublado") && panel == 0)
-            {
-                return Vectores.Images[15];
-            }
-            else if(texto.Equals("Aguaceros en la mañana") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }else if(texto.Equals("Soleado") && panel == 0)
-            {
-                return Vectores.Images[17];
-            }else if(texto.Equals("Nubes por la mañana / Sol por la tarde") && panel == 0)
-            {
-                return Vectores.Images[15];
-            }else if (texto.Equals("Lluvia en la mañana") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }else if (texto.Equals("Mayormente soleado / Viento") && panel == 0)
-            {
-                return Vectores.Images[17];
-            }else if (texto.Equals("Tormentas por la tarde") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }else if (texto.Equals("Tormentas aisladas") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Tormentas dispersas") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Tormentas") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Tormentas en la mañana") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Aguaceros por la tarde") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Aguaceros") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Algunos aguaceros") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Lluvia débil por la tarde") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Lluvia por la tarde") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Soleado / Viento") && panel == 0)
-            {
-                return Vectores.Images[17];
-            }
-            else if (texto.Equals("Aguaceros y tormentas") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Lluvia") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else if (texto.Equals("Nublado / Viento") && panel == 0)
-            {
-                return Vectores.Images[11];
-            }
-            else if (texto.Equals("Mayormente nublado/ Viento") && panel == 0)
-            {
-                return Vectores.Images[11];
-            }
-            else if (texto.Equals("Nubes por la mañana / Sol por la tarde / Viento") && panel == 0)
-            {
-                return Vectores.Images[15];
-            }
-            else if (texto.Equals("Tormentas aisladas / Viento") && panel == 0)
-            {
-                return Vectores.Images[2];
-            }
-            else
-            {
-                return null;
-            }
+
+            /*
+            Nublado --> d400
+            Parcialmente nublado --> d200
+            Soleado --> d000
+            Tormentas --> d440            
+            Lluvia débil por la tarde --> d310
+            Mayormente nublado/ Viento -->d300
+            Aguaceros --> 210
+            */
+
+            // Nublado --> d400
+            if (texto.Equals("d400") && panel == 0) return Vectores.Images[11];
+            else if (texto.Equals("Parcialmente nuboso, viento") && panel == 0) return Vectores.Images[15];
+
+            // Parcialmente nublado --> d200
+            else if (texto.Equals("d200") && panel == 0) return Vectores.Images[15];
+
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Aguaceros en la mañana") && panel == 0) return Vectores.Images[2];
+
+            // Soleado --> d000
+            else if (texto.Equals("d000") && panel == 0) return Vectores.Images[17];
             
-/*
-Nublado
-Parcialmente nublado / Viento
-Parcialmente nublado
-Aguaceros en la mañana
-Soleado
-Nubes por la mañana / Sol por la tarde
-Lluvia en la mañana
-Mayormente soleado / Viento
-Tormentas por la tarde
-Tormentas aisladas
-Tormentas dispersas
-Tormentas
-Tormentas en la mañana
-Aguaceros por la tarde
-Aguaceros
-Algunos aguaceros
-Lluvia débil por la tarde
-Lluvia por la tarde
-Aguaceros y tormentas por la tarde
-Soleado / Viento
-Aguaceros y tormentas
-Lluvia
-Nublado / Viento
-Mayormente nublado/ Viento
-Nubes por la mañana / Sol por la tarde / Viento
-Tormentas aisladas / Viento
-*/
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Nubes por la mañana / Sol por la tarde") && panel == 0) return Vectores.Images[15];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Lluvia en la mañana") && panel == 0) return Vectores.Images[2];
+
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Mayormente soleado / Viento") && panel == 0) return Vectores.Images[17];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Tormentas por la tarde") && panel == 0) return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Tormentas aisladas") && panel == 0) return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Tormentas dispersas") && panel == 0)  return Vectores.Images[2];
+            
+            // Tormentas --> d440
+            else if (texto.Equals("d440") && panel == 0)  return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Tormentas en la mañana") && panel == 0)  return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Aguaceros por la tarde") && panel == 0)  return Vectores.Images[2];
+
+            // Aguaceros --> d210
+            else if (texto.Equals("d210") && panel == 0)  return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Algunos aguaceros") && panel == 0)  return Vectores.Images[2];
+
+            // Lluvia débil por la tarde --> d310
+            else if (texto.Equals("d310") && panel == 0)  return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Lluvia por la tarde") && panel == 0) return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)  return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Soleado / Viento") && panel == 0)  return Vectores.Images[17];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Aguaceros y tormentas") && panel == 0) return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Lluvia") && panel == 0) return Vectores.Images[2];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Nublado / Viento") && panel == 0) return Vectores.Images[11];
+            
+            // Mayormente nublado/ Viento --> d300
+            else if (texto.Equals("d300") && panel == 0) return Vectores.Images[11];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Nubes por la mañana / Sol por la tarde / Viento") && panel == 0)return Vectores.Images[15];
+            
+            // pendiente de descubrir como se representa en la pagina de meteored.
+            else if (texto.Equals("Tormentas aisladas / Viento") && panel == 0) return Vectores.Images[2];
+            
+            else return null;
+
+            /*
+            Nublado --> d400
+            Parcialmente nublado / Viento
+            Parcialmente nublado --> d200
+            Aguaceros en la mañana
+            Soleado --> d000
+            Nubes por la mañana / Sol por la tarde
+            Lluvia en la mañana
+            Mayormente soleado / Viento
+            Tormentas por la tarde
+            Tormentas aisladas
+            Tormentas dispersas
+            Tormentas --> d440
+            Tormentas en la mañana
+            Aguaceros por la tarde
+            Aguaceros --> 210
+            Algunos aguaceros 
+            Lluvia débil por la tarde --> d310
+            Lluvia por la tarde
+            Aguaceros y tormentas por la tarde
+            Soleado / Viento
+            Aguaceros y tormentas
+            Lluvia
+            Nublado / Viento
+            Mayormente nublado/ Viento -->d300
+            Nubes por la mañana / Sol por la tarde / Viento
+            Tormentas aisladas / Viento
+            */
         }
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {
@@ -709,7 +722,7 @@ Tormentas aisladas / Viento
         {
             Datos_Atmosfericos datos = new Datos_Atmosfericos();
             datos.Visible = true;
-          
+
         }
     }
 }

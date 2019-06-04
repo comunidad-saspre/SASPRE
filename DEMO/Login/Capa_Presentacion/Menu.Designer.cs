@@ -87,8 +87,6 @@
             this.lblmax4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacionHoy = new System.Windows.Forms.Label();
-            this.labelMinHoy = new System.Windows.Forms.Label();
-            this.labelMaxHoy = new System.Windows.Forms.Label();
             this.picClimaHoy = new System.Windows.Forms.PictureBox();
             this.labelHoyPrecipitacion = new System.Windows.Forms.Label();
             this.labelHoyMin = new System.Windows.Forms.Label();
@@ -800,8 +798,6 @@
             // 
             this.myPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(144)))), ((int)(((byte)(64)))));
             this.myPanel3.Controls.Add(this.labelPrecipitacionHoy);
-            this.myPanel3.Controls.Add(this.labelMinHoy);
-            this.myPanel3.Controls.Add(this.labelMaxHoy);
             this.myPanel3.Controls.Add(this.picClimaHoy);
             this.myPanel3.Controls.Add(this.labelHoyPrecipitacion);
             this.myPanel3.Controls.Add(this.labelHoyMin);
@@ -825,30 +821,6 @@
             this.labelPrecipitacionHoy.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacionHoy.TabIndex = 37;
             this.labelPrecipitacionHoy.Text = "0.3 mm";
-            // 
-            // labelMinHoy
-            // 
-            this.labelMinHoy.AutoSize = true;
-            this.labelMinHoy.BackColor = System.Drawing.Color.Transparent;
-            this.labelMinHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinHoy.ForeColor = System.Drawing.Color.White;
-            this.labelMinHoy.Location = new System.Drawing.Point(85, 235);
-            this.labelMinHoy.Name = "labelMinHoy";
-            this.labelMinHoy.Size = new System.Drawing.Size(32, 20);
-            this.labelMinHoy.TabIndex = 36;
-            this.labelMinHoy.Text = "14°";
-            // 
-            // labelMaxHoy
-            // 
-            this.labelMaxHoy.AutoSize = true;
-            this.labelMaxHoy.BackColor = System.Drawing.Color.Transparent;
-            this.labelMaxHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaxHoy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(25)))), ((int)(((byte)(0)))));
-            this.labelMaxHoy.Location = new System.Drawing.Point(44, 235);
-            this.labelMaxHoy.Name = "labelMaxHoy";
-            this.labelMaxHoy.Size = new System.Drawing.Size(32, 20);
-            this.labelMaxHoy.TabIndex = 35;
-            this.labelMaxHoy.Text = "29°";
             // 
             // picClimaHoy
             // 
@@ -1470,8 +1442,6 @@
         private MyPanel myPanel4;
         private System.Windows.Forms.Label lblsensacion;
         private System.Windows.Forms.Label labelPrecipitacionHoy;
-        private System.Windows.Forms.Label labelMinHoy;
-        private System.Windows.Forms.Label labelMaxHoy;
         private System.Windows.Forms.Label labelPrecipitacion1;
         private System.Windows.Forms.Label labelMin1;
         private System.Windows.Forms.Label labelMax1;

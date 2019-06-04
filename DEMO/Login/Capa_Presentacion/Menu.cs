@@ -269,6 +269,7 @@ namespace Capa_Presentacion
         private string GetPrecipitationDayString(int day)
         {
             string result = "";
+            var gap = "   ";
 
             var precipitationsInformation = ScrapperCN.GetPrecipitation();
 
@@ -281,7 +282,7 @@ namespace Capa_Presentacion
                 var precipitationPercentageDay = precipitationDayInformation[0];
                 var precipitationMmDay = precipitationDayInformation[1];
 
-                result += precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
+                result += gap + precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
 
                 return result;
             }

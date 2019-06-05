@@ -36,7 +36,6 @@ namespace Capa_Presentacion
             //crear_carpeta();
             //Guardar informacion
             //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
-
             leercsv(rutadirectorio);
         }
         //Metodo para descargar archivo de datos atmosfericos

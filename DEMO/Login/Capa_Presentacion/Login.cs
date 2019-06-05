@@ -155,13 +155,20 @@ namespace Capa_Presentacion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            if(HayInternet() == true)
-            {
+            entrar();
+        }
+        private void entrar()
+        {
+            //if (HayInternet() == true)
+            //{
                 try
                 {
                     rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
@@ -174,16 +181,25 @@ namespace Capa_Presentacion
                     Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
                     if (Loguear.Read() == true)
                     {
-                        Application.Exit();
-                        th = new Thread(open);
-                        th.SetApartmentState(ApartmentState.STA);
-                        th.Start();
+                        if(HayInternet() == true)
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Cursor.Current = Cursors.WaitCursor;
                         Program.nickname = txtNickname.Text;
                         Program.contraseña = txtContra.Text;
                         Program.cargo = Loguear["Cargo"].ToString();
                         Program.nombre = Loguear["Nombre"].ToString();
                         Program.apellidos = Loguear["Apellidos"].ToString();
                         Program.correo = Loguear["Correo"].ToString();
+                        Menu mn = new Menu();
+                        mn.Show();
+                        Cursor.Current = Cursors.Default;
+                        this.Hide();
                     }
                     else
                     {
@@ -195,11 +211,9 @@ namespace Capa_Presentacion
                 {
                     MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Compruebe su conexión a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            //} else {
+            //    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         public bool ConexionAInternet()
@@ -215,7 +229,7 @@ namespace Capa_Presentacion
         {
             Application.Run(new Menu());
         }
-
+    
         private void Login_Load(object sender, EventArgs e)
         {
             if(HayInternet() == true)
@@ -231,19 +245,20 @@ namespace Capa_Presentacion
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo()
         {
-            try
-            {
+            try {
                 WebClient wc = new WebClient();
                 String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
-                await Task.Run(() =>
-                {
-                    wc.DownloadFileAsync(new Uri(url), rutadirectorio);
-                });
+                //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
+                Cursor.Current = Cursors.WaitCursor;
+                await wc.DownloadFileTaskAsync(url, rutadirectorio);
+                Cursor.Current = Cursors.Default;
+                //Thread.Sleep(10000);
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN LA DESCARGA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error con la descarga de un archivo, compruebe su conexion a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+            
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()
@@ -269,16 +284,18 @@ namespace Capa_Presentacion
 
         private void linklblcontrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(ConexionAInternet() == true)
-            {
-                Envio_Correo ec = new Envio_Correo();
-                ec.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             
+                if (ConexionAInternet() == true)
+                {
+                    Envio_Correo ec = new Envio_Correo();
+                    ec.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+          
         }
         private bool HayInternet()
         {
@@ -302,6 +319,14 @@ namespace Capa_Presentacion
         private void txtNickname_OnValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                entrar();
+            }
         }
         
     }

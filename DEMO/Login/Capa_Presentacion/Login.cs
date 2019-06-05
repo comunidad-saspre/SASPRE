@@ -255,7 +255,7 @@ namespace Capa_Presentacion
                 //Thread.Sleep(10000);
             }
             catch (Exception ex)
-            {
+            { 
                 MessageBox.Show("Ha ocurrido un error con la descarga de un archivo, compruebe su conexion a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             

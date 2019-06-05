@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Capa_Datos
 {
@@ -16,49 +17,70 @@ namespace Capa_Datos
         MySqlCommand comando;
         public DataTable MostrarCultivos(String cargo,String usuario)
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            if(cargo == "Admin")
+            try
             {
-                comando.CommandText = "MostrarCultivos";
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                if (cargo == "Admin")
+                {
+                    comando.CommandText = "MostrarCultivos";
+                }
+                else
+                {
+                    comando.CommandText = "MostrarCultivosUsuario";
+                    comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
+                }
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tablaCultivos.Load(leer);
+                conexion.CerrarConexion();
             }
-            else
+            catch (Exception )
             {
-                comando.CommandText = "MostrarCultivosUsuario";
-                comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
+                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tablaCultivos.Load(leer);
-            conexion.CerrarConexion();
             return tablaCultivos;
         }
         public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha,String Cantidad,String Estado)
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "AgregarCultivos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
-            comando.Parameters.AddWithValue("_Cultivo",Cultivo);
-            comando.Parameters.AddWithValue("_Fecha_Plantado",Fecha_Plantado);
-            comando.Parameters.AddWithValue("_Fecha_Cosecha",Fecha_Cosecha);
-            comando.Parameters.AddWithValue("_Cantidad",Cantidad);
-            comando.Parameters.AddWithValue("_Estado",Estado);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "AgregarCultivos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
+                comando.Parameters.AddWithValue("_Cultivo", Cultivo);
+                comando.Parameters.AddWithValue("_Fecha_Plantado", Fecha_Plantado);
+                comando.Parameters.AddWithValue("_Fecha_Cosecha", Fecha_Cosecha);
+                comando.Parameters.AddWithValue("_Cantidad", Cantidad);
+                comando.Parameters.AddWithValue("_Estado", Estado);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL AGREGAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         public void EliminarCultivo(String IDCultivo)
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EliminarCultivos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_IDCultivo",IDCultivo);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "EliminarCultivos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception  )
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ELIMINAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

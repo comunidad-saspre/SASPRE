@@ -50,7 +50,7 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);
                 conexion.CerrarConexion();
-                
+                 
             }
             catch (Exception )
             {

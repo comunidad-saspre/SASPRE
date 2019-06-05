@@ -152,8 +152,8 @@ namespace Capa_Presentacion
         }
         private void entrar()
         {
-            if (HayInternet() == true)
-            {
+            //if (HayInternet() == true)
+            //{
                 try
                 {
                     rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
@@ -166,6 +166,14 @@ namespace Capa_Presentacion
                     Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
                     if (Loguear.Read() == true)
                     {
+                        if(HayInternet() == true)
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         Cursor.Current = Cursors.WaitCursor;
                         Program.nickname = txtNickname.Text;
                         Program.contraseña = txtContra.Text;
@@ -188,11 +196,9 @@ namespace Capa_Presentacion
                 {
                     MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //} else {
+            //    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         public bool ConexionAInternet()
@@ -224,13 +230,20 @@ namespace Capa_Presentacion
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo()
         {
-            WebClient wc = new WebClient();
-            String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
-            //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
-            Cursor.Current = Cursors.WaitCursor;
-            await wc.DownloadFileTaskAsync(url,rutadirectorio);
-            Cursor.Current = Cursors.Default;
-            //Thread.Sleep(10000);
+            try {
+                WebClient wc = new WebClient();
+                String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
+                //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
+                Cursor.Current = Cursors.WaitCursor;
+                await wc.DownloadFileTaskAsync(url, rutadirectorio);
+                Cursor.Current = Cursors.Default;
+                //Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error con la descarga de un archivo, compruebe su conexion a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()

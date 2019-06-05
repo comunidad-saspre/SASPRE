@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Presentacion;
 using Capa_Negocio;
+using Microsoft.VisualBasic;
 
 namespace Capa_Presentacion
 {
     public partial class AdministrarCultivos2 : Form
     {
         private CN_Cultivos _Cultivo = new CN_Cultivos();
+        private CN_Cosechas _Cosechas = new CN_Cosechas();
         DataTable tablaCultivos;
+
         public AdministrarCultivos2()
         {
             InitializeComponent();
@@ -73,32 +76,70 @@ namespace Capa_Presentacion
             }
 
         }
-
+        public void limpiar()
+        {
+            txtCantidad.Clear();
+            dtpPlantado.Value = DateTime.Now;
+            dtpCosecha.Value = DateTime.Now;
+            cbPlanta.SelectedIndex = 0;
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AgregarCultivo();
-            MostrarCultivos();
+            if(txtCantidad.Text != "")
+            {
+                if(Convert.ToInt32(txtCantidad.Text) != 0)
+                {
+                    AgregarCultivo();
+                    MostrarCultivos();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("¡Debe ingresar una cantidad mayor a 0!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("¡Debe ingresar una cantidad!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
         private void AgregarCultivo()
         {
-            _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text,null);
+            if(Convert.ToInt32(txtCantidad.Text) == 0)
+            {
+                MessageBox.Show("¡No puede ingresar esta cantidad!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text, null);
+                MessageBox.Show("¡Cultivo agregado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var op = DialogResult.Yes;
-            if (MessageBox.Show("¿Esta seguro de eliminar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == op)
+            if(dgvCultivo.Rows.Count == 0)
             {
-                EliminarCultivo();
-                MostrarCultivos();
+                MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var op = DialogResult.Yes;
+                if (MessageBox.Show("¿Esta seguro de eliminar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == op)
+                {
+                    EliminarCultivo();
+                    MostrarCultivos();
+                    MessageBox.Show("¡Cultivo eliminado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         private void EliminarCultivo()
         {
-
-            String id = dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString();
-            _Cultivo.EliminarCultivo(id);
+                String id = dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString();
+                _Cultivo.EliminarCultivo(id);
         }
 
         private void AdministrarCultivos2_Load(object sender, EventArgs e)
@@ -106,13 +147,13 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-            
+
         }
 
-    private void MostrarCultivos()
+        private void MostrarCultivos()
         {
             CN_Cultivos _Cultivos = new CN_Cultivos();
-            tablaCultivos = _Cultivos.MostrarCultivos(Program.cargo,Program.nickname);
+            tablaCultivos = _Cultivos.MostrarCultivos(Program.cargo, Program.nickname);
             dgvCultivo.DataSource = tablaCultivos;
             if (Program.cargo != "Admin")
             {
@@ -122,19 +163,19 @@ namespace Capa_Presentacion
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbPlanta.SelectedItem.ToString() == "Sorgo")
+            if (cbPlanta.SelectedItem.ToString() == "Sorgo")
             {
                 picCultivo.Image = imageListPlantas.Images[1];
-            }else if(cbPlanta.SelectedItem.ToString() == "Maíz")
+            } else if (cbPlanta.SelectedItem.ToString() == "Maíz")
             {
                 picCultivo.Image = imageListPlantas.Images[0];
-            }else if(cbPlanta.SelectedItem.ToString() == "Soya")
+            } else if (cbPlanta.SelectedItem.ToString() == "Soya")
             {
                 picCultivo.Image = imageListPlantas.Images[2];
-            }else if(cbPlanta.SelectedItem.ToString() == "Caña")
+            } else if (cbPlanta.SelectedItem.ToString() == "Caña")
             {
                 picCultivo.Image = imageListPlantas.Images[3];
-            }else if(cbPlanta.SelectedItem.ToString() == "Cebolla")
+            } else if (cbPlanta.SelectedItem.ToString() == "Cebolla")
             {
                 picCultivo.Image = imageListPlantas.Images[4];
             }
@@ -174,9 +215,9 @@ namespace Capa_Presentacion
 
         private void txtBuscarUnCultivo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if (e.KeyChar == (char)13)
             {
-                
+
             }
         }
 
@@ -185,6 +226,76 @@ namespace Capa_Presentacion
             DataView dv = tablaCultivos.DefaultView;
             dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
             dgvCultivo.DataSource = dv.ToTable();
+        }
+
+        private void btnCosechar_Click(object sender, EventArgs e)
+        {
+            if (dgvCultivo.Rows.Count == 0)
+            {
+                MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show("¿Está seguro de cosechar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    String Cantidad;
+                    Cantidad = Interaction.InputBox("Ingrese cantidad de cosechados", "Cantidad");
+                    if (saberSiEsNumero(Cantidad) == false)
+                    {
+                        MessageBox.Show("¡No es un numero el que se ingresó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(Cantidad) == 0 || Convert.ToInt32(Cantidad) < 0 || Convert.ToInt32(Cantidad) > Convert.ToInt32(dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString()))
+                        {
+                            MessageBox.Show("¡Error con la cantidad!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            AgregarCosecha(Cantidad);
+                            EliminarCultivo();
+                            MostrarCultivos();
+                            MessageBox.Show("¡Cultivo cosechado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+        }
+
+        private Boolean saberSiEsNumero(String numero)
+        {
+            try
+            {
+                int n = Convert.ToInt32(numero);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private void AgregarCosecha(String Cantidad)
+        {
+            DateTime fechaplantado;
+            String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
+            
+                    Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
+                    Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
+                    fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
+                    fechacosecha = DateTime.Now.ToString("yy-MM-dd");
+                    //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
+                    _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
+            
+            
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if(dgvCultivo.Rows.Count == 0)
+            {
+                MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

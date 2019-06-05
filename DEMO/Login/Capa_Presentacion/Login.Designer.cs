@@ -166,7 +166,7 @@
             this.txtNickname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtNickname.ForeColor = System.Drawing.Color.Silver;
             this.txtNickname.HintForeColor = System.Drawing.Color.Silver;
-            this.txtNickname.HintText = "Correo@Ejemplo.com";
+            this.txtNickname.HintText = "Usuario";
             this.txtNickname.isPassword = false;
             this.txtNickname.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.txtNickname.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
@@ -178,7 +178,7 @@
             this.txtNickname.Size = new System.Drawing.Size(209, 30);
             this.txtNickname.TabIndex = 6;
             this.txtNickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.toolTip1.SetToolTip(this.txtNickname, "Ingresa correo");
+            this.toolTip1.SetToolTip(this.txtNickname, "Ingresa usuario");
             this.txtNickname.OnValueChanged += new System.EventHandler(this.txtNickname_OnValueChanged);
             // 
             // txtContra

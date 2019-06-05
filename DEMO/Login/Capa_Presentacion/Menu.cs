@@ -259,27 +259,32 @@ namespace Capa_Presentacion
         bool mnuExpanded = false;
         private void MouseDetect_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-
-
-            //if (!bunifuTransition1.IsCompleted) return;
-            if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            try
             {
-                if (!mnuExpanded)
+                //if (!bunifuTransition1.IsCompleted) return;
+                if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
                 {
-                    mnuExpanded = true;
-                    myPanel2.Width = 250;
+                    if (!mnuExpanded)
+                    {
+                        mnuExpanded = true;
+                        myPanel2.Width = 250;
+                    }
+                }
+                else
+                {
+                    if (mnuExpanded)
+                    {
+                        mnuExpanded = false;
+                        //   myPanel2.Visible = false;
+                        myPanel2.Width = 45;
+                        myPanel2.Visible = true;
+                        // bunifuTransition1.ShowSync(myPanel2);
+                    }
                 }
             }
-            else
+            catch(Exception ex)
             {
-                if (mnuExpanded)
-                {
-                    mnuExpanded = false;
-                    //   myPanel2.Visible = false;
-                    myPanel2.Width = 45;
-                    myPanel2.Visible = true;
-                    // bunifuTransition1.ShowSync(myPanel2);
-                }
+
             }
         }
 

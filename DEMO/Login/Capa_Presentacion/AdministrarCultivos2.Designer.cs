@@ -30,12 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministrarCultivos2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageListPlantas = new System.Windows.Forms.ImageList(this.components);
             this.panelContenedor = new Capa_Presentacion.MyPanel();
+            this.btnCalcularEstado = new System.Windows.Forms.Button();
+            this.btnCosechar = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -82,6 +85,9 @@
             // 
             // panelContenedor
             // 
+            this.panelContenedor.Controls.Add(this.btnCalcularEstado);
+            this.panelContenedor.Controls.Add(this.btnCosechar);
+            this.panelContenedor.Controls.Add(this.btnExportar);
             this.panelContenedor.Controls.Add(this.txtCantidad);
             this.panelContenedor.Controls.Add(this.label5);
             this.panelContenedor.Controls.Add(this.label4);
@@ -108,6 +114,47 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(985, 720);
             this.panelContenedor.TabIndex = 56;
+            // 
+            // btnCalcularEstado
+            // 
+            this.btnCalcularEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCalcularEstado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcularEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalcularEstado.ForeColor = System.Drawing.Color.White;
+            this.btnCalcularEstado.Location = new System.Drawing.Point(537, 369);
+            this.btnCalcularEstado.Name = "btnCalcularEstado";
+            this.btnCalcularEstado.Size = new System.Drawing.Size(155, 34);
+            this.btnCalcularEstado.TabIndex = 65;
+            this.btnCalcularEstado.Text = "Calcular estado";
+            this.btnCalcularEstado.UseVisualStyleBackColor = false;
+            // 
+            // btnCosechar
+            // 
+            this.btnCosechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCosechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCosechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCosechar.ForeColor = System.Drawing.Color.White;
+            this.btnCosechar.Location = new System.Drawing.Point(537, 329);
+            this.btnCosechar.Name = "btnCosechar";
+            this.btnCosechar.Size = new System.Drawing.Size(155, 34);
+            this.btnCosechar.TabIndex = 64;
+            this.btnCosechar.Text = "Cosechar";
+            this.btnCosechar.UseVisualStyleBackColor = false;
+            this.btnCosechar.Click += new System.EventHandler(this.btnCosechar_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Location = new System.Drawing.Point(537, 52);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(155, 34);
+            this.btnExportar.TabIndex = 63;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // txtCantidad
             // 
@@ -244,20 +291,21 @@
             // 
             // dgvCultivo
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvCultivo.AllowUserToAddRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCultivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCultivo.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCultivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCultivo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCultivo,
@@ -308,9 +356,9 @@
             // Plantado
             // 
             this.Plantado.DataPropertyName = "Fecha_Plantado";
-            dataGridViewCellStyle15.Format = "D";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Plantado.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Format = "D";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Plantado.DefaultCellStyle = dataGridViewCellStyle7;
             this.Plantado.HeaderText = "Fecha Plantado";
             this.Plantado.Name = "Plantado";
             this.Plantado.ReadOnly = true;
@@ -318,9 +366,9 @@
             // Cosecha
             // 
             this.Cosecha.DataPropertyName = "Fecha_Cosecha";
-            dataGridViewCellStyle16.Format = "D";
-            dataGridViewCellStyle16.NullValue = null;
-            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Format = "D";
+            dataGridViewCellStyle8.NullValue = null;
+            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle8;
             this.Cosecha.HeaderText = "Fecha Cosecha";
             this.Cosecha.Name = "Cosecha";
             this.Cosecha.ReadOnly = true;
@@ -343,7 +391,7 @@
             // 
             this.txtBuscarUnCultivo.Location = new System.Drawing.Point(215, 66);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
-            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(477, 20);
+            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(301, 20);
             this.txtBuscarUnCultivo.TabIndex = 36;
             this.txtBuscarUnCultivo.TextChanged += new System.EventHandler(this.txtBuscarUnCultivo_TextChanged);
             this.txtBuscarUnCultivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarUnCultivo_KeyPress);
@@ -483,5 +531,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button btnCalcularEstado;
+        private System.Windows.Forms.Button btnCosechar;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

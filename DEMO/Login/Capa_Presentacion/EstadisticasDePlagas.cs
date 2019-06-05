@@ -16,5 +16,10 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
         }
+
+        private void EstadisticasDePlagas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

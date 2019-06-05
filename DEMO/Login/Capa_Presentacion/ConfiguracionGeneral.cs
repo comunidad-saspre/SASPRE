@@ -21,36 +21,40 @@ namespace Capa_Presentacion
 
         private void AbrirFormEnPanel<Forms>() where Forms : Form, new()
         {
-            Form formulario;
-            formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
-
-            //si el formulario/instancia no existe, creamos nueva instancia y mostramos
-            if (formulario == null)
+            try
             {
-                formulario = new Forms();
-                formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
-                panelContenedor.Controls.Add(formulario);
-                panelContenedor.Tag = formulario;
-                formulario.Show();
-                formulario.BringToFront();
-                formulario.Opacity = .5;
-                //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
-            }
-            else
-            {
+                Form formulario;
+                formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
 
-                //si la Formulario/instancia existe, lo traemos a frente
-                formulario.BringToFront();
-
-                //Si la instancia esta minimizada mostramos
-                if (formulario.WindowState == FormWindowState.Minimized)
+                //si el formulario/instancia no existe, creamos nueva instancia y mostramos
+                if (formulario == null)
                 {
-                    formulario.WindowState = FormWindowState.Normal;
+                    formulario = new Forms();
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    panelContenedor.Controls.Add(formulario);
+                    panelContenedor.Tag = formulario;
+                    formulario.Show();
+                    formulario.BringToFront();
+                    formulario.Opacity = .5;
+                    //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
                 }
+                else
+                {
 
+                    //si la Formulario/instancia existe, lo traemos a frente
+                    formulario.BringToFront();
+
+                    //Si la instancia esta minimizada mostramos
+                    if (formulario.WindowState == FormWindowState.Minimized)
+                    {
+                        formulario.WindowState = FormWindowState.Normal;
+                    }
+
+                }
             }
+            catch (Exception a) { MessageBox.Show("ADVERTENCIA", "ERROR EN CONFIGURACION GENERAL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()

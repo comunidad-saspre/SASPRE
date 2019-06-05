@@ -52,22 +52,26 @@ namespace Capa_Presentacion
 
         private void EnviarCorreo(string fuente, string contraFuente, string destino, string mensaje)
         {
-            var correo = new System.Net.Mail.MailMessage();
-            correo.From = new System.Net.Mail.MailAddress(fuente);
-            correo.To.Add(destino);
-            correo.Subject = "Recuperacion de contraseña";
-            correo.Body = mensaje;
-            correo.IsBodyHtml = false;
-            correo.Priority = System.Net.Mail.MailPriority.Normal;
+            try
+            {
+                var correo = new System.Net.Mail.MailMessage();
+                correo.From = new System.Net.Mail.MailAddress(fuente);
+                correo.To.Add(destino);
+                correo.Subject = "Recuperacion de contraseña";
+                correo.Body = mensaje;
+                correo.IsBodyHtml = false;
+                correo.Priority = System.Net.Mail.MailPriority.Normal;
 
-            var smtp = new System.Net.Mail.SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential(fuente, contraFuente);
+                var smtp = new System.Net.Mail.SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential(fuente, contraFuente);
 
-            smtp.Send(correo);
-
+                smtp.Send(correo);
+            } catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ENVIAR CORREO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
 
@@ -85,5 +89,9 @@ namespace Capa_Presentacion
             }
         }
 
+        private void Envio_Correo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

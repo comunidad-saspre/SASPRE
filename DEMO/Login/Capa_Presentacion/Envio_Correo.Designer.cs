@@ -86,6 +86,7 @@
             this.Controls.Add(this.txtCorreo);
             this.Name = "Envio_Correo";
             this.Text = "Envio_Correo";
+            this.Load += new System.EventHandler(this.Envio_Correo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

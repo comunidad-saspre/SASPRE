@@ -227,6 +227,7 @@
             this.dgvUsers.TabIndex = 63;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick_1);
             // 
             // btnEliminar
             // 
@@ -276,6 +277,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(910, 207);
             this.panel1.TabIndex = 91;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtCargo
             // 

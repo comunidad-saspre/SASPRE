@@ -27,36 +27,48 @@ namespace Capa_Presentacion
         {
             for (int i = 1; i < 31; i++)
             {
-                dias.Items.Add(i+" días");
+                dias.Items.Add(i + " días");
             }
             dias.SelectedIndex = 6;
-          
+
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-           //crear carpeta
+            //crear carpeta
             //crear_carpeta();
             //Guardar informacion
             //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
-
             leercsv(rutadirectorio);
         }
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo(String url)
         {
-            WebClient wc = new WebClient();
-            await Task.Run(() =>
+            try
             {
-                wc.DownloadFileAsync(new Uri(url), rutadirectorio);
-            });
+                WebClient wc = new WebClient();
+                await Task.Run(() =>
+                {
+                    wc.DownloadFileAsync(new Uri(url), rutadirectorio);
+                });
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN LA DESCARGAR DATOS ATMOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()
         {
-            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
-            if (!Directory.Exists(ruta))
+            try
             {
-                System.IO.Directory.CreateDirectory(ruta);
+                string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+                if (!Directory.Exists(ruta))
+                {
+                    System.IO.Directory.CreateDirectory(ruta);
+                }
             }
-
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL CREAR CARPETA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         //lectura del archivo con datos atmosfericos
         private void leercsv(String filepath)
@@ -149,14 +161,21 @@ namespace Capa_Presentacion
 
         private void InsertarDatosClimaMes()
         {
-            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
-            foreach(DataGridViewRow item in dtgDatosElMante.Rows)
+            try
             {
-                String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""","");
-                String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
-                _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(),fecha,fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
-                    item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
-                    item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+                CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+                foreach (DataGridViewRow item in dtgDatosElMante.Rows)
+                {
+                    String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                    String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                    _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                        item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
+                        item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL INSERTAR DATOS ATNOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -167,13 +186,20 @@ namespace Capa_Presentacion
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            Filtro_dia = Convert.ToInt32(dias.Text.Substring(0, 2));
-            while (dtgDatosElMante.RowCount > 1)
+            try
             {
-                dtgDatosElMante.Rows.Remove(dtgDatosElMante.CurrentRow);
+                Filtro_dia = Convert.ToInt32(dias.Text.Substring(0, 2));
+                while (dtgDatosElMante.RowCount > 1)
+                {
+                    dtgDatosElMante.Rows.Remove(dtgDatosElMante.CurrentRow);
 
+                }
+                leercsv(rutadirectorio);
             }
-            leercsv(rutadirectorio);
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL FILTRAR DATOS ATMOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

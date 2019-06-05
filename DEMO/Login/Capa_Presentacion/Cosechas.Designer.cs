@@ -1,6 +1,6 @@
 ﻿namespace Capa_Presentacion
 {
-    partial class EstadisticasDePlagas
+    partial class Cosechas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // EstadisticasDePlagas
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 720);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EstadisticasDePlagas";
-            this.Text = "EstadisticasDePlagas";
-            this.Load += new System.EventHandler(this.EstadisticasDePlagas_Load);
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Cosechas";
         }
 
         #endregion

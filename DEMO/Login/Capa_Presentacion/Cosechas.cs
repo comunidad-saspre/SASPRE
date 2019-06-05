@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Capa_Presentacion
 {
-    public partial class EstadisticasDePlagas : Form
+    public partial class Cosechas : Form
     {
-        public EstadisticasDePlagas()
+        public Cosechas()
         {
             InitializeComponent();
-        }
-
-        private void EstadisticasDePlagas_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

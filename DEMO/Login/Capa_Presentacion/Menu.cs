@@ -241,22 +241,26 @@ namespace Capa_Presentacion
 
                 panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
-            PrivilegioUsuario();
-            //GetRequestHora();
-            //GetRequestDia();
-            labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
-            // Hago el ciclo para agregar hasta 7 días
-            for (int i = 1; i <= 5; i++)
-            {
-                // Este metodo solo pone en los labels el día que está en fecha_hora
-                SetDateTime(labelsDia[i - 1], fecha_hora);
-                PonerFechas(labelsFecha[i - 1], fecha_hora);
-                // Cambia el DateTime fecha_hora a un día después.
-                fecha_hora = fecha_hora.AddDays(1);
+                PrivilegioUsuario();
+                //GetRequestHora();
+                //GetRequestDia();
+                labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
+                // Hago el ciclo para agregar hasta 7 días
+                for (int i = 1; i <= 5; i++)
+                {
+                    // Este metodo solo pone en los labels el día que está en fecha_hora
+                    SetDateTime(labelsDia[i - 1], fecha_hora);
+                    PonerFechas(labelsFecha[i - 1], fecha_hora);
+                    // Cambia el DateTime fecha_hora a un día después.
+                    fecha_hora = fecha_hora.AddDays(1);
+                }
+                MostrarInformacionClima();
             }
-            MostrarInformacionClima();
-        }
+            catch (Exception ex)
+            {
 
+            }
+        }
         private void MostrarInformacionClima()
         {
             MostrarTemperaturaMaxima();

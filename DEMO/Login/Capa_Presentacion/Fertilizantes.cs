@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Capa_Negocio;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion
@@ -15,6 +15,12 @@ namespace Capa_Presentacion
         public Fertilizantes()
         {
             InitializeComponent();
+            dgvFertilizantes.DataSource = CN_Fertilizantes.MostrarFertilizantes();
+        }
+
+        private void dgvFertilizantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

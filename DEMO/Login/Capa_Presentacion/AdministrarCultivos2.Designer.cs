@@ -47,6 +47,11 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picCultivo = new System.Windows.Forms.PictureBox();
             this.dgvCultivo = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,11 +60,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCaracteristicas = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
@@ -272,12 +272,44 @@
             this.dgvCultivo.TabIndex = 53;
             this.dgvCultivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
             // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "Cultivo";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Plantación
+            // 
+            this.Plantación.DataPropertyName = "Fecha_Plantado";
+            this.Plantación.HeaderText = "Fecha Plantado";
+            this.Plantación.Name = "Plantación";
+            // 
+            // Cosechación
+            // 
+            this.Cosechación.DataPropertyName = "Fecha_Cosecha";
+            this.Cosechación.HeaderText = "Fecha Cosecha";
+            this.Cosechación.Name = "Cosechación";
+            // 
+            // Causa
+            // 
+            this.Causa.DataPropertyName = "Cantidad";
+            this.Causa.HeaderText = "Cantidad";
+            this.Causa.Name = "Causa";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
             // txtBuscarUnCultivo
             // 
             this.txtBuscarUnCultivo.Location = new System.Drawing.Point(215, 66);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
             this.txtBuscarUnCultivo.Size = new System.Drawing.Size(477, 20);
             this.txtBuscarUnCultivo.TabIndex = 36;
+            this.txtBuscarUnCultivo.TextChanged += new System.EventHandler(this.txtBuscarUnCultivo_TextChanged);
             // 
             // btnAgregar
             // 
@@ -362,37 +394,6 @@
             this.label9.Size = new System.Drawing.Size(131, 20);
             this.label9.TabIndex = 44;
             this.label9.Text = "Nombre científico";
-            // 
-            // Cultivo
-            // 
-            this.Cultivo.DataPropertyName = "Cultivo";
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Plantación
-            // 
-            this.Plantación.DataPropertyName = "Fecha_Plantado";
-            this.Plantación.HeaderText = "Fecha Plantado";
-            this.Plantación.Name = "Plantación";
-            // 
-            // Cosechación
-            // 
-            this.Cosechación.DataPropertyName = "Fecha_Cosecha";
-            this.Cosechación.HeaderText = "Fecha Cosecha";
-            this.Cosechación.Name = "Cosechación";
-            // 
-            // Causa
-            // 
-            this.Causa.DataPropertyName = "Cantidad";
-            this.Causa.HeaderText = "Cantidad";
-            this.Causa.Name = "Causa";
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
             // 
             // AdministrarCultivos2
             // 

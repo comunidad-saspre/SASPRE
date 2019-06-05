@@ -121,5 +121,10 @@ namespace Capa_Presentacion
         {
             dtpCosecha.MinDate = dtpPlantado.Value;
         }
+
+        private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

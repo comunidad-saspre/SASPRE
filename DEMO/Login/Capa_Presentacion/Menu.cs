@@ -235,6 +235,8 @@ namespace Capa_Presentacion
             MostrarDescripcionDia();
         }
 
+
+
         private void MostrarTemperaturaMaxima()
         {
             var maxTemperature = ScrapperCN.GetMaxTemperature();

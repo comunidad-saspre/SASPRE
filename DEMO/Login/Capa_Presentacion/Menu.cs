@@ -34,7 +34,7 @@ namespace Capa_Presentacion
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
 
-        Label[] labelsDia,labelsFecha;
+        Label[] labelsDia, labelsFecha;
 
         private const String MON = "Monday";
         private const String TUE = "Tuesday";
@@ -52,8 +52,8 @@ namespace Capa_Presentacion
         private const String SAB = "Sabado";
         private const String DOM = "Domingo";
 
-
-        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+       
+    [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
@@ -69,6 +69,7 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
+   
 
         public struct MARGINS
         {

@@ -214,7 +214,7 @@ namespace Capa_Presentacion
         {
             Application.Run(new Menu());
         }
-
+    
         private void Login_Load(object sender, EventArgs e)
         {
             if(HayInternet() == true)
@@ -248,12 +248,13 @@ namespace Capa_Presentacion
         //metodo para crear carpeta donde se almacenara el documento descargado
         public void crear_carpeta()
         {
-            string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
-            if (!Directory.Exists(ruta))
-            {
-                System.IO.Directory.CreateDirectory(ruta);
-            }
-
+           
+                string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+                if (!Directory.Exists(ruta))
+                {
+                    System.IO.Directory.CreateDirectory(ruta);
+                }
+          
         }
 
         private void txtContra_OnValueChanged(object sender, EventArgs e)
@@ -263,16 +264,18 @@ namespace Capa_Presentacion
 
         private void linklblcontrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(ConexionAInternet() == true)
-            {
-                Envio_Correo ec = new Envio_Correo();
-                ec.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             
+                if (ConexionAInternet() == true)
+                {
+                    Envio_Correo ec = new Envio_Correo();
+                    ec.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+          
         }
         private bool HayInternet()
         {

@@ -53,8 +53,8 @@ namespace Capa_Presentacion
         private const String SAB = "Sabado";
         private const String DOM = "Domingo";
 
-
-        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+       
+    [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
@@ -70,6 +70,7 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
+   
 
         public struct MARGINS
         {
@@ -386,34 +387,42 @@ namespace Capa_Presentacion
         bool mnuExpanded = false;
         private void MouseDetect_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-
-
-            // if (!bunifuTransition1.IsCompleted) return;
-            if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            try
             {
-                if (!mnuExpanded)
+                //if (!bunifuTransition1.IsCompleted) return;
+                if (myPanel2.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
                 {
-                    mnuExpanded = true;
-                    myPanel2.Width = 250;
+                    if (!mnuExpanded)
+                    {
+                        mnuExpanded = true;
+                        myPanel2.Width = 250;
+                    }
+                }
+                else
+                {
+                    if (mnuExpanded)
+                    {
+                        mnuExpanded = false;
+                        //   myPanel2.Visible = false;
+                        myPanel2.Width = 45;
+                        myPanel2.Visible = true;
+                        // bunifuTransition1.ShowSync(myPanel2);
+                    }
                 }
             }
-            else
+            catch(Exception ex)
             {
-                if (mnuExpanded)
-                {
-                    mnuExpanded = false;
-                    //   myPanel2.Visible = false;
-                    myPanel2.Width = 45;
-                    myPanel2.Visible = true;
-                    // bunifuTransition1.ShowSync(myPanel2);
-                }
+
             }
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             try
             {
-                Application.Exit();
+                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
             }
             catch (Exception ex)
             {
@@ -425,7 +434,11 @@ namespace Capa_Presentacion
         Thread th;
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
+            Login log = new Login();
+            log.Show();
+            Cursor.Current = Cursors.Default;
+            this.Hide();
         }
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
@@ -517,7 +530,8 @@ namespace Capa_Presentacion
         {
             if (Program.cargo != "Admin")
             {
-                btnConfiguracionGeneral.Enabled = false;
+                btnConfiguracionGeneral.Visible = false;
+                btnAdministrarUsuarios.Visible = false;
             }
         }
         private void bunifuFlatButton10_Load(object sender, EventArgs e)

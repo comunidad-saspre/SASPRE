@@ -85,7 +85,6 @@ namespace Capa_Presentacion
         {
             try
             {
-
                 if (!EsDireccionDeCorreoValida(txtCorreo.Text))
                     throw new Exception("InvalidMailAddressException.");
                 else
@@ -262,6 +261,11 @@ namespace Capa_Presentacion
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvUsers_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

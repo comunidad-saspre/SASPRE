@@ -9,14 +9,13 @@ using System.Windows.Forms;
 
 namespace Capa_Datos
 {
-    public class CD_Cosechas
+    public class CD_Cultivos
     {
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
-        DataTable tablaCosechas = new DataTable();
+        DataTable tablaCultivos = new DataTable();
         MySqlCommand comando;
-        
-        public DataTable MostrarCosechas(String cargo,String usuario)
+        public DataTable MostrarCultivos(String cargo,String usuario)
         {
             try
             {
@@ -24,32 +23,31 @@ namespace Capa_Datos
                 comando.Connection = conexion.AbrirConexion();
                 if (cargo == "Admin")
                 {
-                    comando.CommandText = "MostrarCosechas";
+                    comando.CommandText = "MostrarCultivos";
                 }
                 else
                 {
-                    comando.CommandText = "MostrarCosechasUsuario";
+                    comando.CommandText = "MostrarCultivosUsuario";
                     comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
                 }
                 comando.CommandType = CommandType.StoredProcedure;
                 leer = comando.ExecuteReader();
-                tablaCosechas.Load(leer);
+                tablaCultivos.Load(leer);
                 conexion.CerrarConexion();
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR COSECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            return tablaCosechas;
+            return tablaCultivos;
         }
-
-        public void AgregarCosechas(String Usuario_Cultivo, String Cultivo, String Fecha_Plantado, String Fecha_Cosecha, String Cantidad, String Estado)
+        public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha,String Cantidad,String Estado)
         {
             try
             {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "AgregarCosechas";
+                comando.CommandText = "AgregarCultivos";
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
                 comando.Parameters.AddWithValue("_Cultivo", Cultivo);
@@ -63,7 +61,25 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL AGREGAR COSECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "ERROR AL AGREGAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        public void EliminarCultivo(String IDCultivo)
+        {
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "EliminarCultivos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception  )
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ELIMINAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

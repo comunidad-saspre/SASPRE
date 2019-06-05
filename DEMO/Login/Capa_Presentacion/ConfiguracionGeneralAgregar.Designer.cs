@@ -31,6 +31,7 @@
             this.panelContenedor = new Capa_Presentacion.MyPanel();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.txtNick = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,7 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1030, 720);
             this.panelContenedor.TabIndex = 0;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // txtCorreo
             // 
@@ -96,6 +97,17 @@
             this.label9.Size = new System.Drawing.Size(57, 20);
             this.label9.TabIndex = 70;
             this.label9.Text = "Correo";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.Captura;
+            this.pictureBox1.Location = new System.Drawing.Point(41, 114);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(269, 218);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
             // 
             // txtCargo
             // 
@@ -253,17 +265,6 @@
             this.button2.TabIndex = 56;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.Captura;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 114);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
             // 
             // ConfiguracionGeneralAgregar
             // 

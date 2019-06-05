@@ -27,35 +27,41 @@ namespace Capa_Presentacion
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
         private void AbrirFormEnPanel<Forms>() where Forms : Form, new()
         {
-            Form formulario;
-            formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
-
-            //si el formulario/instancia no existe, creamos nueva instancia y mostramos
-            if (formulario == null)
+            try
             {
-                formulario = new Forms();
-                formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
-                panelContenedor.Controls.Add(formulario);
-                panelContenedor.Tag = formulario;
-                formulario.Show();
-                formulario.BringToFront();
-                formulario.Opacity = .5;
-                //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
-            }
-            else
-            {
+                Form formulario;
+                formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
 
-                //si la Formulario/instancia existe, lo traemos a frente
-                formulario.BringToFront();
-
-                //Si la instancia esta minimizada mostramos
-                if (formulario.WindowState == FormWindowState.Minimized)
+                //si el formulario/instancia no existe, creamos nueva instancia y mostramos
+                if (formulario == null)
                 {
-                    formulario.WindowState = FormWindowState.Normal;
+                    formulario = new Forms();
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    panelContenedor.Controls.Add(formulario);
+                    panelContenedor.Tag = formulario;
+                    formulario.Show();
+                    formulario.BringToFront();
+                    formulario.Opacity = .5;
+                    //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
                 }
+                else
+                {
 
+                    //si la Formulario/instancia existe, lo traemos a frente
+                    formulario.BringToFront();
+
+                    //Si la instancia esta minimizada mostramos
+                    if (formulario.WindowState == FormWindowState.Minimized)
+                    {
+                        formulario.WindowState = FormWindowState.Normal;
+                    }
+
+                }
+            }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN ADMINISTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -99,21 +105,31 @@ namespace Capa_Presentacion
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbPlanta.SelectedItem == "Sorgo")
+            try
             {
-                picCultivo.Image = imageListPlantas.Images[1];
-            }else if(cbPlanta.SelectedItem == "Maíz")
-            {
-                picCultivo.Image = imageListPlantas.Images[0];
-            }else if(cbPlanta.SelectedItem == "Soya")
-            {
-                picCultivo.Image = imageListPlantas.Images[2];
-            }else if(cbPlanta.SelectedItem == "Caña")
-            {
-                picCultivo.Image = imageListPlantas.Images[3];
-            }else if(cbPlanta.SelectedItem == "Cebolla")
-            {
-                picCultivo.Image = imageListPlantas.Images[4];
+                if (cbPlanta.SelectedItem == "Sorgo")
+                {
+                    picCultivo.Image = imageListPlantas.Images[1];
+                }
+                else if (cbPlanta.SelectedItem == "Maíz")
+                {
+                    picCultivo.Image = imageListPlantas.Images[0];
+                }
+                else if (cbPlanta.SelectedItem == "Soya")
+                {
+                    picCultivo.Image = imageListPlantas.Images[2];
+                }
+                else if (cbPlanta.SelectedItem == "Caña")
+                {
+                    picCultivo.Image = imageListPlantas.Images[3];
+                }
+                else if (cbPlanta.SelectedItem == "Cebolla")
+                {
+                    picCultivo.Image = imageListPlantas.Images[4];
+                }
+            }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN SELECCIONAR PLANTA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

@@ -177,6 +177,7 @@
             this.Controls.Add(this.pbPicture);
             this.Name = "DialogoEditarInformacion";
             this.Text = "DialogoEditarInformacion";
+            this.Load += new System.EventHandler(this.DialogoEditarInformacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

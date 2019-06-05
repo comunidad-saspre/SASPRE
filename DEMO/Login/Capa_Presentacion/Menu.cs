@@ -91,35 +91,48 @@ namespace Capa_Presentacion
         }
         private bool CheckAeroEnabled()
         {
-            if (Environment.OSVersion.Version.Major >= 6)
+            try
             {
-                int enabled = 0; DwmIsCompositionEnabled(ref enabled);
-                return (enabled == 1) ? true : false;
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    int enabled = 0; DwmIsCompositionEnabled(ref enabled);
+                    return (enabled == 1) ? true : false;
+                }
+            }
+            catch (Exception ) {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
         protected override void WndProc(ref Message m)
         {
-            switch (m.Msg)
+            try
             {
-                case WM_NCPAINT:
-                    if (m_aeroEnabled)
-                    {
-                        var v = 2;
-                        DwmSetWindowAttribute(this.Handle, 2, ref v, 4);
-                        MARGINS margins = new MARGINS()
+                switch (m.Msg)
+                {
+                    case WM_NCPAINT:
+                        if (m_aeroEnabled)
                         {
-                            bottomHeight = 1,
-                            leftWidth = 0,
-                            rightWidth = 0,
-                            topHeight = 0
-                        }; DwmExtendFrameIntoClientArea(this.Handle, ref margins);
-                    }
-                    break;
-                default: break;
+                            var v = 2;
+                            DwmSetWindowAttribute(this.Handle, 2, ref v, 4);
+                            MARGINS margins = new MARGINS()
+                            {
+                                bottomHeight = 1,
+                                leftWidth = 0,
+                                rightWidth = 0,
+                                topHeight = 0
+                            }; DwmExtendFrameIntoClientArea(this.Handle, ref margins);
+                        }
+                        break;
+                    default: break;
+                }
+                base.WndProc(ref m);
+                if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
             }
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
         {
@@ -151,46 +164,61 @@ namespace Capa_Presentacion
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------
         public void AbrirFormEnPanel<Forms>() where Forms : Form, new()
         {
-            Form formulario;
-            formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
-
-            //si el formulario/instancia no existe, creamos nueva instancia y mostramos
-            if (formulario == null)
+            try
             {
-                formulario = new Forms();
-                formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
-                myPanel1.Controls.Add(formulario);
-                myPanel1.Tag = formulario;
-                formulario.Show();
-                formulario.BringToFront();
-                formulario.Opacity = .5;
-                //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
-            }
-            else
-            {
+                Form formulario;
+                formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
 
-                //si la Formulario/instancia existe, lo traemos a frente
-                formulario.BringToFront();
-
-                //Si la instancia esta minimizada mostramos
-                if (formulario.WindowState == FormWindowState.Minimized)
+                //si el formulario/instancia no existe, creamos nueva instancia y mostramos
+                if (formulario == null)
                 {
-                    formulario.WindowState = FormWindowState.Normal;
+                    formulario = new Forms();
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    myPanel1.Controls.Add(formulario);
+                    myPanel1.Tag = formulario;
+                    formulario.Show();
+                    formulario.BringToFront();
+                    formulario.Opacity = .5;
+                    //  formulario.FormClosed += new FormClosedEventHandler(CloseForms);
                 }
+                else
+                {
 
+                    //si la Formulario/instancia existe, lo traemos a frente
+                    formulario.BringToFront();
+
+                    //Si la instancia esta minimizada mostramos
+                    if (formulario.WindowState == FormWindowState.Minimized)
+                    {
+                        formulario.WindowState = FormWindowState.Normal;
+                    }
+
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ABRIR FORM", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
         {
-            Form formulario = new Forms();
-            formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
-
-            if (!(formulario == null))
+            try
             {
+                Form formulario = new Forms();
+                formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
 
-                formulario.Close();
+                if (!(formulario == null))
+                {
+
+                    formulario.Close();
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL CERRAR PANEL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -208,8 +236,10 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            try
+            {
 
-            panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
+                panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
             PrivilegioUsuario();
             //GetRequestHora();
@@ -305,26 +335,45 @@ namespace Capa_Presentacion
 
         private void PonerFechas(Label lbl, DateTime datetime)
         {
-            lbl.Text = datetime.ToString("M");
+            try
+            {
+                lbl.Text = datetime.ToString("M");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL PONER FECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void SetDateTime(Label lbl, DateTime datetime)
         {
-            lbl.Text = TranslateDay(datetime.DayOfWeek.ToString());
-            //lbl.Text = "Fecha: " + datetime.ToShortDateString() + ", Hora: " + datetime.ToLongTimeString();
+            try
+            {
+                lbl.Text = TranslateDay(datetime.DayOfWeek.ToString());
+                //lbl.Text = "Fecha: " + datetime.ToShortDateString() + ", Hora: " + datetime.ToLongTimeString();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN EL SETDATETIME", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private String TranslateDay(String day)
         {
+            try
+            {
 
-            if (day.Equals(MON)) return LUN;
-            if (day.Equals(TUE)) return MAR;
-            if (day.Equals(WED)) return MIE;
-            if (day.Equals(THU)) return JUE;
-            if (day.Equals(FRI)) return VIE;
-            if (day.Equals(SAT)) return SAB;
-            if (day.Equals(SUN)) return DOM;
-            if (day.Equals(MON)) return LUN;
-            if (day.Equals(MON)) return LUN;
-
+                if (day.Equals(MON)) return LUN;
+                if (day.Equals(TUE)) return MAR;
+                if (day.Equals(WED)) return MIE;
+                if (day.Equals(THU)) return JUE;
+                if (day.Equals(FRI)) return VIE;
+                if (day.Equals(SAT)) return SAB;
+                if (day.Equals(SUN)) return DOM;
+                if (day.Equals(MON)) return LUN;
+                if (day.Equals(MON)) return LUN;
+            }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL TRADUCIR DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return $"{day} NOT A DAY";
 
         }
@@ -472,106 +521,123 @@ namespace Capa_Presentacion
         }
         async void GetRequestHora()
         {
-            Cursor = Cursors.WaitCursor;
-            String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
-            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
-            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            try
             {
-                if (response.IsSuccessStatusCode)
+                Cursor = Cursors.WaitCursor;
+                String url = "https://smn.cna.gob.mx/webservices/index.php?method=3";
+                using (HttpClient client = new HttpClient())
+                using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+                using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+                using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
                 {
-                    StreamReader reader = new StreamReader(descomprimido);
-                    String data = reader.ReadLine();
-                    var listInfo = JsonConvert.DeserializeObject<List<Ciudad>>(data);
-                    foreach (var info in listInfo)
+                    if (response.IsSuccessStatusCode)
                     {
-                        if (info.CityId.Equals("MXTS2043") && info.HourNumber == 0)
+                        StreamReader reader = new StreamReader(descomprimido);
+                        String data = reader.ReadLine();
+                        var listInfo = JsonConvert.DeserializeObject<List<Ciudad>>(data);
+                        foreach (var info in listInfo)
                         {
-                            labelClimaHoy.Text = info.TempC.ToString() + "° C";
+                            if (info.CityId.Equals("MXTS2043") && info.HourNumber == 0)
+                            {
+                                labelClimaHoy.Text = info.TempC.ToString() + "° C";
+                            }
                         }
                     }
                 }
+                Cursor = Cursors.Default;
             }
-            Cursor = Cursors.Default;
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR OBTENER HORA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
+
+
         async void GetRequestDia()
         {
-            Cursor = Cursors.WaitCursor;
-            String url = "https://smn.cna.gob.mx/webservices/index.php?method=1";
-            using (HttpClient client = new HttpClient())
-            using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
-            using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
-            using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
+            try
             {
-                if (response.IsSuccessStatusCode)
+                Cursor = Cursors.WaitCursor;
+                String url = "https://smn.cna.gob.mx/webservices/index.php?method=1";
+                using (HttpClient client = new HttpClient())
+                using (HttpResponseMessage response = await client.GetAsync(url)) //obtener una variable con la info del url
+                using (var content = await response.Content.ReadAsStreamAsync()) //obtener la info del archivo
+                using (var descomprimido = new GZipStream(content, CompressionMode.Decompress)) //descomprimir el archivo
                 {
-                    StreamReader reader = new StreamReader(descomprimido);
-                    String data = reader.ReadLine();
-                    var listInfo = JsonConvert.DeserializeObject<List<CiudadDia>>(data);
-                    var iteracion = 0;
-                    var diasSiguientes = false;
-                    foreach (var info in listInfo)
+                    if (response.IsSuccessStatusCode)
                     {
-                        if (info.CityId.Equals("MXTS2043") && DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString().Equals(DateTime.Now.ToLongDateString()))
+                        StreamReader reader = new StreamReader(descomprimido);
+                        String data = reader.ReadLine();
+                        var listInfo = JsonConvert.DeserializeObject<List<CiudadDia>>(data);
+                        var iteracion = 0;
+                        var diasSiguientes = false;
+                        foreach (var info in listInfo)
                         {
-                            if (iteracion == 0)
+                            if (info.CityId.Equals("MXTS2043") && DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString().Equals(DateTime.Now.ToLongDateString()))
                             {
-                                labelFechaCompletaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
-                                labelHoy.Text = DateTime.Now.ToString("m");
-                                labelHoyMax.Text = info.HiTempC + "°";
-                                labelHoyMin.Text = info.LowTempC + "°";
-                                labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClimaHoy.Image = vectorClima(info.SkyText, 0);
-                                iteracion++;
-                                diasSiguientes = true;
+                                if (iteracion == 0)
+                                {
+                                    labelFechaCompletaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
+                                    labelHoy.Text = DateTime.Now.ToString("m");
+                                    labelHoyMax.Text = info.HiTempC + "°";
+                                    labelHoyMin.Text = info.LowTempC + "°";
+                                    labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    picClimaHoy.Image = vectorClima(info.SkyText, 0);
+                                    iteracion++;
+                                    diasSiguientes = true;
+                                }
                             }
-                        }
-                        else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
-                        {
-                            if (iteracion == 1)
+                            else if (info.CityId.Equals("MXTS2043") && diasSiguientes == true)
                             {
-                                labelFecha1.Text = DateTime.Now.ToString("m");
-                                labelFecha1Max.Text = info.HiTempC + "°";
-                                labelFecha1Min.Text = info.LowTempC + "°";
-                                labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClima1.Image = vectorClima(info.SkyText, 0);
-                                iteracion++;
-                            }
-                            else if (iteracion == 2)
-                            {
-                                labelFecha2.Text = DateTime.Now.ToString("m");
-                                labelFecha2Max.Text = info.HiTempC + "°";
-                                labelFecha2Min.Text = info.LowTempC + "°";
-                                labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClima2.Image = vectorClima(info.SkyText, 0);
-                                iteracion++;
-                            }
-                            else if (iteracion == 3)
-                            {
-                                labelFecha3.Text = DateTime.Now.ToString("m");
-                                labelMax3.Text = info.HiTempC + "°";
-                                labelMin3.Text = info.LowTempC + "°";
-                                labelPrecipitacion3.Text = info.ProbabilityOfPrecip + "%";
-                                picClima3.Image = vectorClima(info.SkyText, 0);
-                                iteracion++;
-                            }
-                            else if (iteracion == 4)
-                            {
-                                labelFecha4.Text = DateTime.Now.ToString("m");
-                                labelFecha4Max.Text = info.HiTempC + "°";
-                                labelFecha4Min.Text = info.LowTempC + "°";
-                                labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
-                                picClima4.Image = vectorClima(info.SkyText, 0);
-                                iteracion++;
-                                break;
+                                if (iteracion == 1)
+                                {
+                                    labelFecha1.Text = DateTime.Now.ToString("m");
+                                    labelFecha1Max.Text = info.HiTempC + "°";
+                                    labelFecha1Min.Text = info.LowTempC + "°";
+                                    labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    picClima1.Image = vectorClima(info.SkyText, 0);
+                                    iteracion++;
+                                }
+                                else if (iteracion == 2)
+                                {
+                                    labelFecha2.Text = DateTime.Now.ToString("m");
+                                    labelFecha2Max.Text = info.HiTempC + "°";
+                                    labelFecha2Min.Text = info.LowTempC + "°";
+                                    labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    picClima2.Image = vectorClima(info.SkyText, 0);
+                                    iteracion++;
+                                }
+                                else if (iteracion == 3)
+                                {
+                                    labelFecha3.Text = DateTime.Now.ToString("m");
+                                    labelMax3.Text = info.HiTempC + "°";
+                                    labelMin3.Text = info.LowTempC + "°";
+                                    labelPrecipitacion3.Text = info.ProbabilityOfPrecip + "%";
+                                    picClima3.Image = vectorClima(info.SkyText, 0);
+                                    iteracion++;
+                                }
+                                else if (iteracion == 4)
+                                {
+                                    labelFecha4.Text = DateTime.Now.ToString("m");
+                                    labelFecha4Max.Text = info.HiTempC + "°";
+                                    labelFecha4Min.Text = info.LowTempC + "°";
+                                    labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    picClima4.Image = vectorClima(info.SkyText, 0);
+                                    iteracion++;
+                                    break;
+                                }
                             }
                         }
                     }
                 }
             }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
-        private void ObtenerDias()
+
+
+        private void ObtenerDias ()
         {
 
 
@@ -583,137 +649,174 @@ namespace Capa_Presentacion
                 //GetRequestHora();
             }
         }
-        public Image vectorClima(String texto, int panel)
+
+        public Image vectorClima (String texto, int panel)
         {
+            try
+            {
+                if (texto.Equals("Nublado") && panel == 0)
+                {
+                    return Vectores.Images[11];
+                }
+                else if (texto.Equals("Parcialmente nublado / Viento") && panel == 0)
+                {
+                    return Vectores.Images[15];
+                }
+                else if (texto.Equals("Parcialmente nublado") && panel == 0)
+                {
+                    return Vectores.Images[15];
+                }
+                else if (texto.Equals("Aguaceros en la mañana") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Soleado") && panel == 0)
+                {
+                    return Vectores.Images[17];
+                }
+                else if (texto.Equals("Nubes por la mañana / Sol por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[15];
+                }
+                else if (texto.Equals("Lluvia en la mañana") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Mayormente soleado / Viento") && panel == 0)
+                {
+                    return Vectores.Images[17];
+                }
+                else if (texto.Equals("Tormentas por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Tormentas aisladas") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Tormentas dispersas") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Tormentas") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Tormentas en la mañana") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Aguaceros por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Aguaceros") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Algunos aguaceros") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Lluvia débil por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Lluvia por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Soleado / Viento") && panel == 0)
+                {
+                    return Vectores.Images[17];
+                }
+                else if (texto.Equals("Aguaceros y tormentas") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Lluvia") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else if (texto.Equals("Nublado / Viento") && panel == 0)
+                {
+                    return Vectores.Images[11];
+                }
+                else if (texto.Equals("Mayormente nublado/ Viento") && panel == 0)
+                {
+                    return Vectores.Images[11];
+                }
+                else if (texto.Equals("Nubes por la mañana / Sol por la tarde / Viento") && panel == 0)
+                {
+                    return Vectores.Images[15];
+                }
+                else if (texto.Equals("Tormentas aisladas / Viento") && panel == 0)
+                {
+                    return Vectores.Images[2];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception a) {
 
-            /*
-            Nublado --> d400
-            Parcialmente nublado --> d200
-            Soleado --> d000
-            Tormentas --> d440            
-            Lluvia débil por la tarde --> d310
-            Mayormente nublado/ Viento -->d300
-            Aguaceros --> 210
-            */
-
-            // Nublado --> d400
-            if (texto.Equals("d400") && panel == 0) return Vectores.Images[11];
-            else if (texto.Equals("Parcialmente nuboso, viento") && panel == 0) return Vectores.Images[15];
-
-            // Parcialmente nublado --> d200
-            else if (texto.Equals("d200") && panel == 0) return Vectores.Images[15];
-
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Aguaceros en la mañana") && panel == 0) return Vectores.Images[2];
-
-            // Soleado --> d000
-            else if (texto.Equals("d000") && panel == 0) return Vectores.Images[17];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Nubes por la mañana / Sol por la tarde") && panel == 0) return Vectores.Images[15];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Lluvia en la mañana") && panel == 0) return Vectores.Images[2];
-
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Mayormente soleado / Viento") && panel == 0) return Vectores.Images[17];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Tormentas por la tarde") && panel == 0) return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Tormentas aisladas") && panel == 0) return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Tormentas dispersas") && panel == 0)  return Vectores.Images[2];
-            
-            // Tormentas --> d440
-            else if (texto.Equals("d440") && panel == 0)  return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Tormentas en la mañana") && panel == 0)  return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Aguaceros por la tarde") && panel == 0)  return Vectores.Images[2];
-
-            // Aguaceros --> d210
-            else if (texto.Equals("d210") && panel == 0)  return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Algunos aguaceros") && panel == 0)  return Vectores.Images[2];
-
-            // Lluvia débil por la tarde --> d310
-            else if (texto.Equals("d310") && panel == 0)  return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Lluvia por la tarde") && panel == 0) return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)  return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Soleado / Viento") && panel == 0)  return Vectores.Images[17];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Aguaceros y tormentas") && panel == 0) return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Lluvia") && panel == 0) return Vectores.Images[2];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Nublado / Viento") && panel == 0) return Vectores.Images[11];
-            
-            // Mayormente nublado/ Viento --> d300
-            else if (texto.Equals("d300") && panel == 0) return Vectores.Images[11];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Nubes por la mañana / Sol por la tarde / Viento") && panel == 0)return Vectores.Images[15];
-            
-            // pendiente de descubrir como se representa en la pagina de meteored.
-            else if (texto.Equals("Tormentas aisladas / Viento") && panel == 0) return Vectores.Images[2];
-            
-            else return null;
-
-            /*
-            Nublado --> d400
-            Parcialmente nublado / Viento
-            Parcialmente nublado --> d200
-            Aguaceros en la mañana
-            Soleado --> d000
-            Nubes por la mañana / Sol por la tarde
-            Lluvia en la mañana
-            Mayormente soleado / Viento
-            Tormentas por la tarde
-            Tormentas aisladas
-            Tormentas dispersas
-            Tormentas --> d440
-            Tormentas en la mañana
-            Aguaceros por la tarde
-            Aguaceros --> 210
-            Algunos aguaceros 
-            Lluvia débil por la tarde --> d310
-            Lluvia por la tarde
-            Aguaceros y tormentas por la tarde
-            Soleado / Viento
-            Aguaceros y tormentas
-            Lluvia
-            Nublado / Viento
-            Mayormente nublado/ Viento -->d300
-            Nubes por la mañana / Sol por la tarde / Viento
-            Tormentas aisladas / Viento
-            */
+                MessageBox.Show("ADVERTENCIA", "ERROR en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return null;
+            } 
+/*         
+Nublado
+Parcialmente nublado / Viento
+Parcialmente nublado
+Aguaceros en la mañana
+Soleado
+Nubes por la mañana / Sol por la tarde
+Lluvia en la mañana
+Mayormente soleado / Viento
+Tormentas por la tarde
+Tormentas aisladas
+Tormentas dispersas
+Tormentas
+Tormentas en la mañana
+Aguaceros por la tarde
+Aguaceros
+Algunos aguaceros
+Lluvia débil por la tarde
+Lluvia por la tarde
+Aguaceros y tormentas por la tarde
+Soleado / Viento
+Aguaceros y tormentas
+Lluvia
+Nublado / Viento
+Mayormente nublado/ Viento
+Nubes por la mañana / Sol por la tarde / Viento
+Tormentas aisladas / Viento
+*/
         }
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<FromUsuarioABC>();
-            lblTemp.Visible = true;
-            panelClima.Visible = false;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
+            try
+            {
+                AbrirFormEnPanel<FromUsuarioABC>();
+                lblTemp.Visible = true;
+                panelClima.Visible = false;
+                lblCentigrados.Visible = true;
+                lblHumedad.Visible = true;
+                lblEstado.Visible = true;
+                lblPrecipitacion.Visible = true;
+                lblPrecipitacionmm.Visible = true;
+            }
+            catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ADMINISTRAR USUARIOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;

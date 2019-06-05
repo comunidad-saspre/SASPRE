@@ -15,35 +15,48 @@ namespace Capa_Presentacion
         // Se encargará de los clicks en cualquier textbox.
         private void textboxes_Click(Object s, EventArgs e)
         {
-            var txtSeleccionado = s as TextBox;
-
-            if (txtSeleccionado.Text.Equals(txtSeleccionado.Tag.ToString()))
+            try
             {
-                if (txtSeleccionado.Tag.Equals("Contraseña"))
-                {
-                    txtSeleccionado.UseSystemPasswordChar = true;
-                }
-                txtSeleccionado.Text = String.Empty;
-                txtSeleccionado.ForeColor = Color.Black;
+                var txtSeleccionado = s as TextBox;
 
+                if (txtSeleccionado.Text.Equals(txtSeleccionado.Tag.ToString()))
+                {
+                    if (txtSeleccionado.Tag.Equals("Contraseña"))
+                    {
+                        txtSeleccionado.UseSystemPasswordChar = true;
+                    }
+                    txtSeleccionado.Text = String.Empty;
+                    txtSeleccionado.ForeColor = Color.Black;
+
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL EDITAR INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
         
         private void textboxes_Leave(object s, EventArgs e)
         {
-            var txtSeleccionado = s as TextBox;
-
-            if (txtSeleccionado.Text.Equals(String.Empty))
+            try
             {
+                var txtSeleccionado = s as TextBox;
 
-                if (txtSeleccionado.Tag.Equals("Contraseña"))
+                if (txtSeleccionado.Text.Equals(String.Empty))
                 {
-                    txtSeleccionado.UseSystemPasswordChar = false;
-                }
 
-                txtSeleccionado.Text = txtSeleccionado.Tag.ToString();
-                txtSeleccionado.ForeColor = Color.DimGray;
+                    if (txtSeleccionado.Tag.Equals("Contraseña"))
+                    {
+                        txtSeleccionado.UseSystemPasswordChar = false;
+                    }
+
+                    txtSeleccionado.Text = txtSeleccionado.Tag.ToString();
+                    txtSeleccionado.ForeColor = Color.DimGray;
+                }
+            }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR EN EL FORM EDITAR INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -71,6 +84,11 @@ namespace Capa_Presentacion
                 // Luego ya podrá editar.
                 MessageBox.Show("Cuadro con la lista de los usuarios para seleccionar alguno");
             }
+        }
+
+        private void DialogoEditarInformacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,29 +28,42 @@ namespace Capa_Presentacion
 
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            IsEditar(isEditar = true);
+            try
+            {
+                IsEditar(isEditar = true);
 
-            var fila = dgvUsers.SelectedRows[0];
-            txtNombre.Text = fila.Cells[1].Value.ToString();
-            txtApellidos.Text = fila.Cells[2].Value.ToString();
-            txtContra.Text = fila.Cells[3].Value.ToString();
-            txtCargo.Text = fila.Cells[4].Value.ToString();
-            txtNick.Text = fila.Cells[5].Value.ToString();
+                var fila = dgvUsers.SelectedRows[0];
+                txtNombre.Text = fila.Cells[1].Value.ToString();
+                txtApellidos.Text = fila.Cells[2].Value.ToString();
+                txtContra.Text = fila.Cells[3].Value.ToString();
+                txtCargo.Text = fila.Cells[4].Value.ToString();
+                txtNick.Text = fila.Cells[5].Value.ToString();
 
-            var correo = fila.Cells[6].Value.ToString();
-            txtCorreo.Text = String.IsNullOrEmpty(correo) ? "" : correo;
+                var correo = fila.Cells[6].Value.ToString();
+                txtCorreo.Text = String.IsNullOrEmpty(correo) ? "" : correo;
 
-            id = Convert.ToInt32(fila.Cells[0].Value.ToString());
+                id = Convert.ToInt32(fila.Cells[0].Value.ToString());
+            }
+            catch (Exception a) {
 
+                MessageBox.Show("ADVERTENCIA", "ERROR EN FORM USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos() == true)
+            try
             {
-                Editar();
-                VaciarCampos();
-                Mostrar();
+                if (ValidarCampos() == true)
+                {
+                    Editar();
+                    VaciarCampos();
+                    Mostrar();
+                }
+            }
+            catch (Exception a) {
+
+                MessageBox.Show("ADVERTENCIA", "ERROR AL EDITAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -131,37 +144,60 @@ namespace Capa_Presentacion
 
         private void Mostrar()
         {
-            CN_ABCUsuario _ABCUsuarioo = new CN_ABCUsuario();
-            var tablaUsuarios = _ABCUsuarioo.MostrarUsuarios();
-            dgvUsers.DataSource = tablaUsuarios;
+            try
+            {
+                CN_ABCUsuario _ABCUsuarioo = new CN_ABCUsuario();
+                var tablaUsuarios = _ABCUsuarioo.MostrarUsuarios();
+                dgvUsers.DataSource = tablaUsuarios;
+            }
+            catch (Exception a) {
+
+                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void IsEditar(bool isEditar)
         {
-            if (isEditar)
+            try
             {
-                btnAgregar.Enabled = false;
-                btnEliminar.Enabled = false;
+                if (isEditar)
+                {
+                    btnAgregar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                }
+                else
+                {
+                    btnAgregar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                }
             }
-            else
+            catch (Exception a)
             {
-                btnAgregar.Enabled = true;
-                btnEliminar.Enabled = true;
+
+                MessageBox.Show("ADVERTENCIA", "ERROR METODO ISEDITAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private bool ValidarCampos()
         {
             var validos = true;
+            try
+            {
+                
 
-            if (!EsCampoValido(txtApellidos)) validos = false;
-            if (!EsCampoValido(txtNombre)) validos = false;
-            if (!EsCampoValido(txtContra)) validos = false;
-            if (!EsCampoValido(txtCorreo)) validos = false;
-            if (!EsCampoValido(txtNick)) validos = false;
-            //if (!EsCampoValido(txtCargo)) validos = false;
-
-            return validos;
+                if (!EsCampoValido(txtApellidos)) validos = false;
+                if (!EsCampoValido(txtNombre)) validos = false;
+                if (!EsCampoValido(txtContra)) validos = false;
+                if (!EsCampoValido(txtCorreo)) validos = false;
+                if (!EsCampoValido(txtNick)) validos = false;
+                //if (!EsCampoValido(txtCargo)) validos = false;
+                return validos;
+            }
+            catch (Exception a) {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL VALIDAR CAMPOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return validos;
+            }
+            
         }
 
         private bool EsCampoValido(TextBox txtbox)
@@ -226,6 +262,11 @@ namespace Capa_Presentacion
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

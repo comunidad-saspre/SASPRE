@@ -10,6 +10,9 @@ namespace Capa_Datos
     public class Scrapper
     {
 
+        private const string URLCLIMA = "https://www.meteored.mx/clima_Ciudad+Mante-America+Norte-Mexico-Tamaulipas--1-22361.html";
+        private const string URLDESCRIPCION = "https://www.foreca.es/Mexico/Tamaulipas/Ciudad--Mante?quick_units=us";
+
         public Dictionary<string, string> DescripcionDia { get; set; }
         public Dictionary<string, string> TemperaturaMaxima { get; set; }
         public Dictionary<string, string> Precipitacion { get; set; }
@@ -98,14 +101,30 @@ namespace Capa_Datos
             }
         }
 
+        public int GetTemperaturaHoy()
+        {
+            var scrapper = new ktf.Kuto(httpGet(URLCLIMA));
+
+            var inicio = "class=\"dato-temperatura changeUnitT\"";
+            var fin = "/span>";
+            scrapper = scrapper.Extract(inicio, fin);
+
+            inicio = "data=\"";
+            fin = "|0|\">";
+
+            int.TryParse(scrapper.Extract(inicio, fin).ToString(), out int temperatura);
+
+            return temperatura;
+        }
+
         public void GetDescripcionclima()
         {
             try
             {
-                string climadata = httpGet("https://www.foreca.es/Mexico/Tamaulipas/Ciudad--Mante?quick_units=us");
+                string html = httpGet(URLDESCRIPCION);
                 ///Console.Write(HTML);
 
-                ktf.Kuto infoclima = new ktf.Kuto(climadata);
+                ktf.Kuto infoclima = new ktf.Kuto(html);
                 //snip the data limints
 
                 var date = DateTime.Now;
@@ -194,8 +213,7 @@ namespace Capa_Datos
         {
             try
             {
-                string html = httpGet("https://www.meteored.mx/clima_Ciudad+Mante-America+Norte-Mexico-Tamaulipas--1-22361.html");
-                string climadata = httpGet("https://www.foreca.es/Mexico/Tamaulipas/Ciudad--Mante?quick_units=us");
+                string html = httpGet(URLCLIMA);
                 for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
 
             }

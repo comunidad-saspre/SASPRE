@@ -53,8 +53,8 @@ namespace Capa_Presentacion
         private const String SAB = "Sabado";
         private const String DOM = "Domingo";
 
-       
-    [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
@@ -70,7 +70,7 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
-   
+
 
         public struct MARGINS
         {
@@ -100,7 +100,8 @@ namespace Capa_Presentacion
                     return (enabled == 1) ? true : false;
                 }
             }
-            catch (Exception ) {
+            catch (Exception)
+            {
                 MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
@@ -424,7 +425,8 @@ namespace Capa_Presentacion
                 if (day.Equals(MON)) return LUN;
                 if (day.Equals(MON)) return LUN;
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL TRADUCIR DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return $"{day} NOT A DAY";
@@ -457,7 +459,7 @@ namespace Capa_Presentacion
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -697,13 +699,14 @@ namespace Capa_Presentacion
                     }
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
 
-        private void ObtenerDias ()
+        private void ObtenerDias()
         {
 
 
@@ -716,11 +719,12 @@ namespace Capa_Presentacion
             }
         }
 
-        public Image vectorClima (String texto, int panel)
+        public Image vectorClima(String texto, int panel)
         {
             try
             {
-                if (texto.Equals("Nublado") && panel == 0)
+                // Nublado -> d400
+                if (texto.Equals("d400") && panel == 0)
                 {
                     return Vectores.Images[11];
                 }
@@ -728,7 +732,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[15];
                 }
-                else if (texto.Equals("Parcialmente nublado") && panel == 0)
+                // Parcialmente nublado --> d200
+                else if (texto.Equals("d200") && panel == 0)
                 {
                     return Vectores.Images[15];
                 }
@@ -736,7 +741,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Soleado") && panel == 0)
+                // Soleado -> d000
+                else if (texto.Equals("d000") && panel == 0)
                 {
                     return Vectores.Images[17];
                 }
@@ -748,7 +754,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Mayormente soleado / Viento") && panel == 0)
+                // Mayormente soleado / Viento --> d100
+                else if (texto.Equals("d100") && panel == 0)
                 {
                     return Vectores.Images[17];
                 }
@@ -772,7 +779,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Aguaceros por la tarde") && panel == 0)
+                // Aguaceros por la tarde --> d210
+                else if (texto.Equals("d210") && panel == 0)
                 {
                     return Vectores.Images[2];
                 }
@@ -792,7 +800,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)
+                // Aguaceros y tormentas por la tarde --> d240
+                else if (texto.Equals("d240") && panel == 0)
                 {
                     return Vectores.Images[2];
                 }
@@ -812,7 +821,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[11];
                 }
-                else if (texto.Equals("Mayormente nublado/ Viento") && panel == 0)
+                // Mayormente nublado / viento -> d300
+                else if (texto.Equals("d300") && panel == 0)
                 {
                     return Vectores.Images[11];
                 }
@@ -829,39 +839,40 @@ namespace Capa_Presentacion
                     return null;
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
 
                 MessageBox.Show("ADVERTENCIA", "ERROR en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
-            } 
-/*         
-Nublado
-Parcialmente nublado / Viento
-Parcialmente nublado
-Aguaceros en la mañana
-Soleado
-Nubes por la mañana / Sol por la tarde
-Lluvia en la mañana
-Mayormente soleado / Viento
-Tormentas por la tarde
-Tormentas aisladas
-Tormentas dispersas
-Tormentas
-Tormentas en la mañana
-Aguaceros por la tarde
-Aguaceros
-Algunos aguaceros
-Lluvia débil por la tarde
-Lluvia por la tarde
-Aguaceros y tormentas por la tarde
-Soleado / Viento
-Aguaceros y tormentas
-Lluvia
-Nublado / Viento
-Mayormente nublado/ Viento
-Nubes por la mañana / Sol por la tarde / Viento
-Tormentas aisladas / Viento
-*/
+            }
+            /*         
+            Nublado
+            Parcialmente nublado / Viento
+            Parcialmente nublado
+            Aguaceros en la mañana
+            Soleado
+            Nubes por la mañana / Sol por la tarde
+            Lluvia en la mañana
+            Mayormente soleado / Viento
+            Tormentas por la tarde
+            Tormentas aisladas
+            Tormentas dispersas
+            Tormentas
+            Tormentas en la mañana
+            Aguaceros por la tarde
+            Aguaceros
+            Algunos aguaceros
+            Lluvia débil por la tarde
+            Lluvia por la tarde
+            Aguaceros y tormentas por la tarde
+            Soleado / Viento
+            Aguaceros y tormentas
+            Lluvia
+            Nublado / Viento
+            Mayormente nublado/ Viento
+            Nubes por la mañana / Sol por la tarde / Viento
+            Tormentas aisladas / Viento
+            */
         }
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {

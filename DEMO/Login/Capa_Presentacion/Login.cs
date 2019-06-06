@@ -83,7 +83,7 @@ namespace Capa_Presentacion
                     return (enabled == 1) ? true : false;
                 }
             }
-            catch (Exception a)
+            catch (Exception )
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR EN EL LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -114,7 +114,7 @@ namespace Capa_Presentacion
                 base.WndProc(ref m);
                 if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
             }
-            catch (Exception a)
+            catch (Exception )
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR EN EL LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -255,7 +255,7 @@ namespace Capa_Presentacion
                 //Thread.Sleep(10000);
             }
             catch (Exception ex)
-            {
+            { 
                 MessageBox.Show("Ha ocurrido un error con la descarga de un archivo, compruebe su conexion a internet","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
@@ -271,7 +271,7 @@ namespace Capa_Presentacion
                     System.IO.Directory.CreateDirectory(ruta);
                 }
             }
-            catch (Exception a)
+            catch (Exception )
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL CREAR CARPETA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

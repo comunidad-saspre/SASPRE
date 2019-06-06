@@ -842,6 +842,19 @@ Tormentas aisladas / Viento
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void btnFertilizantes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<Fertilizantes>();
+            panelClima.Visible = false;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             Datos_Atmosfericos datos = new Datos_Atmosfericos();

@@ -113,6 +113,7 @@
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.btnFertilizantes = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -209,6 +210,7 @@
             // 
             this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.fondomenu;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.myPanel1.Controls.Add(this.btnFertilizantes);
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
@@ -1367,6 +1369,43 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // btnFertilizantes
+            // 
+            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFertilizantes.BorderRadius = 0;
+            this.btnFertilizantes.ButtonText = "   Fertilizantes";
+            this.btnFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFertilizantes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnFertilizantes.Iconimage_right = null;
+            this.btnFertilizantes.Iconimage_right_Selected = null;
+            this.btnFertilizantes.Iconimage_Selected = null;
+            this.btnFertilizantes.IconMarginLeft = 0;
+            this.btnFertilizantes.IconMarginRight = 0;
+            this.btnFertilizantes.IconRightVisible = true;
+            this.btnFertilizantes.IconRightZoom = 0D;
+            this.btnFertilizantes.IconVisible = true;
+            this.btnFertilizantes.IconZoom = 60D;
+            this.btnFertilizantes.IsTab = false;
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 501);
+            this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFertilizantes.Name = "btnFertilizantes";
+            this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnFertilizantes.selected = false;
+            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
+            this.btnFertilizantes.TabIndex = 59;
+            this.btnFertilizantes.Text = "   Fertilizantes";
+            this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFertilizantes.Textcolor = System.Drawing.Color.Black;
+            this.btnFertilizantes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Click += new System.EventHandler(this.btnFertilizantes_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1495,5 +1534,6 @@
         private System.Windows.Forms.Label labelFecha3;
         private System.Windows.Forms.Label lblfechaprincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Bunifu.Framework.UI.BunifuFlatButton btnFertilizantes;
     }
 }

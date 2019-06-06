@@ -12,15 +12,77 @@ namespace Capa_Presentacion
 {
     public partial class Fertilizantes : Form
     {
+        DataTable tablaFertilizantes;
+
         public Fertilizantes()
         {
             InitializeComponent();
-            dgvFertilizantes.DataSource = CN_Fertilizantes.MostrarFertilizantes();
+            MostrarFertilizantes();
+        }
+
+        private void MostrarFertilizantes()
+        {
+            tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
+            dgvFertilizantes.DataSource = tablaFertilizantes;
+        }
+
+        private void LlenarComboPlaga()
+        {
+            tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
+            comboPlaga.DataSource = tablaFertilizantes;
+            comboPlaga.DisplayMember = "Plaga";
         }
 
         private void dgvFertilizantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            DataView dv = tablaFertilizantes.DefaultView;
+            var query = "Plaga like '%{0}%' or Insecticida like '%{0}%' or Dosis like '%{0}%'";
+            query += " or `Nombre Comercial` like '%{0}%' or `Dosis Comercial` like '%{0}%'";
+            query += " or `Epoca de Control` like '%{0}%'";
+            dv.RowFilter = string.Format(query, txtBuscar.Text);
+            dgvFertilizantes.DataSource = dv.ToTable();
+        }
+
+        private void txtBuscar_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text.Equals(""))
+            {
+                txtBuscar.Text = "Buscar";
+                txtBuscar.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text.Equals("Buscar"))
+            {
+                txtBuscar.Text = "";
+                txtBuscar.ForeColor = Color.Black;
+            }
+        }
+
+        bool loaded = false;
+
+        private void comboPlaga_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Pendiente agregar búsqueda por combobox de plaga y planta
+        }
+
+        private void Fertilizantes_Load(object sender, EventArgs e)
+        {
+            LlenarComboPlaga();
+            loaded = true;
         }
     }
 }

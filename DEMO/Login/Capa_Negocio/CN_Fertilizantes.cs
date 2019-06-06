@@ -4,7 +4,7 @@ using Capa_Datos;
 
 namespace Capa_Negocio
 {
-    internal class CN_Fertilizantes
+    public class CN_Fertilizantes
     {
         public static DataTable MostrarFertilizantes()
         {

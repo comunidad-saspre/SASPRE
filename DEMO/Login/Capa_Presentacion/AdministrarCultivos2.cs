@@ -313,10 +313,6 @@ namespace Capa_Presentacion
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

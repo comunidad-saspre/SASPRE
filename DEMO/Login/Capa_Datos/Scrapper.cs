@@ -25,7 +25,7 @@ namespace Capa_Datos
                     temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER TEMPERATURA MAXIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -36,13 +36,14 @@ namespace Capa_Datos
         {
 
             string temperature = "";
-            try { 
-            foreach (var item in TemperaturaMinima)
+            try
             {
-                temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                foreach (var item in TemperaturaMinima)
+                {
+                    temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                }
             }
-            }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER TEMPERATURA MINIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -58,7 +59,7 @@ namespace Capa_Datos
                     description += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DESCRIPCION TEMPERATURA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -74,7 +75,7 @@ namespace Capa_Datos
                     precipitation += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER PRECIPITACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -91,7 +92,7 @@ namespace Capa_Datos
                 TemperaturaMinima = new Dictionary<string, string>();
                 Precipitacion = new Dictionary<string, string>();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DATOS DE LA SEMANA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -131,7 +132,7 @@ namespace Capa_Datos
 
                 // agrega primero el 7, luego del 1 al 6, siendo el 6 el dia 7.
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DESCRIPCION CLIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -139,7 +140,7 @@ namespace Capa_Datos
 
         private string GetFormattedDate(int day, int month, int year)
         {
-           
+
             string date = year.ToString();
             try
             {
@@ -195,9 +196,10 @@ namespace Capa_Datos
             {
                 string html = httpGet("https://www.meteored.mx/clima_Ciudad+Mante-America+Norte-Mexico-Tamaulipas--1-22361.html");
                 string climadata = httpGet("https://www.foreca.es/Mexico/Tamaulipas/Ciudad--Mante?quick_units=us");
-           for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
+                for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
 
-        } catch (Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

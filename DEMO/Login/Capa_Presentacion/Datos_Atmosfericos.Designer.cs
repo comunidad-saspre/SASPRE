@@ -30,7 +30,6 @@
         {
             this.dtgDatosElMante = new System.Windows.Forms.DataGridView();
             this.dias = new System.Windows.Forms.ComboBox();
-            this.filtrar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDatosElMante)).BeginInit();
             this.SuspendLayout();
@@ -54,13 +53,6 @@
             this.dias.Size = new System.Drawing.Size(121, 21);
             this.dias.TabIndex = 1;
             // 
-            // filtrar
-            // 
-            this.filtrar.Location = new System.Drawing.Point(0, 0);
-            this.filtrar.Name = "filtrar";
-            this.filtrar.Size = new System.Drawing.Size(75, 23);
-            this.filtrar.TabIndex = 4;
-            // 
             // btnFiltrar
             // 
             this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
@@ -80,7 +72,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 681);
-            this.Controls.Add(this.filtrar);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.dias);
             this.Controls.Add(this.dtgDatosElMante);
@@ -96,7 +87,6 @@
 
         private System.Windows.Forms.DataGridView dtgDatosElMante;
         private System.Windows.Forms.ComboBox dias;
-        private System.Windows.Forms.Button filtrar;
         private System.Windows.Forms.Button btnFiltrar;
     }
 }

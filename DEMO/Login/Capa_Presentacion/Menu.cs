@@ -167,6 +167,15 @@ namespace Capa_Presentacion
         {
             try
             {
+                if(btnDatAtmos == true)
+                {
+                    panelDerecho.Visible = false;
+                    btnDatAtmos = false;
+                }
+                else
+                {
+                    panelDerecho.Visible = true;
+                }
                 Form formulario;
                 formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
 
@@ -530,7 +539,6 @@ namespace Capa_Presentacion
         {
             if (Program.cargo != "Admin")
             {
-                btnConfiguracionGeneral.Visible = false;
                 btnAdministrarUsuarios.Visible = false;
             }
         }
@@ -840,10 +848,35 @@ Tormentas aisladas / Viento
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void btnAdministrarCosechas_Click(object sender, EventArgs e)
+        {
+            panelDerecho.Visible = true;
+            AbrirFormEnPanel<Cosechas>();
+            panelClima.Visible = false;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+        bool btnDatAtmos;
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            Datos_Atmosfericos datos = new Datos_Atmosfericos();
-            datos.Visible = true;
+            btnDatAtmos = true;
+            panelDerecho.Visible = false;
+            AbrirFormEnPanel<Datos_Atmosfericos>();
+            panelClima.Visible = false;
+            
+            //lblTemp.Visible = true;
+            //lblCentigrados.Visible = true;
+            //lblHumedad.Visible = true;
+            //lblEstado.Visible = true;
+            //lblPrecipitacion.Visible = true;
+            //lblPrecipitacionmm.Visible = true;
+            //Datos_Atmosfericos datos = new Datos_Atmosfericos();
+            //datos.Visible = true;
 
         }
     }

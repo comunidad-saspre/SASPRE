@@ -76,7 +76,18 @@ namespace Capa_Presentacion
 
         private void comboPlaga_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Pendiente agregar búsqueda por combobox de plaga y planta
+            if(loaded)
+            {
+                DataView dv = tablaFertilizantes.DefaultView;
+                var query = "Plaga like '%{0}%'";
+                var index = comboPlaga.SelectedIndex;
+                if(index != -1)
+                {
+                    var value = tablaFertilizantes.Rows[index][0].ToString();
+                    dv.RowFilter = string.Format(query, value);
+                    dgvFertilizantes.DataSource = dv.ToTable();
+                }
+            }
         }
 
         private void Fertilizantes_Load(object sender, EventArgs e)

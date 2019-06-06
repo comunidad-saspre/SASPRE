@@ -30,5 +30,11 @@ namespace Capa_Negocio
             scrapper.GetDescripcionclima();
             return scrapper.DescripcionDia;
         }
+
+        public static int GetTemperaturaHoy()
+        {
+            var scrapper = new Scrapper();
+            return scrapper.GetTemperaturaHoy();
+        }
     }
 }

@@ -268,9 +268,22 @@ namespace Capa_Presentacion
             MostrarTemperaturaMinima();
             MostrarPrecipitaciones();
             MostrarDescripcionDia();
+            MostrarInformacionHoy();
         }
 
+        private void MostrarInformacionHoy()
+        {
+            var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
+            MessageBox.Show(temperaturaHoy.ToString());
+            var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
+            var humedad = GetHumedad(precipitacion);
+            var valorPrecipitacion = GetPrecipitacion(precipitacion);
 
+            lblCentigrados.Text = temperaturaHoy.ToString() + "° Centigrados";
+            lblPrecipitacionmm.Text = valorPrecipitacion;
+            lblEstado.Text = humedad;
+
+        }
 
         private void MostrarTemperaturaMaxima()
         {
@@ -327,6 +340,38 @@ namespace Capa_Presentacion
             result += precipitationDay;
 
             return result;
+        }
+
+        private string GetHumedad(string precipitacion)
+        {
+            if (precipitacion.Contains('%'))
+            {
+                var precipitationDayInformation = precipitacion.Split(' ');
+
+                var humedad = precipitationDayInformation[0].ToString();
+
+                var result = humedad;
+
+                return result;
+            }
+
+            return "";
+        }
+
+        private string GetPrecipitacion(string precipitacion)
+        {
+
+            if (precipitacion.Contains('%'))
+            {
+                var precipitationDayInformation = precipitacion.Split(' ');
+
+                var valorPrecipitacion = precipitationDayInformation[1];
+
+                var result = valorPrecipitacion + " mm";
+
+                return result;
+            }
+            return "";
         }
 
         private void MostrarDescripcionDia()

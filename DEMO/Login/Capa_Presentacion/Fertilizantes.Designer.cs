@@ -30,12 +30,12 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboPlanta = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboPlaga = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboCultivo = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvFertilizantes = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboPlaga = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizantes)).BeginInit();
@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.comboPlaga);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.comboPlanta);
+            this.panel1.Controls.Add(this.comboCultivo);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -69,15 +69,46 @@
             this.panel1.Size = new System.Drawing.Size(794, 26);
             this.panel1.TabIndex = 0;
             // 
-            // comboPlanta
+            // label3
             // 
-            this.comboPlanta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboPlanta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPlanta.FormattingEnabled = true;
-            this.comboPlanta.Location = new System.Drawing.Point(620, 0);
-            this.comboPlanta.Name = "comboPlanta";
-            this.comboPlanta.Size = new System.Drawing.Size(174, 21);
-            this.comboPlanta.TabIndex = 2;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Location = new System.Drawing.Point(285, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 26);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Plaga:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboPlaga
+            // 
+            this.comboPlaga.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboPlaga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPlaga.FormattingEnabled = true;
+            this.comboPlaga.Location = new System.Drawing.Point(328, 0);
+            this.comboPlaga.Name = "comboPlaga";
+            this.comboPlaga.Size = new System.Drawing.Size(249, 21);
+            this.comboPlaga.TabIndex = 4;
+            this.comboPlaga.SelectedIndexChanged += new System.EventHandler(this.comboPlaga_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(577, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 26);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Planta:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboCultivo
+            // 
+            this.comboCultivo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboCultivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCultivo.FormattingEnabled = true;
+            this.comboCultivo.Location = new System.Drawing.Point(620, 0);
+            this.comboCultivo.Name = "comboCultivo";
+            this.comboCultivo.Size = new System.Drawing.Size(174, 21);
+            this.comboCultivo.TabIndex = 2;
             // 
             // txtBuscar
             // 
@@ -106,37 +137,6 @@
             this.dgvFertilizantes.TabIndex = 1;
             this.dgvFertilizantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFertilizantes_CellContentClick);
             // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(577, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 26);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Planta:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboPlaga
-            // 
-            this.comboPlaga.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboPlaga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPlaga.FormattingEnabled = true;
-            this.comboPlaga.Location = new System.Drawing.Point(328, 0);
-            this.comboPlaga.Name = "comboPlaga";
-            this.comboPlaga.Size = new System.Drawing.Size(249, 21);
-            this.comboPlaga.TabIndex = 4;
-            this.comboPlaga.SelectedIndexChanged += new System.EventHandler(this.comboPlaga_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(285, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 26);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Plaga:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Fertilizantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,7 +158,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboPlanta;
+        private System.Windows.Forms.ComboBox comboCultivo;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView dgvFertilizantes;
         private System.Windows.Forms.Label label3;

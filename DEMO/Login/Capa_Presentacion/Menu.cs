@@ -273,8 +273,7 @@ namespace Capa_Presentacion
 
         private void MostrarInformacionHoy()
         {
-            var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
-            MessageBox.Show(temperaturaHoy.ToString());
+            var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();            
             var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
             var humedad = GetHumedad(precipitacion);
             var valorPrecipitacion = GetPrecipitacion(precipitacion);
@@ -720,7 +719,8 @@ namespace Capa_Presentacion
         {
             try
             {
-                if (texto.Equals("Nublado") && panel == 0)
+                // Nublado -> d400
+                if (texto.Equals("d400") && panel == 0)
                 {
                     return Vectores.Images[11];
                 }
@@ -728,7 +728,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[15];
                 }
-                else if (texto.Equals("Parcialmente nublado") && panel == 0)
+                // Parcialmente nublado --> d200
+                else if (texto.Equals("d200") && panel == 0)
                 {
                     return Vectores.Images[15];
                 }
@@ -736,7 +737,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Soleado") && panel == 0)
+                // Soleado -> d000
+                else if (texto.Equals("d000") && panel == 0)
                 {
                     return Vectores.Images[17];
                 }
@@ -748,7 +750,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Mayormente soleado / Viento") && panel == 0)
+                // Mayormente soleado / Viento --> d100
+                else if (texto.Equals("d100") && panel == 0)
                 {
                     return Vectores.Images[17];
                 }
@@ -772,7 +775,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Aguaceros por la tarde") && panel == 0)
+                // Aguaceros por la tarde --> d210
+                else if (texto.Equals("d210") && panel == 0)
                 {
                     return Vectores.Images[2];
                 }
@@ -792,7 +796,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[2];
                 }
-                else if (texto.Equals("Aguaceros y tormentas por la tarde") && panel == 0)
+                // Aguaceros y tormentas por la tarde --> d240
+                else if (texto.Equals("d240") && panel == 0)
                 {
                     return Vectores.Images[2];
                 }
@@ -812,7 +817,8 @@ namespace Capa_Presentacion
                 {
                     return Vectores.Images[11];
                 }
-                else if (texto.Equals("Mayormente nublado/ Viento") && panel == 0)
+                // Mayormente nublado / viento -> d300
+                else if (texto.Equals("d300") && panel == 0)
                 {
                     return Vectores.Images[11];
                 }

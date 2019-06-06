@@ -14,10 +14,21 @@ namespace Capa_Presentacion
     {
         DataTable tablaFertilizantes;
 
+        private List<string> _plagas, _cultivos;
+
         public Fertilizantes()
         {
             InitializeComponent();
+            _plagas = new List<string>();
+            _cultivos = new List<string>();
+        }
+
+        private void IniciarComponentes()
+        {
             MostrarFertilizantes();
+            LlenarComboCultivo();
+            LlenarComboPlaga();
+            loaded = true;
         }
 
         private void MostrarFertilizantes()
@@ -28,9 +39,38 @@ namespace Capa_Presentacion
 
         private void LlenarComboPlaga()
         {
-            tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
-            comboPlaga.DataSource = tablaFertilizantes;
-            comboPlaga.DisplayMember = "Plaga";
+            DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
+            foreach (DataRow row in tablaControlPlagas.Rows)
+            {
+                var valor = row["Plaga"].ToString();
+                if (!_plagas.Contains(valor))
+                {
+                    _plagas.Add(valor);
+                }
+            }
+
+            foreach (var item in _plagas)
+            {
+                comboPlaga.Items.Add(item.ToString());
+            }
+        }
+
+        private void LlenarComboCultivo()
+        {
+            DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
+            foreach (DataRow row in tablaControlPlagas.Rows)
+            {
+                var valor = row["Cultivo"].ToString();
+                if (!_cultivos.Contains(valor))
+                {
+                    _cultivos.Add(valor);
+                }
+            }
+
+            foreach (var item in _cultivos)
+            {
+                comboCultivo.Items.Add(item.ToString());
+            }
         }
 
         private void dgvFertilizantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -83,7 +123,7 @@ namespace Capa_Presentacion
                 var index = comboPlaga.SelectedIndex;
                 if(index != -1)
                 {
-                    var value = tablaFertilizantes.Rows[index][0].ToString();
+                    var value = _plagas[index];
                     dv.RowFilter = string.Format(query, value);
                     dgvFertilizantes.DataSource = dv.ToTable();
                 }
@@ -92,8 +132,7 @@ namespace Capa_Presentacion
 
         private void Fertilizantes_Load(object sender, EventArgs e)
         {
-            LlenarComboPlaga();
-            loaded = true;
+            IniciarComponentes();
         }
     }
 }

@@ -124,6 +124,12 @@
     <Compile Include="EstadisticasDePlagas.Designer.cs">
       <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fertilizantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fertilizantes.Designer.cs">
+      <DependentUpon>Fertilizantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FromUsuarioABC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasDePlagas.resx">
       <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fertilizantes.resx">
+      <DependentUpon>Fertilizantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FromUsuarioABC.resx">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>

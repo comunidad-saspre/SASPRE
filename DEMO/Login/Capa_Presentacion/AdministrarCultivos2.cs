@@ -313,5 +313,6 @@ namespace Capa_Presentacion
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
     }
 }

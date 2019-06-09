@@ -60,6 +60,7 @@
     <Compile Include="CD_Cosechas.cs" />
     <Compile Include="CD_Cultivos.cs" />
     <Compile Include="CD_DatosClimaMes.cs" />
+    <Compile Include="CD_Fertilizantes.cs" />
     <Compile Include="CD_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scrapper.cs" />

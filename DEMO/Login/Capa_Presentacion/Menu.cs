@@ -284,7 +284,7 @@ namespace Capa_Presentacion
         private void MostrarInformacionHoy()
         {
             var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
-            MessageBox.Show(temperaturaHoy.ToString());
+            //MessageBox.Show(temperaturaHoy.ToString());
             var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
             var humedad = GetHumedad(precipitacion);
             var valorPrecipitacion = GetPrecipitacion(precipitacion);

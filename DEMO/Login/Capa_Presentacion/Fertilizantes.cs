@@ -82,8 +82,8 @@ namespace Capa_Presentacion
         {
 
             DataView dv = tablaFertilizantes.DefaultView;
-            var query = "Plaga like '%{0}%' or Insecticida like '%{0}%' or Dosis like '%{0}%'";
-            query += " or `Nombre Comercial` like '%{0}%' or `Dosis Comercial` like '%{0}%'";
+            var query = "Plaga like '%{0}%'";
+            query += " or `Nombre Comercial` like '%{0}%'";
             query += " or `Epoca de Control` like '%{0}%'";
             dv.RowFilter = string.Format(query, txtBuscar.Text);
             dgvFertilizantes.DataSource = dv.ToTable();

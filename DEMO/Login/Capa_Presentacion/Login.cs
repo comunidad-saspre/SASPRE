@@ -14,11 +14,13 @@ using Capa_Negocio;
 using MySql.Data.MySqlClient;
 using System.Runtime;
 using System.Runtime.InteropServices;
+using System.Net.Mail;
 
 namespace Capa_Presentacion
 {
     public partial class Login : Form
     {
+        private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
         Thread th;
         private string rutadirectorio;
         String thisDay = DateTime.Now.ToLongDateString().ToString();
@@ -285,17 +287,33 @@ namespace Capa_Presentacion
         private void linklblcontrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
+            
                 if (ConexionAInternet() == true)
                 {
-                    Envio_Correo ec = new Envio_Correo();
-                    ec.ShowDialog();
+
+                    pictureBox5.Location = new Point(521, 420);
+                    bunifuMaterialTextbox1.Location = new Point(548, 420);
+                    btnEnviar.Location = new Point(655, 520);
+                    btnCancelar.Location = new Point(521, 520);
+                    bunifuSeparator2.Location = new Point(520, 470);
+                    linklblcontrasena.Visible = false;
+                    txtNickname.Visible = false;
+                    pictureBox2.Visible = false;
+                    pictureBox3.Visible = false;
+                    txtContra.Visible = false;
+                    btnIngresar.Visible = false;
+                    label1.Visible = true;
+                    pictureBox5.Visible = true;
+                    bunifuMaterialTextbox1.Visible = true;
+                    btnEnviar.Visible = true;
+                    btnCancelar.Visible = true;
                 }
                 else
                 {
                     MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            
-          
+
+
         }
         private bool HayInternet()
         {
@@ -328,6 +346,108 @@ namespace Capa_Presentacion
                 entrar();
             }
         }
-        
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        string correoPrincipal = "sistemarhvb@gmail.com";
+        string contraPrincipal = "Skate1234";
+        private bool EsDireccionDeCorreoValida(string address)
+        {
+            try
+            {
+                var m = new MailAddress(address);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            var email = bunifuMaterialTextbox1.Text;
+            var table = _ABCUsuario.ObtenerContra(email);
+            var contra = "";
+            var mensaje = "Su contraseña es: ";
+            if (table.Rows.Count != 0)
+            {
+                contra = table.Rows[0][0].ToString();
+                mensaje += contra;
+                try
+                {
+                    if (EsDireccionDeCorreoValida(email))
+                    {
+                        EnviarCorreo(correoPrincipal, contraPrincipal, email, mensaje);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex);
+                    throw;
+                }
+            }
+            else
+            {
+                //fuente: , contra: 
+                MessageBox.Show("Correo inexistente, ingrese valido.");
+                return;
+            }
+        }
+        private void EnviarCorreo(string fuente, string contraFuente, string destino, string mensaje)
+        {
+            try
+            {
+                var correo = new System.Net.Mail.MailMessage();
+                correo.From = new System.Net.Mail.MailAddress(fuente);
+                correo.To.Add(destino);
+                correo.Subject = "Recuperacion de contraseña";
+                correo.Body = mensaje;
+                correo.IsBodyHtml = false;
+                correo.Priority = System.Net.Mail.MailPriority.Normal;
+
+                var smtp = new System.Net.Mail.SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential(fuente, contraFuente);
+                
+                smtp.Send(correo);
+                MessageBox.Show("Contraseña enviada","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR AL ENVIAR CORREO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            linklblcontrasena.Visible = true;
+            txtNickname.Visible = true;
+            pictureBox2.Visible = true;
+            pictureBox3.Visible = true;
+            txtContra.Visible = true;
+            btnIngresar.Visible = true;
+            label1.Visible = false;
+            pictureBox5.Visible = false;
+            bunifuMaterialTextbox1.Visible = false;
+            btnEnviar.Visible = false;
+            btnCancelar.Visible = false;
+            bunifuSeparator2.Location = new Point(520, 533);
+        }
+
+        private void bunifuSeparator2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

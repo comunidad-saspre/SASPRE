@@ -18,8 +18,10 @@ using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
+   
     public partial class Menu : Form
     {
+        WebBrowser navegador = new WebBrowser();
 
         private bool Drag;
         private int MouseX;
@@ -247,6 +249,12 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
+           
+            navegador.ScriptErrorsSuppressed = true;
+
+            navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
+            navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+            timerClima.Start();
             try
             {
 
@@ -280,10 +288,26 @@ namespace Capa_Presentacion
             MostrarDescripcionDia();
             MostrarInformacionHoy();
         }
-
+        private void datos_cargados(object sender, EventArgs e)
+        {
+           
+            lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
+            MessageBox.Show(navegador.Document.GetElementById("wob_tm").InnerText);
+            foreach (HtmlElement etiqueta in navegador.Document.All)
+            {
+                if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                {
+                    //textBox2.Text = etiqueta.InnerText;
+                    ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
+                    //precipitaciones: 
+                    lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
+                    lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+                }
+            }
+        }
         private void MostrarInformacionHoy()
         {
-            var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
+            /*var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
             //MessageBox.Show(temperaturaHoy.ToString());
             var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
             var humedad = GetHumedad(precipitacion);
@@ -291,7 +315,7 @@ namespace Capa_Presentacion
 
             lblCentigrados.Text = temperaturaHoy.ToString() + "° Centigrados";
             lblPrecipitacionmm.Text = valorPrecipitacion;
-            lblEstado.Text = humedad;
+            lblEstado.Text = humedad;*/
 
         }
 
@@ -721,10 +745,12 @@ namespace Capa_Presentacion
         }
         private void timerClima_Tick(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            /*if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
                 //GetRequestHora();
-            }
+            }*/
+            navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+           
         }
 
         public Image vectorClima(String texto, int panel)

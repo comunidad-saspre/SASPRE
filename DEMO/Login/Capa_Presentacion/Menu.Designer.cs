@@ -38,13 +38,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MouseDetect = new System.Timers.Timer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
-            this.btnFertilizantes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelClima = new Capa_Presentacion.MyPanel();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
@@ -102,13 +99,16 @@
             this.labelDiaHoyNombre = new System.Windows.Forms.Label();
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTemp = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPrecipitacionmm = new System.Windows.Forms.Label();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblPrecipitacion = new System.Windows.Forms.Label();
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
+            this.btnFertilizantes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAdministrarCosechas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDatosAtmosfericos = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -121,8 +121,6 @@
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
@@ -137,6 +135,8 @@
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).BeginInit();
             this.panelDerecho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,36 +145,6 @@
             this.MouseDetect.Enabled = true;
             this.MouseDetect.SynchronizingObject = this;
             this.MouseDetect.Elapsed += new System.Timers.ElapsedEventHandler(this.MouseDetect_Elapsed);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::Capa_Presentacion.Properties.Resources.icons8_Horizontal_Line_64px;
-            this.pictureBox2.Location = new System.Drawing.Point(193, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Minimizar");
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Vectores
             // 
@@ -202,7 +172,7 @@
             // timerClima
             // 
             this.timerClima.Enabled = true;
-            this.timerClima.Interval = 1000;
+            this.timerClima.Interval = 3600000;
             this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
             // label5
@@ -225,43 +195,6 @@
             this.myPanel1.Size = new System.Drawing.Size(1280, 720);
             this.myPanel1.TabIndex = 1;
             this.myPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.myPanel1_Paint);
-            // 
-            // btnFertilizantes
-            // 
-            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFertilizantes.BorderRadius = 0;
-            this.btnFertilizantes.ButtonText = "   Fertilizantes";
-            this.btnFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFertilizantes.DisabledColor = System.Drawing.Color.Gray;
-            this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
-            this.btnFertilizantes.Iconimage_right = null;
-            this.btnFertilizantes.Iconimage_right_Selected = null;
-            this.btnFertilizantes.Iconimage_Selected = null;
-            this.btnFertilizantes.IconMarginLeft = 0;
-            this.btnFertilizantes.IconMarginRight = 0;
-            this.btnFertilizantes.IconRightVisible = true;
-            this.btnFertilizantes.IconRightZoom = 0D;
-            this.btnFertilizantes.IconVisible = true;
-            this.btnFertilizantes.IconZoom = 60D;
-            this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 501);
-            this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnFertilizantes.Name = "btnFertilizantes";
-            this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnFertilizantes.selected = false;
-            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
-            this.btnFertilizantes.TabIndex = 59;
-            this.btnFertilizantes.Text = "   Fertilizantes";
-            this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFertilizantes.Textcolor = System.Drawing.Color.Black;
-            this.btnFertilizantes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFertilizantes.Click += new System.EventHandler(this.btnFertilizantes_Click);
             // 
             // panelClima
             // 
@@ -960,6 +893,21 @@
             this.panelDerecho.TabIndex = 27;
             this.panelDerecho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDerecho_Paint);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Capa_Presentacion.Properties.Resources.icons8_Horizontal_Line_64px;
+            this.pictureBox2.Location = new System.Drawing.Point(193, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Minimizar");
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // lblTemp
             // 
             this.lblTemp.AutoSize = true;
@@ -972,6 +920,21 @@
             this.lblTemp.TabIndex = 21;
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblPrecipitacionmm
             // 
@@ -1059,6 +1022,43 @@
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
+            // 
+            // btnFertilizantes
+            // 
+            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFertilizantes.BorderRadius = 0;
+            this.btnFertilizantes.ButtonText = "   Fertilizantes";
+            this.btnFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFertilizantes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnFertilizantes.Iconimage_right = null;
+            this.btnFertilizantes.Iconimage_right_Selected = null;
+            this.btnFertilizantes.Iconimage_Selected = null;
+            this.btnFertilizantes.IconMarginLeft = 0;
+            this.btnFertilizantes.IconMarginRight = 0;
+            this.btnFertilizantes.IconRightVisible = true;
+            this.btnFertilizantes.IconRightZoom = 0D;
+            this.btnFertilizantes.IconVisible = true;
+            this.btnFertilizantes.IconZoom = 60D;
+            this.btnFertilizantes.IsTab = false;
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 501);
+            this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFertilizantes.Name = "btnFertilizantes";
+            this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnFertilizantes.selected = false;
+            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
+            this.btnFertilizantes.TabIndex = 59;
+            this.btnFertilizantes.Text = "   Fertilizantes";
+            this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFertilizantes.Textcolor = System.Drawing.Color.Black;
+            this.btnFertilizantes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Click += new System.EventHandler(this.btnFertilizantes_Click);
             // 
             // btnAdministrarCosechas
             // 
@@ -1426,8 +1426,6 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
@@ -1449,6 +1447,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
             this.ResumeLayout(false);

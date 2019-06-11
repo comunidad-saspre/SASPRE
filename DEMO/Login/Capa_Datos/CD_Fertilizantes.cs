@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Capa_Datos
 {
@@ -24,6 +25,7 @@ namespace Capa_Datos
             tablaCultivos.Load(leer);
             conexion.CerrarConexion();
             return tablaCultivos;
+           
         }
     }
 }

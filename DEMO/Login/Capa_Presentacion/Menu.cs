@@ -292,7 +292,7 @@ namespace Capa_Presentacion
         {
            
             lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
-            MessageBox.Show(navegador.Document.GetElementById("wob_tm").InnerText);
+            //MessageBox.Show(navegador.Document.GetElementById("wob_tm").InnerText);
             foreach (HtmlElement etiqueta in navegador.Document.All)
             {
                 if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
@@ -412,11 +412,11 @@ namespace Capa_Presentacion
         {
             var descriptions = ScrapperCN.GetDescription();
 
-            this.picClimaHoy.Image = vectorClima(descriptions["dia1"], 0);
-            this.picClima1.Image = vectorClima(descriptions["dia2"], 0);
-            this.picClima2.Image = vectorClima(descriptions["dia3"], 0);
-            this.picClima3.Image = vectorClima(descriptions["dia4"], 0);
-            this.picClima4.Image = vectorClima(descriptions["dia5"], 0);
+            this.picClimaHoy.Image = ObtenerImagenDesdeCodigo(descriptions["dia1"], 1);
+            this.picClima1.Image = ObtenerImagenDesdeCodigo(descriptions["dia2"], 2);
+            this.picClima2.Image = ObtenerImagenDesdeCodigo(descriptions["dia3"], 3);
+            this.picClima3.Image = ObtenerImagenDesdeCodigo(descriptions["dia4"], 4);
+            this.picClima4.Image = ObtenerImagenDesdeCodigo(descriptions["dia5"], 5);
 
         }
 
@@ -750,7 +750,6 @@ namespace Capa_Presentacion
                 //GetRequestHora();
             }*/
             navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
-           
         }
 
         public Image vectorClima(String texto, int panel)
@@ -908,6 +907,78 @@ namespace Capa_Presentacion
             Tormentas aisladas / Viento
             */
         }
+
+        public Image ObtenerImagenDesdeCodigo(String texto, int dayPictureBox)
+        {
+            try
+            {
+                // case 1 = Primer panel, este debe ser blanco de perefencia, sino color.
+                // case 2 y 3 = Segundo y tercer panel, estos deben ser negros.
+                // case 4 y 5 = Cuarto y quinto panel, estos a color de preferencia, sino blanco.
+                switch (dayPictureBox)
+                {
+                    case 1:
+                        // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
+                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[18];
+                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[18];
+
+                        // Algunas nubes | Algunas nubes
+                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
+
+                        // Parcialmente nublado, lluvia ligera
+                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[0];
+                        else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
+
+                        // Nublado
+                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[9];
+
+                        // Despejado
+                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[16];
+
+                        // Nublado, lluvia ligera
+                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[3];
+                        else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[3];
+
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
+                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[20];
+                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[20];
+
+                        // Algunas nubes | Algunas nubes
+                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
+
+                        // Parcialmente nublado, lluvia ligera
+                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[2];
+                        else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
+
+                        // Nublado
+                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[11];
+
+                        // Despejado
+                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[17];
+
+                        // Nublado, lluvia ligera
+                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[5];
+                        else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
+
+                        break;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("ADVERTENCIA", "ERROR en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return null;
+            }
+            return null;
+        }
+
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {
             try

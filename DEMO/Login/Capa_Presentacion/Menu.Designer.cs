@@ -1056,7 +1056,7 @@
             this.btnFertilizantes.IconVisible = true;
             this.btnFertilizantes.IconZoom = 60D;
             this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 501);
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 450);
             this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFertilizantes.Name = "btnFertilizantes";
             this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
@@ -1093,7 +1093,7 @@
             this.btnAdministrarCosechas.IconVisible = true;
             this.btnAdministrarCosechas.IconZoom = 60D;
             this.btnAdministrarCosechas.IsTab = false;
-            this.btnAdministrarCosechas.Location = new System.Drawing.Point(1, 297);
+            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 300);
             this.btnAdministrarCosechas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCosechas.Name = "btnAdministrarCosechas";
             this.btnAdministrarCosechas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1130,7 +1130,7 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 450);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 500);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
@@ -1167,7 +1167,7 @@
             this.btnDatosAtmosfericos.IconVisible = true;
             this.btnDatosAtmosfericos.IconZoom = 60D;
             this.btnDatosAtmosfericos.IsTab = false;
-            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(1, 398);
+            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 400);
             this.btnDatosAtmosfericos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDatosAtmosfericos.Name = "btnDatosAtmosfericos";
             this.btnDatosAtmosfericos.Normalcolor = System.Drawing.Color.Transparent;
@@ -1204,7 +1204,7 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 147);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 150);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1252,7 +1252,7 @@
             this.btnGenerarReportes.IconVisible = true;
             this.btnGenerarReportes.IconZoom = 60D;
             this.btnGenerarReportes.IsTab = false;
-            this.btnGenerarReportes.Location = new System.Drawing.Point(0, 344);
+            this.btnGenerarReportes.Location = new System.Drawing.Point(0, 350);
             this.btnGenerarReportes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerarReportes.Name = "btnGenerarReportes";
             this.btnGenerarReportes.Normalcolor = System.Drawing.Color.Transparent;
@@ -1289,7 +1289,7 @@
             this.btnAdministrarCultivos.IconVisible = true;
             this.btnAdministrarCultivos.IconZoom = 60D;
             this.btnAdministrarCultivos.IsTab = false;
-            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 247);
+            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 250);
             this.btnAdministrarCultivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCultivos.Name = "btnAdministrarCultivos";
             this.btnAdministrarCultivos.Normalcolor = System.Drawing.Color.Transparent;
@@ -1326,7 +1326,7 @@
             this.btnEstadisticasDePlagas.IconVisible = true;
             this.btnEstadisticasDePlagas.IconZoom = 60D;
             this.btnEstadisticasDePlagas.IsTab = false;
-            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 197);
+            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 200);
             this.btnEstadisticasDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEstadisticasDePlagas.Name = "btnEstadisticasDePlagas";
             this.btnEstadisticasDePlagas.Normalcolor = System.Drawing.Color.Transparent;

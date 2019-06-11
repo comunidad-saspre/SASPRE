@@ -268,7 +268,8 @@ namespace Capa_Presentacion
                 for (int i = 1; i <= 5; i++)
                 {
                     // Este metodo solo pone en los labels el día que está en fecha_hora
-                    SetDateTime(labelsDia[i - 1], fecha_hora);
+                    if (i != 1)
+                        SetDateTime(labelsDia[i - 1], fecha_hora);
                     PonerFechas(labelsFecha[i - 1], fecha_hora);
                     // Cambia el DateTime fecha_hora a un día después.
                     fecha_hora = fecha_hora.AddDays(1);

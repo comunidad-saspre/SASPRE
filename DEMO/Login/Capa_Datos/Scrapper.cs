@@ -141,8 +141,15 @@ namespace Capa_Datos
                 for (int i = 1; i <= 7; i++)
                 {
                     var fDate = GetFormattedDate(day, month, year);
+                    var dayIconInfo = infoclima.Extract($"{fDate}120000", "");
                     var dayInfo = infoclima.Extract($"{fDate}120000", "");
-                    DescripcionDia[$"dia{i}"] = dayInfo.Extract("symb: '", "', wx:").ToString(); // <- extrae symb
+
+                    MessageBox.Show(dayInfo.ToString());
+
+                    var iconCode = dayIconInfo.Extract("symb: '", "',").ToString();
+                    var descriptionInfo = dayInfo.Extract("wx: '", "',").ToString();
+
+                    DescripcionDia[$"dia{i}"] = $"{iconCode}:{descriptionInfo}"; // <- extrae symb
                                                                                                  //DescripcionDia[$"dia{i}"] = dayInfo.Extract("wx: '", "', winds:").ToString(); <- extrae wx
 
                     day = date.AddDays(i).Day;

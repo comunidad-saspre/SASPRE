@@ -408,15 +408,40 @@ namespace Capa_Presentacion
             return "";
         }
 
+        private string descripcionDia1;
+        private string descripcionDia2;
+        private string descripcionDia3;
+        private string descripcionDia4;
+        private string descripcionDia5;
+
         private void MostrarDescripcionDia()
         {
             var descriptions = ScrapperCN.GetDescription();
 
-            this.picClimaHoy.Image = ObtenerImagenDesdeCodigo(descriptions["dia1"], 1);
-            this.picClima1.Image = ObtenerImagenDesdeCodigo(descriptions["dia2"], 2);
-            this.picClima2.Image = ObtenerImagenDesdeCodigo(descriptions["dia3"], 3);
-            this.picClima3.Image = ObtenerImagenDesdeCodigo(descriptions["dia4"], 4);
-            this.picClima4.Image = ObtenerImagenDesdeCodigo(descriptions["dia5"], 5);
+
+            foreach (var item in descriptions)
+            {
+                MessageBox.Show(item.Value.ToString());
+            }
+
+
+            var infoDay1 = descriptions["dia1"].Split(':');
+            var infoDay2 = descriptions["dia2"].Split(':');
+            var infoDay3 = descriptions["dia3"].Split(':');
+            var infoDay4 = descriptions["dia4"].Split(':');
+            var infoDay5 = descriptions["dia5"].Split(':');
+
+            this.picClimaHoy.Image = ObtenerImagenDesdeCodigo(infoDay1[0], 1);
+            this.picClima1.Image = ObtenerImagenDesdeCodigo(infoDay2[0], 2);
+            this.picClima2.Image = ObtenerImagenDesdeCodigo(infoDay3[0], 3);
+            this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
+            this.picClima4.Image = ObtenerImagenDesdeCodigo(infoDay5[0], 5);
+
+            descripcionDia1 = infoDay1[1];
+            descripcionDia2 = infoDay2[1];
+            descripcionDia3 = infoDay3[1];
+            descripcionDia4 = infoDay4[1];
+            descripcionDia5 = infoDay5[1];
 
         }
 
@@ -1028,6 +1053,36 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+        }
+
+        private void picClimaHoy_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClimaHoy, descripcionDia1);
+        }
+
+        private void picClima1_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima1, descripcionDia2);
+        }
+
+        private void picClima2_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima2, descripcionDia3);
+        }
+
+        private void picClima3_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima3, descripcionDia4);
+        }
+
+        private void picClima4_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima4, descripcionDia5);
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)

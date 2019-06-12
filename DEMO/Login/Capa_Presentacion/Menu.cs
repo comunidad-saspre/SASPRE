@@ -297,7 +297,7 @@ namespace Capa_Presentacion
             {
                 if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
                 {
-                    //textBox2.Text = etiqueta.InnerText;
+                    
                     ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
                     //precipitaciones: 
                     lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();

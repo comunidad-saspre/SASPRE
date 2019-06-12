@@ -54,7 +54,7 @@ namespace Capa_Presentacion
 
                 }
             }
-            catch (Exception a) { MessageBox.Show("ADVERTENCIA", "ERROR EN CONFIGURACION GENERAL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error en configuración general", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
@@ -72,23 +72,36 @@ namespace Capa_Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try { 
             AbrirFormEnPanel<ConfiguracionGeneralAgregar>();
-        }
+
+        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al abrir panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        
+
+    }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            try { 
             var dialog = new DialogoEditarInformacion();
             dialog.Show();
-        }
+        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        
+    }
 
         private void ConfiguracionGeneral_Load(object sender, EventArgs e)
         {
+            try { 
             MostrarUsuarios();
-        }
-        public void MostrarUsuarios()
+        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al mostrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+
+}
+public void MostrarUsuarios()
         {
+            try { 
             CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
             dvgUsuarios.DataSource = _ABCUsuario.MostrarUsuarios();
-        }
+        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al mostrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+}
     }
 }

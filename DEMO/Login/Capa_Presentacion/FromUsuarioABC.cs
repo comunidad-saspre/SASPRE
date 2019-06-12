@@ -46,7 +46,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a) {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR EN FORM USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el form usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -63,7 +63,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a) {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR AL EDITAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al editar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -151,7 +151,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a) {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -173,7 +173,7 @@ namespace Capa_Presentacion
             catch (Exception a)
             {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR METODO ISEDITAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el método iseditar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -193,7 +193,7 @@ namespace Capa_Presentacion
                 return validos;
             }
             catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL VALIDAR CAMPOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al validar campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return validos;
             }
             

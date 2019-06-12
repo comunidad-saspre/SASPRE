@@ -104,7 +104,7 @@ namespace Capa_Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el menú", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
@@ -135,7 +135,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el menú", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
@@ -212,7 +212,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ABRIR FORM", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al abrir form panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -231,7 +231,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL CERRAR PANEL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al cerrar form panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -292,7 +292,7 @@ namespace Capa_Presentacion
         {
            
             lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
-            MessageBox.Show(navegador.Document.GetElementById("wob_tm").InnerText);
+            labelClimaHoy.Text = lblCentigrados.Text;
             foreach (HtmlElement etiqueta in navegador.Document.All)
             {
                 if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
@@ -302,6 +302,7 @@ namespace Capa_Presentacion
                     //precipitaciones: 
                     lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
                     lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+                    
                 }
             }
         }
@@ -428,7 +429,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL PONER FECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al poner fechas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void SetDateTime(Label lbl, DateTime datetime)
@@ -440,7 +441,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL SETDATETIME", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en SetDataTime", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private String TranslateDay(String day)
@@ -460,7 +461,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL TRADUCIR DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al traducir dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return $"{day} NOT A DAY";
 
@@ -648,7 +649,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR OBTENER HORA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener hora", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -733,7 +734,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -876,7 +877,7 @@ namespace Capa_Presentacion
             catch (Exception a)
             {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
             }
             /*         
@@ -924,7 +925,7 @@ namespace Capa_Presentacion
             catch (Exception a)
             {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ADMINISTRAR USUARIOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al administrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

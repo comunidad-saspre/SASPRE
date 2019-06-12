@@ -621,6 +621,10 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<AdministrarCultivosEditar>();
             CerrarFormEnPanel<ConfiguracionGeneralAgregar>();
+            CerrarFormEnPanel <FromUsuarioABC>();
+            CerrarFormEnPanel<Fertilizantes>();
+            CerrarFormEnPanel<Datos_Atmosfericos>();
+            CerrarFormEnPanel<Cosechas>();
 
             panelClima.Visible = true;
             lblTemp.Visible = false;

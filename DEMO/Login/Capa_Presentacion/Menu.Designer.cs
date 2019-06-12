@@ -48,22 +48,12 @@
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacion4 = new System.Windows.Forms.Label();
-            this.labelMin4 = new System.Windows.Forms.Label();
-            this.labelMax4 = new System.Windows.Forms.Label();
             this.picClima4 = new System.Windows.Forms.PictureBox();
-            this.labelFecha4Precipitacion = new System.Windows.Forms.Label();
             this.labelFecha4 = new System.Windows.Forms.Label();
             this.labelDia4 = new System.Windows.Forms.Label();
-            this.labelFecha4Min = new System.Windows.Forms.Label();
-            this.labelFecha4Max = new System.Windows.Forms.Label();
             this.lblsensacion = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
-            this.labelFecha1Precipitacion = new System.Windows.Forms.Label();
-            this.labelFecha1Min = new System.Windows.Forms.Label();
-            this.labelFecha1Max = new System.Windows.Forms.Label();
             this.labelPrecipitacion1 = new System.Windows.Forms.Label();
-            this.labelMin1 = new System.Windows.Forms.Label();
-            this.labelMax1 = new System.Windows.Forms.Label();
             this.picClima1 = new System.Windows.Forms.PictureBox();
             this.labelDia1 = new System.Windows.Forms.Label();
             this.labelFecha1 = new System.Windows.Forms.Label();
@@ -72,29 +62,18 @@
             this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacion2 = new System.Windows.Forms.Label();
-            this.labelMin2 = new System.Windows.Forms.Label();
-            this.labelMax2 = new System.Windows.Forms.Label();
             this.picClima2 = new System.Windows.Forms.PictureBox();
-            this.labelFecha2Precipitacion = new System.Windows.Forms.Label();
             this.labelFecha2 = new System.Windows.Forms.Label();
-            this.labelFecha2Min = new System.Windows.Forms.Label();
-            this.labelFecha2Max = new System.Windows.Forms.Label();
             this.labelDia2 = new System.Windows.Forms.Label();
             this.labelMante = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
             this.picClima3 = new System.Windows.Forms.PictureBox();
             this.labelPrecipitacion3 = new System.Windows.Forms.Label();
-            this.labelMin3 = new System.Windows.Forms.Label();
-            this.labelMax3 = new System.Windows.Forms.Label();
-            this.lblmm4 = new System.Windows.Forms.Label();
             this.labelFecha3 = new System.Windows.Forms.Label();
             this.labelDia3 = new System.Windows.Forms.Label();
-            this.lblmin4 = new System.Windows.Forms.Label();
-            this.lblmax4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacionHoy = new System.Windows.Forms.Label();
             this.picClimaHoy = new System.Windows.Forms.PictureBox();
-            this.labelHoyPrecipitacion = new System.Windows.Forms.Label();
             this.labelHoyMin = new System.Windows.Forms.Label();
             this.labelHoyMax = new System.Windows.Forms.Label();
             this.labelHoy = new System.Windows.Forms.Label();
@@ -120,6 +99,22 @@
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.labelFecha4Min = new System.Windows.Forms.Label();
+            this.labelFecha4Max = new System.Windows.Forms.Label();
+            this.lblmin4 = new System.Windows.Forms.Label();
+            this.lblmax4 = new System.Windows.Forms.Label();
+            this.labelFecha2Min = new System.Windows.Forms.Label();
+            this.labelFecha2Max = new System.Windows.Forms.Label();
+            this.labelMin1 = new System.Windows.Forms.Label();
+            this.labelMax1 = new System.Windows.Forms.Label();
+            this.labelMin4 = new System.Windows.Forms.Label();
+            this.labelMax4 = new System.Windows.Forms.Label();
+            this.labelMin3 = new System.Windows.Forms.Label();
+            this.labelMax3 = new System.Windows.Forms.Label();
+            this.labelMin2 = new System.Windows.Forms.Label();
+            this.labelMax2 = new System.Windows.Forms.Label();
+            this.labelFecha1Min = new System.Windows.Forms.Label();
+            this.labelFecha1Max = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -264,7 +259,6 @@
             this.myPanel5.Controls.Add(this.labelMin4);
             this.myPanel5.Controls.Add(this.labelMax4);
             this.myPanel5.Controls.Add(this.picClima4);
-            this.myPanel5.Controls.Add(this.labelFecha4Precipitacion);
             this.myPanel5.Controls.Add(this.labelFecha4);
             this.myPanel5.Controls.Add(this.labelDia4);
             this.myPanel5.Controls.Add(this.labelFecha4Min);
@@ -286,30 +280,6 @@
             this.labelPrecipitacion4.TabIndex = 52;
             this.labelPrecipitacion4.Text = "0.3 mm";
             // 
-            // labelMin4
-            // 
-            this.labelMin4.AutoSize = true;
-            this.labelMin4.BackColor = System.Drawing.Color.Transparent;
-            this.labelMin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMin4.ForeColor = System.Drawing.Color.Black;
-            this.labelMin4.Location = new System.Drawing.Point(88, 246);
-            this.labelMin4.Name = "labelMin4";
-            this.labelMin4.Size = new System.Drawing.Size(32, 20);
-            this.labelMin4.TabIndex = 51;
-            this.labelMin4.Text = "14°";
-            // 
-            // labelMax4
-            // 
-            this.labelMax4.AutoSize = true;
-            this.labelMax4.BackColor = System.Drawing.Color.Transparent;
-            this.labelMax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMax4.ForeColor = System.Drawing.Color.Black;
-            this.labelMax4.Location = new System.Drawing.Point(47, 246);
-            this.labelMax4.Name = "labelMax4";
-            this.labelMax4.Size = new System.Drawing.Size(32, 20);
-            this.labelMax4.TabIndex = 50;
-            this.labelMax4.Text = "29°";
-            // 
             // picClima4
             // 
             this.picClima4.Location = new System.Drawing.Point(51, 133);
@@ -319,18 +289,6 @@
             this.picClima4.TabIndex = 53;
             this.picClima4.TabStop = false;
             this.picClima4.MouseHover += new System.EventHandler(this.picClima4_MouseHover);
-            // 
-            // labelFecha4Precipitacion
-            // 
-            this.labelFecha4Precipitacion.AutoSize = true;
-            this.labelFecha4Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha4Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha4Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Precipitacion.Location = new System.Drawing.Point(55, 290);
-            this.labelFecha4Precipitacion.Name = "labelFecha4Precipitacion";
-            this.labelFecha4Precipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelFecha4Precipitacion.TabIndex = 52;
-            this.labelFecha4Precipitacion.Text = "0.3 mm";
             // 
             // labelFecha4
             // 
@@ -356,30 +314,6 @@
             this.labelDia4.TabIndex = 48;
             this.labelDia4.Text = "Martes";
             // 
-            // labelFecha4Min
-            // 
-            this.labelFecha4Min.AutoSize = true;
-            this.labelFecha4Min.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha4Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha4Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Min.Location = new System.Drawing.Point(86, 246);
-            this.labelFecha4Min.Name = "labelFecha4Min";
-            this.labelFecha4Min.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha4Min.TabIndex = 51;
-            this.labelFecha4Min.Text = "14°";
-            // 
-            // labelFecha4Max
-            // 
-            this.labelFecha4Max.AutoSize = true;
-            this.labelFecha4Max.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha4Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha4Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Max.Location = new System.Drawing.Point(45, 246);
-            this.labelFecha4Max.Name = "labelFecha4Max";
-            this.labelFecha4Max.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha4Max.TabIndex = 50;
-            this.labelFecha4Max.Text = "29°";
-            // 
             // lblsensacion
             // 
             this.lblsensacion.AutoSize = true;
@@ -395,11 +329,10 @@
             // myPanel10
             // 
             this.myPanel10.BackColor = System.Drawing.Color.White;
-            this.myPanel10.Controls.Add(this.labelFecha1Precipitacion);
             this.myPanel10.Controls.Add(this.labelFecha1Min);
             this.myPanel10.Controls.Add(this.labelFecha1Max);
-            this.myPanel10.Controls.Add(this.labelPrecipitacion1);
             this.myPanel10.Controls.Add(this.labelMin1);
+            this.myPanel10.Controls.Add(this.labelPrecipitacion1);
             this.myPanel10.Controls.Add(this.labelMax1);
             this.myPanel10.Controls.Add(this.picClima1);
             this.myPanel10.Controls.Add(this.labelDia1);
@@ -409,80 +342,17 @@
             this.myPanel10.Size = new System.Drawing.Size(160, 350);
             this.myPanel10.TabIndex = 7;
             // 
-            // labelFecha1Precipitacion
-            // 
-            this.labelFecha1Precipitacion.AutoSize = true;
-            this.labelFecha1Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Precipitacion.Location = new System.Drawing.Point(55, 294);
-            this.labelFecha1Precipitacion.Name = "labelFecha1Precipitacion";
-            this.labelFecha1Precipitacion.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha1Precipitacion.TabIndex = 48;
-            this.labelFecha1Precipitacion.Text = "29°";
-            this.labelFecha1Precipitacion.Visible = false;
-            // 
-            // labelFecha1Min
-            // 
-            this.labelFecha1Min.AutoSize = true;
-            this.labelFecha1Min.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Min.Location = new System.Drawing.Point(82, 246);
-            this.labelFecha1Min.Name = "labelFecha1Min";
-            this.labelFecha1Min.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha1Min.TabIndex = 47;
-            this.labelFecha1Min.Text = "29°";
-            this.labelFecha1Min.Visible = false;
-            // 
-            // labelFecha1Max
-            // 
-            this.labelFecha1Max.AutoSize = true;
-            this.labelFecha1Max.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Max.Location = new System.Drawing.Point(44, 246);
-            this.labelFecha1Max.Name = "labelFecha1Max";
-            this.labelFecha1Max.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha1Max.TabIndex = 46;
-            this.labelFecha1Max.Text = "29°";
-            this.labelFecha1Max.Visible = false;
-            // 
             // labelPrecipitacion1
             // 
             this.labelPrecipitacion1.AutoSize = true;
             this.labelPrecipitacion1.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion1.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion1.Location = new System.Drawing.Point(56, 294);
+            this.labelPrecipitacion1.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacion1.Name = "labelPrecipitacion1";
             this.labelPrecipitacion1.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion1.TabIndex = 42;
             this.labelPrecipitacion1.Text = "0.3 mm";
-            // 
-            // labelMin1
-            // 
-            this.labelMin1.AutoSize = true;
-            this.labelMin1.BackColor = System.Drawing.Color.Transparent;
-            this.labelMin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMin1.ForeColor = System.Drawing.Color.Black;
-            this.labelMin1.Location = new System.Drawing.Point(85, 246);
-            this.labelMin1.Name = "labelMin1";
-            this.labelMin1.Size = new System.Drawing.Size(32, 20);
-            this.labelMin1.TabIndex = 41;
-            this.labelMin1.Text = "14°";
-            // 
-            // labelMax1
-            // 
-            this.labelMax1.AutoSize = true;
-            this.labelMax1.BackColor = System.Drawing.Color.Transparent;
-            this.labelMax1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMax1.ForeColor = System.Drawing.Color.Black;
-            this.labelMax1.Location = new System.Drawing.Point(44, 246);
-            this.labelMax1.Name = "labelMax1";
-            this.labelMax1.Size = new System.Drawing.Size(32, 20);
-            this.labelMax1.TabIndex = 40;
-            this.labelMax1.Text = "29°";
             // 
             // picClima1
             // 
@@ -560,7 +430,6 @@
             this.myPanel8.Controls.Add(this.labelMin2);
             this.myPanel8.Controls.Add(this.labelMax2);
             this.myPanel8.Controls.Add(this.picClima2);
-            this.myPanel8.Controls.Add(this.labelFecha2Precipitacion);
             this.myPanel8.Controls.Add(this.labelFecha2);
             this.myPanel8.Controls.Add(this.labelFecha2Min);
             this.myPanel8.Controls.Add(this.labelFecha2Max);
@@ -576,35 +445,11 @@
             this.labelPrecipitacion2.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion2.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion2.Location = new System.Drawing.Point(56, 290);
+            this.labelPrecipitacion2.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacion2.Name = "labelPrecipitacion2";
             this.labelPrecipitacion2.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion2.TabIndex = 47;
             this.labelPrecipitacion2.Text = "0.3 mm";
-            // 
-            // labelMin2
-            // 
-            this.labelMin2.AutoSize = true;
-            this.labelMin2.BackColor = System.Drawing.Color.Transparent;
-            this.labelMin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMin2.ForeColor = System.Drawing.Color.Black;
-            this.labelMin2.Location = new System.Drawing.Point(87, 246);
-            this.labelMin2.Name = "labelMin2";
-            this.labelMin2.Size = new System.Drawing.Size(32, 20);
-            this.labelMin2.TabIndex = 46;
-            this.labelMin2.Text = "14°";
-            // 
-            // labelMax2
-            // 
-            this.labelMax2.AutoSize = true;
-            this.labelMax2.BackColor = System.Drawing.Color.Transparent;
-            this.labelMax2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMax2.ForeColor = System.Drawing.Color.Black;
-            this.labelMax2.Location = new System.Drawing.Point(44, 246);
-            this.labelMax2.Name = "labelMax2";
-            this.labelMax2.Size = new System.Drawing.Size(32, 20);
-            this.labelMax2.TabIndex = 45;
-            this.labelMax2.Text = "29°";
             // 
             // picClima2
             // 
@@ -615,18 +460,6 @@
             this.picClima2.TabIndex = 43;
             this.picClima2.TabStop = false;
             this.picClima2.MouseHover += new System.EventHandler(this.picClima2_MouseHover);
-            // 
-            // labelFecha2Precipitacion
-            // 
-            this.labelFecha2Precipitacion.AutoSize = true;
-            this.labelFecha2Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha2Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha2Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Precipitacion.Location = new System.Drawing.Point(54, 290);
-            this.labelFecha2Precipitacion.Name = "labelFecha2Precipitacion";
-            this.labelFecha2Precipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelFecha2Precipitacion.TabIndex = 47;
-            this.labelFecha2Precipitacion.Text = "0.3 mm";
             // 
             // labelFecha2
             // 
@@ -639,30 +472,6 @@
             this.labelFecha2.Size = new System.Drawing.Size(81, 29);
             this.labelFecha2.TabIndex = 44;
             this.labelFecha2.Text = "7 Abril";
-            // 
-            // labelFecha2Min
-            // 
-            this.labelFecha2Min.AutoSize = true;
-            this.labelFecha2Min.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha2Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha2Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Min.Location = new System.Drawing.Point(85, 246);
-            this.labelFecha2Min.Name = "labelFecha2Min";
-            this.labelFecha2Min.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha2Min.TabIndex = 46;
-            this.labelFecha2Min.Text = "14°";
-            // 
-            // labelFecha2Max
-            // 
-            this.labelFecha2Max.AutoSize = true;
-            this.labelFecha2Max.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha2Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha2Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Max.Location = new System.Drawing.Point(44, 246);
-            this.labelFecha2Max.Name = "labelFecha2Max";
-            this.labelFecha2Max.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha2Max.TabIndex = 45;
-            this.labelFecha2Max.Text = "29°";
             // 
             // labelDia2
             // 
@@ -695,7 +504,6 @@
             this.myPanel7.Controls.Add(this.labelPrecipitacion3);
             this.myPanel7.Controls.Add(this.labelMin3);
             this.myPanel7.Controls.Add(this.labelMax3);
-            this.myPanel7.Controls.Add(this.lblmm4);
             this.myPanel7.Controls.Add(this.labelFecha3);
             this.myPanel7.Controls.Add(this.labelDia3);
             this.myPanel7.Controls.Add(this.lblmin4);
@@ -721,47 +529,11 @@
             this.labelPrecipitacion3.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion3.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion3.Location = new System.Drawing.Point(54, 290);
+            this.labelPrecipitacion3.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacion3.Name = "labelPrecipitacion3";
             this.labelPrecipitacion3.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion3.TabIndex = 52;
             this.labelPrecipitacion3.Text = "0.3 mm";
-            // 
-            // labelMin3
-            // 
-            this.labelMin3.AutoSize = true;
-            this.labelMin3.BackColor = System.Drawing.Color.Transparent;
-            this.labelMin3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMin3.ForeColor = System.Drawing.Color.Black;
-            this.labelMin3.Location = new System.Drawing.Point(82, 246);
-            this.labelMin3.Name = "labelMin3";
-            this.labelMin3.Size = new System.Drawing.Size(32, 20);
-            this.labelMin3.TabIndex = 51;
-            this.labelMin3.Text = "14°";
-            // 
-            // labelMax3
-            // 
-            this.labelMax3.AutoSize = true;
-            this.labelMax3.BackColor = System.Drawing.Color.Transparent;
-            this.labelMax3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMax3.ForeColor = System.Drawing.Color.Black;
-            this.labelMax3.Location = new System.Drawing.Point(41, 246);
-            this.labelMax3.Name = "labelMax3";
-            this.labelMax3.Size = new System.Drawing.Size(32, 20);
-            this.labelMax3.TabIndex = 50;
-            this.labelMax3.Text = "29°";
-            // 
-            // lblmm4
-            // 
-            this.lblmm4.AutoSize = true;
-            this.lblmm4.BackColor = System.Drawing.Color.Transparent;
-            this.lblmm4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmm4.ForeColor = System.Drawing.Color.Black;
-            this.lblmm4.Location = new System.Drawing.Point(52, 290);
-            this.lblmm4.Name = "lblmm4";
-            this.lblmm4.Size = new System.Drawing.Size(61, 20);
-            this.lblmm4.TabIndex = 52;
-            this.lblmm4.Text = "0.3 mm";
             // 
             // labelFecha3
             // 
@@ -787,36 +559,11 @@
             this.labelDia3.TabIndex = 48;
             this.labelDia3.Text = "Lunes";
             // 
-            // lblmin4
-            // 
-            this.lblmin4.AutoSize = true;
-            this.lblmin4.BackColor = System.Drawing.Color.Transparent;
-            this.lblmin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmin4.ForeColor = System.Drawing.Color.Black;
-            this.lblmin4.Location = new System.Drawing.Point(83, 246);
-            this.lblmin4.Name = "lblmin4";
-            this.lblmin4.Size = new System.Drawing.Size(32, 20);
-            this.lblmin4.TabIndex = 51;
-            this.lblmin4.Text = "14°";
-            // 
-            // lblmax4
-            // 
-            this.lblmax4.AutoSize = true;
-            this.lblmax4.BackColor = System.Drawing.Color.Transparent;
-            this.lblmax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmax4.ForeColor = System.Drawing.Color.Black;
-            this.lblmax4.Location = new System.Drawing.Point(42, 246);
-            this.lblmax4.Name = "lblmax4";
-            this.lblmax4.Size = new System.Drawing.Size(32, 20);
-            this.lblmax4.TabIndex = 50;
-            this.lblmax4.Text = "29°";
-            // 
             // myPanel3
             // 
             this.myPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(144)))), ((int)(((byte)(64)))));
             this.myPanel3.Controls.Add(this.labelPrecipitacionHoy);
             this.myPanel3.Controls.Add(this.picClimaHoy);
-            this.myPanel3.Controls.Add(this.labelHoyPrecipitacion);
             this.myPanel3.Controls.Add(this.labelHoyMin);
             this.myPanel3.Controls.Add(this.labelHoyMax);
             this.myPanel3.Controls.Add(this.labelHoy);
@@ -833,7 +580,7 @@
             this.labelPrecipitacionHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacionHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacionHoy.ForeColor = System.Drawing.Color.White;
-            this.labelPrecipitacionHoy.Location = new System.Drawing.Point(50, 290);
+            this.labelPrecipitacionHoy.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacionHoy.Name = "labelPrecipitacionHoy";
             this.labelPrecipitacionHoy.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacionHoy.TabIndex = 37;
@@ -848,18 +595,6 @@
             this.picClimaHoy.TabIndex = 38;
             this.picClimaHoy.TabStop = false;
             this.picClimaHoy.MouseHover += new System.EventHandler(this.picClimaHoy_MouseHover);
-            // 
-            // labelHoyPrecipitacion
-            // 
-            this.labelHoyPrecipitacion.AutoSize = true;
-            this.labelHoyPrecipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelHoyPrecipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoyPrecipitacion.ForeColor = System.Drawing.Color.White;
-            this.labelHoyPrecipitacion.Location = new System.Drawing.Point(51, 290);
-            this.labelHoyPrecipitacion.Name = "labelHoyPrecipitacion";
-            this.labelHoyPrecipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelHoyPrecipitacion.TabIndex = 37;
-            this.labelHoyPrecipitacion.Text = "0.3 mm";
             // 
             // labelHoyMin
             // 
@@ -1422,6 +1157,200 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // labelFecha4Min
+            // 
+            this.labelFecha4Min.AutoSize = true;
+            this.labelFecha4Min.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha4Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha4Min.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha4Min.Location = new System.Drawing.Point(86, 246);
+            this.labelFecha4Min.Name = "labelFecha4Min";
+            this.labelFecha4Min.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha4Min.TabIndex = 51;
+            this.labelFecha4Min.Text = "14°";
+            // 
+            // labelFecha4Max
+            // 
+            this.labelFecha4Max.AutoSize = true;
+            this.labelFecha4Max.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha4Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha4Max.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha4Max.Location = new System.Drawing.Point(45, 246);
+            this.labelFecha4Max.Name = "labelFecha4Max";
+            this.labelFecha4Max.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha4Max.TabIndex = 50;
+            this.labelFecha4Max.Text = "29°";
+            // 
+            // lblmin4
+            // 
+            this.lblmin4.AutoSize = true;
+            this.lblmin4.BackColor = System.Drawing.Color.Transparent;
+            this.lblmin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmin4.ForeColor = System.Drawing.Color.Black;
+            this.lblmin4.Location = new System.Drawing.Point(83, 246);
+            this.lblmin4.Name = "lblmin4";
+            this.lblmin4.Size = new System.Drawing.Size(32, 20);
+            this.lblmin4.TabIndex = 51;
+            this.lblmin4.Text = "14°";
+            // 
+            // lblmax4
+            // 
+            this.lblmax4.AutoSize = true;
+            this.lblmax4.BackColor = System.Drawing.Color.Transparent;
+            this.lblmax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmax4.ForeColor = System.Drawing.Color.Black;
+            this.lblmax4.Location = new System.Drawing.Point(42, 246);
+            this.lblmax4.Name = "lblmax4";
+            this.lblmax4.Size = new System.Drawing.Size(32, 20);
+            this.lblmax4.TabIndex = 50;
+            this.lblmax4.Text = "29°";
+            // 
+            // labelFecha2Min
+            // 
+            this.labelFecha2Min.AutoSize = true;
+            this.labelFecha2Min.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha2Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha2Min.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha2Min.Location = new System.Drawing.Point(85, 246);
+            this.labelFecha2Min.Name = "labelFecha2Min";
+            this.labelFecha2Min.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha2Min.TabIndex = 46;
+            this.labelFecha2Min.Text = "14°";
+            // 
+            // labelFecha2Max
+            // 
+            this.labelFecha2Max.AutoSize = true;
+            this.labelFecha2Max.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha2Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha2Max.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha2Max.Location = new System.Drawing.Point(44, 246);
+            this.labelFecha2Max.Name = "labelFecha2Max";
+            this.labelFecha2Max.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha2Max.TabIndex = 45;
+            this.labelFecha2Max.Text = "29°";
+            // 
+            // labelMin1
+            // 
+            this.labelMin1.AutoSize = true;
+            this.labelMin1.BackColor = System.Drawing.Color.Transparent;
+            this.labelMin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMin1.ForeColor = System.Drawing.Color.Black;
+            this.labelMin1.Location = new System.Drawing.Point(85, 246);
+            this.labelMin1.Name = "labelMin1";
+            this.labelMin1.Size = new System.Drawing.Size(32, 20);
+            this.labelMin1.TabIndex = 41;
+            this.labelMin1.Text = "14°";
+            // 
+            // labelMax1
+            // 
+            this.labelMax1.AutoSize = true;
+            this.labelMax1.BackColor = System.Drawing.Color.Transparent;
+            this.labelMax1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMax1.ForeColor = System.Drawing.Color.Black;
+            this.labelMax1.Location = new System.Drawing.Point(44, 246);
+            this.labelMax1.Name = "labelMax1";
+            this.labelMax1.Size = new System.Drawing.Size(32, 20);
+            this.labelMax1.TabIndex = 40;
+            this.labelMax1.Text = "29°";
+            // 
+            // labelMin4
+            // 
+            this.labelMin4.AutoSize = true;
+            this.labelMin4.BackColor = System.Drawing.Color.Transparent;
+            this.labelMin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMin4.ForeColor = System.Drawing.Color.Black;
+            this.labelMin4.Location = new System.Drawing.Point(86, 246);
+            this.labelMin4.Name = "labelMin4";
+            this.labelMin4.Size = new System.Drawing.Size(32, 20);
+            this.labelMin4.TabIndex = 51;
+            this.labelMin4.Text = "14°";
+            // 
+            // labelMax4
+            // 
+            this.labelMax4.AutoSize = true;
+            this.labelMax4.BackColor = System.Drawing.Color.Transparent;
+            this.labelMax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMax4.ForeColor = System.Drawing.Color.Black;
+            this.labelMax4.Location = new System.Drawing.Point(40, 246);
+            this.labelMax4.Name = "labelMax4";
+            this.labelMax4.Size = new System.Drawing.Size(32, 20);
+            this.labelMax4.TabIndex = 50;
+            this.labelMax4.Text = "29°";
+            // 
+            // labelMin3
+            // 
+            this.labelMin3.AutoSize = true;
+            this.labelMin3.BackColor = System.Drawing.Color.Transparent;
+            this.labelMin3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMin3.ForeColor = System.Drawing.Color.Black;
+            this.labelMin3.Location = new System.Drawing.Point(86, 246);
+            this.labelMin3.Name = "labelMin3";
+            this.labelMin3.Size = new System.Drawing.Size(32, 20);
+            this.labelMin3.TabIndex = 51;
+            this.labelMin3.Text = "14°";
+            // 
+            // labelMax3
+            // 
+            this.labelMax3.AutoSize = true;
+            this.labelMax3.BackColor = System.Drawing.Color.Transparent;
+            this.labelMax3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMax3.ForeColor = System.Drawing.Color.Black;
+            this.labelMax3.Location = new System.Drawing.Point(40, 246);
+            this.labelMax3.Name = "labelMax3";
+            this.labelMax3.Size = new System.Drawing.Size(32, 20);
+            this.labelMax3.TabIndex = 50;
+            this.labelMax3.Text = "29°";
+            // 
+            // labelMin2
+            // 
+            this.labelMin2.AutoSize = true;
+            this.labelMin2.BackColor = System.Drawing.Color.Transparent;
+            this.labelMin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMin2.ForeColor = System.Drawing.Color.Black;
+            this.labelMin2.Location = new System.Drawing.Point(86, 246);
+            this.labelMin2.Name = "labelMin2";
+            this.labelMin2.Size = new System.Drawing.Size(32, 20);
+            this.labelMin2.TabIndex = 46;
+            this.labelMin2.Text = "14°";
+            // 
+            // labelMax2
+            // 
+            this.labelMax2.AutoSize = true;
+            this.labelMax2.BackColor = System.Drawing.Color.Transparent;
+            this.labelMax2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMax2.ForeColor = System.Drawing.Color.Black;
+            this.labelMax2.Location = new System.Drawing.Point(40, 246);
+            this.labelMax2.Name = "labelMax2";
+            this.labelMax2.Size = new System.Drawing.Size(32, 20);
+            this.labelMax2.TabIndex = 45;
+            this.labelMax2.Text = "29°";
+            // 
+            // labelFecha1Min
+            // 
+            this.labelFecha1Min.AutoSize = true;
+            this.labelFecha1Min.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha1Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha1Min.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha1Min.Location = new System.Drawing.Point(86, 246);
+            this.labelFecha1Min.Name = "labelFecha1Min";
+            this.labelFecha1Min.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha1Min.TabIndex = 47;
+            this.labelFecha1Min.Text = "29°";
+            this.labelFecha1Min.Visible = false;
+            // 
+            // labelFecha1Max
+            // 
+            this.labelFecha1Max.AutoSize = true;
+            this.labelFecha1Max.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha1Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha1Max.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha1Max.Location = new System.Drawing.Point(40, 246);
+            this.labelFecha1Max.Name = "labelFecha1Max";
+            this.labelFecha1Max.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha1Max.TabIndex = 46;
+            this.labelFecha1Max.Text = "29°";
+            this.labelFecha1Max.Visible = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1430,6 +1359,7 @@
             this.Controls.Add(this.myPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1497,38 +1427,22 @@
         private System.Windows.Forms.Label lblsensacion;
         private System.Windows.Forms.Label labelPrecipitacionHoy;
         private System.Windows.Forms.Label labelPrecipitacion1;
-        private System.Windows.Forms.Label labelMin1;
-        private System.Windows.Forms.Label labelMax1;
         private System.Windows.Forms.Label labelPrecipitacion2;
-        private System.Windows.Forms.Label labelMin2;
-        private System.Windows.Forms.Label labelMax2;
-        private System.Windows.Forms.Label lblmm4;
         private System.Windows.Forms.Label labelDia3;
-        private System.Windows.Forms.Label lblmin4;
-        private System.Windows.Forms.Label lblmax4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelClimaHoy;
         private System.Windows.Forms.Label labelFechaCompletaHoy;
-        private System.Windows.Forms.Label labelHoyPrecipitacion;
         private System.Windows.Forms.Label labelHoyMin;
         private System.Windows.Forms.Label labelHoyMax;
         private System.Windows.Forms.Label labelHoy;
         private System.Windows.Forms.Label labelDiaHoyNombre;
         private System.Windows.Forms.Label labelDia1;
         private System.Windows.Forms.Label labelFecha1;
-        private System.Windows.Forms.Label labelFecha2Precipitacion;
         private System.Windows.Forms.Label labelFecha2;
-        private System.Windows.Forms.Label labelFecha2Min;
-        private System.Windows.Forms.Label labelFecha2Max;
         private System.Windows.Forms.Label labelDia2;
         private System.Windows.Forms.Label labelPrecipitacion3;
-        private System.Windows.Forms.Label labelMin3;
-        private System.Windows.Forms.Label labelMax3;
         private MyPanel myPanel5;
-        private System.Windows.Forms.Label labelFecha4Precipitacion;
         private System.Windows.Forms.Label labelDia4;
-        private System.Windows.Forms.Label labelFecha4Min;
-        private System.Windows.Forms.Label labelFecha4Max;
         public System.Windows.Forms.ImageList Vectores;
         private System.Windows.Forms.PictureBox picClimaHoy;
         private System.Windows.Forms.PictureBox picClimaActual;
@@ -1538,8 +1452,6 @@
         private System.Windows.Forms.PictureBox picClima3;
         private System.Windows.Forms.Timer timerClima;
         private System.Windows.Forms.Label labelPrecipitacion4;
-        private System.Windows.Forms.Label labelMin4;
-        private System.Windows.Forms.Label labelMax4;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarUsuarios;
         private Bunifu.Framework.UI.BunifuFlatButton btnDatosAtmosfericos;
         private System.Windows.Forms.Label labelFecha4;
@@ -1548,8 +1460,21 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarCosechas;
         private Bunifu.Framework.UI.BunifuFlatButton btnFertilizantes;
+        private System.Windows.Forms.Label labelFecha4Min;
+        private System.Windows.Forms.Label labelFecha4Max;
+        private System.Windows.Forms.Label labelMin1;
+        private System.Windows.Forms.Label labelMax1;
+        private System.Windows.Forms.Label labelFecha2Min;
+        private System.Windows.Forms.Label labelFecha2Max;
+        private System.Windows.Forms.Label lblmin4;
+        private System.Windows.Forms.Label lblmax4;
+        private System.Windows.Forms.Label labelMin4;
+        private System.Windows.Forms.Label labelMax4;
         private System.Windows.Forms.Label labelFecha1Min;
         private System.Windows.Forms.Label labelFecha1Max;
-        private System.Windows.Forms.Label labelFecha1Precipitacion;
+        private System.Windows.Forms.Label labelMin2;
+        private System.Windows.Forms.Label labelMax2;
+        private System.Windows.Forms.Label labelMin3;
+        private System.Windows.Forms.Label labelMax3;
     }
 }

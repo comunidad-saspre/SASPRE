@@ -707,7 +707,7 @@ namespace Capa_Presentacion
                                     labelHoy.Text = DateTime.Now.ToString("m");
                                     labelHoyMax.Text = info.HiTempC + "°";
                                     labelHoyMin.Text = info.LowTempC + "°";
-                                    labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacionHoy.Text = info.ProbabilityOfPrecip + "%";
                                     picClimaHoy.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                     diasSiguientes = true;
@@ -720,7 +720,7 @@ namespace Capa_Presentacion
                                     labelFecha1.Text = DateTime.Now.ToString("m");
                                     labelFecha1Max.Text = info.HiTempC + "°";
                                     labelFecha1Min.Text = info.LowTempC + "°";
-                                    labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion1.Text = info.ProbabilityOfPrecip + "%";
                                     picClima1.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                 }
@@ -729,7 +729,7 @@ namespace Capa_Presentacion
                                     labelFecha2.Text = DateTime.Now.ToString("m");
                                     labelFecha2Max.Text = info.HiTempC + "°";
                                     labelFecha2Min.Text = info.LowTempC + "°";
-                                    labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion2.Text = info.ProbabilityOfPrecip + "%";
                                     picClima2.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                 }
@@ -747,7 +747,7 @@ namespace Capa_Presentacion
                                     labelFecha4.Text = DateTime.Now.ToString("m");
                                     labelFecha4Max.Text = info.HiTempC + "°";
                                     labelFecha4Min.Text = info.LowTempC + "°";
-                                    labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion4.Text = info.ProbabilityOfPrecip + "%";
                                     picClima4.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                     break;

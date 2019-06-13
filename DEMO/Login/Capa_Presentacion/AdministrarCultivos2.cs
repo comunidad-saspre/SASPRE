@@ -66,7 +66,7 @@ namespace Capa_Presentacion
                 }
             }
             catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN ADMINISTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en administrar cultivos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -193,7 +193,7 @@ namespace Capa_Presentacion
                 }
             }
             catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN SELECCIONAR PLANTA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en seleccionar planta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -239,13 +239,19 @@ namespace Capa_Presentacion
 
         private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
         {
+            try { 
             DataView dv = tablaCultivos.DefaultView;
             dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
             dgvCultivo.DataSource = dv.ToTable();
+        }catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnCosechar_Click(object sender, EventArgs e)
         {
+            try { 
             if (dgvCultivo.Rows.Count == 0)
             {
                 MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -276,6 +282,10 @@ namespace Capa_Presentacion
                     }
                 }
             }
+        } catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en cosechar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private Boolean saberSiEsNumero(String numero)
@@ -293,24 +303,37 @@ namespace Capa_Presentacion
 
         private void AgregarCosecha(String Cantidad)
         {
-            DateTime fechaplantado;
-            String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
-            
-                    Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
-                    Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
-                    fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
-                    fechacosecha = DateTime.Now.ToString("yy-MM-dd");
-                    //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
-                    _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
-            
-            
+            try
+            {
+                DateTime fechaplantado;
+                String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
+
+                Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
+                Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
+                fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
+                fechacosecha = DateTime.Now.ToString("yy-MM-dd");
+                //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
+                _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al agregar cosecha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            if(dgvCultivo.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dgvCultivo.Rows.Count == 0)
+                {
+                    MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al exportar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         

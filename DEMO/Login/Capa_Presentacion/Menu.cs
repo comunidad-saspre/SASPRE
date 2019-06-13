@@ -292,6 +292,7 @@ namespace Capa_Presentacion
         {
            
             lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
+
             labelClimaHoy.Text = lblCentigrados.Text;
             foreach (HtmlElement etiqueta in navegador.Document.All)
             {

@@ -260,8 +260,6 @@ namespace Capa_Presentacion
                     timerClima.Start();
 
                     PrivilegioUsuario();
-                    //GetRequestHora();
-                    //GetRequestDia();
                     labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
                     // Hago el ciclo para agregar hasta 7 días
                     for (int i = 1; i <= 5; i++)
@@ -1109,6 +1107,18 @@ namespace Capa_Presentacion
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
+        }
+
+        private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<CalculoDePlagas>();
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
         }
 
         private bool HayInternet()

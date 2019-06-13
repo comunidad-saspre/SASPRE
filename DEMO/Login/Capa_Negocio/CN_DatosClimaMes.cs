@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Capa_Negocio
     public class CN_DatosClimaMes
     {
         private CD_DatosClimaMes _DatosClimaMes = new CD_DatosClimaMes();
-        System.Data.DataTable tablaDatosClimaMes = new System.Data.DataTable();
+        DataTable tablaDatosClimaMes = new DataTable();
 
         public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
@@ -21,7 +22,7 @@ namespace Capa_Negocio
                 Humedad_Relativa,Presion_Atmosferica,Precipitacion,Radiacion_Solar);
         }
 
-        public System.Data.DataTable MostrarDatosClimaMes()
+        public DataTable MostrarDatosClimaMes()
         {
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
             return tablaDatosClimaMes;

@@ -84,6 +84,12 @@
     <Compile Include="AdministrarCultivosEditar.Designer.cs">
       <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalculoDePlagas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculoDePlagas.Designer.cs">
+      <DependentUpon>CalculoDePlagas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ciudad.cs" />
     <Compile Include="CiudadDia.cs" />
     <Compile Include="ConfiguracionGeneral.cs">
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarCultivosEditar.resx">
       <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculoDePlagas.resx">
+      <DependentUpon>CalculoDePlagas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfiguracionGeneral.resx">
       <DependentUpon>ConfiguracionGeneral.cs</DependentUpon>

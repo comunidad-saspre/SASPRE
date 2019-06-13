@@ -196,7 +196,8 @@ namespace Capa_Presentacion
                     }
                     else
                     {
-                        MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
+                        MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Conexion a internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Cursor.Current = Cursors.WaitCursor;
                     Program.nickname = txtNickname.Text;

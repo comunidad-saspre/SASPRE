@@ -249,36 +249,42 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
-           
-            navegador.ScriptErrorsSuppressed = true;
-
-            navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
-            navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
-            timerClima.Start();
             try
             {
+                if(HayInternet() == true)
+                {
+                    navegador.ScriptErrorsSuppressed = true;
 
+                    navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
+                    navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+                    timerClima.Start();
+
+                    PrivilegioUsuario();
+                    //GetRequestHora();
+                    //GetRequestDia();
+                    labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
+                    // Hago el ciclo para agregar hasta 7 días
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        // Este metodo solo pone en los labels el día que está en fecha_hora
+                        if (i != 1)
+                            SetDateTime(labelsDia[i - 1], fecha_hora);
+                        PonerFechas(labelsFecha[i - 1], fecha_hora);
+                        // Cambia el DateTime fecha_hora a un día después.
+                        fecha_hora = fecha_hora.AddDays(1);
+                    }
+                    MostrarInformacionClima();
+                }
+                else
+                {
+                    MessageBox.Show("Compruebe su conexion a internet, no tendrá todas las funcionalidades");
+                }
                 panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
-                PrivilegioUsuario();
-                //GetRequestHora();
-                //GetRequestDia();
-                labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
-                // Hago el ciclo para agregar hasta 7 días
-                for (int i = 1; i <= 5; i++)
-                {
-                    // Este metodo solo pone en los labels el día que está en fecha_hora
-                    if (i != 1)
-                        SetDateTime(labelsDia[i - 1], fecha_hora);
-                    PonerFechas(labelsFecha[i - 1], fecha_hora);
-                    // Cambia el DateTime fecha_hora a un día después.
-                    fecha_hora = fecha_hora.AddDays(1);
-                }
-                MostrarInformacionClima();
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Ha ocurrido un error","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         private void MostrarInformacionClima()
@@ -419,11 +425,6 @@ namespace Capa_Presentacion
         {
             var descriptions = ScrapperCN.GetDescription();
 
-
-            foreach (var item in descriptions)
-            {
-                MessageBox.Show(item.Value.ToString());
-            }
 
 
             var infoDay1 = descriptions["dia1"].Split(':');
@@ -633,6 +634,8 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -1106,6 +1109,20 @@ namespace Capa_Presentacion
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
+        }
+
+        private bool HayInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

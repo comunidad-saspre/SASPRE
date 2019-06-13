@@ -30,7 +30,8 @@ namespace Capa_Presentacion
             {
                 tablaCosechas = _Cosechas.MostrarCosechas(Program.cargo, Program.nickname);
                 dgvCultivo.DataSource = tablaCosechas;
-                dgvCultivo.Columns["Usuario"].Visible = false;
+                if(Program.cargo!= "Admin")
+                    dgvCultivo.Columns["Usuario"].Visible = false;
             }
             catch(Exception ex)
             {

@@ -51,7 +51,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN LA DESCARGAR DATOS ATMOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA "+a, "ERROR EN LA DESCARGAR DATOS ATMOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
@@ -164,6 +164,7 @@ namespace Capa_Presentacion
             try
             {
                 CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+                Cursor.Current = Cursors.WaitCursor;
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
                     String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
@@ -172,10 +173,12 @@ namespace Capa_Presentacion
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception a)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL INSERTAR DATOS ATNOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -199,6 +202,31 @@ namespace Capa_Presentacion
             catch (Exception a)
             {
                 MessageBox.Show("ADVERTENCIA", "ERROR AL FILTRAR DATOS ATMOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            InsertarDatosClimaMes();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

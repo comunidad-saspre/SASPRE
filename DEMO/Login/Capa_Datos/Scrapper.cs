@@ -144,7 +144,7 @@ namespace Capa_Datos
                     var dayIconInfo = infoclima.Extract($"{fDate}120000", "");
                     var dayInfo = infoclima.Extract($"{fDate}120000", "");
 
-                    MessageBox.Show(dayInfo.ToString());
+                    //MessageBox.Show(dayInfo.ToString());
 
                     var iconCode = dayIconInfo.Extract("symb: '", "',").ToString();
                     var descriptionInfo = dayInfo.Extract("wx: '", "',").ToString();

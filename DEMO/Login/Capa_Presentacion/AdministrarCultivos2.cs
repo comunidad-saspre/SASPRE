@@ -336,6 +336,10 @@ namespace Capa_Presentacion
                 MessageBox.Show("ADVERTENCIA", "Error al exportar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        
+
+        private void btnCalcularEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

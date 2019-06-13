@@ -38,7 +38,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR COSECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar cosechas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaCosechas;
         }
@@ -63,7 +63,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL AGREGAR COSECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al agregar cosecha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

@@ -31,7 +31,7 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
             }catch(Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL INISIAR SESION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al iniciar sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return leer;
         }

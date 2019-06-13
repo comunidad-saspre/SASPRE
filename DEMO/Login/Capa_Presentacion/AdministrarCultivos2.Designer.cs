@@ -130,6 +130,7 @@
             this.btnCalcularEstado.TabIndex = 65;
             this.btnCalcularEstado.Text = "Calcular estado";
             this.btnCalcularEstado.UseVisualStyleBackColor = false;
+            this.btnCalcularEstado.Click += new System.EventHandler(this.btnCalcularEstado_Click);
             // 
             // btnCosechar
             // 

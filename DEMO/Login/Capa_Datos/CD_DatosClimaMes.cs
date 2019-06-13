@@ -42,7 +42,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL INSERTAR DATOS CLIMATICOS DEL MES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al insertar datos climaticos del mes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

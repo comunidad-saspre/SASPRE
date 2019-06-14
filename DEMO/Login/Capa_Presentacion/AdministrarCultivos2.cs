@@ -384,7 +384,19 @@ namespace Capa_Presentacion
 
         private void PlagaSoyaOscar()
         {
+            string fechaa_actual = DateTime.Now.ToString("dd/MM/yyyy");
 
+            String ano = DateTime.Now.ToString("yyyy");
+            MessageBox.Show(fechaa_actual);
+            DateTime fecha1 = Convert.ToDateTime("21/03/" + ano);
+
+            DateTime fecha2 = Convert.ToDateTime("20/06/" + ano);
+
+            DateTime fecha__actual = Convert.ToDateTime(fechaa_actual);
+            if ((fecha__actual >= fecha1) && (fecha__actual <= fecha2))
+            {
+             MessageBox.Show("PRIMAVERA");
+            }
         }
         private void PlagaSorgoAndres()
         {

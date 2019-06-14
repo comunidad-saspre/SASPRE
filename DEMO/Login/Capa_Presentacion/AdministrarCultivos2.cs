@@ -436,6 +436,7 @@ namespace Capa_Presentacion
                 }
                 estadocaña += "Gusano Barrenador, Rata,";
             }
+
             //MessageBox.Show(fechahoy.ToString() + " " +fechatentativacosecha.ToString());
             MessageBox.Show(estadocaña);
         }

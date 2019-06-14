@@ -65,7 +65,8 @@ namespace Capa_Presentacion
 
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
                 MessageBox.Show("ADVERTENCIA", "Error en administrar cultivos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -92,9 +93,9 @@ namespace Capa_Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(txtCantidad.Text != "")
+            if (txtCantidad.Text != "")
             {
-                if(Convert.ToInt32(txtCantidad.Text) != 0)
+                if (Convert.ToInt32(txtCantidad.Text) != 0)
                 {
                     AgregarCultivo();
                     MostrarCultivos();
@@ -104,17 +105,17 @@ namespace Capa_Presentacion
                 {
                     MessageBox.Show("¡Debe ingresar una cantidad mayor a 0!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("¡Debe ingresar una cantidad!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
         private void AgregarCultivo()
         {
-            if(Convert.ToInt32(txtCantidad.Text) == 0)
+            if (Convert.ToInt32(txtCantidad.Text) == 0)
             {
                 MessageBox.Show("¡No puede ingresar esta cantidad!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -127,7 +128,7 @@ namespace Capa_Presentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(dgvCultivo.Rows.Count == 0)
+            if (dgvCultivo.Rows.Count == 0)
             {
                 MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -144,8 +145,8 @@ namespace Capa_Presentacion
         }
         private void EliminarCultivo()
         {
-                String id = dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString();
-                _Cultivo.EliminarCultivo(id);
+            String id = dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString();
+            _Cultivo.EliminarCultivo(id);
         }
 
         private void AdministrarCultivos2_Load(object sender, EventArgs e)
@@ -192,7 +193,8 @@ namespace Capa_Presentacion
                     picCultivo.Image = imageListPlantas.Images[4];
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
                 MessageBox.Show("ADVERTENCIA", "Error en seleccionar planta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -239,11 +241,13 @@ namespace Capa_Presentacion
 
         private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
         {
-            try { 
-            DataView dv = tablaCultivos.DefaultView;
-            dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
-            dgvCultivo.DataSource = dv.ToTable();
-        }catch (Exception a)
+            try
+            {
+                DataView dv = tablaCultivos.DefaultView;
+                dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
+                dgvCultivo.DataSource = dv.ToTable();
+            }
+            catch (Exception a)
             {
                 MessageBox.Show("ADVERTENCIA", "Error en buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -251,38 +255,40 @@ namespace Capa_Presentacion
 
         private void btnCosechar_Click(object sender, EventArgs e)
         {
-            try { 
-            if (dgvCultivo.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (MessageBox.Show("¿Está seguro de cosechar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvCultivo.Rows.Count == 0)
                 {
-                    String Cantidad;
-                    Cantidad = Interaction.InputBox("Ingrese cantidad de cosechados", "Cantidad");
-                    if (saberSiEsNumero(Cantidad) == false)
+                    MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Está seguro de cosechar este cultivo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("¡No es un numero el que se ingresó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        if (Convert.ToInt32(Cantidad) == 0 || Convert.ToInt32(Cantidad) < 0 || Convert.ToInt32(Cantidad) > Convert.ToInt32(dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString()))
+                        String Cantidad;
+                        Cantidad = Interaction.InputBox("Ingrese cantidad de cosechados", "Cantidad");
+                        if (saberSiEsNumero(Cantidad) == false)
                         {
-                            MessageBox.Show("¡Error con la cantidad!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("¡No es un numero el que se ingresó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            AgregarCosecha(Cantidad);
-                            EliminarCultivo();
-                            MostrarCultivos();
-                            MessageBox.Show("¡Cultivo cosechado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (Convert.ToInt32(Cantidad) == 0 || Convert.ToInt32(Cantidad) < 0 || Convert.ToInt32(Cantidad) > Convert.ToInt32(dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString()))
+                            {
+                                MessageBox.Show("¡Error con la cantidad!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                AgregarCosecha(Cantidad);
+                                EliminarCultivo();
+                                MostrarCultivos();
+                                MessageBox.Show("¡Cultivo cosechado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
                 }
             }
-        } catch (Exception a)
+            catch (Exception a)
             {
                 MessageBox.Show("ADVERTENCIA", "Error en cosechar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -324,7 +330,7 @@ namespace Capa_Presentacion
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            if(dgvCultivo.Rows.Count == 0)
+            if (dgvCultivo.Rows.Count == 0)
             {
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -349,7 +355,7 @@ namespace Capa_Presentacion
 
                 foreach (DataRow row in resultados.Rows)
                 {
-                    if(cont <= 360)
+                    if (cont <= 360)
                     {
                         prom += Convert.ToDouble(row[7].ToString());
                         cont++;
@@ -359,10 +365,17 @@ namespace Capa_Presentacion
                     {
                         break;
                     }
-                    
+
                 }
+
+                // 1 de abril del 2019, hasta 14 de Junio del 2019
+                // 
+                var res = PlagaSorgoAndres(new DateTime(2019,4,1), 0.0, 0.0, 0.0);
+                MessageBox.Show(res);
+
                 prom = prom / cont;
-                MessageBox.Show($"Promedio temperatura {prom}");
+
+                //MessageBox.Show($"Promedio temperatura {prom}");
             }
             else
             {
@@ -386,10 +399,30 @@ namespace Capa_Presentacion
         {
 
         }
-        private void PlagaSorgoAndres()
-        {
 
+        private const string SORGO = "Sorgo";
+
+        private string PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
+        {
+            var fechaHoy = DateTime.Now;
+            var fechaCogollero = fechaPlantado.AddMonths(1);
+            var fechaInicioFloracion = fechaPlantado.AddMonths(2);
+            fechaInicioFloracion = fechaInicioFloracion.AddDays(10);
+            // 70 dias despues de plantado, puede comenzar a surgir la plaga de la mosca midgee
+            // Hasta 15 días depues de que comenzó la floracion
+            var fechaFinalFloracion = fechaInicioFloracion.AddDays(15);
+
+            var plagas = "";
+
+            if (fechaPlantado <= fechaCogollero) plagas += $"Inicio desarrollo Gusano Cogollero, ";
+
+            if (fechaHoy >= fechaInicioFloracion && fechaHoy <= fechaFinalFloracion)
+                plagas += $"Inicio desarrollo Mosca Midge,  ";
+                
+
+            return plagas;
         }
+
         private void PlagaCañaAndre()
         {
 
@@ -400,4 +433,4 @@ namespace Capa_Presentacion
         }
     }
 }
-           
+

@@ -167,6 +167,9 @@ namespace Capa_Presentacion
                 Cursor.Current = Cursors.WaitCursor;
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
+                    if(DateTime.Now.AddDays(-1).ToString("yy-MM-dd") == Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd")){
+
+                    }
                     String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
                     String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
                     _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),

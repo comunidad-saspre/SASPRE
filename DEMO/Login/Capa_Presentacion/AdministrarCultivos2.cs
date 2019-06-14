@@ -153,7 +153,7 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-
+            LlenarDataTableDatosClimaMes();
         }
 
         private void MostrarCultivos()
@@ -171,23 +171,23 @@ namespace Capa_Presentacion
         {
             try
             {
-                if (cbPlanta.SelectedItem == "Sorgo")
+                if (cbPlanta.SelectedItem.ToString() == "Sorgo")
                 {
                     picCultivo.Image = imageListPlantas.Images[1];
                 }
-                else if (cbPlanta.SelectedItem == "Maíz")
+                else if (cbPlanta.SelectedItem.ToString() == "Maíz")
                 {
                     picCultivo.Image = imageListPlantas.Images[0];
                 }
-                else if (cbPlanta.SelectedItem == "Soya")
+                else if (cbPlanta.SelectedItem.ToString() == "Soya")
                 {
                     picCultivo.Image = imageListPlantas.Images[2];
                 }
-                else if (cbPlanta.SelectedItem == "Caña")
+                else if (cbPlanta.SelectedItem.ToString() == "Caña")
                 {
                     picCultivo.Image = imageListPlantas.Images[3];
                 }
-                else if (cbPlanta.SelectedItem == "Cebolla")
+                else if (cbPlanta.SelectedItem.ToString() == "Cebolla")
                 {
                     picCultivo.Image = imageListPlantas.Images[4];
                 }
@@ -313,6 +313,50 @@ namespace Capa_Presentacion
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        DataTable tablaDatosClimaMes;
+
+        private void btnCalcularEstado_Click(object sender, EventArgs e)
+        {
+            var query = from row in tablaDatosClimaMes.AsEnumerable()
+                        where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                        select row;
+
+
+            //0.- Estacion, 1.- Fecha Local, 2.- Fecha UTC, 3.- Direccion del viento, 4.-Direccion de rafaga, 5.- Rapidez de viento, 
+            //6.- Rapidez de rafaga, 7.- Temperatura, 8.- Humedad Relativa, 9.- Presion Atmosferica, 10.- Precipitacion, 11.- Radiacion Solar
+            double prom = 0;
+            int cont = 0;
+            if (query.Any())
+            {
+                DataTable resultados = query.CopyToDataTable();
+
+                foreach (DataRow row in resultados.Rows)
+                {
+                    if(cont <= 360)
+                    {
+                        prom += Convert.ToDouble(row[7].ToString());
+                        cont++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+                prom = prom / cont;
+                MessageBox.Show($"Promedio temperatura {prom}");
+            }
+            else
+            {
+                MessageBox.Show("No hay resultados");
+            }
+        }
+
+        private void LlenarDataTableDatosClimaMes()
+        {
+            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+            tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
+        }
     }
 }

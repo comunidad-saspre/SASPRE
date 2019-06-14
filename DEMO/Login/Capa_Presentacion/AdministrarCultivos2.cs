@@ -331,9 +331,10 @@ namespace Capa_Presentacion
         }
 
         DataTable tablaDatosClimaMes;
-        String estado;
+        String estadocaña = null;
         private void btnCalcularEstado_Click(object sender, EventArgs e)
         {
+            estadocaña = null;
             var query = from row in tablaDatosClimaMes.AsEnumerable()
                         where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
                         select row;
@@ -407,28 +408,36 @@ namespace Capa_Presentacion
         InformacionAXDias _informacionAXDias;
         private void PlagaCañaAndre(double temperaturaprom,double humedad_relativaprom, double precipitacionprom)
         {
+            DateTime fechahoy = DateTime.Now;
+            DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
             _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 360);
             MessageBox.Show(_informacionAXDias.temperaturaprom.ToString());
-            String mes = DateTime.Now.ToString("MMMM");
-            int dia = Convert.ToInt32(DateTime.Now.ToString("dd"));
-            //Mosca pinta
+            String mes = fechahoy.ToString("MMMM");
+            int dia = Convert.ToInt32(fechahoy.ToString("dd"));
+            //Mosca pinta 
             if ((dia >= 20 && mes == "octubre") || (dia <= 10 && mes == "noviembre") || mes == "mayo" || mes == "junio")
             {
                 if(mes == "octubre" || mes == "noviembre")
                 {
-                    estado += "Huevecillos de mosca pinta, ";
+                    estadocaña += "Huevecillos de mosca pinta, ";
                 }
-                else if(mes == "mayo" || mes == "junio")
+                if(mes == "mayo" || mes == "junio")
                 {
                     if (humedad_relativaprom >= 80)
-                        estado += "Mosca pinta comiendo cultivo, ";
+                        estadocaña += "Mosca pinta comiendo cultivo, ";
                 }
             }
-            //
-            else
+            if(fechatentativacosecha <= fechahoy)
             {
-
+                _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 168);
+                if(_informacionAXDias.precipitacionprom > 0.25)
+                {
+                    estadocaña += "Gusano Barrenador, Rata,";
+                }
+                estadocaña += "Gusano Barrenador, Rata,";
             }
+            //MessageBox.Show(fechahoy.ToString() + " " +fechatentativacosecha.ToString());
+            MessageBox.Show(estadocaña);
         }
         private void PlagaCebolla()
         {

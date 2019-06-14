@@ -70,7 +70,7 @@ namespace Capa_Presentacion
 
                 smtp.Send(correo);
             } catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ENVIAR CORREO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al enviar correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

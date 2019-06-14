@@ -80,6 +80,7 @@
             this.btnExportar.TabIndex = 61;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnImprimir
             // 
@@ -128,6 +129,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHistorial.DoubleBuffered = true;
+            this.dgvHistorial.EnableHeadersVisualStyles = false;
             this.dgvHistorial.HeaderBgColor = System.Drawing.Color.White;
             this.dgvHistorial.HeaderForeColor = System.Drawing.Color.DimGray;
             this.dgvHistorial.Location = new System.Drawing.Point(49, 120);

@@ -30,7 +30,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER TEMPERATURA MAXIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener temperatura maxima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return temperature;
@@ -48,7 +48,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER TEMPERATURA MINIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener temperatura minima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return temperature;
         }
@@ -64,7 +64,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DESCRIPCION TEMPERATURA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener descripción temperatura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return description;
         }
@@ -80,7 +80,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER PRECIPITACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener precipitación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return precipitation;
         }
@@ -97,7 +97,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DATOS DE LA SEMANA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener datos de la semana", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -160,7 +160,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DESCRIPCION CLIMA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener la descripcionión del clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -178,7 +178,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER FORMATO DEL DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener formato del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return date;
         }
@@ -212,7 +212,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DATOS DEL DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener datos del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -226,7 +226,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return true;
@@ -246,7 +246,7 @@ namespace Capa_Datos
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return HTML;
         }

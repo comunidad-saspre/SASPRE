@@ -25,20 +25,38 @@ namespace Capa_Presentacion
 
         private void IniciarComponentes()
         {
-            MostrarFertilizantes();
-            LlenarComboCultivo();
-            LlenarComboPlaga();
-            loaded = true;
+            try
+            {
+                MostrarFertilizantes();
+                LlenarComboCultivo();
+                LlenarComboPlaga();
+                loaded = true;
+            }
+            catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error al iniciar componentes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void MostrarFertilizantes()
         {
-            tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
-            dgvFertilizantes.DataSource = tablaFertilizantes;
+            try
+            {
+                tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
+                dgvFertilizantes.DataSource = tablaFertilizantes;
+
+            }
+            catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar fertilizantes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void LlenarComboPlaga()
         {
+            try { 
             DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
             foreach (DataRow row in tablaControlPlagas.Rows)
             {
@@ -53,10 +71,16 @@ namespace Capa_Presentacion
             {
                 comboPlaga.Items.Add(item.ToString());
             }
+        }catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error en LlenarComboPlagas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void LlenarComboCultivo()
         {
+            try { 
             DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
             foreach (DataRow row in tablaControlPlagas.Rows)
             {
@@ -71,6 +95,11 @@ namespace Capa_Presentacion
             {
                 comboCultivo.Items.Add(item.ToString());
             }
+        } catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error en LlenarComboCultuvo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void dgvFertilizantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,13 +109,20 @@ namespace Capa_Presentacion
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                DataView dv = tablaFertilizantes.DefaultView;
+                var query = "Plaga like '%{0}%'";
+                query += " or `Nombre Comercial` like '%{0}%'";
+                query += " or `Epoca de Control` like '%{0}%'";
+                dv.RowFilter = string.Format(query, txtBuscar.Text);
+                dgvFertilizantes.DataSource = dv.ToTable();
+            }
+            catch (Exception a)
+            {
 
-            DataView dv = tablaFertilizantes.DefaultView;
-            var query = "Plaga like '%{0}%'";
-            query += " or `Nombre Comercial` like '%{0}%'";
-            query += " or `Epoca de Control` like '%{0}%'";
-            dv.RowFilter = string.Format(query, txtBuscar.Text);
-            dgvFertilizantes.DataSource = dv.ToTable();
+                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void txtBuscar_MouseLeave(object sender, EventArgs e)
@@ -96,19 +132,31 @@ namespace Capa_Presentacion
 
         private void txtBuscar_Leave(object sender, EventArgs e)
         {
+            try { 
             if (txtBuscar.Text.Equals(""))
             {
                 txtBuscar.Text = "Buscar";
                 txtBuscar.ForeColor = Color.Gray;
             }
+        }catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void txtBuscar_Enter(object sender, EventArgs e)
         {
+            try { 
             if (txtBuscar.Text.Equals("Buscar"))
             {
                 txtBuscar.Text = "";
                 txtBuscar.ForeColor = Color.Black;
+            }
+        }catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -116,6 +164,7 @@ namespace Capa_Presentacion
 
         private void comboPlaga_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             DataView dv = tablaFertilizantes.DefaultView;
             var query = "Plaga like '%{0}%'";
             var index = comboPlaga.SelectedIndex;
@@ -125,10 +174,16 @@ namespace Capa_Presentacion
                 dv.RowFilter = string.Format(query, value);
                 dgvFertilizantes.DataSource = dv.ToTable();
             }
+        }catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error en selección combo plaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void comboCultivo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             DataView dv = tablaFertilizantes.DefaultView;
             var query = "Cultivo like '%{0}%'";
             var index = comboCultivo.SelectedIndex;
@@ -138,7 +193,12 @@ namespace Capa_Presentacion
                 dv.RowFilter = string.Format(query, value);
                 dgvFertilizantes.DataSource = dv.ToTable();
             }
-        }
+        }catch (Exception a)
+            {
+
+                MessageBox.Show("ADVERTENCIA", "Error en selección combo cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+}
 
         private void Fertilizantes_Load(object sender, EventArgs e)
         {

@@ -37,7 +37,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar cultivos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaCultivos;
         }
@@ -61,7 +61,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL AGREGAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al agregar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void EliminarCultivo(String IDCultivo)
@@ -79,7 +79,7 @@ namespace Capa_Datos
             }
             catch (Exception  )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ELIMINAR CULTIVO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al eliminar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

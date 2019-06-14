@@ -87,7 +87,7 @@ namespace Capa_Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error el el login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
@@ -118,7 +118,7 @@ namespace Capa_Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
@@ -284,7 +284,7 @@ namespace Capa_Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL CREAR CARPETA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al crear carpeta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -434,7 +434,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ENVIAR CORREO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al enviar correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

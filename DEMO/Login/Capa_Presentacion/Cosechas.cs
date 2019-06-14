@@ -41,16 +41,28 @@ namespace Capa_Presentacion
 
         private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
         {
+            try { 
             DataView dv = tablaCosechas.DefaultView;
             dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
             dgvCultivo.DataSource = dv.ToTable();
         }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+}
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaCosechas.DefaultView;
             dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
             dgvCultivo.DataSource = dv.ToTable();
+
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

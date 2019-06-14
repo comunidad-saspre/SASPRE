@@ -34,7 +34,7 @@ namespace Capa_Datos
                 conexion.CerrarConexion();
             }
             catch (Exception ) {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL REGUSTRAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al registrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER CONTRASEÑA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener contraseña", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                
             }
             return tablaUsuarios;
@@ -81,7 +81,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL EDITAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al editar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void EliminarUsuario(String NickName)
@@ -99,7 +99,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -118,7 +118,7 @@ namespace Capa_Datos
             }
             catch (Exception )
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL MOSTRAR USUARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaUsuarios;
         }

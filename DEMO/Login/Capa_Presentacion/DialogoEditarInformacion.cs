@@ -32,7 +32,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL EDITAR INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al editar información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -55,8 +55,9 @@ namespace Capa_Presentacion
                     txtSeleccionado.ForeColor = Color.DimGray;
                 }
             }
-            catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL FORM EDITAR INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en el form editar información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

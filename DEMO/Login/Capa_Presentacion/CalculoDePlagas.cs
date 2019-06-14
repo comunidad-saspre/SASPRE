@@ -51,6 +51,7 @@ namespace Capa_Presentacion
             else
             {
                 MessageBox.Show("No hay resultados");
+                
             }
             
 

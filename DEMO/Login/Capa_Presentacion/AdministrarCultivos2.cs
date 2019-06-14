@@ -331,7 +331,7 @@ namespace Capa_Presentacion
         }
 
         DataTable tablaDatosClimaMes;
-
+        String estado;
         private void btnCalcularEstado_Click(object sender, EventArgs e)
         {
             var query = from row in tablaDatosClimaMes.AsEnumerable()
@@ -341,7 +341,9 @@ namespace Capa_Presentacion
 
             //0.- Estacion, 1.- Fecha Local, 2.- Fecha UTC, 3.- Direccion del viento, 4.-Direccion de rafaga, 5.- Rapidez de viento, 
             //6.- Rapidez de rafaga, 7.- Temperatura, 8.- Humedad Relativa, 9.- Presion Atmosferica, 10.- Precipitacion, 11.- Radiacion Solar
-            double prom = 0;
+            double temperaturaprom = 0;
+            double humedad_relativaprom = 0;
+            double precipitacionprom = 0;
             int cont = 0;
             if (query.Any())
             {
@@ -351,9 +353,10 @@ namespace Capa_Presentacion
                 {
                     if(cont <= 360)
                     {
-                        prom += Convert.ToDouble(row[7].ToString());
+                        temperaturaprom += Convert.ToDouble(row[7].ToString());
+                        humedad_relativaprom += Convert.ToDouble(row[8].ToString());
+                        precipitacionprom += Convert.ToDouble(row[10].ToString());
                         cont++;
-
                     }
                     else
                     {
@@ -361,8 +364,19 @@ namespace Capa_Presentacion
                     }
                     
                 }
-                prom = prom / cont;
-                MessageBox.Show($"Promedio temperatura {prom}");
+                temperaturaprom /=  cont;
+                humedad_relativaprom /= cont;
+                precipitacionprom /= cont;
+
+                MessageBox.Show($"Promedio temperatura {temperaturaprom}");
+
+
+                String cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
+
+                if (cultivo == "Caña")
+                {
+                    PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                }
             }
             else
             {
@@ -376,7 +390,7 @@ namespace Capa_Presentacion
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
         }
 
-
+        String plaga = null;
         private void PlagaMaiz()
         {
 
@@ -390,9 +404,31 @@ namespace Capa_Presentacion
         {
 
         }
-        private void PlagaCañaAndre()
+        InformacionAXDias _informacionAXDias;
+        private void PlagaCañaAndre(double temperaturaprom,double humedad_relativaprom, double precipitacionprom)
         {
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 360);
+            MessageBox.Show(_informacionAXDias.temperaturaprom.ToString());
+            String mes = DateTime.Now.ToString("MMMM");
+            int dia = Convert.ToInt32(DateTime.Now.ToString("dd"));
+            //Mosca pinta
+            if ((dia >= 20 && mes == "octubre") || (dia <= 10 && mes == "noviembre") || mes == "mayo" || mes == "junio")
+            {
+                if(mes == "octubre" || mes == "noviembre")
+                {
+                    estado += "Huevecillos de mosca pinta, ";
+                }
+                else if(mes == "mayo" || mes == "junio")
+                {
+                    if (humedad_relativaprom >= 80)
+                        estado += "Mosca pinta comiendo cultivo, ";
+                }
+            }
+            //
+            else
+            {
 
+            }
         }
         private void PlagaCebolla()
         {

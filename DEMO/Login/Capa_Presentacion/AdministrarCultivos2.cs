@@ -382,20 +382,28 @@ namespace Capa_Presentacion
 
         }
 
-        private void PlagaSoyaOscar()
+        private void Plagasojaoscar(double temperatura, Double humedad_relativa, double precipitacion)
         {
             string fechaa_actual = DateTime.Now.ToString("dd/MM/yyyy");
 
             String ano = DateTime.Now.ToString("yyyy");
-            MessageBox.Show(fechaa_actual);
-            DateTime fecha1 = Convert.ToDateTime("21/03/" + ano);
-
-            DateTime fecha2 = Convert.ToDateTime("20/06/" + ano);
 
             DateTime fecha__actual = Convert.ToDateTime(fechaa_actual);
-            if ((fecha__actual >= fecha1) && (fecha__actual <= fecha2))
+            //PRIMAVERA
+            String estadosoja = "";
+            if ((fecha__actual >= Convert.ToDateTime("21/03/" + ano)) && (fecha__actual <= Convert.ToDateTime("20/06/" + ano)))
             {
-             MessageBox.Show("PRIMAVERA");
+                if (precipitacion >= 0.25)
+                {
+                    MessageBox.Show("Gusano de la panoja");
+                    estadosoja = estadosoja + ",Gusano de la panoja";
+                }
+
+
+            }
+            if ((fecha__actual >= Convert.ToDateTime("21/06/" + ano)) && (fecha__actual <= Convert.ToDateTime("20/09/" + ano)))
+            {
+                MessageBox.Show("VERANO");
             }
         }
         private void PlagaSorgoAndres()

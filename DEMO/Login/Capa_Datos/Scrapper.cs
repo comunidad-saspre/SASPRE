@@ -21,57 +21,84 @@ namespace Capa_Datos
         public string GetMaxTemperatureString()
         {
             string temperature = "";
-
-            foreach (var item in TemperaturaMaxima)
+            try
             {
-                temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                foreach (var item in TemperaturaMaxima)
+                {
+                    temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener temperatura maxima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return temperature;
         }
         public string GetMinTemperatureString()
         {
+
             string temperature = "";
-
-            foreach (var item in TemperaturaMinima)
+            try
             {
-                temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                foreach (var item in TemperaturaMinima)
+                {
+                    temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                }
             }
-
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener temperatura minima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return temperature;
         }
         public string GetDescriptionString()
         {
             string description = "";
-
-            foreach (var item in DescripcionDia)
+            try
             {
-                description += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                foreach (var item in DescripcionDia)
+                {
+                    description += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                }
             }
-
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener descripción temperatura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return description;
         }
         public string GetPrecipitationString()
         {
             string precipitation = "";
-
-            foreach (var item in Precipitacion)
+            try
             {
-                precipitation += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                foreach (var item in Precipitacion)
+                {
+                    precipitation += $"Key: {item.Key}, Value: {item.Value} \n\r";
+                }
             }
-
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener precipitación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return precipitation;
         }
 
         public Scrapper()
         {
             string path = (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase.ToString()).Remove(0, 6));
-
-            DescripcionDia = new Dictionary<string, string>();
-            TemperaturaMaxima = new Dictionary<string, string>();
-            TemperaturaMinima = new Dictionary<string, string>();
-            Precipitacion = new Dictionary<string, string>();
-
+            try
+            {
+                DescripcionDia = new Dictionary<string, string>();
+                TemperaturaMaxima = new Dictionary<string, string>();
+                TemperaturaMinima = new Dictionary<string, string>();
+                Precipitacion = new Dictionary<string, string>();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener datos de la semana", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public int GetTemperaturaHoy()
@@ -92,82 +119,115 @@ namespace Capa_Datos
 
         public void GetDescripcionclima()
         {
-
-            ktf.Kuto infoclima = new ktf.Kuto(httpGet(URLDESCRIPCION));
-            //snip the data limints
-
-            var date = DateTime.Now;
-            var day7 = date.AddDays(7).Day;
-
-            var day = date.Day;
-            var month = date.Month;
-            var year = date.Year;
-
-            var lastDay = GetFormattedDate(day7, month, year);
-
-            infoclima = infoclima.Extract("class=\"daylist\"></div></div><script>var", $"{lastDay}120000");
-
-            for (int i = 1; i <= 7; i++)
+            try
             {
-                var fDate = GetFormattedDate(day, month, year);
-                var dayInfo = infoclima.Extract($"{fDate}120000", "");
-                DescripcionDia[$"dia{i}"] = dayInfo.Extract("symb: '", "', wx:").ToString(); // <- extrae symb
-                //DescripcionDia[$"dia{i}"] = dayInfo.Extract("wx: '", "', winds:").ToString(); <- extrae wx
+                string html = httpGet(URLDESCRIPCION);
+                ///Console.Write(HTML);
 
-                day = date.AddDays(i).Day;
+                ktf.Kuto infoclima = new ktf.Kuto(html);
+                //snip the data limints
 
+                var date = DateTime.Now;
+                var day7 = date.AddDays(7).Day;
+
+                var day = date.Day;
+                var month = date.Month;
+                var year = date.Year;
+
+                var lastDay = GetFormattedDate(day7, month, year);
+
+                infoclima = infoclima.Extract("class=\"daylist\"></div></div><script>var", $"{lastDay}120000");
+
+                for (int i = 1; i <= 7; i++)
+                {
+                    var fDate = GetFormattedDate(day, month, year);
+                    var dayIconInfo = infoclima.Extract($"{fDate}120000", "");
+                    var dayInfo = infoclima.Extract($"{fDate}120000", "");
+
+                    //MessageBox.Show(dayInfo.ToString());
+
+                    var iconCode = dayIconInfo.Extract("symb: '", "',").ToString();
+                    var descriptionInfo = dayInfo.Extract("wx: '", "',").ToString();
+
+                    DescripcionDia[$"dia{i}"] = $"{iconCode}:{descriptionInfo}"; // <- extrae symb
+                                                                                                 //DescripcionDia[$"dia{i}"] = dayInfo.Extract("wx: '", "', winds:").ToString(); <- extrae wx
+
+                    day = date.AddDays(i).Day;
+
+                }
+
+                // agrega primero el 7, luego del 1 al 6, siendo el 6 el dia 7.
             }
-            
-            // agrega primero el 7, luego del 1 al 6, siendo el 6 el dia 7.
-
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener la descripcionión del clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private string GetFormattedDate(int day, int month, int year)
         {
+
             string date = year.ToString();
+            try
+            {
+                if (month < 10) date += "0" + month.ToString();
+                else date += month.ToString();
 
-            if (month < 10) date += "0" + month.ToString();
-            else date += month.ToString();
-
-            if (day < 10) date += "0" + day.ToString();
-            else date += day.ToString();
-
+                if (day < 10) date += "0" + day.ToString();
+                else date += day.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener formato del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return date;
         }
 
         private void ScrapDay(string html, int day)
         {
+            try
+            {
 
-            var scrapper = new ktf.Kuto(html);
+                ktf.Kuto scrapper = new ktf.Kuto(html);
 
-            if (day == 1) scrapper = scrapper.Extract("<li class=\"dia d1 activo\"", "</li>");
-            else scrapper = scrapper.Extract($"<li class=\"dia d{day}\"", "</li>");
+                if (day == 1) scrapper = scrapper.Extract("<li class=\"dia d1 activo\"", "</li>");
+                else scrapper = scrapper.Extract($"<li class=\"dia d{day}\"", "</li>");
 
-            string temperaturaMaxima;
-            string temperaturaMinima;
-            string datosDia;
+                string temperaturaMaxima;
+                string temperaturaMinima;
+                string datosDia;
 
-            datosDia = scrapper.Extract("class=\"probabilidad-lluvia\">", "<br>").ToString();
-            datosDia += " " + scrapper.Extract("class=\"changeUnitR\" data=\"", "\">").ToString();
-            Precipitacion[$"dia{day}"] = datosDia;
+                datosDia = scrapper.Extract("class=\"probabilidad-lluvia\">", "<br>").ToString();
+                datosDia += " " + scrapper.Extract("class=\"changeUnitR\" data=\"", "\">").ToString();
+                Precipitacion.Add($"dia{day}", datosDia);
 
-            var maxTempScrapper = scrapper.Extract("<span class=\"temperatura\"", "/span>").Extract("data=\"", "|0|\">");
-            temperaturaMaxima = Convert.ToString(Math.Round(Convert.ToDouble(maxTempScrapper.StripTags().ToString())));
+                var maxTempScrapper = scrapper.Extract("<span class=\"temperatura\"", "/span>").Extract("data=\"", "|0|\">");
+                temperaturaMaxima = Convert.ToString(Math.Round(Convert.ToDouble(maxTempScrapper.StripTags().ToString())));
 
-            var minTempScrapper = scrapper.Extract("<span class=\"minima changeUnitT\"", "/span>").Extract("data=\"", "|0|\">");
-            temperaturaMinima = Convert.ToString(Math.Round(Convert.ToDouble(minTempScrapper.StripTags().ToString())));
+                var minTempScrapper = scrapper.Extract("<span class=\"minima changeUnitT\"", "/span>").Extract("data=\"", "|0|\">");
+                temperaturaMinima = Convert.ToString(Math.Round(Convert.ToDouble(minTempScrapper.StripTags().ToString())));
 
-            TemperaturaMaxima[$"dia{day}"] = temperaturaMaxima;
-            TemperaturaMinima[$"dia{day}"] = temperaturaMinima;
-            
+                TemperaturaMaxima[$"dia{day}"] = temperaturaMaxima;
+                TemperaturaMinima[$"dia{day}"] = temperaturaMinima;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener datos del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public bool Scrap()
         {
+            try
+            {
+                string html = httpGet(URLCLIMA);
+                for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
 
-            string html = httpGet(URLCLIMA);
-
-            for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
             return true;
         }
@@ -175,13 +235,19 @@ namespace Capa_Datos
         static string httpGet(string URL)
         {
             String HTML = "";
-            WebClient web = new WebClient();
-            System.IO.Stream stream = web.OpenRead(URL);
-            using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
+            try
             {
-                HTML = reader.ReadToEnd();
+                WebClient web = new WebClient();
+                System.IO.Stream stream = web.OpenRead(URL);
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
+                {
+                    HTML = reader.ReadToEnd();
+                }
             }
-
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return HTML;
         }
     }

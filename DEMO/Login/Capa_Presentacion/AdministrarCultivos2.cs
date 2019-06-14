@@ -66,7 +66,7 @@ namespace Capa_Presentacion
                 }
             }
             catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN ADMINISTRAR CULTIVOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en administrar cultivos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -153,7 +153,7 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-
+            LlenarDataTableDatosClimaMes();
         }
 
         private void MostrarCultivos()
@@ -171,29 +171,29 @@ namespace Capa_Presentacion
         {
             try
             {
-                if (cbPlanta.SelectedItem == "Sorgo")
+                if (cbPlanta.SelectedItem.ToString() == "Sorgo")
                 {
                     picCultivo.Image = imageListPlantas.Images[1];
                 }
-                else if (cbPlanta.SelectedItem == "Maíz")
+                else if (cbPlanta.SelectedItem.ToString() == "Maíz")
                 {
                     picCultivo.Image = imageListPlantas.Images[0];
                 }
-                else if (cbPlanta.SelectedItem == "Soya")
+                else if (cbPlanta.SelectedItem.ToString() == "Soya")
                 {
                     picCultivo.Image = imageListPlantas.Images[2];
                 }
-                else if (cbPlanta.SelectedItem == "Caña")
+                else if (cbPlanta.SelectedItem.ToString() == "Caña")
                 {
                     picCultivo.Image = imageListPlantas.Images[3];
                 }
-                else if (cbPlanta.SelectedItem == "Cebolla")
+                else if (cbPlanta.SelectedItem.ToString() == "Cebolla")
                 {
                     picCultivo.Image = imageListPlantas.Images[4];
                 }
             }
             catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN SELECCIONAR PLANTA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en seleccionar planta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -239,13 +239,19 @@ namespace Capa_Presentacion
 
         private void txtBuscarUnCultivo_TextChanged(object sender, EventArgs e)
         {
+            try { 
             DataView dv = tablaCultivos.DefaultView;
             dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
             dgvCultivo.DataSource = dv.ToTable();
+        }catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnCosechar_Click(object sender, EventArgs e)
         {
+            try { 
             if (dgvCultivo.Rows.Count == 0)
             {
                 MessageBox.Show("¡No hay ningun cultivo agregado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -276,6 +282,10 @@ namespace Capa_Presentacion
                     }
                 }
             }
+        } catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en cosechar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private Boolean saberSiEsNumero(String numero)
@@ -293,17 +303,23 @@ namespace Capa_Presentacion
 
         private void AgregarCosecha(String Cantidad)
         {
-            DateTime fechaplantado;
-            String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
-            
-                    Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
-                    Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
-                    fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
-                    fechacosecha = DateTime.Now.ToString("yy-MM-dd");
-                    //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
-                    _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
-            
-            
+            try
+            {
+                DateTime fechaplantado;
+                String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
+
+                Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
+                Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
+                fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
+                fechacosecha = DateTime.Now.ToString("yy-MM-dd");
+                //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
+                _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al agregar cosecha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -313,6 +329,75 @@ namespace Capa_Presentacion
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        DataTable tablaDatosClimaMes;
+
+        private void btnCalcularEstado_Click(object sender, EventArgs e)
+        {
+            var query = from row in tablaDatosClimaMes.AsEnumerable()
+                        where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                        select row;
+
+
+            //0.- Estacion, 1.- Fecha Local, 2.- Fecha UTC, 3.- Direccion del viento, 4.-Direccion de rafaga, 5.- Rapidez de viento, 
+            //6.- Rapidez de rafaga, 7.- Temperatura, 8.- Humedad Relativa, 9.- Presion Atmosferica, 10.- Precipitacion, 11.- Radiacion Solar
+            double prom = 0;
+            int cont = 0;
+            if (query.Any())
+            {
+                DataTable resultados = query.CopyToDataTable();
+
+                foreach (DataRow row in resultados.Rows)
+                {
+                    if(cont <= 360)
+                    {
+                        prom += Convert.ToDouble(row[7].ToString());
+                        cont++;
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+                prom = prom / cont;
+                MessageBox.Show($"Promedio temperatura {prom}");
+            }
+            else
+            {
+                MessageBox.Show("No hay resultados");
+            }
+        }
+
+        private void LlenarDataTableDatosClimaMes()
+        {
+            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+            tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
+        }
+
+
+        private void PlagaMaiz()
+        {
+
+        }
+
+        private void PlagaSoyaOscar()
+        {
+
+        }
+        private void PlagaSorgoAndres()
+        {
+
+        }
+        private void PlagaCañaAndre()
+        {
+
+        }
+        private void PlagaCebolla()
+        {
+
+        }
     }
 }
+           

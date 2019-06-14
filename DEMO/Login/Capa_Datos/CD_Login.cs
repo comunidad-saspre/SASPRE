@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Capa_Datos
@@ -16,14 +17,22 @@ namespace Capa_Datos
 
         public MySqlDataReader IniciarSesion(String nickname, String contraseña)
         {
-            conexion.CerrarConexion();
-            comando.Parameters.Clear();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "IniciarSesion";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nickname", nickname);
-            comando.Parameters.AddWithValue("_contra", contraseña);
-            leer = comando.ExecuteReader();
+            try
+            {
+
+
+                conexion.CerrarConexion();
+                comando.Parameters.Clear();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "IniciarSesion";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_nickname", nickname);
+                comando.Parameters.AddWithValue("_contra", contraseña);
+                leer = comando.ExecuteReader();
+            }catch(Exception )
+            {
+                MessageBox.Show("Error al iniciar sesión", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return leer;
         }
     }

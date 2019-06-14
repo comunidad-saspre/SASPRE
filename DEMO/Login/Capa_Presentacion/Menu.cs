@@ -18,8 +18,10 @@ using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
+   
     public partial class Menu : Form
     {
+        WebBrowser navegador = new WebBrowser();
 
         private bool Drag;
         private int MouseX;
@@ -53,8 +55,8 @@ namespace Capa_Presentacion
         private const String SAB = "Sabado";
         private const String DOM = "Domingo";
 
-       
-    [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
         [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
@@ -70,7 +72,7 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
-   
+
 
         public struct MARGINS
         {
@@ -100,8 +102,9 @@ namespace Capa_Presentacion
                     return (enabled == 1) ? true : false;
                 }
             }
-            catch (Exception ) {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error en el menú", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
@@ -132,7 +135,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL MENU", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en el menú", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
@@ -167,6 +170,15 @@ namespace Capa_Presentacion
         {
             try
             {
+                if(btnDatAtmos == true)
+                {
+                    panelDerecho.Visible = false;
+                    btnDatAtmos = false;
+                }
+                else
+                {
+                    panelDerecho.Visible = true;
+                }
                 Form formulario;
                 formulario = myPanel1.Controls.OfType<Forms>().FirstOrDefault();
 
@@ -200,7 +212,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ABRIR FORM", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al abrir form panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -219,7 +231,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL CERRAR PANEL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al cerrar form panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -239,27 +251,38 @@ namespace Capa_Presentacion
         {
             try
             {
+                if(HayInternet() == true)
+                {
+                    navegador.ScriptErrorsSuppressed = true;
 
+                    navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
+                    navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+                    timerClima.Start();
+
+                    PrivilegioUsuario();
+                    labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
+                    // Hago el ciclo para agregar hasta 7 días
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        // Este metodo solo pone en los labels el día que está en fecha_hora
+                        if (i != 1)
+                            SetDateTime(labelsDia[i - 1], fecha_hora);
+                        PonerFechas(labelsFecha[i - 1], fecha_hora);
+                        // Cambia el DateTime fecha_hora a un día después.
+                        fecha_hora = fecha_hora.AddDays(1);
+                    }
+                    MostrarInformacionClima();
+                }
+                else
+                {
+                    MessageBox.Show("Compruebe su conexion a internet, no tendrá todas las funcionalidades");
+                }
                 panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
 
-                PrivilegioUsuario();
-                //GetRequestHora();
-                //GetRequestDia();
-                labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
-                // Hago el ciclo para agregar hasta 7 días
-                for (int i = 1; i <= 5; i++)
-                {
-                    // Este metodo solo pone en los labels el día que está en fecha_hora
-                    SetDateTime(labelsDia[i - 1], fecha_hora);
-                    PonerFechas(labelsFecha[i - 1], fecha_hora);
-                    // Cambia el DateTime fecha_hora a un día después.
-                    fecha_hora = fecha_hora.AddDays(1);
-                }
-                MostrarInformacionClima();
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Ha ocurrido un error","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         private void MostrarInformacionClima()
@@ -270,17 +293,36 @@ namespace Capa_Presentacion
             MostrarDescripcionDia();
             MostrarInformacionHoy();
         }
+        private void datos_cargados(object sender, EventArgs e)
+        {
+           
+            lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
 
+            labelClimaHoy.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° C";
+            foreach (HtmlElement etiqueta in navegador.Document.All)
+            {
+                if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                {
+                    
+                    ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
+                    //precipitaciones: 
+                    lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
+                    lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+                    
+                }
+            }
+        }
         private void MostrarInformacionHoy()
         {
-            var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();            
+            /*var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
+            //MessageBox.Show(temperaturaHoy.ToString());
             var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
             var humedad = GetHumedad(precipitacion);
             var valorPrecipitacion = GetPrecipitacion(precipitacion);
 
             lblCentigrados.Text = temperaturaHoy.ToString() + "° Centigrados";
             lblPrecipitacionmm.Text = valorPrecipitacion;
-            lblEstado.Text = humedad;
+            lblEstado.Text = humedad;*/
 
         }
 
@@ -373,15 +415,35 @@ namespace Capa_Presentacion
             return "";
         }
 
+        private string descripcionDia1;
+        private string descripcionDia2;
+        private string descripcionDia3;
+        private string descripcionDia4;
+        private string descripcionDia5;
+
         private void MostrarDescripcionDia()
         {
             var descriptions = ScrapperCN.GetDescription();
 
-            this.picClimaHoy.Image = vectorClima(descriptions["dia1"], 0);
-            this.picClima1.Image = vectorClima(descriptions["dia2"], 0);
-            this.picClima2.Image = vectorClima(descriptions["dia3"], 0);
-            this.picClima3.Image = vectorClima(descriptions["dia4"], 0);
-            this.picClima4.Image = vectorClima(descriptions["dia5"], 0);
+
+
+            var infoDay1 = descriptions["dia1"].Split(':');
+            var infoDay2 = descriptions["dia2"].Split(':');
+            var infoDay3 = descriptions["dia3"].Split(':');
+            var infoDay4 = descriptions["dia4"].Split(':');
+            var infoDay5 = descriptions["dia5"].Split(':');
+
+            this.picClimaHoy.Image = ObtenerImagenDesdeCodigo(infoDay1[0], 1);
+            this.picClima1.Image = ObtenerImagenDesdeCodigo(infoDay2[0], 2);
+            this.picClima2.Image = ObtenerImagenDesdeCodigo(infoDay3[0], 3);
+            this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
+            this.picClima4.Image = ObtenerImagenDesdeCodigo(infoDay5[0], 5);
+
+            descripcionDia1 = infoDay1[1];
+            descripcionDia2 = infoDay2[1];
+            descripcionDia3 = infoDay3[1];
+            descripcionDia4 = infoDay4[1];
+            descripcionDia5 = infoDay5[1];
 
         }
 
@@ -393,7 +455,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL PONER FECHAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al poner fechas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void SetDateTime(Label lbl, DateTime datetime)
@@ -405,7 +467,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR EN EL SETDATETIME", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error en SetDataTime", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private String TranslateDay(String day)
@@ -423,8 +485,9 @@ namespace Capa_Presentacion
                 if (day.Equals(MON)) return LUN;
                 if (day.Equals(MON)) return LUN;
             }
-            catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL TRADUCIR DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al traducir dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return $"{day} NOT A DAY";
 
@@ -456,7 +519,7 @@ namespace Capa_Presentacion
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -559,6 +622,10 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<AdministrarCultivosEditar>();
             CerrarFormEnPanel<ConfiguracionGeneralAgregar>();
+            CerrarFormEnPanel <FromUsuarioABC>();
+            CerrarFormEnPanel<Fertilizantes>();
+            CerrarFormEnPanel<Datos_Atmosfericos>();
+            CerrarFormEnPanel<Cosechas>();
 
             panelClima.Visible = true;
             lblTemp.Visible = false;
@@ -567,6 +634,8 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -576,7 +645,6 @@ namespace Capa_Presentacion
         {
             if (Program.cargo != "Admin")
             {
-                btnConfiguracionGeneral.Visible = false;
                 btnAdministrarUsuarios.Visible = false;
             }
         }
@@ -613,7 +681,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR OBTENER HORA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al obtener hora", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -646,7 +714,7 @@ namespace Capa_Presentacion
                                     labelHoy.Text = DateTime.Now.ToString("m");
                                     labelHoyMax.Text = info.HiTempC + "°";
                                     labelHoyMin.Text = info.LowTempC + "°";
-                                    labelHoyPrecipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacionHoy.Text = info.ProbabilityOfPrecip + "%";
                                     picClimaHoy.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                     diasSiguientes = true;
@@ -659,7 +727,7 @@ namespace Capa_Presentacion
                                     labelFecha1.Text = DateTime.Now.ToString("m");
                                     labelFecha1Max.Text = info.HiTempC + "°";
                                     labelFecha1Min.Text = info.LowTempC + "°";
-                                    labelFecha1Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion1.Text = info.ProbabilityOfPrecip + "%";
                                     picClima1.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                 }
@@ -668,7 +736,7 @@ namespace Capa_Presentacion
                                     labelFecha2.Text = DateTime.Now.ToString("m");
                                     labelFecha2Max.Text = info.HiTempC + "°";
                                     labelFecha2Min.Text = info.LowTempC + "°";
-                                    labelFecha2Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion2.Text = info.ProbabilityOfPrecip + "%";
                                     picClima2.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                 }
@@ -686,7 +754,7 @@ namespace Capa_Presentacion
                                     labelFecha4.Text = DateTime.Now.ToString("m");
                                     labelFecha4Max.Text = info.HiTempC + "°";
                                     labelFecha4Min.Text = info.LowTempC + "°";
-                                    labelFecha4Precipitacion.Text = info.ProbabilityOfPrecip + "%";
+                                    labelPrecipitacion4.Text = info.ProbabilityOfPrecip + "%";
                                     picClima4.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
                                     break;
@@ -696,26 +764,28 @@ namespace Capa_Presentacion
                     }
                 }
             }
-            catch (Exception a) {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL OBTENER DIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al obtener dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
 
-        private void ObtenerDias ()
+        private void ObtenerDias()
         {
 
 
         }
         private void timerClima_Tick(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            /*if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
                 //GetRequestHora();
-            }
+            }*/
+            navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
 
-        public Image vectorClima (String texto, int panel)
+        public Image vectorClima(String texto, int panel)
         {
             try
             {
@@ -835,40 +905,113 @@ namespace Capa_Presentacion
                     return null;
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
 
+                MessageBox.Show("ADVERTENCIA", "Error en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return null;
+            }
+            /*         
+            Nublado
+            Parcialmente nublado / Viento
+            Parcialmente nublado
+            Aguaceros en la mañana
+            Soleado
+            Nubes por la mañana / Sol por la tarde
+            Lluvia en la mañana
+            Mayormente soleado / Viento
+            Tormentas por la tarde
+            Tormentas aisladas
+            Tormentas dispersas
+            Tormentas
+            Tormentas en la mañana
+            Aguaceros por la tarde
+            Aguaceros
+            Algunos aguaceros
+            Lluvia débil por la tarde
+            Lluvia por la tarde
+            Aguaceros y tormentas por la tarde
+            Soleado / Viento
+            Aguaceros y tormentas
+            Lluvia
+            Nublado / Viento
+            Mayormente nublado/ Viento
+            Nubes por la mañana / Sol por la tarde / Viento
+            Tormentas aisladas / Viento
+            */
+        }
+
+        public Image ObtenerImagenDesdeCodigo(String texto, int dayPictureBox)
+        {
+            try
+            {
+                // case 1 = Primer panel, este debe ser blanco de perefencia, sino color.
+                // case 2 y 3 = Segundo y tercer panel, estos deben ser negros.
+                // case 4 y 5 = Cuarto y quinto panel, estos a color de preferencia, sino blanco.
+                switch (dayPictureBox)
+                {
+                    case 1:
+                        // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
+                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[18];
+                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[18];
+
+                        // Algunas nubes | Algunas nubes
+                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
+
+                        // Parcialmente nublado, lluvia ligera
+                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[0];
+                        else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
+
+                        // Nublado
+                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[9];
+
+                        // Despejado
+                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[16];
+
+                        // Nublado, lluvia ligera
+                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[3];
+                        else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[3];
+
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
+                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[20];
+                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[20];
+
+                        // Algunas nubes | Algunas nubes
+                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
+
+                        // Parcialmente nublado, lluvia ligera
+                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[2];
+                        else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
+
+                        // Nublado
+                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[11];
+
+                        // Despejado
+                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[17];
+
+                        // Nublado, lluvia ligera
+                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[5];
+                        else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
+
+                        break;
+                }
+                
+            }
+            catch(Exception ex)
+            {
                 MessageBox.Show("ADVERTENCIA", "ERROR en el vector clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
-            } 
-/*         
-Nublado
-Parcialmente nublado / Viento
-Parcialmente nublado
-Aguaceros en la mañana
-Soleado
-Nubes por la mañana / Sol por la tarde
-Lluvia en la mañana
-Mayormente soleado / Viento
-Tormentas por la tarde
-Tormentas aisladas
-Tormentas dispersas
-Tormentas
-Tormentas en la mañana
-Aguaceros por la tarde
-Aguaceros
-Algunos aguaceros
-Lluvia débil por la tarde
-Lluvia por la tarde
-Aguaceros y tormentas por la tarde
-Soleado / Viento
-Aguaceros y tormentas
-Lluvia
-Nublado / Viento
-Mayormente nublado/ Viento
-Nubes por la mañana / Sol por la tarde / Viento
-Tormentas aisladas / Viento
-*/
+            }
+            return null;
         }
+
         private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
         {
             try
@@ -885,7 +1028,7 @@ Tormentas aisladas / Viento
             catch (Exception a)
             {
 
-                MessageBox.Show("ADVERTENCIA", "ERROR AL ADMINISTRAR USUARIOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("ADVERTENCIA", "Error al administrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -893,6 +1036,20 @@ Tormentas aisladas / Viento
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void btnAdministrarCosechas_Click(object sender, EventArgs e)
+        {
+            panelDerecho.Visible = true;
+            AbrirFormEnPanel<Cosechas>();
+            panelClima.Visible = false;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+        bool btnDatAtmos;
 
         private void btnFertilizantes_Click(object sender, EventArgs e)
         {
@@ -906,11 +1063,78 @@ Tormentas aisladas / Viento
             lblPrecipitacionmm.Visible = true;
         }
 
+        private void picClimaHoy_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClimaHoy, descripcionDia1);
+        }
+
+        private void picClima1_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima1, descripcionDia2);
+        }
+
+        private void picClima2_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima2, descripcionDia3);
+        }
+
+        private void picClima3_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima3, descripcionDia4);
+        }
+
+        private void picClima4_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima4, descripcionDia5);
+        }
+
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            Datos_Atmosfericos datos = new Datos_Atmosfericos();
-            datos.Visible = true;
+            btnDatAtmos = true;
+            panelDerecho.Visible = false;
+            AbrirFormEnPanel<Datos_Atmosfericos>();
+            panelClima.Visible = false;
+            
+            //lblTemp.Visible = true;
+            //lblCentigrados.Visible = true;
+            //lblHumedad.Visible = true;
+            //lblEstado.Visible = true;
+            //lblPrecipitacion.Visible = true;
+            //lblPrecipitacionmm.Visible = true;
+            //Datos_Atmosfericos datos = new Datos_Atmosfericos();
+            //datos.Visible = true;
 
+        }
+
+        private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<CalculoDePlagas>();
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+
+        private bool HayInternet()
+        {
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

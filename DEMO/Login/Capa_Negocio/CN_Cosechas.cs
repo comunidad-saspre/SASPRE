@@ -21,7 +21,8 @@ namespace Capa_Negocio
 
         public void AgregarCosechas(String Usuario_Cultivo, String Cultivo, String Fecha_Plantado, String Fecha_Cosecha, String Cantidad, String Estado)
         {
-            _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, Fecha_Plantado, Fecha_Cosecha, Convert.ToString(Cantidad), Estado);
+            _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, Fecha_Plantado, Fecha_Cosecha, 
+                Convert.ToString(Cantidad), Estado);
         }
     }
 }

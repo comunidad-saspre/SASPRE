@@ -41,6 +41,7 @@ namespace Capa_Negocio
         }
         public string Encriptar(string texto)
         {
+
             //arreglo de bytes donde guardaremos la llave
             byte[] keyArray;
             //arreglo de bytes donde guardaremos el texto

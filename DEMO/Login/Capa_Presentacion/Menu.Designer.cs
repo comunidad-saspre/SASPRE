@@ -13,11 +13,17 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            try
             {
-                components.Dispose();
+                if (disposing && (components != null))
+                {
+                    components.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
+            catch (System.Exception ex)
+            {
+            }
         }
 
         #region Windows Form Designer generated code
@@ -45,21 +51,18 @@
             this.labelMin4 = new System.Windows.Forms.Label();
             this.labelMax4 = new System.Windows.Forms.Label();
             this.picClima4 = new System.Windows.Forms.PictureBox();
-            this.labelFecha4Precipitacion = new System.Windows.Forms.Label();
             this.labelFecha4 = new System.Windows.Forms.Label();
             this.labelDia4 = new System.Windows.Forms.Label();
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
-            this.lblsensacion = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
-            this.labelPrecipitacion1 = new System.Windows.Forms.Label();
+            this.labelFecha1Min = new System.Windows.Forms.Label();
+            this.labelFecha1Max = new System.Windows.Forms.Label();
             this.labelMin1 = new System.Windows.Forms.Label();
+            this.labelPrecipitacion1 = new System.Windows.Forms.Label();
             this.labelMax1 = new System.Windows.Forms.Label();
             this.picClima1 = new System.Windows.Forms.PictureBox();
-            this.labelFecha1Precipitacion = new System.Windows.Forms.Label();
-            this.labelFecha1Min = new System.Windows.Forms.Label();
             this.labelDia1 = new System.Windows.Forms.Label();
-            this.labelFecha1Max = new System.Windows.Forms.Label();
             this.labelFecha1 = new System.Windows.Forms.Label();
             this.labelClimaHoy = new System.Windows.Forms.Label();
             this.labelFechaCompletaHoy = new System.Windows.Forms.Label();
@@ -69,7 +72,6 @@
             this.labelMin2 = new System.Windows.Forms.Label();
             this.labelMax2 = new System.Windows.Forms.Label();
             this.picClima2 = new System.Windows.Forms.PictureBox();
-            this.labelFecha2Precipitacion = new System.Windows.Forms.Label();
             this.labelFecha2 = new System.Windows.Forms.Label();
             this.labelFecha2Min = new System.Windows.Forms.Label();
             this.labelFecha2Max = new System.Windows.Forms.Label();
@@ -80,7 +82,6 @@
             this.labelPrecipitacion3 = new System.Windows.Forms.Label();
             this.labelMin3 = new System.Windows.Forms.Label();
             this.labelMax3 = new System.Windows.Forms.Label();
-            this.lblmm4 = new System.Windows.Forms.Label();
             this.labelFecha3 = new System.Windows.Forms.Label();
             this.labelDia3 = new System.Windows.Forms.Label();
             this.lblmin4 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.myPanel3 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacionHoy = new System.Windows.Forms.Label();
             this.picClimaHoy = new System.Windows.Forms.PictureBox();
-            this.labelHoyPrecipitacion = new System.Windows.Forms.Label();
             this.labelHoyMin = new System.Windows.Forms.Label();
             this.labelHoyMax = new System.Windows.Forms.Label();
             this.labelHoy = new System.Windows.Forms.Label();
@@ -102,18 +102,19 @@
             this.lblPrecipitacion = new System.Windows.Forms.Label();
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
-            this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnFertilizantes = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnAdministrarCosechas = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnDatosAtmosfericos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHistorialDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnConfiguracionGeneral = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnGenerarReportes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAdministrarCultivos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnEstadisticasDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.btnFertilizantes = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -192,11 +193,14 @@
             this.Vectores.Images.SetKeyName(15, "Parcialmente nublado negro.png");
             this.Vectores.Images.SetKeyName(16, "Soleado Color.png");
             this.Vectores.Images.SetKeyName(17, "Soleado Negro.png");
+            this.Vectores.Images.SetKeyName(18, "Tormenta Blanco.png");
+            this.Vectores.Images.SetKeyName(19, "Tormenta color.png");
+            this.Vectores.Images.SetKeyName(20, "Tormenta.png");
             // 
             // timerClima
             // 
             this.timerClima.Enabled = true;
-            this.timerClima.Interval = 1000;
+            this.timerClima.Interval = 3600000;
             this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
             // label5
@@ -210,7 +214,6 @@
             // 
             this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.fondomenu;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.myPanel1.Controls.Add(this.btnFertilizantes);
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
@@ -226,7 +229,6 @@
             this.panelClima.BackColor = System.Drawing.Color.Transparent;
             this.panelClima.Controls.Add(this.picClimaActual);
             this.panelClima.Controls.Add(this.myPanel5);
-            this.panelClima.Controls.Add(this.lblsensacion);
             this.panelClima.Controls.Add(this.myPanel10);
             this.panelClima.Controls.Add(this.labelClimaHoy);
             this.panelClima.Controls.Add(this.labelFechaCompletaHoy);
@@ -256,7 +258,6 @@
             this.myPanel5.Controls.Add(this.labelMin4);
             this.myPanel5.Controls.Add(this.labelMax4);
             this.myPanel5.Controls.Add(this.picClima4);
-            this.myPanel5.Controls.Add(this.labelFecha4Precipitacion);
             this.myPanel5.Controls.Add(this.labelFecha4);
             this.myPanel5.Controls.Add(this.labelDia4);
             this.myPanel5.Controls.Add(this.labelFecha4Min);
@@ -272,7 +273,7 @@
             this.labelPrecipitacion4.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion4.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion4.Location = new System.Drawing.Point(59, 279);
+            this.labelPrecipitacion4.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacion4.Name = "labelPrecipitacion4";
             this.labelPrecipitacion4.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion4.TabIndex = 52;
@@ -284,7 +285,7 @@
             this.labelMin4.BackColor = System.Drawing.Color.Transparent;
             this.labelMin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMin4.ForeColor = System.Drawing.Color.Black;
-            this.labelMin4.Location = new System.Drawing.Point(90, 235);
+            this.labelMin4.Location = new System.Drawing.Point(86, 246);
             this.labelMin4.Name = "labelMin4";
             this.labelMin4.Size = new System.Drawing.Size(32, 20);
             this.labelMin4.TabIndex = 51;
@@ -296,7 +297,7 @@
             this.labelMax4.BackColor = System.Drawing.Color.Transparent;
             this.labelMax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMax4.ForeColor = System.Drawing.Color.Black;
-            this.labelMax4.Location = new System.Drawing.Point(49, 235);
+            this.labelMax4.Location = new System.Drawing.Point(40, 246);
             this.labelMax4.Name = "labelMax4";
             this.labelMax4.Size = new System.Drawing.Size(32, 20);
             this.labelMax4.TabIndex = 50;
@@ -304,24 +305,13 @@
             // 
             // picClima4
             // 
-            this.picClima4.Location = new System.Drawing.Point(51, 133);
+            this.picClima4.Location = new System.Drawing.Point(48, 133);
             this.picClima4.Name = "picClima4";
             this.picClima4.Size = new System.Drawing.Size(70, 70);
             this.picClima4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClima4.TabIndex = 53;
             this.picClima4.TabStop = false;
-            // 
-            // labelFecha4Precipitacion
-            // 
-            this.labelFecha4Precipitacion.AutoSize = true;
-            this.labelFecha4Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha4Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha4Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Precipitacion.Location = new System.Drawing.Point(57, 279);
-            this.labelFecha4Precipitacion.Name = "labelFecha4Precipitacion";
-            this.labelFecha4Precipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelFecha4Precipitacion.TabIndex = 52;
-            this.labelFecha4Precipitacion.Text = "0.3 mm";
+            this.picClima4.MouseHover += new System.EventHandler(this.picClima4_MouseHover);
             // 
             // labelFecha4
             // 
@@ -329,7 +319,7 @@
             this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelFecha4.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4.Location = new System.Drawing.Point(16, 56);
+            this.labelFecha4.Location = new System.Drawing.Point(20, 56);
             this.labelFecha4.Name = "labelFecha4";
             this.labelFecha4.Size = new System.Drawing.Size(81, 29);
             this.labelFecha4.TabIndex = 49;
@@ -341,7 +331,7 @@
             this.labelDia4.BackColor = System.Drawing.Color.Transparent;
             this.labelDia4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelDia4.ForeColor = System.Drawing.Color.Black;
-            this.labelDia4.Location = new System.Drawing.Point(11, 14);
+            this.labelDia4.Location = new System.Drawing.Point(41, 14);
             this.labelDia4.Name = "labelDia4";
             this.labelDia4.Size = new System.Drawing.Size(86, 29);
             this.labelDia4.TabIndex = 48;
@@ -353,7 +343,7 @@
             this.labelFecha4Min.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha4Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha4Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Min.Location = new System.Drawing.Point(88, 235);
+            this.labelFecha4Min.Location = new System.Drawing.Point(86, 246);
             this.labelFecha4Min.Name = "labelFecha4Min";
             this.labelFecha4Min.Size = new System.Drawing.Size(32, 20);
             this.labelFecha4Min.TabIndex = 51;
@@ -365,52 +355,53 @@
             this.labelFecha4Max.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha4Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha4Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4Max.Location = new System.Drawing.Point(47, 235);
+            this.labelFecha4Max.Location = new System.Drawing.Point(45, 246);
             this.labelFecha4Max.Name = "labelFecha4Max";
             this.labelFecha4Max.Size = new System.Drawing.Size(32, 20);
             this.labelFecha4Max.TabIndex = 50;
             this.labelFecha4Max.Text = "29°";
             // 
-            // lblsensacion
-            // 
-            this.lblsensacion.AutoSize = true;
-            this.lblsensacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblsensacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsensacion.ForeColor = System.Drawing.Color.White;
-            this.lblsensacion.Location = new System.Drawing.Point(93, 101);
-            this.lblsensacion.Name = "lblsensacion";
-            this.lblsensacion.Size = new System.Drawing.Size(298, 37);
-            this.lblsensacion.TabIndex = 32;
-            this.lblsensacion.Text = "Sensación de 30° C";
-            // 
             // myPanel10
             // 
             this.myPanel10.BackColor = System.Drawing.Color.White;
-            this.myPanel10.Controls.Add(this.labelPrecipitacion1);
+            this.myPanel10.Controls.Add(this.labelFecha1Min);
+            this.myPanel10.Controls.Add(this.labelFecha1Max);
             this.myPanel10.Controls.Add(this.labelMin1);
+            this.myPanel10.Controls.Add(this.labelPrecipitacion1);
             this.myPanel10.Controls.Add(this.labelMax1);
             this.myPanel10.Controls.Add(this.picClima1);
-            this.myPanel10.Controls.Add(this.labelFecha1Precipitacion);
-            this.myPanel10.Controls.Add(this.labelFecha1Min);
             this.myPanel10.Controls.Add(this.labelDia1);
-            this.myPanel10.Controls.Add(this.labelFecha1Max);
             this.myPanel10.Controls.Add(this.labelFecha1);
             this.myPanel10.Location = new System.Drawing.Point(186, 181);
             this.myPanel10.Name = "myPanel10";
             this.myPanel10.Size = new System.Drawing.Size(160, 350);
             this.myPanel10.TabIndex = 7;
             // 
-            // labelPrecipitacion1
+            // labelFecha1Min
             // 
-            this.labelPrecipitacion1.AutoSize = true;
-            this.labelPrecipitacion1.BackColor = System.Drawing.Color.Transparent;
-            this.labelPrecipitacion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrecipitacion1.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion1.Location = new System.Drawing.Point(57, 275);
-            this.labelPrecipitacion1.Name = "labelPrecipitacion1";
-            this.labelPrecipitacion1.Size = new System.Drawing.Size(61, 20);
-            this.labelPrecipitacion1.TabIndex = 42;
-            this.labelPrecipitacion1.Text = "0.3 mm";
+            this.labelFecha1Min.AutoSize = true;
+            this.labelFecha1Min.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha1Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha1Min.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha1Min.Location = new System.Drawing.Point(86, 246);
+            this.labelFecha1Min.Name = "labelFecha1Min";
+            this.labelFecha1Min.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha1Min.TabIndex = 47;
+            this.labelFecha1Min.Text = "29°";
+            this.labelFecha1Min.Visible = false;
+            // 
+            // labelFecha1Max
+            // 
+            this.labelFecha1Max.AutoSize = true;
+            this.labelFecha1Max.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha1Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha1Max.ForeColor = System.Drawing.Color.Black;
+            this.labelFecha1Max.Location = new System.Drawing.Point(40, 246);
+            this.labelFecha1Max.Name = "labelFecha1Max";
+            this.labelFecha1Max.Size = new System.Drawing.Size(32, 20);
+            this.labelFecha1Max.TabIndex = 46;
+            this.labelFecha1Max.Text = "29°";
+            this.labelFecha1Max.Visible = false;
             // 
             // labelMin1
             // 
@@ -418,11 +409,23 @@
             this.labelMin1.BackColor = System.Drawing.Color.Transparent;
             this.labelMin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMin1.ForeColor = System.Drawing.Color.Black;
-            this.labelMin1.Location = new System.Drawing.Point(88, 231);
+            this.labelMin1.Location = new System.Drawing.Point(85, 246);
             this.labelMin1.Name = "labelMin1";
             this.labelMin1.Size = new System.Drawing.Size(32, 20);
             this.labelMin1.TabIndex = 41;
             this.labelMin1.Text = "14°";
+            // 
+            // labelPrecipitacion1
+            // 
+            this.labelPrecipitacion1.AutoSize = true;
+            this.labelPrecipitacion1.BackColor = System.Drawing.Color.Transparent;
+            this.labelPrecipitacion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrecipitacion1.ForeColor = System.Drawing.Color.Black;
+            this.labelPrecipitacion1.Location = new System.Drawing.Point(55, 290);
+            this.labelPrecipitacion1.Name = "labelPrecipitacion1";
+            this.labelPrecipitacion1.Size = new System.Drawing.Size(61, 20);
+            this.labelPrecipitacion1.TabIndex = 42;
+            this.labelPrecipitacion1.Text = "0.3 mm";
             // 
             // labelMax1
             // 
@@ -430,7 +433,7 @@
             this.labelMax1.BackColor = System.Drawing.Color.Transparent;
             this.labelMax1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMax1.ForeColor = System.Drawing.Color.Black;
-            this.labelMax1.Location = new System.Drawing.Point(47, 231);
+            this.labelMax1.Location = new System.Drawing.Point(44, 246);
             this.labelMax1.Name = "labelMax1";
             this.labelMax1.Size = new System.Drawing.Size(32, 20);
             this.labelMax1.TabIndex = 40;
@@ -444,30 +447,7 @@
             this.picClima1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClima1.TabIndex = 39;
             this.picClima1.TabStop = false;
-            // 
-            // labelFecha1Precipitacion
-            // 
-            this.labelFecha1Precipitacion.AutoSize = true;
-            this.labelFecha1Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Precipitacion.Location = new System.Drawing.Point(57, 279);
-            this.labelFecha1Precipitacion.Name = "labelFecha1Precipitacion";
-            this.labelFecha1Precipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelFecha1Precipitacion.TabIndex = 42;
-            this.labelFecha1Precipitacion.Text = "0.3 mm";
-            // 
-            // labelFecha1Min
-            // 
-            this.labelFecha1Min.AutoSize = true;
-            this.labelFecha1Min.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Min.Location = new System.Drawing.Point(88, 235);
-            this.labelFecha1Min.Name = "labelFecha1Min";
-            this.labelFecha1Min.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha1Min.TabIndex = 41;
-            this.labelFecha1Min.Text = "14°";
+            this.picClima1.MouseHover += new System.EventHandler(this.picClima1_MouseHover);
             // 
             // labelDia1
             // 
@@ -475,23 +455,11 @@
             this.labelDia1.BackColor = System.Drawing.Color.Transparent;
             this.labelDia1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelDia1.ForeColor = System.Drawing.Color.Black;
-            this.labelDia1.Location = new System.Drawing.Point(6, 14);
+            this.labelDia1.Location = new System.Drawing.Point(35, 12);
             this.labelDia1.Name = "labelDia1";
             this.labelDia1.Size = new System.Drawing.Size(97, 29);
             this.labelDia1.TabIndex = 38;
             this.labelDia1.Text = "Sabado";
-            // 
-            // labelFecha1Max
-            // 
-            this.labelFecha1Max.AutoSize = true;
-            this.labelFecha1Max.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha1Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha1Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1Max.Location = new System.Drawing.Point(47, 235);
-            this.labelFecha1Max.Name = "labelFecha1Max";
-            this.labelFecha1Max.Size = new System.Drawing.Size(32, 20);
-            this.labelFecha1Max.TabIndex = 40;
-            this.labelFecha1Max.Text = "29°";
             // 
             // labelFecha1
             // 
@@ -499,7 +467,7 @@
             this.labelFecha1.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelFecha1.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1.Location = new System.Drawing.Point(6, 58);
+            this.labelFecha1.Location = new System.Drawing.Point(20, 56);
             this.labelFecha1.Name = "labelFecha1";
             this.labelFecha1.Size = new System.Drawing.Size(81, 29);
             this.labelFecha1.TabIndex = 39;
@@ -547,7 +515,6 @@
             this.myPanel8.Controls.Add(this.labelMin2);
             this.myPanel8.Controls.Add(this.labelMax2);
             this.myPanel8.Controls.Add(this.picClima2);
-            this.myPanel8.Controls.Add(this.labelFecha2Precipitacion);
             this.myPanel8.Controls.Add(this.labelFecha2);
             this.myPanel8.Controls.Add(this.labelFecha2Min);
             this.myPanel8.Controls.Add(this.labelFecha2Max);
@@ -563,7 +530,7 @@
             this.labelPrecipitacion2.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion2.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion2.Location = new System.Drawing.Point(57, 275);
+            this.labelPrecipitacion2.Location = new System.Drawing.Point(57, 290);
             this.labelPrecipitacion2.Name = "labelPrecipitacion2";
             this.labelPrecipitacion2.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion2.TabIndex = 47;
@@ -575,7 +542,7 @@
             this.labelMin2.BackColor = System.Drawing.Color.Transparent;
             this.labelMin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMin2.ForeColor = System.Drawing.Color.Black;
-            this.labelMin2.Location = new System.Drawing.Point(88, 231);
+            this.labelMin2.Location = new System.Drawing.Point(86, 246);
             this.labelMin2.Name = "labelMin2";
             this.labelMin2.Size = new System.Drawing.Size(32, 20);
             this.labelMin2.TabIndex = 46;
@@ -587,7 +554,7 @@
             this.labelMax2.BackColor = System.Drawing.Color.Transparent;
             this.labelMax2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMax2.ForeColor = System.Drawing.Color.Black;
-            this.labelMax2.Location = new System.Drawing.Point(47, 231);
+            this.labelMax2.Location = new System.Drawing.Point(40, 246);
             this.labelMax2.Name = "labelMax2";
             this.labelMax2.Size = new System.Drawing.Size(32, 20);
             this.labelMax2.TabIndex = 45;
@@ -601,18 +568,7 @@
             this.picClima2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClima2.TabIndex = 43;
             this.picClima2.TabStop = false;
-            // 
-            // labelFecha2Precipitacion
-            // 
-            this.labelFecha2Precipitacion.AutoSize = true;
-            this.labelFecha2Precipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha2Precipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha2Precipitacion.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Precipitacion.Location = new System.Drawing.Point(57, 279);
-            this.labelFecha2Precipitacion.Name = "labelFecha2Precipitacion";
-            this.labelFecha2Precipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelFecha2Precipitacion.TabIndex = 47;
-            this.labelFecha2Precipitacion.Text = "0.3 mm";
+            this.picClima2.MouseHover += new System.EventHandler(this.picClima2_MouseHover);
             // 
             // labelFecha2
             // 
@@ -620,7 +576,7 @@
             this.labelFecha2.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelFecha2.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2.Location = new System.Drawing.Point(6, 58);
+            this.labelFecha2.Location = new System.Drawing.Point(20, 56);
             this.labelFecha2.Name = "labelFecha2";
             this.labelFecha2.Size = new System.Drawing.Size(81, 29);
             this.labelFecha2.TabIndex = 44;
@@ -632,7 +588,7 @@
             this.labelFecha2Min.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha2Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha2Min.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Min.Location = new System.Drawing.Point(88, 235);
+            this.labelFecha2Min.Location = new System.Drawing.Point(85, 246);
             this.labelFecha2Min.Name = "labelFecha2Min";
             this.labelFecha2Min.Size = new System.Drawing.Size(32, 20);
             this.labelFecha2Min.TabIndex = 46;
@@ -644,7 +600,7 @@
             this.labelFecha2Max.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha2Max.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha2Max.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2Max.Location = new System.Drawing.Point(47, 235);
+            this.labelFecha2Max.Location = new System.Drawing.Point(44, 246);
             this.labelFecha2Max.Name = "labelFecha2Max";
             this.labelFecha2Max.Size = new System.Drawing.Size(32, 20);
             this.labelFecha2Max.TabIndex = 45;
@@ -656,7 +612,7 @@
             this.labelDia2.BackColor = System.Drawing.Color.Transparent;
             this.labelDia2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelDia2.ForeColor = System.Drawing.Color.Black;
-            this.labelDia2.Location = new System.Drawing.Point(6, 14);
+            this.labelDia2.Location = new System.Drawing.Point(28, 12);
             this.labelDia2.Name = "labelDia2";
             this.labelDia2.Size = new System.Drawing.Size(111, 29);
             this.labelDia2.TabIndex = 43;
@@ -681,7 +637,6 @@
             this.myPanel7.Controls.Add(this.labelPrecipitacion3);
             this.myPanel7.Controls.Add(this.labelMin3);
             this.myPanel7.Controls.Add(this.labelMax3);
-            this.myPanel7.Controls.Add(this.lblmm4);
             this.myPanel7.Controls.Add(this.labelFecha3);
             this.myPanel7.Controls.Add(this.labelDia3);
             this.myPanel7.Controls.Add(this.lblmin4);
@@ -693,12 +648,13 @@
             // 
             // picClima3
             // 
-            this.picClima3.Location = new System.Drawing.Point(52, 133);
+            this.picClima3.Location = new System.Drawing.Point(48, 133);
             this.picClima3.Name = "picClima3";
             this.picClima3.Size = new System.Drawing.Size(70, 70);
             this.picClima3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClima3.TabIndex = 48;
             this.picClima3.TabStop = false;
+            this.picClima3.MouseHover += new System.EventHandler(this.picClima3_MouseHover);
             // 
             // labelPrecipitacion3
             // 
@@ -706,7 +662,7 @@
             this.labelPrecipitacion3.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacion3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacion3.ForeColor = System.Drawing.Color.Black;
-            this.labelPrecipitacion3.Location = new System.Drawing.Point(58, 279);
+            this.labelPrecipitacion3.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacion3.Name = "labelPrecipitacion3";
             this.labelPrecipitacion3.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacion3.TabIndex = 52;
@@ -718,7 +674,7 @@
             this.labelMin3.BackColor = System.Drawing.Color.Transparent;
             this.labelMin3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMin3.ForeColor = System.Drawing.Color.Black;
-            this.labelMin3.Location = new System.Drawing.Point(89, 235);
+            this.labelMin3.Location = new System.Drawing.Point(86, 246);
             this.labelMin3.Name = "labelMin3";
             this.labelMin3.Size = new System.Drawing.Size(32, 20);
             this.labelMin3.TabIndex = 51;
@@ -730,23 +686,11 @@
             this.labelMax3.BackColor = System.Drawing.Color.Transparent;
             this.labelMax3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMax3.ForeColor = System.Drawing.Color.Black;
-            this.labelMax3.Location = new System.Drawing.Point(48, 235);
+            this.labelMax3.Location = new System.Drawing.Point(40, 246);
             this.labelMax3.Name = "labelMax3";
             this.labelMax3.Size = new System.Drawing.Size(32, 20);
             this.labelMax3.TabIndex = 50;
             this.labelMax3.Text = "29°";
-            // 
-            // lblmm4
-            // 
-            this.lblmm4.AutoSize = true;
-            this.lblmm4.BackColor = System.Drawing.Color.Transparent;
-            this.lblmm4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmm4.ForeColor = System.Drawing.Color.Black;
-            this.lblmm4.Location = new System.Drawing.Point(59, 279);
-            this.lblmm4.Name = "lblmm4";
-            this.lblmm4.Size = new System.Drawing.Size(61, 20);
-            this.lblmm4.TabIndex = 52;
-            this.lblmm4.Text = "0.3 mm";
             // 
             // labelFecha3
             // 
@@ -754,7 +698,7 @@
             this.labelFecha3.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelFecha3.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha3.Location = new System.Drawing.Point(6, 58);
+            this.labelFecha3.Location = new System.Drawing.Point(20, 56);
             this.labelFecha3.Name = "labelFecha3";
             this.labelFecha3.Size = new System.Drawing.Size(81, 29);
             this.labelFecha3.TabIndex = 49;
@@ -766,7 +710,7 @@
             this.labelDia3.BackColor = System.Drawing.Color.Transparent;
             this.labelDia3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelDia3.ForeColor = System.Drawing.Color.Black;
-            this.labelDia3.Location = new System.Drawing.Point(6, 14);
+            this.labelDia3.Location = new System.Drawing.Point(41, 12);
             this.labelDia3.Name = "labelDia3";
             this.labelDia3.Size = new System.Drawing.Size(78, 29);
             this.labelDia3.TabIndex = 48;
@@ -778,7 +722,7 @@
             this.lblmin4.BackColor = System.Drawing.Color.Transparent;
             this.lblmin4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmin4.ForeColor = System.Drawing.Color.Black;
-            this.lblmin4.Location = new System.Drawing.Point(90, 235);
+            this.lblmin4.Location = new System.Drawing.Point(83, 246);
             this.lblmin4.Name = "lblmin4";
             this.lblmin4.Size = new System.Drawing.Size(32, 20);
             this.lblmin4.TabIndex = 51;
@@ -790,7 +734,7 @@
             this.lblmax4.BackColor = System.Drawing.Color.Transparent;
             this.lblmax4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmax4.ForeColor = System.Drawing.Color.Black;
-            this.lblmax4.Location = new System.Drawing.Point(49, 235);
+            this.lblmax4.Location = new System.Drawing.Point(42, 246);
             this.lblmax4.Name = "lblmax4";
             this.lblmax4.Size = new System.Drawing.Size(32, 20);
             this.lblmax4.TabIndex = 50;
@@ -801,7 +745,6 @@
             this.myPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(144)))), ((int)(((byte)(64)))));
             this.myPanel3.Controls.Add(this.labelPrecipitacionHoy);
             this.myPanel3.Controls.Add(this.picClimaHoy);
-            this.myPanel3.Controls.Add(this.labelHoyPrecipitacion);
             this.myPanel3.Controls.Add(this.labelHoyMin);
             this.myPanel3.Controls.Add(this.labelHoyMax);
             this.myPanel3.Controls.Add(this.labelHoy);
@@ -818,7 +761,7 @@
             this.labelPrecipitacionHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecipitacionHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecipitacionHoy.ForeColor = System.Drawing.Color.White;
-            this.labelPrecipitacionHoy.Location = new System.Drawing.Point(54, 279);
+            this.labelPrecipitacionHoy.Location = new System.Drawing.Point(55, 290);
             this.labelPrecipitacionHoy.Name = "labelPrecipitacionHoy";
             this.labelPrecipitacionHoy.Size = new System.Drawing.Size(61, 20);
             this.labelPrecipitacionHoy.TabIndex = 37;
@@ -832,18 +775,7 @@
             this.picClimaHoy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClimaHoy.TabIndex = 38;
             this.picClimaHoy.TabStop = false;
-            // 
-            // labelHoyPrecipitacion
-            // 
-            this.labelHoyPrecipitacion.AutoSize = true;
-            this.labelHoyPrecipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.labelHoyPrecipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoyPrecipitacion.ForeColor = System.Drawing.Color.White;
-            this.labelHoyPrecipitacion.Location = new System.Drawing.Point(55, 279);
-            this.labelHoyPrecipitacion.Name = "labelHoyPrecipitacion";
-            this.labelHoyPrecipitacion.Size = new System.Drawing.Size(61, 20);
-            this.labelHoyPrecipitacion.TabIndex = 37;
-            this.labelHoyPrecipitacion.Text = "0.3 mm";
+            this.picClimaHoy.MouseHover += new System.EventHandler(this.picClimaHoy_MouseHover);
             // 
             // labelHoyMin
             // 
@@ -851,7 +783,7 @@
             this.labelHoyMin.BackColor = System.Drawing.Color.Transparent;
             this.labelHoyMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoyMin.ForeColor = System.Drawing.Color.White;
-            this.labelHoyMin.Location = new System.Drawing.Point(90, 235);
+            this.labelHoyMin.Location = new System.Drawing.Point(86, 246);
             this.labelHoyMin.Name = "labelHoyMin";
             this.labelHoyMin.Size = new System.Drawing.Size(47, 20);
             this.labelHoyMin.TabIndex = 36;
@@ -862,8 +794,8 @@
             this.labelHoyMax.AutoSize = true;
             this.labelHoyMax.BackColor = System.Drawing.Color.Transparent;
             this.labelHoyMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoyMax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(25)))), ((int)(((byte)(0)))));
-            this.labelHoyMax.Location = new System.Drawing.Point(44, 235);
+            this.labelHoyMax.ForeColor = System.Drawing.Color.Black;
+            this.labelHoyMax.Location = new System.Drawing.Point(40, 246);
             this.labelHoyMax.Name = "labelHoyMax";
             this.labelHoyMax.Size = new System.Drawing.Size(32, 20);
             this.labelHoyMax.TabIndex = 35;
@@ -875,7 +807,7 @@
             this.labelHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelHoy.ForeColor = System.Drawing.Color.White;
-            this.labelHoy.Location = new System.Drawing.Point(12, 56);
+            this.labelHoy.Location = new System.Drawing.Point(20, 56);
             this.labelHoy.Name = "labelHoy";
             this.labelHoy.Size = new System.Drawing.Size(81, 29);
             this.labelHoy.TabIndex = 34;
@@ -887,7 +819,7 @@
             this.labelDiaHoyNombre.BackColor = System.Drawing.Color.Transparent;
             this.labelDiaHoyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.labelDiaHoyNombre.ForeColor = System.Drawing.Color.White;
-            this.labelDiaHoyNombre.Location = new System.Drawing.Point(17, 14);
+            this.labelDiaHoyNombre.Location = new System.Drawing.Point(52, 14);
             this.labelDiaHoyNombre.Name = "labelDiaHoyNombre";
             this.labelDiaHoyNombre.Size = new System.Drawing.Size(55, 29);
             this.labelDiaHoyNombre.TabIndex = 33;
@@ -1001,11 +933,13 @@
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(222)))), ((int)(((byte)(145)))));
             this.myPanel2.BackgroundImage = global::Capa_Presentacion.Properties.Resources.MenuIzquierdoVerde;
-            this.myPanel2.Controls.Add(this.btnAdministrarUsuarios);
             this.myPanel2.Controls.Add(this.bunifuFlatButton1);
+            this.myPanel2.Controls.Add(this.btnFertilizantes);
+            this.myPanel2.Controls.Add(this.btnAdministrarCosechas);
+            this.myPanel2.Controls.Add(this.btnAdministrarUsuarios);
+            this.myPanel2.Controls.Add(this.btnDatosAtmosfericos);
             this.myPanel2.Controls.Add(this.btnHistorialDePlagas);
             this.myPanel2.Controls.Add(this.label1);
-            this.myPanel2.Controls.Add(this.btnConfiguracionGeneral);
             this.myPanel2.Controls.Add(this.btnGenerarReportes);
             this.myPanel2.Controls.Add(this.btnAdministrarCultivos);
             this.myPanel2.Controls.Add(this.btnEstadisticasDePlagas);
@@ -1016,6 +950,117 @@
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
+            // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "   Administrar Usuarios";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 60D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 555);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton1.TabIndex = 60;
+            this.bunifuFlatButton1.Text = "   Administrar Usuarios";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click_1);
+            // 
+            // btnFertilizantes
+            // 
+            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFertilizantes.BorderRadius = 0;
+            this.btnFertilizantes.ButtonText = "   Fertilizantes";
+            this.btnFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFertilizantes.DisabledColor = System.Drawing.Color.Gray;
+            this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnFertilizantes.Iconimage_right = null;
+            this.btnFertilizantes.Iconimage_right_Selected = null;
+            this.btnFertilizantes.Iconimage_Selected = null;
+            this.btnFertilizantes.IconMarginLeft = 0;
+            this.btnFertilizantes.IconMarginRight = 0;
+            this.btnFertilizantes.IconRightVisible = true;
+            this.btnFertilizantes.IconRightZoom = 0D;
+            this.btnFertilizantes.IconVisible = true;
+            this.btnFertilizantes.IconZoom = 60D;
+            this.btnFertilizantes.IsTab = false;
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 450);
+            this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFertilizantes.Name = "btnFertilizantes";
+            this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnFertilizantes.selected = false;
+            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
+            this.btnFertilizantes.TabIndex = 59;
+            this.btnFertilizantes.Text = "   Fertilizantes";
+            this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFertilizantes.Textcolor = System.Drawing.Color.Black;
+            this.btnFertilizantes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFertilizantes.Click += new System.EventHandler(this.btnFertilizantes_Click);
+            // 
+            // btnAdministrarCosechas
+            // 
+            this.btnAdministrarCosechas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarCosechas.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdministrarCosechas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdministrarCosechas.BorderRadius = 0;
+            this.btnAdministrarCosechas.ButtonText = "   Administrar cosechas";
+            this.btnAdministrarCosechas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdministrarCosechas.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAdministrarCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarCosechas.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarCosechas.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnAdministrarCosechas.Iconimage_right = null;
+            this.btnAdministrarCosechas.Iconimage_right_Selected = null;
+            this.btnAdministrarCosechas.Iconimage_Selected = null;
+            this.btnAdministrarCosechas.IconMarginLeft = 0;
+            this.btnAdministrarCosechas.IconMarginRight = 0;
+            this.btnAdministrarCosechas.IconRightVisible = true;
+            this.btnAdministrarCosechas.IconRightZoom = 0D;
+            this.btnAdministrarCosechas.IconVisible = true;
+            this.btnAdministrarCosechas.IconZoom = 60D;
+            this.btnAdministrarCosechas.IsTab = false;
+            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 300);
+            this.btnAdministrarCosechas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAdministrarCosechas.Name = "btnAdministrarCosechas";
+            this.btnAdministrarCosechas.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAdministrarCosechas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarCosechas.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnAdministrarCosechas.selected = false;
+            this.btnAdministrarCosechas.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarCosechas.TabIndex = 59;
+            this.btnAdministrarCosechas.Text = "   Administrar cosechas";
+            this.btnAdministrarCosechas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministrarCosechas.Textcolor = System.Drawing.Color.Black;
+            this.btnAdministrarCosechas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarCosechas.Click += new System.EventHandler(this.btnAdministrarCosechas_Click);
             // 
             // btnAdministrarUsuarios
             // 
@@ -1039,7 +1084,7 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 403);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 500);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
@@ -1054,42 +1099,42 @@
             this.btnAdministrarUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
             // 
-            // bunifuFlatButton1
+            // btnDatosAtmosfericos
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "  Datos Atmosfericos";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 60D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(1, 351);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
-            this.bunifuFlatButton1.TabIndex = 58;
-            this.bunifuFlatButton1.Text = "  Datos Atmosfericos";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.btnDatosAtmosfericos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnDatosAtmosfericos.BackColor = System.Drawing.Color.Transparent;
+            this.btnDatosAtmosfericos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDatosAtmosfericos.BorderRadius = 0;
+            this.btnDatosAtmosfericos.ButtonText = "  Datos Atmosfericos";
+            this.btnDatosAtmosfericos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDatosAtmosfericos.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDatosAtmosfericos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatosAtmosfericos.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDatosAtmosfericos.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
+            this.btnDatosAtmosfericos.Iconimage_right = null;
+            this.btnDatosAtmosfericos.Iconimage_right_Selected = null;
+            this.btnDatosAtmosfericos.Iconimage_Selected = null;
+            this.btnDatosAtmosfericos.IconMarginLeft = 0;
+            this.btnDatosAtmosfericos.IconMarginRight = 0;
+            this.btnDatosAtmosfericos.IconRightVisible = true;
+            this.btnDatosAtmosfericos.IconRightZoom = 0D;
+            this.btnDatosAtmosfericos.IconVisible = true;
+            this.btnDatosAtmosfericos.IconZoom = 60D;
+            this.btnDatosAtmosfericos.IsTab = false;
+            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 400);
+            this.btnDatosAtmosfericos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDatosAtmosfericos.Name = "btnDatosAtmosfericos";
+            this.btnDatosAtmosfericos.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnDatosAtmosfericos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnDatosAtmosfericos.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnDatosAtmosfericos.selected = false;
+            this.btnDatosAtmosfericos.Size = new System.Drawing.Size(250, 45);
+            this.btnDatosAtmosfericos.TabIndex = 58;
+            this.btnDatosAtmosfericos.Text = "  Datos Atmosfericos";
+            this.btnDatosAtmosfericos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDatosAtmosfericos.Textcolor = System.Drawing.Color.Black;
+            this.btnDatosAtmosfericos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatosAtmosfericos.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // btnHistorialDePlagas
             // 
@@ -1113,7 +1158,7 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 147);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 150);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1139,44 +1184,6 @@
             this.label1.TabIndex = 57;
             this.label1.Text = "Funcionalidades";
             // 
-            // btnConfiguracionGeneral
-            // 
-            this.btnConfiguracionGeneral.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnConfiguracionGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.btnConfiguracionGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConfiguracionGeneral.BorderRadius = 0;
-            this.btnConfiguracionGeneral.ButtonText = "   Configuración general";
-            this.btnConfiguracionGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfiguracionGeneral.DisabledColor = System.Drawing.Color.Gray;
-            this.btnConfiguracionGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracionGeneral.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnConfiguracionGeneral.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
-            this.btnConfiguracionGeneral.Iconimage_right = null;
-            this.btnConfiguracionGeneral.Iconimage_right_Selected = null;
-            this.btnConfiguracionGeneral.Iconimage_Selected = null;
-            this.btnConfiguracionGeneral.IconMarginLeft = 0;
-            this.btnConfiguracionGeneral.IconMarginRight = 0;
-            this.btnConfiguracionGeneral.IconRightVisible = true;
-            this.btnConfiguracionGeneral.IconRightZoom = 0D;
-            this.btnConfiguracionGeneral.IconVisible = true;
-            this.btnConfiguracionGeneral.IconZoom = 60D;
-            this.btnConfiguracionGeneral.IsTab = false;
-            this.btnConfiguracionGeneral.Location = new System.Drawing.Point(0, 452);
-            this.btnConfiguracionGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnConfiguracionGeneral.Name = "btnConfiguracionGeneral";
-            this.btnConfiguracionGeneral.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnConfiguracionGeneral.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnConfiguracionGeneral.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnConfiguracionGeneral.selected = false;
-            this.btnConfiguracionGeneral.Size = new System.Drawing.Size(250, 45);
-            this.btnConfiguracionGeneral.TabIndex = 56;
-            this.btnConfiguracionGeneral.Text = "   Configuración general";
-            this.btnConfiguracionGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracionGeneral.Textcolor = System.Drawing.Color.Black;
-            this.btnConfiguracionGeneral.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracionGeneral.Load += new System.EventHandler(this.bunifuFlatButton10_Load);
-            this.btnConfiguracionGeneral.Click += new System.EventHandler(this.bunifuFlatButton10_Click);
-            // 
             // btnGenerarReportes
             // 
             this.btnGenerarReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
@@ -1199,7 +1206,7 @@
             this.btnGenerarReportes.IconVisible = true;
             this.btnGenerarReportes.IconZoom = 60D;
             this.btnGenerarReportes.IsTab = false;
-            this.btnGenerarReportes.Location = new System.Drawing.Point(0, 297);
+            this.btnGenerarReportes.Location = new System.Drawing.Point(0, 350);
             this.btnGenerarReportes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerarReportes.Name = "btnGenerarReportes";
             this.btnGenerarReportes.Normalcolor = System.Drawing.Color.Transparent;
@@ -1236,7 +1243,7 @@
             this.btnAdministrarCultivos.IconVisible = true;
             this.btnAdministrarCultivos.IconZoom = 60D;
             this.btnAdministrarCultivos.IsTab = false;
-            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 247);
+            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 250);
             this.btnAdministrarCultivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCultivos.Name = "btnAdministrarCultivos";
             this.btnAdministrarCultivos.Normalcolor = System.Drawing.Color.Transparent;
@@ -1273,7 +1280,7 @@
             this.btnEstadisticasDePlagas.IconVisible = true;
             this.btnEstadisticasDePlagas.IconZoom = 60D;
             this.btnEstadisticasDePlagas.IsTab = false;
-            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 197);
+            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 200);
             this.btnEstadisticasDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEstadisticasDePlagas.Name = "btnEstadisticasDePlagas";
             this.btnEstadisticasDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1369,43 +1376,6 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // btnFertilizantes
-            // 
-            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFertilizantes.BorderRadius = 0;
-            this.btnFertilizantes.ButtonText = "   Fertilizantes";
-            this.btnFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFertilizantes.DisabledColor = System.Drawing.Color.Gray;
-            this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
-            this.btnFertilizantes.Iconimage_right = null;
-            this.btnFertilizantes.Iconimage_right_Selected = null;
-            this.btnFertilizantes.Iconimage_Selected = null;
-            this.btnFertilizantes.IconMarginLeft = 0;
-            this.btnFertilizantes.IconMarginRight = 0;
-            this.btnFertilizantes.IconRightVisible = true;
-            this.btnFertilizantes.IconRightZoom = 0D;
-            this.btnFertilizantes.IconVisible = true;
-            this.btnFertilizantes.IconZoom = 60D;
-            this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 501);
-            this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnFertilizantes.Name = "btnFertilizantes";
-            this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnFertilizantes.selected = false;
-            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
-            this.btnFertilizantes.TabIndex = 59;
-            this.btnFertilizantes.Text = "   Fertilizantes";
-            this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFertilizantes.Textcolor = System.Drawing.Color.Black;
-            this.btnFertilizantes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFertilizantes.Click += new System.EventHandler(this.btnFertilizantes_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1414,6 +1384,7 @@
             this.Controls.Add(this.myPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1458,7 +1429,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnCerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnConfiguracionGeneral;
         private Bunifu.Framework.UI.BunifuFlatButton btnGenerarReportes;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarCultivos;
         private Bunifu.Framework.UI.BunifuFlatButton btnEstadisticasDePlagas;
@@ -1479,44 +1449,24 @@
         private MyPanel myPanel8;
         private MyPanel myPanel7;
         private MyPanel myPanel4;
-        private System.Windows.Forms.Label lblsensacion;
         private System.Windows.Forms.Label labelPrecipitacionHoy;
         private System.Windows.Forms.Label labelPrecipitacion1;
-        private System.Windows.Forms.Label labelMin1;
-        private System.Windows.Forms.Label labelMax1;
         private System.Windows.Forms.Label labelPrecipitacion2;
-        private System.Windows.Forms.Label labelMin2;
-        private System.Windows.Forms.Label labelMax2;
-        private System.Windows.Forms.Label lblmm4;
         private System.Windows.Forms.Label labelDia3;
-        private System.Windows.Forms.Label lblmin4;
-        private System.Windows.Forms.Label lblmax4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelClimaHoy;
         private System.Windows.Forms.Label labelFechaCompletaHoy;
-        private System.Windows.Forms.Label labelHoyPrecipitacion;
         private System.Windows.Forms.Label labelHoyMin;
         private System.Windows.Forms.Label labelHoyMax;
         private System.Windows.Forms.Label labelHoy;
         private System.Windows.Forms.Label labelDiaHoyNombre;
-        private System.Windows.Forms.Label labelFecha1Precipitacion;
-        private System.Windows.Forms.Label labelFecha1Min;
         private System.Windows.Forms.Label labelDia1;
-        private System.Windows.Forms.Label labelFecha1Max;
         private System.Windows.Forms.Label labelFecha1;
-        private System.Windows.Forms.Label labelFecha2Precipitacion;
         private System.Windows.Forms.Label labelFecha2;
-        private System.Windows.Forms.Label labelFecha2Min;
-        private System.Windows.Forms.Label labelFecha2Max;
         private System.Windows.Forms.Label labelDia2;
         private System.Windows.Forms.Label labelPrecipitacion3;
-        private System.Windows.Forms.Label labelMin3;
-        private System.Windows.Forms.Label labelMax3;
         private MyPanel myPanel5;
-        private System.Windows.Forms.Label labelFecha4Precipitacion;
         private System.Windows.Forms.Label labelDia4;
-        private System.Windows.Forms.Label labelFecha4Min;
-        private System.Windows.Forms.Label labelFecha4Max;
         public System.Windows.Forms.ImageList Vectores;
         private System.Windows.Forms.PictureBox picClimaHoy;
         private System.Windows.Forms.PictureBox picClimaActual;
@@ -1526,14 +1476,30 @@
         private System.Windows.Forms.PictureBox picClima3;
         private System.Windows.Forms.Timer timerClima;
         private System.Windows.Forms.Label labelPrecipitacion4;
-        private System.Windows.Forms.Label labelMin4;
-        private System.Windows.Forms.Label labelMax4;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarUsuarios;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnDatosAtmosfericos;
         private System.Windows.Forms.Label labelFecha4;
         private System.Windows.Forms.Label labelFecha3;
         private System.Windows.Forms.Label lblfechaprincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarCosechas;
         private Bunifu.Framework.UI.BunifuFlatButton btnFertilizantes;
+        private System.Windows.Forms.Label labelFecha4Min;
+        private System.Windows.Forms.Label labelFecha4Max;
+        private System.Windows.Forms.Label labelMin1;
+        private System.Windows.Forms.Label labelMax1;
+        private System.Windows.Forms.Label labelFecha2Min;
+        private System.Windows.Forms.Label labelFecha2Max;
+        private System.Windows.Forms.Label lblmin4;
+        private System.Windows.Forms.Label lblmax4;
+        private System.Windows.Forms.Label labelMin4;
+        private System.Windows.Forms.Label labelMax4;
+        private System.Windows.Forms.Label labelFecha1Min;
+        private System.Windows.Forms.Label labelFecha1Max;
+        private System.Windows.Forms.Label labelMin2;
+        private System.Windows.Forms.Label labelMax2;
+        private System.Windows.Forms.Label labelMin3;
+        private System.Windows.Forms.Label labelMax3;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }

@@ -376,22 +376,4 @@ namespace Capa_Presentacion
         }
     }
 }
-            try
-            {
-                if (dgvCultivo.Rows.Count == 0)
-                {
-                    MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("ADVERTENCIA", "Error al exportar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void btnCalcularEstado_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
+           

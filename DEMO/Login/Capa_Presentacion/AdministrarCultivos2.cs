@@ -353,6 +353,7 @@ namespace Capa_Presentacion
                     {
                         prom += Convert.ToDouble(row[7].ToString());
                         cont++;
+
                     }
                     else
                     {
@@ -373,6 +374,29 @@ namespace Capa_Presentacion
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
+        }
+
+
+        private void PlagaMaiz()
+        {
+
+        }
+
+        private void PlagaSoyaOscar()
+        {
+
+        }
+        private void PlagaSorgoAndres()
+        {
+
+        }
+        private void PlagaCañaAndre()
+        {
+
+        }
+        private void PlagaCebolla()
+        {
+
         }
     }
 }

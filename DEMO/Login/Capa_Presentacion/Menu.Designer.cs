@@ -55,7 +55,6 @@
             this.labelDia4 = new System.Windows.Forms.Label();
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
-            this.lblsensacion = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
             this.labelFecha1Min = new System.Windows.Forms.Label();
             this.labelFecha1Max = new System.Windows.Forms.Label();
@@ -230,7 +229,6 @@
             this.panelClima.BackColor = System.Drawing.Color.Transparent;
             this.panelClima.Controls.Add(this.picClimaActual);
             this.panelClima.Controls.Add(this.myPanel5);
-            this.panelClima.Controls.Add(this.lblsensacion);
             this.panelClima.Controls.Add(this.myPanel10);
             this.panelClima.Controls.Add(this.labelClimaHoy);
             this.panelClima.Controls.Add(this.labelFechaCompletaHoy);
@@ -362,18 +360,6 @@
             this.labelFecha4Max.Size = new System.Drawing.Size(32, 20);
             this.labelFecha4Max.TabIndex = 50;
             this.labelFecha4Max.Text = "29°";
-            // 
-            // lblsensacion
-            // 
-            this.lblsensacion.AutoSize = true;
-            this.lblsensacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblsensacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsensacion.ForeColor = System.Drawing.Color.White;
-            this.lblsensacion.Location = new System.Drawing.Point(93, 101);
-            this.lblsensacion.Name = "lblsensacion";
-            this.lblsensacion.Size = new System.Drawing.Size(298, 37);
-            this.lblsensacion.TabIndex = 32;
-            this.lblsensacion.Text = "Sensación de 30° C";
             // 
             // myPanel10
             // 
@@ -1463,7 +1449,6 @@
         private MyPanel myPanel8;
         private MyPanel myPanel7;
         private MyPanel myPanel4;
-        private System.Windows.Forms.Label lblsensacion;
         private System.Windows.Forms.Label labelPrecipitacionHoy;
         private System.Windows.Forms.Label labelPrecipitacion1;
         private System.Windows.Forms.Label labelPrecipitacion2;

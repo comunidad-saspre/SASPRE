@@ -25,5 +25,9 @@ namespace Capa_Negocio
         {
             _Cultivos.EliminarCultivo(id);
         }
+        public void EditarCultivo(String IDcultivo,String Estado)
+        {
+            _Cultivos.EditarCultivo(IDcultivo,Estado);
+        }
     }
 }

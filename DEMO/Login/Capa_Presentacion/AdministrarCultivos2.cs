@@ -404,21 +404,26 @@ namespace Capa_Presentacion
             String ano = DateTime.Now.ToString("yyyy");
 
             DateTime fecha__actual = Convert.ToDateTime(fechaa_actual);
-            //PRIMAVERA
+            
             String estadosoja = "";
-            if ((fecha__actual >= Convert.ToDateTime("21/03/" + ano)) && (fecha__actual <= Convert.ToDateTime("20/06/" + ano)))
+            //--------------------------
+            if ((fecha__actual >= Convert.ToDateTime("01/10/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/01/" + ano)))
             {
-                if (precipitacion >= 0.25)
-                {
-                    
-                    estadosoja = estadosoja + ",Gusano de la panoja";
-                }
-
-
+                estadosoja += ",Orugas cortadoras";
             }
-            if ((fecha__actual >= Convert.ToDateTime("21/06/" + ano)) && (fecha__actual <= Convert.ToDateTime("20/09/" + ano)))
+            if ((fecha__actual >= Convert.ToDateTime("02/01/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
             {
-                MessageBox.Show("VERANO");
+                estadosoja += ",Orugas defoliadoras";
+            }
+
+            if ((fecha__actual >= Convert.ToDateTime("01/02/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
+            {
+                estadosoja += ",Barrenador del brote";
+            }
+
+            if ((fecha__actual >= Convert.ToDateTime("01/03/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/06/" + ano)))
+            {
+                estadosoja += ",Cinches";
             }
         }
         private void PlagaSorgoAndres()

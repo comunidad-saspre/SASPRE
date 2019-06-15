@@ -10,6 +10,7 @@ namespace Capa_Presentacion
     {
 
         //Privilegios
+        public static int IDADMINPRINCIPAL = 1;
         public static String cargo = null;
         public static String nickname = null;
         public static String contraseña = null;

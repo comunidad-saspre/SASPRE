@@ -13,7 +13,7 @@ namespace Capa_Presentacion
 
         private bool isEditar = false;
         private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
-        private int id ;
+        private int id;
 
         public FromUsuarioABC()
         {
@@ -30,7 +30,6 @@ namespace Capa_Presentacion
         {
             try
             {
-                IsEditar(isEditar = true);
 
                 var fila = dgvUsers.SelectedRows[0];
                 txtNombre.Text = fila.Cells[1].Value.ToString();
@@ -43,8 +42,13 @@ namespace Capa_Presentacion
                 txtCorreo.Text = String.IsNullOrEmpty(correo) ? "" : correo;
 
                 id = Convert.ToInt32(fila.Cells[0].Value.ToString());
+                if (id != Program.IDADMINPRINCIPAL)
+                {
+                    IsEditar(isEditar = true);
+                }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
 
                 MessageBox.Show("ADVERTENCIA", "Error en el form usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -61,7 +65,8 @@ namespace Capa_Presentacion
                     Mostrar();
                 }
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
 
                 MessageBox.Show("ADVERTENCIA", "Error al editar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -108,10 +113,16 @@ namespace Capa_Presentacion
                     throw new Exception("InvalidMailAddressException.");
                 else
                 {
-                    _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
+                    
+                    if (id == Program.IDADMINPRINCIPAL) return;
+
+                    else
+                    {
+                        _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
                     txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
 
-                    IsEditar(isEditar = false);
+                        IsEditar(isEditar = false);
+                    }
                 }
                 MessageBox.Show("Usuario actualizado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -119,7 +130,7 @@ namespace Capa_Presentacion
             {
                 MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void Eliminar()
@@ -131,8 +142,13 @@ namespace Capa_Presentacion
                 //MessageBox.Show($"Row: {row.}");
                 try
                 {
-                    _ABCUsuario.EliminarUsuario(row.Cells["NickName"].Value.ToString());
-                    MessageBox.Show("Usuario eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Convert.ToInt32(row.Cells["IDUsuario"].Value.ToString()) == Program.IDADMINPRINCIPAL)
+                        continue;
+                    else
+                    {
+                        _ABCUsuario.EliminarUsuario(row.Cells["NickName"].Value.ToString());
+                        MessageBox.Show("Usuario eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -149,7 +165,8 @@ namespace Capa_Presentacion
                 var tablaUsuarios = _ABCUsuarioo.MostrarUsuarios();
                 dgvUsers.DataSource = tablaUsuarios;
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
 
                 MessageBox.Show("ADVERTENCIA", "Error al mostrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -182,7 +199,7 @@ namespace Capa_Presentacion
             var validos = true;
             try
             {
-                
+
 
                 if (!EsCampoValido(txtApellidos)) validos = false;
                 if (!EsCampoValido(txtNombre)) validos = false;
@@ -192,11 +209,12 @@ namespace Capa_Presentacion
                 //if (!EsCampoValido(txtCargo)) validos = false;
                 return validos;
             }
-            catch (Exception a) {
+            catch (Exception a)
+            {
                 MessageBox.Show("ADVERTENCIA", "Error al validar campos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return validos;
             }
-            
+
         }
 
         private bool EsCampoValido(TextBox txtbox)
@@ -235,7 +253,7 @@ namespace Capa_Presentacion
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             var op = DialogResult.Yes;
-            if(MessageBox.Show("¿Esta seguro de eliminar este usuario?","Confirmación",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==op)
+            if (MessageBox.Show("¿Esta seguro de eliminar este usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == op)
             {
                 Eliminar();
                 VaciarCampos();
@@ -254,7 +272,7 @@ namespace Capa_Presentacion
                     pbImagen.BackgroundImage = Image.FromFile(fileDialog.FileName);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

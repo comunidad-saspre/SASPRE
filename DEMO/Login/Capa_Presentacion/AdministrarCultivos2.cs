@@ -395,7 +395,7 @@ namespace Capa_Presentacion
             {
                 if (precipitacion >= 0.25)
                 {
-                    MessageBox.Show("Gusano de la panoja");
+                    
                     estadosoja = estadosoja + ",Gusano de la panoja";
                 }
 

@@ -414,6 +414,14 @@ namespace Capa_Presentacion
 
             var plagas = "";
 
+            var anio = DateTime.Now.ToString("yyyy");
+
+            // Gusano de la panoja 
+            if ((fechaHoy >= Convert.ToDateTime("21/03/" + anio)) && (fechaHoy <= Convert.ToDateTime("20/06/" + anio)))
+                if (precipitacion >= 0.25)
+                    return $"Presencia Gusano de la Panoja";
+
+
             if (fechaPlantado <= fechaCogollero) plagas += $"Inicio desarrollo Gusano Cogollero, ";
 
             if (fechaHoy >= fechaInicioFloracion && fechaHoy <= fechaFinalFloracion)

@@ -146,6 +146,7 @@
     <Compile Include="FromUsuarioABC.Designer.cs">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformacionAXDias.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

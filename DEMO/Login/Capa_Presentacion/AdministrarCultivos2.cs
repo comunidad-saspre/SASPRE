@@ -410,6 +410,7 @@ namespace Capa_Presentacion
         {
             DateTime fechahoy = DateTime.Now;
             DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
+            DateTime fechatentativacosecha5dias = fechatentativacosecha.AddDays(5);
             _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 360);
             MessageBox.Show(_informacionAXDias.temperaturaprom.ToString());
             String mes = fechahoy.ToString("MMMM");
@@ -432,9 +433,18 @@ namespace Capa_Presentacion
                 _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 168);
                 if(_informacionAXDias.precipitacionprom > 0.25)
                 {
-                    estadocaña += "Gusano Barrenador, Rata,";
+                    estadocaña += "Gusano Barrenador, Rata, ";
                 }
-                estadocaña += "Gusano Barrenador, Rata,";
+                estadocaña += "Gusano Barrenador, Rata, ";
+            }
+            if(fechahoy < fechatentativacosecha5dias && temperaturaprom > 24 && temperaturaprom < 26)
+            {
+                estadocaña += "Pulgon amarillo, ";
+            }
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 720);
+            if((mes == "mayo" || mes == "junio" || mes == "julio" || mes == "agosto" || mes == "septiembre") && _informacionAXDias.temperaturaprom > 35)
+            {
+                estadocaña += "Chinche de encaje, ";
             }
 
             //MessageBox.Show(fechahoy.ToString() + " " +fechatentativacosecha.ToString());

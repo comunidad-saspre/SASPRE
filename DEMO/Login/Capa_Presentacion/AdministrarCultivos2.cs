@@ -121,7 +121,7 @@ namespace Capa_Presentacion
             }
             else
             {
-                _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text, null);
+                _Cultivo.AgregarCultivo(Program.nickname, cbPlanta.SelectedItem.ToString(), dtpPlantado.Value.ToString("yy-MM-dd"), dtpCosecha.Value.ToString("yy-MM-dd"), txtCantidad.Text, "Sin estado");
                 MessageBox.Show("¡Cultivo agregado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -342,6 +342,7 @@ namespace Capa_Presentacion
         String estadomaiz = null;
         private void btnCalcularEstado_Click(object sender, EventArgs e)
         {
+            String estadoprincipal = null;
             estadocaña = null;
             estadocebolla = null;
             estadomaiz = null;
@@ -384,13 +385,33 @@ namespace Capa_Presentacion
 
                 if (cultivo == "Caña")
                 {
-                    PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
+                else if(cultivo == "Maíz")
+                {
+                    estadoprincipal = PlagaMaiz(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                }
+                else if (cultivo == "Cebolla")
+                {
+                    estadoprincipal = PlagaCebolla(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                }
+                else if (cultivo == "Sorgo")
+                {
+                    //PlagaSorgoAndres(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                }
+                else if (cultivo == "Soya")
+                {
+                    //PlagaSoyaOscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                }
+                if (estadoprincipal == "" || estadoprincipal == null)
+                    estadoprincipal = "Sin estado";
+                _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),estadoprincipal);
             }
             else
             {
-                MessageBox.Show("No hay resultados");
+                MessageBox.Show("No hay datos climaticos de estas fechas");
             }
+            MostrarCultivos();
         }
 
         private void LlenarDataTableDatosClimaMes()
@@ -400,7 +421,7 @@ namespace Capa_Presentacion
         }
 
         String plaga = null;
-        private void PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
         {
             DateTime fechahoy = DateTime.Now;
             DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
@@ -421,10 +442,24 @@ namespace Capa_Presentacion
             {
                 estadomaiz += "Trips, ";
             }
-            if(fechahoy <= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()).AddDays(25))
+            if(fechahoy <= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()).AddDays(85))
             {
-
+                estadomaiz += "Gusano elotero, ";
             }
+            DateTime junioinicio = DateTime.Parse("01/06/19");
+            DateTime septiembrefin = DateTime.Parse("30/09/19");
+            if (fechahoy >= junioinicio && fechahoy <= septiembrefin)
+            {
+                if(fechahoy >= junioinicio.AddDays(25))
+                {
+                    estadomaiz += "Gallina ciega, ";
+                }
+                else
+                {
+                    estadomaiz += "30% gallina ciega, ";
+                }
+            }
+            return estadomaiz.TrimEnd(new Char[] { ' ', ',' });
         }
 
         private void PlagaSoyaOscar()
@@ -445,7 +480,7 @@ namespace Capa_Presentacion
         DateTime inviernoinicio = DateTime.Parse("21/12/19");
         DateTime inviernofin = DateTime.Parse("20/03/19");
 
-        private void PlagaCañaAndre(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaCañaAndre(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
         {
             DateTime fechahoy = DateTime.Now;
             DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
@@ -488,9 +523,9 @@ namespace Capa_Presentacion
             {
                 estadocaña += "Piojo harinoso de la vid, ";
             }
-            MessageBox.Show(estadocaña.TrimEnd(new Char[] { ' ', ',' }));
+            return estadocaña.TrimEnd(new Char[] { ' ', ',' });
         }
-        private void PlagaCebolla(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaCebolla(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
         {
             DateTime fechahoy = DateTime.Now;
             DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
@@ -521,6 +556,7 @@ namespace Capa_Presentacion
             {
                 estadocebolla += "Minador de la hoja adulto";
             }
+            return estadocebolla.TrimEnd(new Char[] { ' ', ',' });
         }
     }
 }

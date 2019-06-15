@@ -401,9 +401,80 @@ namespace Capa_Presentacion
         {
 
         }
-        private void PlagaSorgoAndres()
+        private string PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
         {
+            var fechaHoy = DateTime.Now;
+            var fechaCogollero = fechaPlantado.AddMonths(1);
+            var fechaInicioFloracion = fechaPlantado.AddMonths(2);
+            fechaInicioFloracion = fechaInicioFloracion.AddDays(10);
+            // 70 dias despues de plantado, puede comenzar a surgir la plaga de la mosca midgee
+            // Hasta 15 días depues de que comenzó la floracion
+            var fechaFinalFloracion = fechaInicioFloracion.AddDays(15);
 
+            var plagas = "";
+
+            var anio = DateTime.Now.ToString("yyyy");
+
+            // Gusano de la panoja 
+            if ((fechaHoy >= Convert.ToDateTime("21/03/" + anio)) && (fechaHoy <= Convert.ToDateTime("20/06/" + anio)))
+                if (precipitacion >= 0.25)
+                    return $"Presencia Gusano de la Panoja";
+
+
+            if (fechaPlantado <= fechaCogollero) plagas += $"Inicio desarrollo Gusano Cogollero, ";
+
+            if (fechaHoy >= fechaInicioFloracion && fechaHoy <= fechaFinalFloracion)
+                plagas += $"Inicio desarrollo Mosca Midge,  ";
+
+            // Pulgon amarillo
+            // el pulgon se desarrolla 5 dias despues del plantado
+            // y puede llegar a vivir hasta 23 dias después de haber "nacido".
+            var fechaFinalCrecimientoPulgonAmarillo = fechaPlantado.AddDays(5);
+            var fechaMuertePulgonAmarillo = fechaFinalCrecimientoPulgonAmarillo.AddDays(23);
+            MessageBox.Show($"{fechaPlantado},{fechaFinalCrecimientoPulgonAmarillo}, {fechaMuertePulgonAmarillo}");
+            if (fechaHoy <= fechaFinalCrecimientoPulgonAmarillo && temperatura > 24 && temperatura < 26)
+                plagas += $"Desarrollo de pulgon amarillo, ";
+
+            if (fechaHoy <= fechaMuertePulgonAmarillo && fechaHoy > fechaFinalCrecimientoPulgonAmarillo)
+                plagas += $"Presencia del adulto pulgon amarillo, ";
+
+            // Pulgon del Cogollo
+            // Sobrevive y se desarrolla en estas condiciones -> (25, 55 ± 1°C y 68,25 ± 10 %
+
+            if (temperatura > 24 && temperatura < 26 && humedad > 58.25 && humedad < 78.25)
+            {
+                plagas += $"Presencia del pulgon del cogollo, ";
+            }
+
+            // Tizon de la hoja.
+            var fechaInicioTizonDeLaHoja = fechaPlantado.AddDays(60);
+            var fechaFinTizonDeLaHoja = fechaPlantado.AddDays(60);
+
+            if (fechaHoy >= fechaInicioTizonDeLaHoja && fechaHoy <= fechaFinTizonDeLaHoja)
+            {
+                plagas += $"Posible Tizon de la Hoja(Helmintosporium sp.), ";
+            }
+
+            // Roya del sorgo
+            // después de los 60 días comienza a madurar el grano.
+            var fechaInicioRoya = fechaPlantado.AddDays(60);
+            // aproximadamente después de 90 días, el sorgo se puede cosechar.
+            var fechasFinalesCultivo = fechaPlantado.AddDays(90);
+
+            if (fechaHoy >= fechaInicioRoya && fechaHoy <= fechasFinalesCultivo && temperatura > 16 && temperatura < 28)
+            {
+                plagas += $"Posible Roya o chahuixtle, ";
+            }
+
+            // el tizon de la panoja se desarrolla con una alta humedad relativa
+            // estandar: 75%
+
+            if (humedad >= 75)
+            {
+                plagas += $"Posible Tizon de la Panoja(Hongo Fusariummoniliforme), ";
+            }
+
+            return plagas;
         }
         InformacionAXDias _informacionAXDias;
         private void PlagaCañaAndre(double temperaturaprom,double humedad_relativaprom, double precipitacionprom)

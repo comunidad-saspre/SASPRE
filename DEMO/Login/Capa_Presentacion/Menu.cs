@@ -425,15 +425,13 @@ namespace Capa_Presentacion
         {
             var descriptions = ScrapperCN.GetDescription();
 
-
-
             var infoDay1 = descriptions["dia1"].Split(':');
             var infoDay2 = descriptions["dia2"].Split(':');
             var infoDay3 = descriptions["dia3"].Split(':');
             var infoDay4 = descriptions["dia4"].Split(':');
             var infoDay5 = descriptions["dia5"].Split(':');
 
-            this.picClimaHoy.Image = ObtenerImagenDesdeCodigo(infoDay1[0], 1);
+            this.picClimaHoy.Image = picClimaActual.Image =  ObtenerImagenDesdeCodigo(infoDay1[0], 1);
             this.picClima1.Image = ObtenerImagenDesdeCodigo(infoDay2[0], 2);
             this.picClima2.Image = ObtenerImagenDesdeCodigo(infoDay3[0], 3);
             this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
@@ -684,7 +682,6 @@ namespace Capa_Presentacion
                 MessageBox.Show("ADVERTENCIA", "Error al obtener hora", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
 
         async void GetRequestDia()
         {

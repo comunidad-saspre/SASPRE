@@ -244,7 +244,7 @@
             // 
             // picClimaActual
             // 
-            this.picClimaActual.Location = new System.Drawing.Point(8, 25);
+            this.picClimaActual.Location = new System.Drawing.Point(52, 25);
             this.picClimaActual.Name = "picClimaActual";
             this.picClimaActual.Size = new System.Drawing.Size(90, 90);
             this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

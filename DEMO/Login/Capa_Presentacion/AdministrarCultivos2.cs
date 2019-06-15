@@ -397,7 +397,7 @@ namespace Capa_Presentacion
                 }
                 else if (cultivo == "Sorgo")
                 {
-                    //PlagaSorgoAndres(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = PlagaSorgoAndres(Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()), temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
                 else if (cultivo == "Soya")
                 {
@@ -466,7 +466,7 @@ namespace Capa_Presentacion
         {
 
         }
-        private string PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
+        private String PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
         {
             var fechaHoy = DateTime.Now;
             var fechaCogollero = fechaPlantado.AddMonths(1);

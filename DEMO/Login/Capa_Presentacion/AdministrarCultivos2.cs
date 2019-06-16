@@ -478,9 +478,34 @@ namespace Capa_Presentacion
             return estadomaiz.TrimEnd(new Char[] { ' ', ',' });
         }
 
-        private void PlagaSoyaOscar()
+        private void Plagasojaoscar(double temperatura, Double humedad_relativa, double precipitacion)
         {
+            string fechaa_actual = DateTime.Now.ToString("dd/MM/yyyy");
 
+            String ano = DateTime.Now.ToString("yyyy");
+
+            DateTime fecha__actual = Convert.ToDateTime(fechaa_actual);
+            
+            String estadosoja = "";
+            //--------------------------
+            if ((fecha__actual >= Convert.ToDateTime("01/10/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/01/" + ano)))
+            {
+                estadosoja += ",Orugas cortadoras";
+            }
+            if ((fecha__actual >= Convert.ToDateTime("02/01/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
+            {
+                estadosoja += ",Orugas defoliadoras";
+            }
+
+            if ((fecha__actual >= Convert.ToDateTime("01/02/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
+            {
+                estadosoja += ",Barrenador del brote";
+            }
+
+            if ((fecha__actual >= Convert.ToDateTime("01/03/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/06/" + ano)))
+            {
+                estadosoja += ",Cinches";
+            }
         }
         private String PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
         {

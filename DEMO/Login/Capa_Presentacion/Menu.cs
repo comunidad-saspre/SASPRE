@@ -437,7 +437,7 @@ namespace Capa_Presentacion
             this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
             this.picClima4.Image = ObtenerImagenDesdeCodigo(infoDay5[0], 5);
 
-            descripcionDia1 = infoDay1[1];
+            descripcionDia1 = lblDescripcion.Text = infoDay1[1];
             descripcionDia2 = infoDay2[1];
             descripcionDia3 = infoDay3[1];
             descripcionDia4 = infoDay4[1];

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Negocio;
 
 namespace Capa_Presentacion
 {
     public partial class HistorialDePlagas : Form
     {
+        private CN_Plagas _Plagas = new CN_Plagas();
         public HistorialDePlagas()
         {
             InitializeComponent();
@@ -20,6 +22,12 @@ namespace Capa_Presentacion
         private void btnExportar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void HistorialDePlagas_Load(object sender, EventArgs e)
+        {
+            CN_Plagas _Plagas = new CN_Plagas();
+            dgvHistorial.DataSource = _Plagas.MostrarPlaga();
         }
     }
 }

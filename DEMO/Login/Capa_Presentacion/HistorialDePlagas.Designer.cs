@@ -37,11 +37,10 @@
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dgvHistorial = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plantación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cosechación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Causa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sintoma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaEncontrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +113,10 @@
             this.dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistorial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Cultivo,
-            this.Plantación,
-            this.Cosechación,
-            this.Causa,
-            this.Sintoma});
+            this.Plaga,
+            this.FechaEncontrada});
             this.dgvHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -149,31 +147,30 @@
             this.dgvHistorial.Size = new System.Drawing.Size(698, 452);
             this.dgvHistorial.TabIndex = 62;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // Cultivo
             // 
-            this.Cultivo.HeaderText = "ID";
+            this.Cultivo.DataPropertyName = "Cultivo";
+            this.Cultivo.HeaderText = "Cultivo";
             this.Cultivo.Name = "Cultivo";
-            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // Plantación
+            // Plaga
             // 
-            this.Plantación.HeaderText = "Problema";
-            this.Plantación.Name = "Plantación";
+            this.Plaga.DataPropertyName = "Plaga";
+            this.Plaga.HeaderText = "Plaga";
+            this.Plaga.Name = "Plaga";
             // 
-            // Cosechación
+            // FechaEncontrada
             // 
-            this.Cosechación.HeaderText = "Cultivo";
-            this.Cosechación.Name = "Cosechación";
-            // 
-            // Causa
-            // 
-            this.Causa.HeaderText = "Fecha cultivo";
-            this.Causa.Name = "Causa";
-            // 
-            // Sintoma
-            // 
-            this.Sintoma.HeaderText = "Detectada";
-            this.Sintoma.Name = "Sintoma";
+            this.FechaEncontrada.DataPropertyName = "FechaEncontrada";
+            this.FechaEncontrada.HeaderText = "Fecha de predicción";
+            this.FechaEncontrada.Name = "FechaEncontrada";
             // 
             // HistorialDePlagas
             // 
@@ -189,6 +186,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HistorialDePlagas";
             this.Text = "HistorialDePlagas";
+            this.Load += new System.EventHandler(this.HistorialDePlagas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,10 +200,9 @@
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnImprimir;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvHistorial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plantación;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cosechación;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Causa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sintoma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEncontrada;
     }
 }

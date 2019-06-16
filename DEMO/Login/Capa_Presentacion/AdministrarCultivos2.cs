@@ -342,7 +342,8 @@ namespace Capa_Presentacion
         String estadocebolla = null;
         String estadomaiz = null;
         DateTime fechadehoy = DateTime.Now;
-        private void btnCalcularEstado_Click(object sender, EventArgs e)
+
+        private void CalcularPlaga()
         {
             String estadoprincipal = null;
             estadocaña = null;
@@ -389,7 +390,7 @@ namespace Capa_Presentacion
                 {
                     estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
-                else if(cultivo == "Maíz")
+                else if (cultivo == "Maíz")
                 {
                     estadoprincipal = PlagaMaiz(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
@@ -403,9 +404,9 @@ namespace Capa_Presentacion
                 }
                 else if (cultivo == "Soya")
                 {
-                    //PlagaSoyaOscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = Plagasojaoscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
-                
+
                 if (estadoprincipal == "" || estadoprincipal == null || estadoprincipal == "Probabilidad de ")
                 {
                     estadoprincipal = "Sin estado";
@@ -419,15 +420,20 @@ namespace Capa_Presentacion
                     {
                         _Plagas.AgregarPlagas(dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
                     }
-                    
+
                 }
-                    
+
             }
             else
             {
                 MessageBox.Show("No hay datos climaticos de estas fechas");
             }
             MostrarCultivos();
+        }
+
+        private void btnCalcularEstado_Click(object sender, EventArgs e)
+        {
+            CalcularPlaga();
         }
 
         private void LlenarDataTableDatosClimaMes()
@@ -478,7 +484,7 @@ namespace Capa_Presentacion
             return estadomaiz.TrimEnd(new Char[] { ' ', ',' });
         }
 
-        private void Plagasojaoscar(double temperatura, Double humedad_relativa, double precipitacion)
+        private String Plagasojaoscar(double temperatura, Double humedad_relativa, double precipitacion)
         {
             string fechaa_actual = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -490,22 +496,23 @@ namespace Capa_Presentacion
             //--------------------------
             if ((fecha__actual >= Convert.ToDateTime("01/10/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/01/" + ano)))
             {
-                estadosoja += ",Orugas cortadoras";
+                estadosoja += "Orugas cortadoras, ";
             }
             if ((fecha__actual >= Convert.ToDateTime("02/01/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
             {
-                estadosoja += ",Orugas defoliadoras";
+                estadosoja += "Orugas defoliadoras, ";
             }
 
             if ((fecha__actual >= Convert.ToDateTime("01/02/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
             {
-                estadosoja += ",Barrenador del brote";
+                estadosoja += "Barrenador del brote, ";
             }
 
             if ((fecha__actual >= Convert.ToDateTime("01/03/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/06/" + ano)))
             {
-                estadosoja += ",Cinches";
+                estadosoja += "Chinches, ";
             }
+            return estadosoja.TrimEnd(new Char[] { ' ', ',' });
         }
         private String PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
         {

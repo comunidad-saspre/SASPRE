@@ -51,6 +51,7 @@
     <Compile Include="CN_DatosClimaMes.cs" />
     <Compile Include="CN_Fertilizantes.cs" />
     <Compile Include="CN_Login.cs" />
+    <Compile Include="CN_Plagas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrapperCN.cs" />
   </ItemGroup>

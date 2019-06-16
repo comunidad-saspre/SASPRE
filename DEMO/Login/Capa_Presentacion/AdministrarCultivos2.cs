@@ -17,6 +17,7 @@ namespace Capa_Presentacion
     {
         private CN_Cultivos _Cultivo = new CN_Cultivos();
         private CN_Cosechas _Cosechas = new CN_Cosechas();
+        private CN_Plagas _Plagas = new CN_Plagas();
         DataTable tablaCultivos;
 
         public AdministrarCultivos2()
@@ -340,6 +341,7 @@ namespace Capa_Presentacion
         String estadocaña = null;
         String estadocebolla = null;
         String estadomaiz = null;
+        DateTime fechadehoy = DateTime.Now;
         private void btnCalcularEstado_Click(object sender, EventArgs e)
         {
             String estadoprincipal = null;
@@ -411,7 +413,13 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),"Probabilidad de " + estadoprincipal);
+                    _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(), "Probabilidad de " + estadoprincipal);
+                    String[] plagaarreglo = estadoprincipal.Split(',');
+                    for (int i = 0; i < plagaarreglo.Length; i++)
+                    {
+                        _Plagas.AgregarPlagas(dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
+                    }
+                    
                 }
                     
             }

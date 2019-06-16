@@ -382,7 +382,7 @@ namespace Capa_Presentacion
 
 
                 String cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
-                
+                estadoprincipal = "Probabilidad de ";
                 if (cultivo == "Caña")
                 {
                     estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
@@ -404,9 +404,16 @@ namespace Capa_Presentacion
                     //PlagaSoyaOscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
                 
-                if (estadoprincipal == "" || estadoprincipal == null)
+                if (estadoprincipal == "" || estadoprincipal == null || estadoprincipal == "Probabilidad de ")
+                {
                     estadoprincipal = "Sin estado";
-                _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),"Probabilidad de "+ estadoprincipal);
+                    _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(), estadoprincipal);
+                }
+                else
+                {
+                    _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),"Probabilidad de " + estadoprincipal);
+                }
+                    
             }
             else
             {

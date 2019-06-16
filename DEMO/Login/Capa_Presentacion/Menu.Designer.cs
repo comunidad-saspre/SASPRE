@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelClima = new Capa_Presentacion.MyPanel();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacion4 = new System.Windows.Forms.Label();
@@ -115,7 +116,6 @@
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.lblDescripcion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -243,6 +243,18 @@
             this.panelClima.Name = "panelClima";
             this.panelClima.Size = new System.Drawing.Size(906, 586);
             this.panelClima.TabIndex = 28;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblDescripcion.ForeColor = System.Drawing.Color.White;
+            this.lblDescripcion.Location = new System.Drawing.Point(33, 118);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(65, 39);
+            this.lblDescripcion.TabIndex = 54;
+            this.lblDescripcion.Text = "° C";
             // 
             // picClimaActual
             // 
@@ -975,7 +987,7 @@
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 555);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 550);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
@@ -988,6 +1000,7 @@
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Visible = false;
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click_1);
             // 
             // btnFertilizantes
@@ -1012,7 +1025,7 @@
             this.btnFertilizantes.IconVisible = true;
             this.btnFertilizantes.IconZoom = 60D;
             this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 450);
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 400);
             this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFertilizantes.Name = "btnFertilizantes";
             this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
@@ -1049,7 +1062,7 @@
             this.btnAdministrarCosechas.IconVisible = true;
             this.btnAdministrarCosechas.IconZoom = 60D;
             this.btnAdministrarCosechas.IsTab = false;
-            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 300);
+            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 150);
             this.btnAdministrarCosechas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCosechas.Name = "btnAdministrarCosechas";
             this.btnAdministrarCosechas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1107,7 +1120,7 @@
             this.btnDatosAtmosfericos.BackColor = System.Drawing.Color.Transparent;
             this.btnDatosAtmosfericos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDatosAtmosfericos.BorderRadius = 0;
-            this.btnDatosAtmosfericos.ButtonText = "  Datos Atmosfericos";
+            this.btnDatosAtmosfericos.ButtonText = "   Datos Atmosfericos";
             this.btnDatosAtmosfericos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDatosAtmosfericos.DisabledColor = System.Drawing.Color.Gray;
             this.btnDatosAtmosfericos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1123,7 +1136,7 @@
             this.btnDatosAtmosfericos.IconVisible = true;
             this.btnDatosAtmosfericos.IconZoom = 60D;
             this.btnDatosAtmosfericos.IsTab = false;
-            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 400);
+            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 250);
             this.btnDatosAtmosfericos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDatosAtmosfericos.Name = "btnDatosAtmosfericos";
             this.btnDatosAtmosfericos.Normalcolor = System.Drawing.Color.Transparent;
@@ -1132,7 +1145,7 @@
             this.btnDatosAtmosfericos.selected = false;
             this.btnDatosAtmosfericos.Size = new System.Drawing.Size(250, 45);
             this.btnDatosAtmosfericos.TabIndex = 58;
-            this.btnDatosAtmosfericos.Text = "  Datos Atmosfericos";
+            this.btnDatosAtmosfericos.Text = "   Datos Atmosfericos";
             this.btnDatosAtmosfericos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDatosAtmosfericos.Textcolor = System.Drawing.Color.Black;
             this.btnDatosAtmosfericos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1160,7 +1173,7 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 150);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 450);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1245,7 +1258,7 @@
             this.btnAdministrarCultivos.IconVisible = true;
             this.btnAdministrarCultivos.IconZoom = 60D;
             this.btnAdministrarCultivos.IsTab = false;
-            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 250);
+            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 200);
             this.btnAdministrarCultivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCultivos.Name = "btnAdministrarCultivos";
             this.btnAdministrarCultivos.Normalcolor = System.Drawing.Color.Transparent;
@@ -1282,7 +1295,7 @@
             this.btnEstadisticasDePlagas.IconVisible = true;
             this.btnEstadisticasDePlagas.IconZoom = 60D;
             this.btnEstadisticasDePlagas.IsTab = false;
-            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 200);
+            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 300);
             this.btnEstadisticasDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEstadisticasDePlagas.Name = "btnEstadisticasDePlagas";
             this.btnEstadisticasDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1377,18 +1390,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 118);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(65, 39);
-            this.lblDescripcion.TabIndex = 54;
-            this.lblDescripcion.Text = "° C";
             // 
             // Menu
             // 

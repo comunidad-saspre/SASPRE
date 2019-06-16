@@ -82,5 +82,25 @@ namespace Capa_Datos
                 MessageBox.Show("ADVERTENCIA", "Error al eliminar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        public void EditarCultivo(String IDCultivo,String Estado)
+        {
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "EditarCultivos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
+                comando.Parameters.AddWithValue("_Estado", Estado);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al editar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

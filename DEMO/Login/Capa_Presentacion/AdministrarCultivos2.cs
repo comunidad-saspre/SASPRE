@@ -382,7 +382,7 @@ namespace Capa_Presentacion
 
 
                 String cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
-
+                
                 if (cultivo == "Caña")
                 {
                     estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
@@ -403,9 +403,10 @@ namespace Capa_Presentacion
                 {
                     //PlagaSoyaOscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
                 }
+                
                 if (estadoprincipal == "" || estadoprincipal == null)
                     estadoprincipal = "Sin estado";
-                _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),estadoprincipal);
+                _Cultivo.EditarCultivo(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(),"Probabilidad de "+ estadoprincipal);
             }
             else
             {
@@ -539,7 +540,7 @@ namespace Capa_Presentacion
                 plagas += $"Posible Tizon de la Panoja(Hongo Fusariummoniliforme), ";
             }
 
-            return plagas;
+            return plagas.TrimEnd(new Char[] { ' ', ',' });
         }
         InformacionAXDias _informacionAXDias;
         DateTime primaverainicio = DateTime.Parse("21/03/19");

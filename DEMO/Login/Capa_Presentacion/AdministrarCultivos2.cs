@@ -413,9 +413,12 @@ namespace Capa_Presentacion
             }
             if ((fecha__actual >= Convert.ToDateTime("02/01/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
             {
-                estadosoja += ",Orugas defoliadoras";
-            }
+                if (temperatura>=20)
+                {
+                    estadosoja += ",Orugas defoliadoras";
+                }
 
+            }
             if ((fecha__actual >= Convert.ToDateTime("01/02/" + ano)) && (fecha__actual <= Convert.ToDateTime("01/05/" + ano)))
             {
                 estadosoja += ",Barrenador del brote";

@@ -133,6 +133,7 @@
             this.dgvHistorial.Location = new System.Drawing.Point(49, 120);
             this.dgvHistorial.MultiSelect = false;
             this.dgvHistorial.Name = "dgvHistorial";
+            this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvHistorial.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -152,6 +153,7 @@
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Cultivo
@@ -159,18 +161,21 @@
             this.Cultivo.DataPropertyName = "Cultivo";
             this.Cultivo.HeaderText = "Cultivo";
             this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
             // 
             // Plaga
             // 
             this.Plaga.DataPropertyName = "Plaga";
             this.Plaga.HeaderText = "Plaga";
             this.Plaga.Name = "Plaga";
+            this.Plaga.ReadOnly = true;
             // 
             // FechaEncontrada
             // 
             this.FechaEncontrada.DataPropertyName = "FechaEncontrada";
             this.FechaEncontrada.HeaderText = "Fecha de predicción";
             this.FechaEncontrada.Name = "FechaEncontrada";
+            this.FechaEncontrada.ReadOnly = true;
             // 
             // HistorialDePlagas
             // 

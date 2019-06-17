@@ -19,6 +19,7 @@ namespace Capa_Negocio
         public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
             _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo);
+
         }
 
         public DataTable ObtenerContra(string correo)

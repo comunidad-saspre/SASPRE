@@ -472,11 +472,9 @@ namespace Capa_Presentacion
             WebClient client = new WebClient();
             Uri uri = new Uri(address);
             _completed = false;
-
-            client.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-
-            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-            client.DownloadFileAsync(uri, location);
+            client.DownloadFile(uri, location);
+            while (client.IsBusy)
+                Thread.Sleep(1000);
 
         }
 

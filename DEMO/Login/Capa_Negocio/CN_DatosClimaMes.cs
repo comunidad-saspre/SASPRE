@@ -27,5 +27,10 @@ namespace Capa_Negocio
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
             return tablaDatosClimaMes;
         }
+
+        public void AgregarDiario(String fecha)
+        {
+            _DatosClimaMes.AgregarDiario(fecha);
+        }
     }
 }

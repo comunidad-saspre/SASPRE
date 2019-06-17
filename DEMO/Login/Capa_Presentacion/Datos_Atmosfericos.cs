@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Negocio;
+using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace Capa_Presentacion
 {
@@ -18,6 +20,8 @@ namespace Capa_Presentacion
         int Filtro_dia = 100;
         private string rutadirectorio;
         String thisDay = DateTime.Now.ToLongDateString().ToString();
+        CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+        Menu _menu = new Menu();
         public Datos_Atmosfericos()
         {
             InitializeComponent();
@@ -25,18 +29,32 @@ namespace Capa_Presentacion
 
         private void Datos_Atmosfericos_Load(object sender, EventArgs e)
         {
-            for (int i = 1; i < 31; i++)
+            try
             {
-                dias.Items.Add(i + " días");
-            }
-            dias.SelectedIndex = 6;
+                for (int i = 1; i < 31; i++)
+                {
+                    dias.Items.Add(i + " días");
+                }
+                dias.SelectedIndex = 6;
 
-            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-            //crear carpeta
-            //crear_carpeta();
-            //Guardar informacion
-            //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
-            leercsv(rutadirectorio);
+                rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+                //crear carpeta
+                //crear_carpeta();
+                //Guardar informacion
+                //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
+                leercsv(rutadirectorio);
+                _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
+                button1_Click_1(null, e);
+            }
+            catch (MySqlException ex)
+            {
+                
+            }
+            finally
+            {
+                
+            }
+            
         }
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo(String url)
@@ -167,14 +185,15 @@ namespace Capa_Presentacion
                 Cursor.Current = Cursors.WaitCursor;
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
-                    if(DateTime.Now.AddDays(-1).ToString("yy-MM-dd") == Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd")){
-
-                    }
-                    String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
-                    String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
-                    _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                    if(Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
+                    {
+                        String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                        String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                        _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+                    }
+                    
                 }
                 Cursor.Current = Cursors.Default;
             }
@@ -231,6 +250,11 @@ namespace Capa_Presentacion
             {
 
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _menu.bunifuFlatButton4_Click(null, e);
         }
     }
 }

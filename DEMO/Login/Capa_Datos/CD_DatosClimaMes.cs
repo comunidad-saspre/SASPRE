@@ -59,5 +59,16 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             return tablaDatosClimaMes;
         }
+        public void AgregarDiario(String fecha)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "agregardiarios";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_Fecha",fecha);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
     }
 }

@@ -15,6 +15,8 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Globalization;
 using Capa_Negocio;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Capa_Presentacion
 {
@@ -246,6 +248,7 @@ namespace Capa_Presentacion
 
             }
         }
+        CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
 
         private void Menu_Load(object sender, EventArgs e)
         {
@@ -272,12 +275,18 @@ namespace Capa_Presentacion
                         fecha_hora = fecha_hora.AddDays(1);
                     }
                     MostrarInformacionClima();
+                    panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
+                    _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
+                    bunifuFlatButton1_Click(null, e);
                 }
                 else
                 {
                     MessageBox.Show("Compruebe su conexion a internet, no tendrá todas las funcionalidades");
                 }
-                panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
+
+            }
+            catch (MySqlException ex)
+            {
 
             }
             catch (Exception ex)
@@ -610,8 +619,10 @@ namespace Capa_Presentacion
         {
 
         }
-        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
             CerrarFormEnPanel<AdministrarCultivos2>();
             CerrarFormEnPanel<ConfiguracionGeneral>();
             CerrarFormEnPanel<EstadisticasDePlagas>();
@@ -624,7 +635,7 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Fertilizantes>();
             CerrarFormEnPanel<Datos_Atmosfericos>();
             CerrarFormEnPanel<Cosechas>();
-
+            panelDerecho.Visible = true;
             panelClima.Visible = true;
             lblTemp.Visible = false;
             lblCentigrados.Visible = false;

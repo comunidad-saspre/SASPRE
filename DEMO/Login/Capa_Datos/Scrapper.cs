@@ -46,9 +46,9 @@ namespace Capa_Datos
                     temperature += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener temperatura minima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return temperature;
         }
@@ -62,9 +62,9 @@ namespace Capa_Datos
                     description += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener descripción temperatura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return description;
         }
@@ -78,9 +78,9 @@ namespace Capa_Datos
                     precipitation += $"Key: {item.Key}, Value: {item.Value} \n\r";
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener precipitación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return precipitation;
         }
@@ -95,9 +95,9 @@ namespace Capa_Datos
                 TemperaturaMinima = new Dictionary<string, string>();
                 Precipitacion = new Dictionary<string, string>();
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener datos de la semana", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -158,9 +158,9 @@ namespace Capa_Datos
 
                 // agrega primero el 7, luego del 1 al 6, siendo el 6 el dia 7.
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener la descripcionión del clima", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -176,9 +176,9 @@ namespace Capa_Datos
                 if (day < 10) date += "0" + day.ToString();
                 else date += day.ToString();
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener formato del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return date;
         }
@@ -210,9 +210,9 @@ namespace Capa_Datos
                 TemperaturaMaxima[$"dia{day}"] = temperaturaMaxima;
                 TemperaturaMinima[$"dia{day}"] = temperaturaMinima;
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener datos del dia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -224,9 +224,9 @@ namespace Capa_Datos
                 for (int day = 1; day <= 7; ++day) ScrapDay(html, day);
 
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return true;
@@ -244,9 +244,9 @@ namespace Capa_Datos
                     HTML = reader.ReadToEnd();
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener HTML", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return HTML;
         }

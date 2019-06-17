@@ -153,6 +153,7 @@
             this.dgvFertilizantes.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvFertilizantes.Location = new System.Drawing.Point(3, 35);
             this.dgvFertilizantes.Name = "dgvFertilizantes";
+            this.dgvFertilizantes.ReadOnly = true;
             this.dgvFertilizantes.RowHeadersVisible = false;
             this.dgvFertilizantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFertilizantes.Size = new System.Drawing.Size(794, 412);

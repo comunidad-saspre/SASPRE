@@ -365,11 +365,21 @@ namespace Capa_Presentacion
 
         private void MostrarPrecipitaciones()
         {
+            var cero = "   0%\n0.0 mm";
             labelPrecipitacionHoy.Text = GetPrecipitationDayString(1);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacionHoy.Text)) labelPrecipitacionHoy.Text = cero;
+
             labelPrecipitacion1.Text = GetPrecipitationDayString(2);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion1.Text)) labelPrecipitacion1.Text = cero;
+
             labelPrecipitacion2.Text = GetPrecipitationDayString(3);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion2.Text)) labelPrecipitacion2.Text = cero;
+
             labelPrecipitacion3.Text = GetPrecipitationDayString(4);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion3.Text)) labelPrecipitacion3.Text = cero;
+
             labelPrecipitacion4.Text = GetPrecipitationDayString(5);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion4.Text)) labelPrecipitacion4.Text = cero;
         }
 
         private string GetPrecipitationDayString(int day)
@@ -386,7 +396,10 @@ namespace Capa_Presentacion
                 var precipitationDayInformation = precipitationDay.Split(' ');
 
                 var precipitationPercentageDay = precipitationDayInformation[0];
+                if (String.IsNullOrEmpty(precipitationPercentageDay)) precipitationPercentageDay = "0%";
+
                 var precipitationMmDay = precipitationDayInformation[1];
+                if (String.IsNullOrWhiteSpace(precipitationMmDay)) precipitationMmDay = "0.0 mm";
 
                 result += gap + precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
 

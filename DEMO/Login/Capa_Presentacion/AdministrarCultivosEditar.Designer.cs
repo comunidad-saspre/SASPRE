@@ -129,7 +129,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 20);
             this.label9.TabIndex = 44;
-            this.label9.Text = "Sintoma";
+            this.label9.Text = "Síntoma";
             // 
             // label8
             // 
@@ -214,7 +214,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 35;
-            this.label5.Text = "Caracteristicas";
+            this.label5.Text = "Características";
             // 
             // label3
             // 

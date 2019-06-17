@@ -275,7 +275,7 @@
             this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.Silver;
             this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Silver;
-            this.bunifuMaterialTextbox1.HintText = "Correo electronico";
+            this.bunifuMaterialTextbox1.HintText = "Correo electrónico";
             this.bunifuMaterialTextbox1.isPassword = false;
             this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
@@ -301,7 +301,7 @@
             this.linklblcontrasena.Size = new System.Drawing.Size(106, 13);
             this.linklblcontrasena.TabIndex = 11;
             this.linklblcontrasena.TabStop = true;
-            this.linklblcontrasena.Text = "Olvide mi contraseña";
+            this.linklblcontrasena.Text = "Olvidé mi contraseña";
             this.linklblcontrasena.VisitedLinkColor = System.Drawing.Color.Blue;
             this.linklblcontrasena.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblcontrasena_LinkClicked);
             // 
@@ -326,7 +326,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Ingrese su correo electronico";
+            this.label1.Text = "Ingrese su correo electrónico";
             this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -429,6 +429,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

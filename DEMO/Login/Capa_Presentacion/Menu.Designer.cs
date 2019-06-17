@@ -238,8 +238,10 @@
             this.panelClima.Controls.Add(this.myPanel7);
             this.panelClima.Controls.Add(this.myPanel3);
             this.panelClima.Location = new System.Drawing.Point(245, 89);
+            this.panelClima.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.panelClima.MinimumSize = new System.Drawing.Size(1280, 720);
             this.panelClima.Name = "panelClima";
-            this.panelClima.Size = new System.Drawing.Size(906, 586);
+            this.panelClima.Size = new System.Drawing.Size(1280, 720);
             this.panelClima.TabIndex = 28;
             // 
             // lblDescripcion

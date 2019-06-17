@@ -28,9 +28,9 @@ namespace Capa_Datos
                 conexion.CerrarConexion();
                 
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al mostrar fertilizantes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaCultivos;
         }

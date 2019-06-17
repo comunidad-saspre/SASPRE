@@ -165,6 +165,7 @@
             this.dvgUsuarios.Location = new System.Drawing.Point(42, 135);
             this.dvgUsuarios.MultiSelect = false;
             this.dvgUsuarios.Name = "dvgUsuarios";
+            this.dvgUsuarios.ReadOnly = true;
             this.dvgUsuarios.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dvgUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dvgUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -176,36 +177,42 @@
             this.Nombre.DataPropertyName = "Nombre";
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Apellidos
             // 
             this.Apellidos.DataPropertyName = "Apellidos";
             this.Apellidos.HeaderText = "Apellidos";
             this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
             // 
             // Contraseña
             // 
             this.Contraseña.DataPropertyName = "Contra";
             this.Contraseña.HeaderText = "Contraseña";
             this.Contraseña.Name = "Contraseña";
+            this.Contraseña.ReadOnly = true;
             // 
             // Cargo
             // 
             this.Cargo.DataPropertyName = "Cargo";
             this.Cargo.HeaderText = "Cargo";
             this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
             // 
             // Usuario
             // 
             this.Usuario.DataPropertyName = "NickName";
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
             // 
             // Correo
             // 
             this.Correo.DataPropertyName = "Correo";
             this.Correo.HeaderText = "Correo";
             this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
             // 
             // txtConsultaGeneralDeLosUsuarios
             // 

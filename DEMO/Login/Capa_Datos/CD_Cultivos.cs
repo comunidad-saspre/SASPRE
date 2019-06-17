@@ -35,9 +35,9 @@ namespace Capa_Datos
                 tablaCultivos.Load(leer);
                 conexion.CerrarConexion();
             }
-            catch (Exception )
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al mostrar cultivos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaCultivos;
         }
@@ -59,9 +59,9 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception )
+            catch (Exception a )
             {
-                MessageBox.Show("ADVERTENCIA", "Error al agregar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void EliminarCultivo(String IDCultivo)
@@ -77,9 +77,9 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception  )
+            catch (Exception a )
             {
-                MessageBox.Show("ADVERTENCIA", "Error al eliminar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -97,9 +97,9 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al editar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); MessageBox.Show("ADVERTENCIA", "Error al editar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

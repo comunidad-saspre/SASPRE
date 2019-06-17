@@ -33,8 +33,8 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception ) {
-                MessageBox.Show("ADVERTENCIA", "Error al registrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch (Exception a) {
+                MessageBox.Show("Ha ocurrido un error "+a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -52,10 +52,10 @@ namespace Capa_Datos
                 conexion.CerrarConexion();
                  
             }
-            catch (Exception )
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al obtener contraseña", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-               
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
             return tablaUsuarios;
         }
@@ -79,9 +79,9 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception )
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al editar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void EliminarUsuario(String NickName)
@@ -97,9 +97,9 @@ namespace Capa_Datos
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
-            catch (Exception )
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al eliminar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -116,9 +116,9 @@ namespace Capa_Datos
                 conexion.CerrarConexion();
                 
             }
-            catch (Exception )
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al mostrar usuario", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return tablaUsuarios;
         }

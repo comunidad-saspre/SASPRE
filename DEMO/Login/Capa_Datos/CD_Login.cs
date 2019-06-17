@@ -29,9 +29,9 @@ namespace Capa_Datos
                 comando.Parameters.AddWithValue("_nickname", nickname);
                 comando.Parameters.AddWithValue("_contra", contraseña);
                 leer = comando.ExecuteReader();
-            }catch(Exception )
+            }catch(Exception a )
             {
-                MessageBox.Show("Error al iniciar sesión", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return leer;
         }

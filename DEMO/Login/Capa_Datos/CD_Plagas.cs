@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Capa_Datos
 {
@@ -18,28 +19,42 @@ namespace Capa_Datos
 
         public DataTable MostrarPlaga()
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarPlaga";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tablaPlaga.Load(leer);
-            conexion.CerrarConexion();
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "MostrarPlaga";
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tablaPlaga.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             return tablaPlaga;
         }
 
         public void AgregarPlaga(String cultivo, String Plaga,String fecha)
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "AgregarPlaga";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_Cultivo",cultivo);
-            comando.Parameters.AddWithValue("_Nombre_Plaga",Plaga);
-            comando.Parameters.AddWithValue("_FechaEncontrada",fecha);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "AgregarPlaga";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("_Cultivo", cultivo);
+                comando.Parameters.AddWithValue("_Nombre_Plaga", Plaga);
+                comando.Parameters.AddWithValue("_FechaEncontrada", fecha);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

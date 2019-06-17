@@ -110,9 +110,7 @@
             this.btnDatosAtmosfericos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHistorialDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnGenerarReportes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAdministrarCultivos = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnEstadisticasDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -954,9 +952,7 @@
             this.myPanel2.Controls.Add(this.btnDatosAtmosfericos);
             this.myPanel2.Controls.Add(this.btnHistorialDePlagas);
             this.myPanel2.Controls.Add(this.label1);
-            this.myPanel2.Controls.Add(this.btnGenerarReportes);
             this.myPanel2.Controls.Add(this.btnAdministrarCultivos);
-            this.myPanel2.Controls.Add(this.btnEstadisticasDePlagas);
             this.myPanel2.Controls.Add(this.btnInicio);
             this.myPanel2.Controls.Add(this.btnCerrarSesion);
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -987,7 +983,7 @@
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 550);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 450);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
@@ -1025,7 +1021,7 @@
             this.btnFertilizantes.IconVisible = true;
             this.btnFertilizantes.IconZoom = 60D;
             this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 400);
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 300);
             this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFertilizantes.Name = "btnFertilizantes";
             this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
@@ -1099,7 +1095,7 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 500);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 400);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
@@ -1173,7 +1169,7 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 450);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 350);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
@@ -1198,43 +1194,6 @@
             this.label1.Size = new System.Drawing.Size(123, 16);
             this.label1.TabIndex = 57;
             this.label1.Text = "Funcionalidades";
-            // 
-            // btnGenerarReportes
-            // 
-            this.btnGenerarReportes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnGenerarReportes.BackColor = System.Drawing.Color.Transparent;
-            this.btnGenerarReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGenerarReportes.BorderRadius = 0;
-            this.btnGenerarReportes.ButtonText = "   Generar reportes";
-            this.btnGenerarReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerarReportes.DisabledColor = System.Drawing.Color.Gray;
-            this.btnGenerarReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarReportes.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnGenerarReportes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
-            this.btnGenerarReportes.Iconimage_right = null;
-            this.btnGenerarReportes.Iconimage_right_Selected = null;
-            this.btnGenerarReportes.Iconimage_Selected = null;
-            this.btnGenerarReportes.IconMarginLeft = 0;
-            this.btnGenerarReportes.IconMarginRight = 0;
-            this.btnGenerarReportes.IconRightVisible = true;
-            this.btnGenerarReportes.IconRightZoom = 0D;
-            this.btnGenerarReportes.IconVisible = true;
-            this.btnGenerarReportes.IconZoom = 60D;
-            this.btnGenerarReportes.IsTab = false;
-            this.btnGenerarReportes.Location = new System.Drawing.Point(0, 350);
-            this.btnGenerarReportes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGenerarReportes.Name = "btnGenerarReportes";
-            this.btnGenerarReportes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnGenerarReportes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnGenerarReportes.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnGenerarReportes.selected = false;
-            this.btnGenerarReportes.Size = new System.Drawing.Size(250, 45);
-            this.btnGenerarReportes.TabIndex = 55;
-            this.btnGenerarReportes.Text = "   Generar reportes";
-            this.btnGenerarReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarReportes.Textcolor = System.Drawing.Color.Black;
-            this.btnGenerarReportes.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarReportes.Click += new System.EventHandler(this.bunifuFlatButton8_Click);
             // 
             // btnAdministrarCultivos
             // 
@@ -1272,43 +1231,6 @@
             this.btnAdministrarCultivos.Textcolor = System.Drawing.Color.Black;
             this.btnAdministrarCultivos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarCultivos.Click += new System.EventHandler(this.bunifuFlatButton7_Click);
-            // 
-            // btnEstadisticasDePlagas
-            // 
-            this.btnEstadisticasDePlagas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnEstadisticasDePlagas.BackColor = System.Drawing.Color.Transparent;
-            this.btnEstadisticasDePlagas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEstadisticasDePlagas.BorderRadius = 0;
-            this.btnEstadisticasDePlagas.ButtonText = "   Estadisticas de plagas";
-            this.btnEstadisticasDePlagas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadisticasDePlagas.DisabledColor = System.Drawing.Color.Gray;
-            this.btnEstadisticasDePlagas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticasDePlagas.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnEstadisticasDePlagas.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Combo_Chart_32px;
-            this.btnEstadisticasDePlagas.Iconimage_right = null;
-            this.btnEstadisticasDePlagas.Iconimage_right_Selected = null;
-            this.btnEstadisticasDePlagas.Iconimage_Selected = null;
-            this.btnEstadisticasDePlagas.IconMarginLeft = 0;
-            this.btnEstadisticasDePlagas.IconMarginRight = 0;
-            this.btnEstadisticasDePlagas.IconRightVisible = true;
-            this.btnEstadisticasDePlagas.IconRightZoom = 0D;
-            this.btnEstadisticasDePlagas.IconVisible = true;
-            this.btnEstadisticasDePlagas.IconZoom = 60D;
-            this.btnEstadisticasDePlagas.IsTab = false;
-            this.btnEstadisticasDePlagas.Location = new System.Drawing.Point(0, 300);
-            this.btnEstadisticasDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnEstadisticasDePlagas.Name = "btnEstadisticasDePlagas";
-            this.btnEstadisticasDePlagas.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnEstadisticasDePlagas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
-            this.btnEstadisticasDePlagas.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnEstadisticasDePlagas.selected = false;
-            this.btnEstadisticasDePlagas.Size = new System.Drawing.Size(250, 45);
-            this.btnEstadisticasDePlagas.TabIndex = 53;
-            this.btnEstadisticasDePlagas.Text = "   Estadisticas de plagas";
-            this.btnEstadisticasDePlagas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticasDePlagas.Textcolor = System.Drawing.Color.Black;
-            this.btnEstadisticasDePlagas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticasDePlagas.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
             // 
             // btnInicio
             // 
@@ -1444,9 +1366,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnCerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnGenerarReportes;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarCultivos;
-        private Bunifu.Framework.UI.BunifuFlatButton btnEstadisticasDePlagas;
         private Bunifu.Framework.UI.BunifuFlatButton btnHistorialDePlagas;
         private Bunifu.Framework.UI.BunifuFlatButton btnInicio;
         private System.Windows.Forms.ToolTip toolTip1;

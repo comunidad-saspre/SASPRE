@@ -156,6 +156,7 @@ namespace Capa_Presentacion
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
             LlenarDataTableDatosClimaMes();
+            CalcularPlagaAutomatico();
         }
 
         private void MostrarCultivos()
@@ -388,15 +389,15 @@ namespace Capa_Presentacion
                 estadoprincipal = "Probabilidad de ";
                 if (cultivo == "Caña")
                 {
-                    estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
                 }
                 else if (cultivo == "Maíz")
                 {
-                    estadoprincipal = PlagaMaiz(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = PlagaMaiz(temperaturaprom, humedad_relativaprom, precipitacionprom, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
                 }
                 else if (cultivo == "Cebolla")
                 {
-                    estadoprincipal = PlagaCebolla(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    estadoprincipal = PlagaCebolla(temperaturaprom, humedad_relativaprom, precipitacionprom, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
                 }
                 else if (cultivo == "Sorgo")
                 {
@@ -436,6 +437,97 @@ namespace Capa_Presentacion
             CalcularPlaga();
         }
 
+        private void CalcularPlagaAutomatico()
+        {
+            foreach (DataGridViewRow item in dgvCultivo.Rows)
+            {
+                String estadoprincipal = null;
+                estadocaña = null;
+                estadocebolla = null;
+                estadomaiz = null;
+                var query = from row in tablaDatosClimaMes.AsEnumerable()
+                            where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(item.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                            select row;
+
+
+                //0.- Estacion, 1.- Fecha Local, 2.- Fecha UTC, 3.- Direccion del viento, 4.-Direccion de rafaga, 5.- Rapidez de viento, 
+                //6.- Rapidez de rafaga, 7.- Temperatura, 8.- Humedad Relativa, 9.- Presion Atmosferica, 10.- Precipitacion, 11.- Radiacion Solar
+                double temperaturaprom = 0;
+                double humedad_relativaprom = 0;
+                double precipitacionprom = 0;
+                int cont = 0;
+                if (query.Any())
+                {
+                    DataTable resultados = query.CopyToDataTable();
+
+                    foreach (DataRow row in resultados.Rows)
+                    {
+                        if (cont <= 360)
+                        {
+                            temperaturaprom += Convert.ToDouble(row[7].ToString());
+                            humedad_relativaprom += Convert.ToDouble(row[8].ToString());
+                            precipitacionprom += Convert.ToDouble(row[10].ToString());
+                            cont++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                    }
+                    temperaturaprom /= cont;
+                    humedad_relativaprom /= cont;
+                    precipitacionprom /= cont;
+
+
+                    String cultivo = item.Cells["Cultivo"].Value.ToString();
+                    estadoprincipal = "Probabilidad de ";
+                    if (cultivo == "Caña")
+                    {
+                        estadoprincipal = PlagaCañaAndre(temperaturaprom, humedad_relativaprom, precipitacionprom, item.Cells["Plantado"].Value.ToString(), item.Cells["Cosecha"].Value.ToString());
+                    }
+                    else if (cultivo == "Maíz")
+                    {
+                        estadoprincipal = PlagaMaiz(temperaturaprom, humedad_relativaprom, precipitacionprom, item.Cells["Plantado"].Value.ToString(), item.Cells["Cosecha"].Value.ToString());
+                    }
+                    else if (cultivo == "Cebolla")
+                    {
+                        estadoprincipal = PlagaCebolla(temperaturaprom, humedad_relativaprom, precipitacionprom, item.Cells["Plantado"].Value.ToString(), item.Cells["Cosecha"].Value.ToString());
+                    }
+                    else if (cultivo == "Sorgo")
+                    {
+                        estadoprincipal = PlagaSorgoAndres(Convert.ToDateTime(item.Cells["Plantado"].Value.ToString()), temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    }
+                    else if (cultivo == "Soya")
+                    {
+                        estadoprincipal = Plagasojaoscar(temperaturaprom, humedad_relativaprom, precipitacionprom);
+                    }
+
+                    if (estadoprincipal == "" || estadoprincipal == null || estadoprincipal == "Probabilidad de ")
+                    {
+                        estadoprincipal = "Sin estado";
+                        _Cultivo.EditarCultivo(item.Cells["IDCultivo"].Value.ToString(), estadoprincipal);
+                    }
+                    else
+                    {
+                        _Cultivo.EditarCultivo(item.Cells["IDCultivo"].Value.ToString(), "Probabilidad de " + estadoprincipal);
+                        //String[] plagaarreglo = estadoprincipal.Split(',');
+                        //for (int i = 0; i < plagaarreglo.Length; i++)
+                        //{
+                        //    _Plagas.AgregarPlagas(item.Cells["Cultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
+                        //}
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No hay datos climaticos de estas fechas");
+                }
+                MostrarCultivos();
+            }
+        }
+
         private void LlenarDataTableDatosClimaMes()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
@@ -443,28 +535,28 @@ namespace Capa_Presentacion
         }
 
         String plaga = null;
-        private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom,String dgvplantado,String dgvcosecha)
         {
             DateTime fechahoy = DateTime.Now;
-            DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
+            DateTime fechatentativacosecha = Convert.ToDateTime(dgvcosecha);
             DateTime fechatentativacosecha5dias = fechatentativacosecha.AddDays(5);
             String mes = fechahoy.ToString("MMMM");
             int dia = Convert.ToInt32(fechahoy.ToString("dd"));
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 720);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 720);
             if (((fechahoy >= primaverainicio && fechahoy <= veranofin) && (temperaturaprom >= 8 && temperaturaprom <= 35)) || ((fechahoy >= primaverainicio && fechahoy <= veranofin) && (temperaturaprom >= 8 && temperaturaprom <= 35) && _informacionAXDias.precipitacionprom < 0.25))
             {
                 estadomaiz += "Gusano cogollero, ";
             }
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 240);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 240);
             if((_informacionAXDias.temperaturaprom >=34 && _informacionAXDias.temperaturaprom <= 36) && _informacionAXDias.precipitacionprom <0.25 && (fechahoy >= primaverainicio && fechahoy <= veranofin))
             {
                 estadomaiz += "Araña roja, ";
             }
-            if(fechahoy <= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()).AddDays(25))
+            if(fechahoy <= Convert.ToDateTime(dgvplantado).AddDays(25))
             {
                 estadomaiz += "Trips, ";
             }
-            if(fechahoy <= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()).AddDays(85))
+            if(fechahoy <= Convert.ToDateTime(dgvplantado).AddDays(85))
             {
                 estadomaiz += "Gusano elotero, ";
             }
@@ -599,12 +691,12 @@ namespace Capa_Presentacion
         DateTime inviernoinicio = DateTime.Parse("21/12/19");
         DateTime inviernofin = DateTime.Parse("20/03/19");
 
-        private String PlagaCañaAndre(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaCañaAndre(double temperaturaprom, double humedad_relativaprom, double precipitacionprom, String dgvplantado, String dgvcosecha)
         {
             DateTime fechahoy = DateTime.Now;
-            DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
+            DateTime fechatentativacosecha = Convert.ToDateTime(dgvcosecha);
             DateTime fechatentativacosecha5dias = fechatentativacosecha.AddDays(5);
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 360);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 360);
             String mes = fechahoy.ToString("MMMM");
             int dia = Convert.ToInt32(fechahoy.ToString("dd"));
             //Mosca pinta 
@@ -622,7 +714,7 @@ namespace Capa_Presentacion
             }
             if (fechatentativacosecha <= fechahoy)
             {
-                _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 168);
+                _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 168);
                 if (_informacionAXDias.precipitacionprom > 0.25)
                 {
                     estadocaña += "Gusano Barrenador, Rata, ";
@@ -633,7 +725,7 @@ namespace Capa_Presentacion
             {
                 estadocaña += "Pulgon amarillo, ";
             }
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 720);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 720);
             if ((mes == "mayo" || mes == "junio" || mes == "julio" || mes == "agosto" || mes == "septiembre") && _informacionAXDias.temperaturaprom > 35)
             {
                 estadocaña += "Chinche de encaje, ";
@@ -644,10 +736,10 @@ namespace Capa_Presentacion
             }
             return estadocaña.TrimEnd(new Char[] { ' ', ',' });
         }
-        private String PlagaCebolla(double temperaturaprom, double humedad_relativaprom, double precipitacionprom)
+        private String PlagaCebolla(double temperaturaprom, double humedad_relativaprom, double precipitacionprom, String dgvplantado, String dgvcosecha)
         {
             DateTime fechahoy = DateTime.Now;
-            DateTime fechatentativacosecha = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Cosecha"].Value.ToString());
+            DateTime fechatentativacosecha = Convert.ToDateTime(dgvcosecha);
             DateTime fechatentativacosecha5dias = fechatentativacosecha.AddDays(5);
             String mes = fechahoy.ToString("MMMM");
             int dia = Convert.ToInt32(fechahoy.ToString("dd"));
@@ -660,17 +752,17 @@ namespace Capa_Presentacion
             {
                 estadocebolla += "Gusano soldado, ";
             }
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 96);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 96);
             if(_informacionAXDias.temperaturaprom <= 32 && _informacionAXDias.temperaturaprom >= 28)
             {
                 estadocebolla += "Larva minador de la hoja, ";
             }
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 192);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 192);
             if (_informacionAXDias.temperaturaprom <= 22 && _informacionAXDias.temperaturaprom >= 18)
             {
                 estadocebolla += "Larva minador de la hoja, ";
             }
-            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString(), 720);
+            _informacionAXDias = new InformacionAXDias(tablaDatosClimaMes, dgvplantado, 720);
             if (estadocebolla.Contains("Larva minador de la hoja") && _informacionAXDias.temperaturaprom >= 20 && _informacionAXDias.temperaturaprom <= 30)
             {
                 estadocebolla += "Minador de la hoja adulto";

@@ -304,22 +304,28 @@ namespace Capa_Presentacion
         }
         private void datos_cargados(object sender, EventArgs e)
         {
-           
-            lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText+ "° Centigrados";
-
-            labelClimaHoy.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° C";
-            foreach (HtmlElement etiqueta in navegador.Document.All)
+            try
             {
-                if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° Centigrados";
+
+                labelClimaHoy.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° C";
+                foreach (HtmlElement etiqueta in navegador.Document.All)
                 {
-                    
-                    ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
-                    //precipitaciones: 
-                    lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
-                    lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
-                    
+                    if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                    {
+
+                        ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
+                        //precipitaciones: 
+                        lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
+                        lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+
+                    }
                 }
             }
+            catch (Exception)
+            {
+            }
+            
         }
         private void MostrarInformacionHoy()
         {

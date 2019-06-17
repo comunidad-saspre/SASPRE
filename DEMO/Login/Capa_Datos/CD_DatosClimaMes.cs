@@ -44,8 +44,8 @@ namespace Capa_Datos
                 conexion.CerrarConexion();
             }
             catch (Exception ex)
-            { 
-                MessageBox.Show("ADVERTENCIA "+ex, "ERROR AL INSERTAR DATOS CLIMATICOS DEL MES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public DataTable MostrarDatosClimaMes()

@@ -34,7 +34,8 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                MessageBox.Show("ADVERTENCIA", "Error al iniciar componentes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -48,7 +49,8 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar fertilizantes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -71,6 +73,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -94,6 +97,7 @@ namespace Capa_Presentacion
             }
         } catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -116,6 +120,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -135,6 +140,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -149,6 +155,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -169,6 +176,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
+
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -187,7 +195,6 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
-
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 }

@@ -48,7 +48,7 @@ namespace Capa_Presentacion
         }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 }
 

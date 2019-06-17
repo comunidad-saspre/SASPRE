@@ -34,8 +34,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error al iniciar componentes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -49,8 +48,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error al mostrar fertilizantes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -73,8 +71,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error en LlenarComboPlagas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -97,8 +94,7 @@ namespace Capa_Presentacion
             }
         } catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error en LlenarComboCultuvo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -120,8 +116,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -140,8 +135,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -155,8 +149,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error al buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -176,8 +169,7 @@ namespace Capa_Presentacion
             }
         }catch (Exception a)
             {
-
-                MessageBox.Show("ADVERTENCIA", "Error en selección combo plaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -196,7 +188,7 @@ namespace Capa_Presentacion
         }catch (Exception a)
             {
 
-                MessageBox.Show("ADVERTENCIA", "Error en selección combo cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 }
 

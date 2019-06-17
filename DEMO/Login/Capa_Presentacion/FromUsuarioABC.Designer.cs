@@ -54,6 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -268,6 +269,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtCargo);
             this.panel1.Controls.Add(this.txtCorreo);
             this.panel1.Controls.Add(this.label9);
@@ -387,6 +389,16 @@
             this.pbImagen.TabStop = false;
             this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(346, 166);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(216, 23);
+            this.button1.TabIndex = 98;
+            this.button1.Text = "PruebaReportes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FromUsuarioABC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,5 +444,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ComboBox txtCargo;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvUsers;
+        private System.Windows.Forms.Button button1;
     }
 }

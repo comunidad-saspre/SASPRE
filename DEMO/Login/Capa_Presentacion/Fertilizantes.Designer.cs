@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboPlaga = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.comboPlaga);
             this.panel1.Controls.Add(this.label2);
@@ -70,6 +72,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 26);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(150, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -119,7 +131,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
             this.txtBuscar.Location = new System.Drawing.Point(0, 0);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(275, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(124, 20);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.Text = "Buscar";
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
@@ -187,5 +199,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboPlaga;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

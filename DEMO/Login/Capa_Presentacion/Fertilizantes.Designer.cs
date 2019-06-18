@@ -39,6 +39,14 @@
             this.comboCultivo = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvFertilizantes = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Insecticida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DosisComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EpocaControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizantes)).BeginInit();
@@ -141,6 +149,7 @@
             // 
             // dgvFertilizantes
             // 
+            this.dgvFertilizantes.AllowUserToAddRows = false;
             this.dgvFertilizantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFertilizantes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFertilizantes.BackgroundColor = System.Drawing.Color.Gainsboro;
@@ -153,6 +162,15 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFertilizantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFertilizantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFertilizantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Cultivo,
+            this.Plaga,
+            this.Insecticida,
+            this.Dosis,
+            this.NombreComercial,
+            this.DosisComercial,
+            this.EpocaControl});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +189,62 @@
             this.dgvFertilizantes.Size = new System.Drawing.Size(794, 412);
             this.dgvFertilizantes.TabIndex = 1;
             this.dgvFertilizantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFertilizantes_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "Cultivo";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
+            // 
+            // Plaga
+            // 
+            this.Plaga.DataPropertyName = "Plaga";
+            this.Plaga.HeaderText = "Plaga";
+            this.Plaga.Name = "Plaga";
+            this.Plaga.ReadOnly = true;
+            // 
+            // Insecticida
+            // 
+            this.Insecticida.DataPropertyName = "Insecticida";
+            this.Insecticida.HeaderText = "Insecticida";
+            this.Insecticida.Name = "Insecticida";
+            this.Insecticida.ReadOnly = true;
+            // 
+            // Dosis
+            // 
+            this.Dosis.DataPropertyName = "Dosis";
+            this.Dosis.HeaderText = "Dosis";
+            this.Dosis.Name = "Dosis";
+            this.Dosis.ReadOnly = true;
+            // 
+            // NombreComercial
+            // 
+            this.NombreComercial.DataPropertyName = "NombreComercial";
+            this.NombreComercial.HeaderText = "Nombre Comercial";
+            this.NombreComercial.Name = "NombreComercial";
+            this.NombreComercial.ReadOnly = true;
+            // 
+            // DosisComercial
+            // 
+            this.DosisComercial.DataPropertyName = "DosisComercial";
+            this.DosisComercial.HeaderText = "Dosis Comercial";
+            this.DosisComercial.Name = "DosisComercial";
+            this.DosisComercial.ReadOnly = true;
+            // 
+            // EpocaControl
+            // 
+            this.EpocaControl.DataPropertyName = "EpocaControl";
+            this.EpocaControl.HeaderText = "Epoca Control";
+            this.EpocaControl.Name = "EpocaControl";
+            this.EpocaControl.ReadOnly = true;
             // 
             // Fertilizantes
             // 
@@ -200,5 +274,13 @@
         private System.Windows.Forms.ComboBox comboPlaga;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Insecticida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DosisComercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EpocaControl;
     }
 }

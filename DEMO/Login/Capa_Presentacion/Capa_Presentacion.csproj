@@ -134,10 +134,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCosechas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCultivos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsFertilizantes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFertilizantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHistorialPlagas.cs">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHistorialPlagas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Envio_Correo.cs">
       <SubType>Form</SubType>
@@ -162,6 +175,12 @@
     </Compile>
     <Compile Include="FromUsuarioABC.Designer.cs">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialPlagas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistorialPlagas.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="InformacionAXDias.cs" />
     <Compile Include="Login.cs">
@@ -197,6 +216,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteCosechas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCultivo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCultivo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReporteFertilizantes.cs">
@@ -257,6 +282,10 @@
     <EmbeddedResource Include="FromUsuarioABC.resx">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HistorialPlagas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HistorialPlagas.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +313,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteCosechas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCultivo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCultivo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteFertilizantes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteFertilizantes.cs</LastGenOutput>
@@ -306,6 +339,17 @@
     <None Include="dsCosechas.xss">
       <DependentUpon>dsCosechas.xsd</DependentUpon>
     </None>
+    <None Include="dsCultivos.xsc">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCultivos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCultivos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCultivos.xss">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </None>
     <None Include="dsFertilizantes.xsc">
       <DependentUpon>dsFertilizantes.xsd</DependentUpon>
     </None>
@@ -316,6 +360,17 @@
     </None>
     <None Include="dsFertilizantes.xss">
       <DependentUpon>dsFertilizantes.xsd</DependentUpon>
+    </None>
+    <None Include="dsHistorialPlagas.xsc">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </None>
+    <None Include="dsHistorialPlagas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistorialPlagas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsHistorialPlagas.xss">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

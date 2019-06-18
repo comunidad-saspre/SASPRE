@@ -21,7 +21,21 @@ namespace Capa_Presentacion
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-
+            dsHistorialPlagas Ds = new dsHistorialPlagas();
+            int filas = dgvHistorial.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] {
+                    dgvHistorial[0,i].Value.ToString(),
+                    dgvHistorial[1,i].Value.ToString(),
+                    dgvHistorial[2,i].Value.ToString(),
+                    dgvHistorial[3,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(5);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
         }
 
         private void HistorialDePlagas_Load(object sender, EventArgs e)

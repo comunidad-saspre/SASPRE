@@ -55,7 +55,21 @@ namespace Capa_Presentacion
                 crpt.SetDataSource(DS);
                 this.crystalReportViewer1.ReportSource = crpt;
                 this.crystalReportViewer1.Show();
-            }  
+            }
+            if (reporte == 4)
+            {
+                ReporteCultivo crpt = new ReporteCultivo();
+                crpt.SetDataSource(DS);
+                this.crystalReportViewer1.ReportSource = crpt;
+                this.crystalReportViewer1.Show();
+            }
+            if (reporte == 5)
+            {
+                HistorialPlagas crpt = new HistorialPlagas();
+                crpt.SetDataSource(DS);
+                this.crystalReportViewer1.ReportSource = crpt;
+                this.crystalReportViewer1.Show();
+            }
         }
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {

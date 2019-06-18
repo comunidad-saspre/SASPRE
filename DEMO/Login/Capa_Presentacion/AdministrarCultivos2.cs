@@ -336,6 +336,26 @@ namespace Capa_Presentacion
             {
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                dsCultivos Ds = new dsCultivos();
+                int filas = dgvCultivo.Rows.Count;
+                for (int i = 0; i < filas; i++)
+                {
+                    Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                }
+                Reportes r = new Reportes();
+                r.setData(Ds);
+                r.setReporte(4);
+                DialogResult resultado = new DialogResult();
+                resultado = r.ShowDialog();
+            }
         }
 
         DataTable tablaDatosClimaMes;

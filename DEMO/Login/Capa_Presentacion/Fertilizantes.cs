@@ -211,14 +211,13 @@ namespace Capa_Presentacion
                     dgvFertilizantes[2,i].Value.ToString(),
                     dgvFertilizantes[3,i].Value.ToString(),
                     dgvFertilizantes[4,i].Value.ToString(),
-                    dgvFertilizantes[7,i].Value.ToString()
-            });
-                Reportes r = new Reportes();
-                r.setData(Ds);
-                r.setReporte(2);
-                DialogResult resultado = new DialogResult();
-                resultado = r.ShowDialog();
+                dgvFertilizantes[7,i].Value.ToString()});
             }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(2);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
         }
 
             private void Fertilizantes_Load(object sender, EventArgs e)

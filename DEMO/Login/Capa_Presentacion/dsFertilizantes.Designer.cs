@@ -287,7 +287,7 @@ namespace Capa_Presentacion {
             
             private global::System.Data.DataColumn columnDosis;
             
-            private global::System.Data.DataColumn columnEpoca_de_Control;
+            private global::System.Data.DataColumn columnEpocaControl;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -356,9 +356,9 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Epoca_de_ControlColumn {
+            public global::System.Data.DataColumn EpocaControlColumn {
                 get {
-                    return this.columnEpoca_de_Control;
+                    return this.columnEpocaControl;
                 }
             }
             
@@ -399,14 +399,14 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FertilizantesRow AddFertilizantesRow(string Plaga, string Cultivo, string Insecticida, string Dosis, string Epoca_de_Control) {
+            public FertilizantesRow AddFertilizantesRow(string Plaga, string Cultivo, string Insecticida, string Dosis, string EpocaControl) {
                 FertilizantesRow rowFertilizantesRow = ((FertilizantesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Plaga,
                         Cultivo,
                         Insecticida,
                         Dosis,
-                        Epoca_de_Control};
+                        EpocaControl};
                 rowFertilizantesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFertilizantesRow);
                 return rowFertilizantesRow;
@@ -433,7 +433,7 @@ namespace Capa_Presentacion {
                 this.columnCultivo = base.Columns["Cultivo"];
                 this.columnInsecticida = base.Columns["Insecticida"];
                 this.columnDosis = base.Columns["Dosis"];
-                this.columnEpoca_de_Control = base.Columns["Epoca de Control"];
+                this.columnEpocaControl = base.Columns["EpocaControl"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -447,8 +447,8 @@ namespace Capa_Presentacion {
                 base.Columns.Add(this.columnInsecticida);
                 this.columnDosis = new global::System.Data.DataColumn("Dosis", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDosis);
-                this.columnEpoca_de_Control = new global::System.Data.DataColumn("Epoca de Control", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEpoca_de_Control);
+                this.columnEpocaControl = new global::System.Data.DataColumn("EpocaControl", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEpocaControl);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -655,17 +655,17 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Epoca_de_Control {
+            public string EpocaControl {
                 get {
                     try {
-                        return ((string)(this[this.tableFertilizantes.Epoca_de_ControlColumn]));
+                        return ((string)(this[this.tableFertilizantes.EpocaControlColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Epoca de Control\' de la tabla \'Fertilizantes\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EpocaControl\' de la tabla \'Fertilizantes\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFertilizantes.Epoca_de_ControlColumn] = value;
+                    this[this.tableFertilizantes.EpocaControlColumn] = value;
                 }
             }
             
@@ -719,14 +719,14 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEpoca_de_ControlNull() {
-                return this.IsNull(this.tableFertilizantes.Epoca_de_ControlColumn);
+            public bool IsEpocaControlNull() {
+                return this.IsNull(this.tableFertilizantes.EpocaControlColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEpoca_de_ControlNull() {
-                this[this.tableFertilizantes.Epoca_de_ControlColumn] = global::System.Convert.DBNull;
+            public void SetEpocaControlNull() {
+                this[this.tableFertilizantes.EpocaControlColumn] = global::System.Convert.DBNull;
             }
         }
         

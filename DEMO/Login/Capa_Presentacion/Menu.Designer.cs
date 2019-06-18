@@ -38,13 +38,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MouseDetect = new System.Timers.Timer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelClima = new Capa_Presentacion.MyPanel();
+            this.lblAdvertencia = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
@@ -96,7 +95,9 @@
             this.labelDiaHoyNombre = new System.Windows.Forms.Label();
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTemp = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPrecipitacionmm = new System.Windows.Forms.Label();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -115,8 +116,6 @@
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelClima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
@@ -131,6 +130,8 @@
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).BeginInit();
             this.panelDerecho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,36 +140,6 @@
             this.MouseDetect.Enabled = true;
             this.MouseDetect.SynchronizingObject = this;
             this.MouseDetect.Elapsed += new System.Timers.ElapsedEventHandler(this.MouseDetect_Elapsed);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::Capa_Presentacion.Properties.Resources.icons8_Horizontal_Line_64px;
-            this.pictureBox2.Location = new System.Drawing.Point(193, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Minimizar");
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Vectores
             // 
@@ -226,6 +197,7 @@
             // panelClima
             // 
             this.panelClima.BackColor = System.Drawing.Color.Transparent;
+            this.panelClima.Controls.Add(this.lblAdvertencia);
             this.panelClima.Controls.Add(this.lblDescripcion);
             this.panelClima.Controls.Add(this.picClimaActual);
             this.panelClima.Controls.Add(this.myPanel5);
@@ -244,13 +216,24 @@
             this.panelClima.Size = new System.Drawing.Size(1280, 720);
             this.panelClima.TabIndex = 28;
             // 
+            // lblAdvertencia
+            // 
+            this.lblAdvertencia.AutoSize = true;
+            this.lblAdvertencia.BackColor = System.Drawing.Color.Transparent;
+            this.lblAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAdvertencia.Location = new System.Drawing.Point(46, 0);
+            this.lblAdvertencia.Name = "lblAdvertencia";
+            this.lblAdvertencia.Size = new System.Drawing.Size(0, 31);
+            this.lblAdvertencia.TabIndex = 55;
+            // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 118);
+            this.lblDescripcion.Location = new System.Drawing.Point(33, 127);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(65, 39);
             this.lblDescripcion.TabIndex = 54;
@@ -258,7 +241,7 @@
             // 
             // picClimaActual
             // 
-            this.picClimaActual.Location = new System.Drawing.Point(52, 25);
+            this.picClimaActual.Location = new System.Drawing.Point(43, 34);
             this.picClimaActual.Name = "picClimaActual";
             this.picClimaActual.Size = new System.Drawing.Size(90, 90);
             this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -493,7 +476,7 @@
             this.labelClimaHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelClimaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClimaHoy.ForeColor = System.Drawing.Color.White;
-            this.labelClimaHoy.Location = new System.Drawing.Point(146, 25);
+            this.labelClimaHoy.Location = new System.Drawing.Point(139, 34);
             this.labelClimaHoy.Name = "labelClimaHoy";
             this.labelClimaHoy.Size = new System.Drawing.Size(126, 76);
             this.labelClimaHoy.TabIndex = 31;
@@ -864,6 +847,21 @@
             this.panelDerecho.TabIndex = 27;
             this.panelDerecho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDerecho_Paint);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Capa_Presentacion.Properties.Resources.icons8_Horizontal_Line_64px;
+            this.pictureBox2.Location = new System.Drawing.Point(193, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Minimizar");
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // lblTemp
             // 
             this.lblTemp.AutoSize = true;
@@ -876,6 +874,21 @@
             this.lblTemp.TabIndex = 21;
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.icons8_Delete_32px_2;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblPrecipitacionmm
             // 
@@ -1331,8 +1344,6 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
@@ -1354,6 +1365,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -1439,5 +1452,6 @@
         private System.Windows.Forms.Label labelMax3;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblAdvertencia;
     }
 }

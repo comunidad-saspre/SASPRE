@@ -85,9 +85,9 @@ namespace Capa_Presentacion
                     return (enabled == 1) ? true : false;
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error el el login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
@@ -116,9 +116,9 @@ namespace Capa_Presentacion
                 base.WndProc(ref m);
                 if (m.Msg == WM_NCHITTEST && (int)m.Result == HTCLIENT) m.Result = (IntPtr)HTCAPTION;
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error en el login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
@@ -290,9 +290,9 @@ namespace Capa_Presentacion
                     System.IO.Directory.CreateDirectory(ruta);
                 }
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al crear carpeta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -442,7 +442,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA ", "Error al enviar correo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -480,7 +480,7 @@ namespace Capa_Presentacion
             WebClient client = new WebClient();
             Uri uri = new Uri(address);
             _completed = false;
-            client.DownloadFileAsync(uri, location);
+            client.DownloadFile(uri, location);
             while (client.IsBusy)
                 Thread.Sleep(1000);
 

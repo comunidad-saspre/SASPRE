@@ -14,6 +14,7 @@ namespace Capa_Presentacion
     public partial class HistorialDePlagas : Form
     {
         private CN_Plagas _Plagas = new CN_Plagas();
+        private DataTable tablaPlagas;
         public HistorialDePlagas()
         {
             InitializeComponent();
@@ -41,7 +42,29 @@ namespace Capa_Presentacion
         private void HistorialDePlagas_Load(object sender, EventArgs e)
         {
             CN_Plagas _Plagas = new CN_Plagas();
-            dgvHistorial.DataSource = _Plagas.MostrarPlaga();
+            tablaPlagas = _Plagas.MostrarPlaga();
+            dgvHistorial.DataSource = tablaPlagas;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = tablaPlagas.DefaultView;
+                dv.RowFilter = string.Format("Cultivo like '%{0}%' or Plaga like '%{0}%'", textBox1.Text);
+                dgvHistorial.DataSource = dv.ToTable();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = tablaPlagas.DefaultView;
+            dv.RowFilter = string.Format("FechaEncontrada = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
+            dgvHistorial.DataSource = dv.ToTable();
         }
     }
 }

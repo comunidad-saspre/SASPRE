@@ -66,5 +66,18 @@ namespace Capa_Datos
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        public void EditarCosechas(String id,String Estado)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarCosechas";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_IDCultivo", id);
+            comando.Parameters.AddWithValue("_Estado", Estado);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
     }
 }

@@ -216,6 +216,7 @@
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
+            this.myPanel1.Controls.Add(this.lblfechaprincipal);
             this.myPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myPanel1.Location = new System.Drawing.Point(0, 0);
             this.myPanel1.Name = "myPanel1";
@@ -232,7 +233,6 @@
             this.panelClima.Controls.Add(this.myPanel10);
             this.panelClima.Controls.Add(this.labelClimaHoy);
             this.panelClima.Controls.Add(this.labelFechaCompletaHoy);
-            this.panelClima.Controls.Add(this.lblfechaprincipal);
             this.panelClima.Controls.Add(this.myPanel8);
             this.panelClima.Controls.Add(this.labelMante);
             this.panelClima.Controls.Add(this.myPanel7);
@@ -250,7 +250,7 @@
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 118);
+            this.lblDescripcion.Location = new System.Drawing.Point(33, 120);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(65, 39);
             this.lblDescripcion.TabIndex = 54;
@@ -505,7 +505,7 @@
             this.labelFechaCompletaHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelFechaCompletaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaCompletaHoy.ForeColor = System.Drawing.Color.White;
-            this.labelFechaCompletaHoy.Location = new System.Drawing.Point(431, 101);
+            this.labelFechaCompletaHoy.Location = new System.Drawing.Point(435, 91);
             this.labelFechaCompletaHoy.Name = "labelFechaCompletaHoy";
             this.labelFechaCompletaHoy.Size = new System.Drawing.Size(0, 37);
             this.labelFechaCompletaHoy.TabIndex = 30;
@@ -516,11 +516,12 @@
             this.lblfechaprincipal.BackColor = System.Drawing.Color.Transparent;
             this.lblfechaprincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblfechaprincipal.ForeColor = System.Drawing.Color.White;
-            this.lblfechaprincipal.Location = new System.Drawing.Point(431, 101);
+            this.lblfechaprincipal.Location = new System.Drawing.Point(673, 49);
             this.lblfechaprincipal.Name = "lblfechaprincipal";
             this.lblfechaprincipal.Size = new System.Drawing.Size(270, 37);
             this.lblfechaprincipal.TabIndex = 30;
             this.lblfechaprincipal.Text = "Viernes 5 de Abril";
+            this.lblfechaprincipal.Visible = false;
             // 
             // myPanel8
             // 
@@ -638,7 +639,7 @@
             this.labelMante.BackColor = System.Drawing.Color.Transparent;
             this.labelMante.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMante.ForeColor = System.Drawing.Color.White;
-            this.labelMante.Location = new System.Drawing.Point(425, 22);
+            this.labelMante.Location = new System.Drawing.Point(425, 15);
             this.labelMante.Name = "labelMante";
             this.labelMante.Size = new System.Drawing.Size(296, 76);
             this.labelMante.TabIndex = 29;
@@ -1334,6 +1335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myPanel1.ResumeLayout(false);
+            this.myPanel1.PerformLayout();
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();

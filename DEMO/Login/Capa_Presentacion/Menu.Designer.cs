@@ -67,7 +67,6 @@
             this.labelFecha1 = new System.Windows.Forms.Label();
             this.labelClimaHoy = new System.Windows.Forms.Label();
             this.labelFechaCompletaHoy = new System.Windows.Forms.Label();
-            this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
             this.labelPrecipitacion2 = new System.Windows.Forms.Label();
             this.labelMin2 = new System.Windows.Forms.Label();
@@ -113,7 +112,9 @@
             this.btnAdministrarCultivos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.lblAdvertencia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -227,6 +228,7 @@
             // panelClima
             // 
             this.panelClima.BackColor = System.Drawing.Color.Transparent;
+            this.panelClima.Controls.Add(this.lblAdvertencia);
             this.panelClima.Controls.Add(this.lblDescripcion);
             this.panelClima.Controls.Add(this.picClimaActual);
             this.panelClima.Controls.Add(this.myPanel5);
@@ -250,7 +252,7 @@
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(33, 120);
+            this.lblDescripcion.Location = new System.Drawing.Point(33, 133);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(65, 39);
             this.lblDescripcion.TabIndex = 54;
@@ -258,7 +260,7 @@
             // 
             // picClimaActual
             // 
-            this.picClimaActual.Location = new System.Drawing.Point(52, 25);
+            this.picClimaActual.Location = new System.Drawing.Point(52, 38);
             this.picClimaActual.Name = "picClimaActual";
             this.picClimaActual.Size = new System.Drawing.Size(90, 90);
             this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -493,7 +495,7 @@
             this.labelClimaHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelClimaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClimaHoy.ForeColor = System.Drawing.Color.White;
-            this.labelClimaHoy.Location = new System.Drawing.Point(146, 25);
+            this.labelClimaHoy.Location = new System.Drawing.Point(146, 38);
             this.labelClimaHoy.Name = "labelClimaHoy";
             this.labelClimaHoy.Size = new System.Drawing.Size(126, 76);
             this.labelClimaHoy.TabIndex = 31;
@@ -509,19 +511,6 @@
             this.labelFechaCompletaHoy.Name = "labelFechaCompletaHoy";
             this.labelFechaCompletaHoy.Size = new System.Drawing.Size(0, 37);
             this.labelFechaCompletaHoy.TabIndex = 30;
-            // 
-            // lblfechaprincipal
-            // 
-            this.lblfechaprincipal.AutoSize = true;
-            this.lblfechaprincipal.BackColor = System.Drawing.Color.Transparent;
-            this.lblfechaprincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfechaprincipal.ForeColor = System.Drawing.Color.White;
-            this.lblfechaprincipal.Location = new System.Drawing.Point(673, 49);
-            this.lblfechaprincipal.Name = "lblfechaprincipal";
-            this.lblfechaprincipal.Size = new System.Drawing.Size(270, 37);
-            this.lblfechaprincipal.TabIndex = 30;
-            this.lblfechaprincipal.Text = "Viernes 5 de Abril";
-            this.lblfechaprincipal.Visible = false;
             // 
             // myPanel8
             // 
@@ -1309,12 +1298,36 @@
             this.btnCerrarSesion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
+            // lblfechaprincipal
+            // 
+            this.lblfechaprincipal.AutoSize = true;
+            this.lblfechaprincipal.BackColor = System.Drawing.Color.Transparent;
+            this.lblfechaprincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfechaprincipal.ForeColor = System.Drawing.Color.White;
+            this.lblfechaprincipal.Location = new System.Drawing.Point(673, 49);
+            this.lblfechaprincipal.Name = "lblfechaprincipal";
+            this.lblfechaprincipal.Size = new System.Drawing.Size(270, 37);
+            this.lblfechaprincipal.TabIndex = 30;
+            this.lblfechaprincipal.Text = "Viernes 5 de Abril";
+            this.lblfechaprincipal.Visible = false;
+            // 
             // bunifuDragControl1
             // 
             this.bunifuDragControl1.Fixed = true;
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
+            // 
+            // lblAdvertencia
+            // 
+            this.lblAdvertencia.AutoSize = true;
+            this.lblAdvertencia.BackColor = System.Drawing.Color.Transparent;
+            this.lblAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lblAdvertencia.Location = new System.Drawing.Point(21, 6);
+            this.lblAdvertencia.Name = "lblAdvertencia";
+            this.lblAdvertencia.Size = new System.Drawing.Size(0, 29);
+            this.lblAdvertencia.TabIndex = 55;
             // 
             // Menu
             // 
@@ -1441,5 +1454,6 @@
         private System.Windows.Forms.Label labelMax3;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblAdvertencia;
     }
 }

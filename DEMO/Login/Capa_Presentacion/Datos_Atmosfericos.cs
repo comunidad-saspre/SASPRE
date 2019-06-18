@@ -254,7 +254,23 @@ namespace Capa_Presentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _menu.bunifuFlatButton4_Click(null, e);
+            //_menu.bunifuFlatButton4_Click(null, e);
+            //Fecha local,Temperatura, Humedad relativa, presion atmosferica, precipitacion
+            dsAtmosfericos Ds = new dsAtmosfericos();
+            int filas = dtgDatosElMante.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[1,i].Value.ToString(),
+                    dtgDatosElMante[7,i].Value.ToString(),
+                    dtgDatosElMante[8,i].Value.ToString(),
+                    dtgDatosElMante[9,i].Value.ToString(),
+                    dtgDatosElMante[10,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(6);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
         }
     }
 }

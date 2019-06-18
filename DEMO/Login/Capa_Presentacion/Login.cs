@@ -206,6 +206,14 @@ namespace Capa_Presentacion
                     Program.nombre = Loguear["Nombre"].ToString();
                     Program.apellidos = Loguear["Apellidos"].ToString();
                     Program.correo = Loguear["Correo"].ToString();
+                    dsUsuario Ds = new dsUsuario();
+                    for(int i = 0; i < 3; i++)
+                    {
+                        Ds.Tables[0].Rows.Add(new object[] { Loguear["Cargo"].ToString(), Loguear["Nombre"].ToString(),
+                    Loguear["Correo"].ToString()});
+                    }
+                    Reportes r = new Reportes();
+                    r.setInformacion(Ds);
                     Menu mn = new Menu();
                     mn.Show();
                     Cursor.Current = Cursors.Default;

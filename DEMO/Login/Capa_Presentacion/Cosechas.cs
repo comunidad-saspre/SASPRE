@@ -28,6 +28,7 @@ namespace Capa_Presentacion
         {
             try
             {
+                CN_Cosechas _Cosechas = new CN_Cosechas();
                 tablaCosechas = _Cosechas.MostrarCosechas(Program.cargo, Program.nickname);
                 dgvCultivo.DataSource = tablaCosechas;
                 if(Program.cargo!= "Admin")
@@ -55,7 +56,7 @@ namespace Capa_Presentacion
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaCosechas.DefaultView;
-            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
+            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}' or Fecha_Cosecha = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
             dgvCultivo.DataSource = dv.ToTable();
 
         }
@@ -80,6 +81,44 @@ namespace Capa_Presentacion
             DialogResult resultado = new DialogResult();
             resultado = r.ShowDialog();
            //r.Show();
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MostrarCosechas();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MostrarCosechas();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditarCosechas();
+            MostrarCosechas();
+        }
+
+        private void EditarCosechas()
+        {
+            try
+            {
+                if(dgvCultivo.CurrentRow.Cells["Estado"].Value.ToString() == "")
+                {
+                    MessageBox.Show("Ya está limpio", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _Cosechas.EditarCosechas(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(), null);
+                    MessageBox.Show("Limpiado estado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error "+ ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
     }

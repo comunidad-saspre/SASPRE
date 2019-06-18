@@ -227,21 +227,21 @@
             // 
             // NombreComercial
             // 
-            this.NombreComercial.DataPropertyName = "NombreComercial";
+            this.NombreComercial.DataPropertyName = "Nombre Comercial";
             this.NombreComercial.HeaderText = "Nombre Comercial";
             this.NombreComercial.Name = "NombreComercial";
             this.NombreComercial.ReadOnly = true;
             // 
             // DosisComercial
             // 
-            this.DosisComercial.DataPropertyName = "DosisComercial";
+            this.DosisComercial.DataPropertyName = "Dosis Comercial";
             this.DosisComercial.HeaderText = "Dosis Comercial";
             this.DosisComercial.Name = "DosisComercial";
             this.DosisComercial.ReadOnly = true;
             // 
             // EpocaControl
             // 
-            this.EpocaControl.DataPropertyName = "EpocaControl";
+            this.EpocaControl.DataPropertyName = "Epoca de Control";
             this.EpocaControl.HeaderText = "Epoca Control";
             this.EpocaControl.Name = "EpocaControl";
             this.EpocaControl.ReadOnly = true;

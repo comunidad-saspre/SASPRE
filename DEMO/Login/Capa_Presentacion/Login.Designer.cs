@@ -372,7 +372,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelar.BorderRadius = 0;
-            this.btnCancelar.ButtonText = "Cancelar";
+            this.btnCancelar.ButtonText = "Regresar";
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelar.Iconcolor = System.Drawing.Color.Transparent;
@@ -395,7 +395,7 @@
             this.btnCancelar.selected = false;
             this.btnCancelar.Size = new System.Drawing.Size(109, 42);
             this.btnCancelar.TabIndex = 17;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Regresar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCancelar.Textcolor = System.Drawing.Color.White;
             this.btnCancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

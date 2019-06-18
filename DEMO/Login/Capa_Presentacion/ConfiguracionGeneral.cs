@@ -54,7 +54,7 @@ namespace Capa_Presentacion
 
                 }
             }
-            catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error en configuración general", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
@@ -75,7 +75,7 @@ namespace Capa_Presentacion
             try { 
             AbrirFormEnPanel<ConfiguracionGeneralAgregar>();
 
-        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al abrir panel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         
 
     }
@@ -85,7 +85,7 @@ namespace Capa_Presentacion
             try { 
             var dialog = new DialogoEditarInformacion();
             dialog.Show();
-        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         
     }
 
@@ -93,7 +93,7 @@ namespace Capa_Presentacion
         {
             try { 
             MostrarUsuarios();
-        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al mostrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
 
 }
 public void MostrarUsuarios()
@@ -101,7 +101,7 @@ public void MostrarUsuarios()
             try { 
             CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
             dvgUsuarios.DataSource = _ABCUsuario.MostrarUsuarios();
-        }catch (Exception a) { MessageBox.Show("ADVERTENCIA", "Error al mostrar usuarios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
 }
     }
 }

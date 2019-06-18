@@ -69,7 +69,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al descargar datos atmosfericos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
@@ -85,7 +85,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al crear carpeta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         //lectura del archivo con datos atmosfericos
@@ -199,7 +199,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "ERROR AL INSERTAR DATOS ATNOSFERICOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -223,7 +223,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("ADVERTENCIA", "Error al filtrar datos ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -254,7 +254,23 @@ namespace Capa_Presentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _menu.bunifuFlatButton4_Click(null, e);
+            //_menu.bunifuFlatButton4_Click(null, e);
+            //Fecha local,Temperatura, Humedad relativa, presion atmosferica, precipitacion
+            dsAtmosfericos Ds = new dsAtmosfericos();
+            int filas = dtgDatosElMante.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[1,i].Value.ToString(),
+                    dtgDatosElMante[7,i].Value.ToString(),
+                    dtgDatosElMante[8,i].Value.ToString(),
+                    dtgDatosElMante[9,i].Value.ToString(),
+                    dtgDatosElMante[10,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(6);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
         }
     }
 }

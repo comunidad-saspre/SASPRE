@@ -47,6 +47,7 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
             this.dtpPlantado = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +58,9 @@
             this.btnExportar.FlatAppearance.BorderSize = 0;
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(529, 51);
+            this.btnExportar.Location = new System.Drawing.Point(661, 57);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(155, 34);
+            this.btnExportar.Size = new System.Drawing.Size(104, 28);
             this.btnExportar.TabIndex = 68;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
@@ -79,6 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(30, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -86,10 +88,12 @@
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 65;
             this.label2.Text = "Buscar un cultivo";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dgvCultivo
             // 
             this.dgvCultivo.AllowUserToAddRows = false;
+            this.dgvCultivo.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvCultivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCultivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -97,11 +101,11 @@
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCultivo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCultivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -124,8 +128,8 @@
             this.dgvCultivo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCultivo.DoubleBuffered = true;
             this.dgvCultivo.EnableHeadersVisualStyles = false;
-            this.dgvCultivo.HeaderBgColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvCultivo.HeaderForeColor = System.Drawing.Color.DimGray;
+            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.White;
+            this.dgvCultivo.HeaderForeColor = System.Drawing.Color.Black;
             this.dgvCultivo.Location = new System.Drawing.Point(34, 96);
             this.dgvCultivo.MultiSelect = false;
             this.dgvCultivo.Name = "dgvCultivo";
@@ -137,12 +141,12 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCultivo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCultivo.RowHeadersVisible = false;
             this.dgvCultivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCultivo.Size = new System.Drawing.Size(650, 467);
+            this.dgvCultivo.Size = new System.Drawing.Size(731, 467);
             this.dgvCultivo.TabIndex = 67;
             // 
             // IDCultivo
@@ -203,26 +207,42 @@
             // 
             // txtBuscarUnCultivo
             // 
-            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(207, 65);
+            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(166, 65);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
-            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(301, 20);
+            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(184, 20);
             this.txtBuscarUnCultivo.TabIndex = 66;
             this.txtBuscarUnCultivo.TextChanged += new System.EventHandler(this.txtBuscarUnCultivo_TextChanged);
             // 
             // dtpPlantado
             // 
             this.dtpPlantado.CustomFormat = "";
-            this.dtpPlantado.Location = new System.Drawing.Point(207, 590);
+            this.dtpPlantado.Location = new System.Drawing.Point(408, 65);
             this.dtpPlantado.Name = "dtpPlantado";
             this.dtpPlantado.Size = new System.Drawing.Size(205, 20);
             this.dtpPlantado.TabIndex = 69;
             this.dtpPlantado.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(661, 579);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 28);
+            this.button1.TabIndex = 70;
+            this.button1.Text = "Limpiar estado";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Cosechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dtpPlantado);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.label1);
@@ -253,5 +273,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button button1;
     }
 }

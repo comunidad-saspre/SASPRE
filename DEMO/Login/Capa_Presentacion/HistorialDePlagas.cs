@@ -14,6 +14,7 @@ namespace Capa_Presentacion
     public partial class HistorialDePlagas : Form
     {
         private CN_Plagas _Plagas = new CN_Plagas();
+        private DataTable tablaPlagas;
         public HistorialDePlagas()
         {
             InitializeComponent();
@@ -21,13 +22,49 @@ namespace Capa_Presentacion
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-
+            dsHistorialPlagas Ds = new dsHistorialPlagas();
+            int filas = dgvHistorial.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] {
+                    dgvHistorial[0,i].Value.ToString(),
+                    dgvHistorial[1,i].Value.ToString(),
+                    dgvHistorial[2,i].Value.ToString(),
+                    dgvHistorial[3,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(5);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
         }
 
         private void HistorialDePlagas_Load(object sender, EventArgs e)
         {
             CN_Plagas _Plagas = new CN_Plagas();
-            dgvHistorial.DataSource = _Plagas.MostrarPlaga();
+            tablaPlagas = _Plagas.MostrarPlaga();
+            dgvHistorial.DataSource = tablaPlagas;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = tablaPlagas.DefaultView;
+                dv.RowFilter = string.Format("Cultivo like '%{0}%' or Plaga like '%{0}%'", textBox1.Text);
+                dgvHistorial.DataSource = dv.ToTable();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("ADVERTENCIA", "Error al buscar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = tablaPlagas.DefaultView;
+            dv.RowFilter = string.Format("FechaEncontrada = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
+            dgvHistorial.DataSource = dv.ToTable();
         }
     }
 }

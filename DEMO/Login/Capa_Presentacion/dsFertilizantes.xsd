@@ -19,7 +19,7 @@
               <xs:element name="Cultivo" msprop:Generator_ColumnVarNameInTable="columnCultivo" msprop:Generator_ColumnPropNameInRow="Cultivo" msprop:Generator_ColumnPropNameInTable="CultivoColumn" msprop:Generator_UserColumnName="Cultivo" type="xs:string" minOccurs="0" />
               <xs:element name="Insecticida" msprop:Generator_ColumnVarNameInTable="columnInsecticida" msprop:Generator_ColumnPropNameInRow="Insecticida" msprop:Generator_ColumnPropNameInTable="InsecticidaColumn" msprop:Generator_UserColumnName="Insecticida" type="xs:string" minOccurs="0" />
               <xs:element name="Dosis" msprop:Generator_ColumnVarNameInTable="columnDosis" msprop:Generator_ColumnPropNameInRow="Dosis" msprop:Generator_ColumnPropNameInTable="DosisColumn" msprop:Generator_UserColumnName="Dosis" type="xs:string" minOccurs="0" />
-              <xs:element name="Epoca_x0020_de_x0020_Control" msprop:Generator_ColumnVarNameInTable="columnEpoca_de_Control" msprop:Generator_ColumnPropNameInRow="Epoca_de_Control" msprop:Generator_ColumnPropNameInTable="Epoca_de_ControlColumn" msprop:Generator_UserColumnName="Epoca de Control" type="xs:string" minOccurs="0" />
+              <xs:element name="EpocaControl" msprop:Generator_ColumnVarNameInTable="columnEpocaControl" msprop:Generator_ColumnPropNameInRow="EpocaControl" msprop:Generator_ColumnPropNameInTable="EpocaControlColumn" msprop:Generator_UserColumnName="EpocaControl" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

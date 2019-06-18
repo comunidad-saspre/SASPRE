@@ -314,14 +314,15 @@ namespace Capa_Presentacion
             try
             {
                 DateTime fechaplantado;
-                String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha;
+                String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha,estado;
 
                 Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
                 Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
                 fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
                 fechacosecha = DateTime.Now.ToString("yy-MM-dd");
                 //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
-                _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, null);
+                estado = dgvCultivo.CurrentRow.Cells["Estado"].Value.ToString();
+                _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, estado);
             }
             catch (Exception a)
             {
@@ -335,6 +336,26 @@ namespace Capa_Presentacion
             if (dgvCultivo.Rows.Count == 0)
             {
                 MessageBox.Show("¡La tabla se encuentra vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dsCultivos Ds = new dsCultivos();
+                int filas = dgvCultivo.Rows.Count;
+                for (int i = 0; i < filas; i++)
+                {
+                    Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                }
+                Reportes r = new Reportes();
+                r.setData(Ds);
+                r.setReporte(4);
+                DialogResult resultado = new DialogResult();
+                resultado = r.ShowDialog();
             }
         }
 
@@ -768,6 +789,18 @@ namespace Capa_Presentacion
                 estadocebolla += "Minador de la hoja adulto";
             }
             return estadocebolla.TrimEnd(new Char[] { ' ', ',' });
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MostrarCultivos();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = tablaCultivos.DefaultView;
+            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}' or Fecha_Cosecha = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
+            dgvCultivo.DataSource = dv.ToTable();
         }
     }
 }

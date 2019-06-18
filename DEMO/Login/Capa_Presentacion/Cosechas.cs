@@ -28,6 +28,7 @@ namespace Capa_Presentacion
         {
             try
             {
+                CN_Cosechas _Cosechas = new CN_Cosechas();
                 tablaCosechas = _Cosechas.MostrarCosechas(Program.cargo, Program.nickname);
                 dgvCultivo.DataSource = tablaCosechas;
                 if(Program.cargo!= "Admin")
@@ -55,14 +56,70 @@ namespace Capa_Presentacion
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaCosechas.DefaultView;
-            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
+            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}' or Fecha_Cosecha = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
             dgvCultivo.DataSource = dv.ToTable();
 
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            dsCosechas Ds = new dsCosechas();
+            int filas = dgvCultivo.Rows.Count;
+            for(int i = 0; i <filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dgvCultivo[0,i].Value.ToString(),
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(3);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
+           //r.Show();
+            
+        }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MostrarCosechas();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MostrarCosechas();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditarCosechas();
+            MostrarCosechas();
+        }
+
+        private void EditarCosechas()
+        {
+            try
+            {
+                if(dgvCultivo.CurrentRow.Cells["Estado"].Value.ToString() == "")
+                {
+                    MessageBox.Show("Ya está limpio", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _Cosechas.EditarCosechas(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(), null);
+                    MessageBox.Show("Limpiado estado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error "+ ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

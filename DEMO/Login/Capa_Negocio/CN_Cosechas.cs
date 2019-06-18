@@ -24,5 +24,10 @@ namespace Capa_Negocio
             _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, Fecha_Plantado, Fecha_Cosecha, 
                 Convert.ToString(Cantidad), Estado);
         }
+
+        public void EditarCosechas(String id, String estado)
+        {
+            _Cosechas.EditarCosechas(id, estado);
+        }
     }
 }

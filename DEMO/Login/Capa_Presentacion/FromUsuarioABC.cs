@@ -288,5 +288,20 @@ namespace Capa_Presentacion
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reportes c = new Reportes();
+            c.setReporte(1);
+            DialogResult resultado = new DialogResult();
+            resultado = c.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+            }
+            else
+            {
+
+            }
+        }
     }
 }

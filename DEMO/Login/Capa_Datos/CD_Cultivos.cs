@@ -17,8 +17,6 @@ namespace Capa_Datos
         MySqlCommand comando;
         public DataTable MostrarCultivos(String cargo,String usuario)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 if (cargo == "Admin")
@@ -34,17 +32,10 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaCultivos.Load(leer);
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return tablaCultivos;
         }
         public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha,String Cantidad,String Estado)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "AgregarCultivos";
@@ -58,16 +49,9 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a )
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
         public void EliminarCultivo(String IDCultivo)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "EliminarCultivos";
@@ -76,17 +60,10 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a )
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         public void EditarCultivo(String IDCultivo,String Estado)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "EditarCultivos";
@@ -96,11 +73,6 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); MessageBox.Show("ADVERTENCIA", "Error al editar cultivo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
     }
 }

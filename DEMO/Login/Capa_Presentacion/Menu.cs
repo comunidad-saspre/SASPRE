@@ -302,13 +302,32 @@ namespace Capa_Presentacion
             MostrarDescripcionDia();
             MostrarInformacionHoy();
         }
+        private const int TEMPERATURA_MINIMA_PERMITIDA = 5;
+        private const int TEMPERATURA_MAXIMA_PERMITIDA = 40;
+
+        private const string MAX_TEMP_WARNING = "Alerta: Temperatura mayor a 40 grados";
+        private const string MIN_TEMP_WARNING = "Alerta: Temperatura menor a 5 grados";
+
         private void datos_cargados(object sender, EventArgs e)
         {
             try
             {
-                lblCentigrados.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° Centigrados";
+                int.TryParse(navegador.Document.GetElementById("wob_tm").InnerText, out int grados);
 
-                labelClimaHoy.Text = navegador.Document.GetElementById("wob_tm").InnerText + "° C";
+                lblCentigrados.Text += grados + "° Centigrados";
+
+                labelClimaHoy.Text = grados + "° C";
+
+                if (grados >= TEMPERATURA_MAXIMA_PERMITIDA)
+                {
+                    lblAdvertencia.Text = MAX_TEMP_WARNING;
+                }
+
+                if (grados <= TEMPERATURA_MINIMA_PERMITIDA)
+                {
+                    lblAdvertencia.Text = MIN_TEMP_WARNING;
+                }
+
                 foreach (HtmlElement etiqueta in navegador.Document.All)
                 {
                     if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))

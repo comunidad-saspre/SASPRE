@@ -328,18 +328,18 @@ namespace Capa_Presentacion
                     lblAdvertencia.Text = MIN_TEMP_WARNING;
                 }
 
-                foreach (HtmlElement etiqueta in navegador.Document.All)
-                {
-                    if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
-                    {
+                //foreach (HtmlElement etiqueta in navegador.Document.All)
+                //{
+                //    if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                //    {
 
-                        ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
-                        //precipitaciones: 
-                        lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
-                        lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+                //        ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
+                //        //precipitaciones: 
+                //        //lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
+                //        //lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
 
-                    }
-                }
+                //    }
+                //}
             }
             catch (Exception)
             {
@@ -385,6 +385,7 @@ namespace Capa_Presentacion
         private void MostrarPrecipitaciones()
         {
             var cero = "   0%\n0.0 mm";
+            
             labelPrecipitacionHoy.Text = GetPrecipitationDayString(1);
             if (String.IsNullOrWhiteSpace(labelPrecipitacionHoy.Text)) labelPrecipitacionHoy.Text = cero;
 
@@ -421,6 +422,13 @@ namespace Capa_Presentacion
                 if (String.IsNullOrWhiteSpace(precipitationMmDay)) precipitationMmDay = "0.0 mm";
 
                 result += gap + precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
+
+                if(day == 1)
+                {
+                    lblPrecipitacionmm.Text = precipitationMmDay + " mm";
+                    lblEstado.Text = precipitationPercentageDay;
+                }
+                    
 
                 return result;
             }
@@ -1165,6 +1173,11 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+        }
+
+        private void panelClima_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private bool HayInternet()

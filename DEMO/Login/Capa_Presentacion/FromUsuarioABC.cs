@@ -89,17 +89,21 @@ namespace Capa_Presentacion
             try
             {
                 if (!EsDireccionDeCorreoValida(txtCorreo.Text))
-                    throw new Exception("InvalidMailAddressException.");
+                    throw new Exception("Correo invalido.");
                 else
-                    _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,
-                    txtNick.Text, txtCorreo.Text);
+                {
+                    _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,txtNick.Text, txtCorreo.Text);
+                    MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VaciarCampos();
+                    Mostrar();
+                }
+                    
 
-                MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -118,15 +122,15 @@ namespace Capa_Presentacion
                     {
                         _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
                     txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
-
+                        MessageBox.Show("Usuario actualizado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         IsEditar(isEditar = false);
                     }
                 }
-                MessageBox.Show("Usuario actualizado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -150,7 +154,7 @@ namespace Capa_Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ha ocurrido un error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -242,8 +246,7 @@ namespace Capa_Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Agregar();
-            VaciarCampos();
-            Mostrar();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

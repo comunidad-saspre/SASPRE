@@ -17,10 +17,6 @@ namespace Capa_Datos
 
         public MySqlDataReader IniciarSesion(String nickname, String contraseña)
         {
-            try
-            {
-
-
                 conexion.CerrarConexion();
                 comando.Parameters.Clear();
                 comando.Connection = conexion.AbrirConexion();
@@ -29,10 +25,6 @@ namespace Capa_Datos
                 comando.Parameters.AddWithValue("_nickname", nickname);
                 comando.Parameters.AddWithValue("_contra", contraseña);
                 leer = comando.ExecuteReader();
-            }catch(Exception a )
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return leer;
         }
     }

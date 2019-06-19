@@ -17,8 +17,6 @@ namespace Capa_Datos
 
         public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
-            try
-            {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "RegistrarUsuario";
@@ -32,16 +30,10 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a) {
-                MessageBox.Show("Ha ocurrido un error "+a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         public DataTable ObtenerContra(string correo)
         {
-            try
-            {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "ObtenerContra";
@@ -50,20 +42,11 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);
                 conexion.CerrarConexion();
-                 
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
             return tablaUsuarios;
         }
 
         public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
         {
-            try
-            {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "EditarUsuario";
@@ -78,16 +61,9 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
         public void EliminarUsuario(String NickName)
         {
-            try
-            {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "EliminarUsuario";
@@ -96,17 +72,10 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         public DataTable MostrarUsuarios()
         {
-            try
-            {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "MostrarUsuarios";
@@ -114,12 +83,6 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);
                 conexion.CerrarConexion();
-                
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return tablaUsuarios;
         }
     }

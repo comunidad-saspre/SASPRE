@@ -19,8 +19,6 @@ namespace Capa_Datos
 
         public DataTable MostrarPlaga()
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "MostrarPlaga";
@@ -28,18 +26,11 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaPlaga.Load(leer);
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return tablaPlaga;
         }
 
         public void AgregarPlaga(String cultivo, String Plaga,String fecha)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "AgregarPlaga";
@@ -50,11 +41,6 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
     }
 }

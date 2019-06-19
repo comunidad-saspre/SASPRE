@@ -18,8 +18,6 @@ namespace Capa_Datos
         
         public DataTable MostrarCosechas(String cargo,String usuario)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 if (cargo == "Admin")
@@ -35,18 +33,11 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaCosechas.Load(leer);
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return tablaCosechas;
         }
 
         public void AgregarCosechas(String Usuario_Cultivo, String Cultivo, String Fecha_Plantado, String Fecha_Cosecha, String Cantidad, String Estado)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "AgregarCosechas";
@@ -60,11 +51,6 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         public void EditarCosechas(String id,String Estado)

@@ -21,8 +21,6 @@ namespace Capa_Datos
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
             String Precipitacion, String Radiacion_Solar)
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "InsertarDatosClimaMes";
@@ -42,11 +40,6 @@ namespace Capa_Datos
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
         public DataTable MostrarDatosClimaMes()
         {

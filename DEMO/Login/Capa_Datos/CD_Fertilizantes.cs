@@ -17,8 +17,6 @@ namespace Capa_Datos
         MySqlCommand comando;
         public DataTable MostrarFertilizantes()
         {
-            try
-            {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "MostrarFertilizantes";
@@ -26,12 +24,6 @@ namespace Capa_Datos
                 leer = comando.ExecuteReader();
                 tablaCultivos.Load(leer);
                 conexion.CerrarConexion();
-                
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
             return tablaCultivos;
         }
     }

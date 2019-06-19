@@ -480,7 +480,7 @@ namespace Capa_Presentacion
             WebClient client = new WebClient();
             Uri uri = new Uri(address);
             _completed = false;
-            client.DownloadFile(uri, location);
+            client.DownloadFileAsync(uri, location);
             while (client.IsBusy)
                 Thread.Sleep(1000);
 

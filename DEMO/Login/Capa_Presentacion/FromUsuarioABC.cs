@@ -89,13 +89,20 @@ namespace Capa_Presentacion
             try
             {
                 if (!EsDireccionDeCorreoValida(txtCorreo.Text))
-                    throw new Exception("Correo invalido.");
+                    MessageBox.Show("Verifique el correo electrónico", "Correo invalido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else
                 {
-                    _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text,txtNick.Text, txtCorreo.Text);
-                    MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    VaciarCampos();
-                    Mostrar();
+                    if((txtNombre.Text != "" && txtApellidos.Text != "" && txtContra.Text != "" && txtCargo.Text != "" && txtNick.Text != "" && txtCorreo.Text != "") && (txtNombre.Text != "" || txtApellidos.Text != "" || txtContra.Text != "" || txtCargo.Text != "" || txtNick.Text != "" || txtCorreo.Text != ""))
+                    {
+                        _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                        MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        VaciarCampos();
+                        Mostrar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe tener todos los campos llenos", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                     
 
@@ -112,7 +119,7 @@ namespace Capa_Presentacion
             try
             {
                 if (!EsDireccionDeCorreoValida(txtCorreo.Text))
-                    throw new Exception("InvalidMailAddressException.");
+                    MessageBox.Show("Verifique el correo electrónico", "Correo invalido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else
                 {
                     
@@ -262,19 +269,7 @@ namespace Capa_Presentacion
 
         private void pbImagen_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var fileDialog = new OpenFileDialog();
-                fileDialog.Filter = "Image Files | *.jpg | .JPG | *.jpeg | .JPEG ";
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    pbImagen.BackgroundImage = Image.FromFile(fileDialog.FileName);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)

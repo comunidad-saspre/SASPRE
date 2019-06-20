@@ -239,17 +239,7 @@ namespace Capa_Presentacion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -271,6 +261,21 @@ namespace Capa_Presentacion
             r.setReporte(6);
             DialogResult resultado = new DialogResult();
             resultado = r.ShowDialog();
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

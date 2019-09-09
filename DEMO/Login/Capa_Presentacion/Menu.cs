@@ -307,14 +307,15 @@ namespace Capa_Presentacion
 
         private const string MAX_TEMP_WARNING = "Alerta: Temperatura mayor a 40 grados";
         private const string MIN_TEMP_WARNING = "Alerta: Temperatura menor a 5 grados";
-
+        
+        //DICE EL OSCAR QUE AUI SE SACAN LOS DATOS CLIMATOLOGICOS
         private void datos_cargados(object sender, EventArgs e)
         {
             try
             {
                 int.TryParse(navegador.Document.GetElementById("wob_tm").InnerText, out int grados);
 
-                lblCentigrados.Text += grados + "° Centigrados";
+                lblCentigrados.Text = grados + "° Centigrados";
 
                 labelClimaHoy.Text = grados + "° C";
 

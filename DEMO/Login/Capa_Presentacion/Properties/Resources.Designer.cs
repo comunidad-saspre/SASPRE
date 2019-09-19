@@ -83,26 +83,6 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ARROW_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("ARROW WHITE", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap BAG_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("BAG WHITE", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap CAÑA {
             get {
                 object obj = ResourceManager.GetObject("CAÑA", resourceCulture);
@@ -163,49 +143,9 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CLOCK_WHITE {
+        internal static System.Drawing.Bitmap cielo {
             get {
-                object obj = ResourceManager.GetObject("CLOCK WHITE", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CLOUD_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("CLOUD WHITE", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CONFIGURE_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("CONFIGURE WHITE", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CONFIGURE_WHITE1 {
-            get {
-                object obj = ResourceManager.GetObject("CONFIGURE WHITE1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap DATOS_ATMOSFERICOS_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("DATOS ATMOSFERICOS WHITE", resourceCulture);
+                object obj = ResourceManager.GetObject("cielo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,16 +156,6 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap descarga {
             get {
                 object obj = ResourceManager.GetObject("descarga", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap FIELD_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("FIELD WHITE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,16 +496,6 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap MenuIzquierdoVerde {
             get {
                 object obj = ResourceManager.GetObject("MenuIzquierdoVerde", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PLANT_WHITE {
-            get {
-                object obj = ResourceManager.GetObject("PLANT WHITE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

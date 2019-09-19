@@ -189,7 +189,7 @@
             // 
             // myPanel1
             // 
-            this.myPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("myPanel1.BackgroundImage")));
+            this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.cielo;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.myPanel1.Controls.Add(this.myPanel2);
             this.myPanel1.Controls.Add(this.panelClima);

@@ -532,12 +532,6 @@ namespace Capa_Presentacion
                     else
                     {
                         _Cultivo.EditarCultivo(item.Cells["IDCultivo"].Value.ToString(), "Probabilidad de " + estadoprincipal);
-                        //String[] plagaarreglo = estadoprincipal.Split(',');
-                        //for (int i = 0; i < plagaarreglo.Length; i++)
-                        //{
-                        //    _Plagas.AgregarPlagas(item.Cells["Cultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
-                        //}
-
                     }
 
                 }

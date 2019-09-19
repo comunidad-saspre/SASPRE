@@ -143,18 +143,6 @@ namespace Capa_Presentacion
             m_aeroEnabled = false;
         }
 
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        const int CS_DROPSHADOW = 0x20000;
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ClassStyle |= CS_DROPSHADOW;
-        //        cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED   
-        //        return cp;
-        //    }
-        //}
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -467,9 +455,6 @@ namespace Capa_Presentacion
 
         }
     }
-
-
-
 
     public class DownloadGamefile
     {

@@ -580,17 +580,7 @@ namespace Capa_Presentacion
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
 
         }
 
@@ -668,8 +658,6 @@ namespace Capa_Presentacion
         }
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = true;
             CerrarFormEnPanel<AdministrarCultivos2>();
             CerrarFormEnPanel<ConfiguracionGeneral>();
             CerrarFormEnPanel<EstadisticasDePlagas>();
@@ -690,8 +678,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = true;
+            
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -1087,7 +1074,6 @@ namespace Capa_Presentacion
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void btnAdministrarCosechas_Click(object sender, EventArgs e)
@@ -1179,6 +1165,41 @@ namespace Capa_Presentacion
         private void panelClima_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BtnCer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void BtnMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void BtnMax_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMax.Visible = false;
+            btnRest.Visible = true;
+        }
+
+        private void BtnRest_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRest.Visible = false;
+            btnMax.Visible = true;
         }
 
         private bool HayInternet()

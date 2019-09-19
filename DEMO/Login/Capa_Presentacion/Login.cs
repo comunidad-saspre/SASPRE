@@ -157,10 +157,7 @@ namespace Capa_Presentacion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -308,19 +305,15 @@ namespace Capa_Presentacion
             if (ConexionAInternet() == true)
             {
 
-                pictureBox5.Location = new Point(521, 420);
-                bunifuMaterialTextbox1.Location = new Point(548, 420);
                 btnEnviar.Location = new Point(655, 520);
                 btnCancelar.Location = new Point(521, 520);
-                bunifuSeparator2.Location = new Point(520, 470);
+                pictureBox6.Location = new Point(512, 475);
                 linklblcontrasena.Visible = false;
                 txtNickname.Visible = false;
-                pictureBox2.Visible = false;
+                pictureBox2.Visible = true;
                 pictureBox3.Visible = false;
                 txtContra.Visible = false;
                 btnIngresar.Visible = false;
-                label1.Visible = true;
-                pictureBox5.Visible = true;
                 bunifuMaterialTextbox1.Visible = true;
                 btnEnviar.Visible = true;
                 btnCancelar.Visible = true;
@@ -348,7 +341,6 @@ namespace Capa_Presentacion
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void txtNickname_OnValueChanged(object sender, EventArgs e)
@@ -454,17 +446,65 @@ namespace Capa_Presentacion
             pictureBox3.Visible = true;
             txtContra.Visible = true;
             btnIngresar.Visible = true;
-            label1.Visible = false;
-            pictureBox5.Visible = false;
             bunifuMaterialTextbox1.Visible = false;
             btnEnviar.Visible = false;
             btnCancelar.Visible = false;
-            bunifuSeparator2.Location = new Point(520, 533);
+            pictureBox6.Location = new Point(512, 547);
         }
 
         private void bunifuSeparator2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void BtnMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void BtnMax_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMax.Visible = false;
+            btnRest.Visible = true;
+        }
+
+        private void BtnRest_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRest.Visible = false;
+            btnMax.Visible = true;
+        }
+        int posX = 0;
+        int posY = 0;
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
+
+        private void c(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRest.Visible = false;
+            btnMax.Visible = true;
         }
     }
 

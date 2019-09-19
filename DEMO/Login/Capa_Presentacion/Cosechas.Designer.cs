@@ -53,12 +53,15 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportar.FlatAppearance.BorderSize = 0;
+            this.btnExportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnExportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(661, 57);
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Location = new System.Drawing.Point(661, 99);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(104, 28);
             this.btnExportar.TabIndex = 68;
@@ -70,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 21);
+            this.label1.Location = new System.Drawing.Point(29, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 25);
@@ -82,7 +85,7 @@
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 65);
+            this.label2.Location = new System.Drawing.Point(30, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
@@ -130,7 +133,7 @@
             this.dgvCultivo.EnableHeadersVisualStyles = false;
             this.dgvCultivo.HeaderBgColor = System.Drawing.Color.White;
             this.dgvCultivo.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvCultivo.Location = new System.Drawing.Point(34, 96);
+            this.dgvCultivo.Location = new System.Drawing.Point(34, 138);
             this.dgvCultivo.MultiSelect = false;
             this.dgvCultivo.Name = "dgvCultivo";
             this.dgvCultivo.ReadOnly = true;
@@ -207,7 +210,7 @@
             // 
             // txtBuscarUnCultivo
             // 
-            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(166, 65);
+            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(166, 107);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
             this.txtBuscarUnCultivo.Size = new System.Drawing.Size(184, 20);
             this.txtBuscarUnCultivo.TabIndex = 66;
@@ -216,7 +219,7 @@
             // dtpPlantado
             // 
             this.dtpPlantado.CustomFormat = "";
-            this.dtpPlantado.Location = new System.Drawing.Point(408, 65);
+            this.dtpPlantado.Location = new System.Drawing.Point(408, 107);
             this.dtpPlantado.Name = "dtpPlantado";
             this.dtpPlantado.Size = new System.Drawing.Size(205, 20);
             this.dtpPlantado.TabIndex = 69;
@@ -224,12 +227,15 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(661, 579);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(661, 621);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 28);
             this.button1.TabIndex = 70;
@@ -249,6 +255,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvCultivo);
             this.Controls.Add(this.txtBuscarUnCultivo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cosechas";
             this.Text = "Cosechas";
             this.Load += new System.EventHandler(this.Cosechas_Load);

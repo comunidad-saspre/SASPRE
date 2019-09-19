@@ -606,7 +606,6 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<EstadisticasDePlagas>();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -617,7 +616,7 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<AdministrarCultivos2>();
+            AbrirFormEnPanel<AdministrarCultivos>();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -628,7 +627,6 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<GenerarReportes>();
             lblTemp.Visible = true;
             panelClima.Visible = false;
             lblCentigrados.Visible = true;
@@ -639,7 +637,6 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton10_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<ConfiguracionGeneral>();
             lblTemp.Visible = true;
             panelClima.Visible = false;
             lblCentigrados.Visible = true;
@@ -658,14 +655,10 @@ namespace Capa_Presentacion
         }
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            CerrarFormEnPanel<AdministrarCultivos2>();
-            CerrarFormEnPanel<ConfiguracionGeneral>();
-            CerrarFormEnPanel<EstadisticasDePlagas>();
-            CerrarFormEnPanel<GenerarReportes>();
-            CerrarFormEnPanel<HistorialDePlagas>();
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
             CerrarFormEnPanel<AdministrarCultivos>();
-            CerrarFormEnPanel<AdministrarCultivosEditar>();
-            CerrarFormEnPanel<ConfiguracionGeneralAgregar>();
+            CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel <FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();
             CerrarFormEnPanel<Datos_Atmosfericos>();

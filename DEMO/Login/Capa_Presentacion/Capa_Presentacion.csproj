@@ -175,18 +175,6 @@
     <Compile Include="AdministrarCultivos.Designer.cs">
       <DependentUpon>AdministrarCultivos.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministrarCultivos2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdministrarCultivos2.Designer.cs">
-      <DependentUpon>AdministrarCultivos2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdministrarCultivosEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdministrarCultivosEditar.Designer.cs">
-      <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
-    </Compile>
     <Compile Include="CalculoDePlagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,18 +183,6 @@
     </Compile>
     <Compile Include="Ciudad.cs" />
     <Compile Include="CiudadDia.cs" />
-    <Compile Include="ConfiguracionGeneral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfiguracionGeneral.Designer.cs">
-      <DependentUpon>ConfiguracionGeneral.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfiguracionGeneralAgregar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfiguracionGeneralAgregar.Designer.cs">
-      <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cosechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,12 +194,6 @@
     </Compile>
     <Compile Include="Datos_Atmosfericos.Designer.cs">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogoEditarInformacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogoEditarInformacion.Designer.cs">
-      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
     </Compile>
     <Compile Include="dsAtmosfericos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -264,12 +234,6 @@
     <Compile Include="Envio_Correo.Designer.cs">
       <DependentUpon>Envio_Correo.cs</DependentUpon>
     </Compile>
-    <Compile Include="EstadisticasDePlagas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EstadisticasDePlagas.Designer.cs">
-      <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fertilizantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,12 +258,6 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GenerarReportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GenerarReportes.Designer.cs">
-      <DependentUpon>GenerarReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="HistorialDePlagas.cs">
       <SubType>Form</SubType>
@@ -356,22 +314,10 @@
     </Compile>
     <EmbeddedResource Include="AdministrarCultivos.resx">
       <DependentUpon>AdministrarCultivos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarCultivos2.resx">
-      <DependentUpon>AdministrarCultivos2.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarCultivosEditar.resx">
-      <DependentUpon>AdministrarCultivosEditar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CalculoDePlagas.resx">
       <DependentUpon>CalculoDePlagas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfiguracionGeneral.resx">
-      <DependentUpon>ConfiguracionGeneral.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfiguracionGeneralAgregar.resx">
-      <DependentUpon>ConfiguracionGeneralAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cosechas.resx">
       <DependentUpon>Cosechas.cs</DependentUpon>
@@ -379,14 +325,8 @@
     <EmbeddedResource Include="Datos_Atmosfericos.resx">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogoEditarInformacion.resx">
-      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Envio_Correo.resx">
       <DependentUpon>Envio_Correo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EstadisticasDePlagas.resx">
-      <DependentUpon>EstadisticasDePlagas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fertilizantes.resx">
       <DependentUpon>Fertilizantes.cs</DependentUpon>
@@ -400,9 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GenerarReportes.resx">
-      <DependentUpon>GenerarReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialDePlagas.resx">
       <DependentUpon>HistorialDePlagas.cs</DependentUpon>

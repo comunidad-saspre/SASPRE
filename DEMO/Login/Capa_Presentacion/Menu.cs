@@ -655,8 +655,6 @@ namespace Capa_Presentacion
         }
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = true;
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel <FromUsuarioABC>();

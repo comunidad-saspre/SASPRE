@@ -144,7 +144,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(549, 112);
+            this.pictureBox1.Location = new System.Drawing.Point(549, 93);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(177, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -165,7 +165,7 @@
             this.lblbienvenido.BackColor = System.Drawing.Color.Transparent;
             this.lblbienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbienvenido.ForeColor = System.Drawing.Color.Black;
-            this.lblbienvenido.Location = new System.Drawing.Point(544, 85);
+            this.lblbienvenido.Location = new System.Drawing.Point(544, 66);
             this.lblbienvenido.Name = "lblbienvenido";
             this.lblbienvenido.Size = new System.Drawing.Size(189, 24);
             this.lblbienvenido.TabIndex = 4;
@@ -178,7 +178,7 @@
             this.lblSASPRE.BackColor = System.Drawing.Color.Transparent;
             this.lblSASPRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSASPRE.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSASPRE.Location = new System.Drawing.Point(576, 310);
+            this.lblSASPRE.Location = new System.Drawing.Point(576, 291);
             this.lblSASPRE.Name = "lblSASPRE";
             this.lblSASPRE.Size = new System.Drawing.Size(121, 24);
             this.lblSASPRE.TabIndex = 5;
@@ -322,11 +322,11 @@
             this.linklblcontrasena.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linklblcontrasena.AutoSize = true;
             this.linklblcontrasena.BackColor = System.Drawing.Color.Transparent;
-            this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblcontrasena.LinkColor = System.Drawing.Color.White;
-            this.linklblcontrasena.Location = new System.Drawing.Point(571, 517);
+            this.linklblcontrasena.Location = new System.Drawing.Point(563, 517);
             this.linklblcontrasena.Name = "linklblcontrasena";
-            this.linklblcontrasena.Size = new System.Drawing.Size(134, 16);
+            this.linklblcontrasena.Size = new System.Drawing.Size(154, 16);
             this.linklblcontrasena.TabIndex = 11;
             this.linklblcontrasena.TabStop = true;
             this.linklblcontrasena.Text = "Olvidé mi contraseña";
@@ -430,7 +430,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Capa_Presentacion.Properties.Resources.Imagen1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pictureBox6);

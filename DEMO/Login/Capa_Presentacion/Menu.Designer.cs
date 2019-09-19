@@ -41,6 +41,7 @@
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -116,7 +117,6 @@
             this.lblPrecipitacion = new System.Windows.Forms.Label();
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.btnRest = new System.Windows.Forms.Button();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.myPanel2.SuspendLayout();
@@ -180,6 +180,13 @@
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 0;
             // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.myPanel1;
+            this.bunifuDragControl1.Vertical = true;
+            // 
             // myPanel1
             // 
             this.myPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("myPanel1.BackgroundImage")));
@@ -211,7 +218,7 @@
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.myPanel2.Location = new System.Drawing.Point(0, 0);
             this.myPanel2.Name = "myPanel2";
-            this.myPanel2.Size = new System.Drawing.Size(205, 720);
+            this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
             // 
             // bunifuFlatButton1
@@ -606,11 +613,11 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion.Location = new System.Drawing.Point(33, 133);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(53, 40);
+            this.lblDescripcion.Size = new System.Drawing.Size(52, 39);
             this.lblDescripcion.TabIndex = 54;
             this.lblDescripcion.Text = "° C";
             // 
@@ -625,7 +632,7 @@
             // 
             // myPanel5
             // 
-            this.myPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.myPanel5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.myPanel5.Controls.Add(this.labelPrecipitacion4);
             this.myPanel5.Controls.Add(this.labelMin4);
             this.myPanel5.Controls.Add(this.labelMax4);
@@ -691,7 +698,7 @@
             this.labelFecha4.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha4.Font = new System.Drawing.Font("Calibri", 14.25F);
             this.labelFecha4.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha4.Location = new System.Drawing.Point(4, 56);
+            this.labelFecha4.Location = new System.Drawing.Point(6, 56);
             this.labelFecha4.Name = "labelFecha4";
             this.labelFecha4.Size = new System.Drawing.Size(60, 23);
             this.labelFecha4.TabIndex = 49;
@@ -840,7 +847,7 @@
             this.labelFecha1.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha1.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha1.Location = new System.Drawing.Point(-1, 56);
+            this.labelFecha1.Location = new System.Drawing.Point(6, 56);
             this.labelFecha1.Name = "labelFecha1";
             this.labelFecha1.Size = new System.Drawing.Size(60, 23);
             this.labelFecha1.TabIndex = 39;
@@ -938,7 +945,7 @@
             this.labelFecha2.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha2.Font = new System.Drawing.Font("Calibri", 14.25F);
             this.labelFecha2.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha2.Location = new System.Drawing.Point(3, 56);
+            this.labelFecha2.Location = new System.Drawing.Point(6, 56);
             this.labelFecha2.Name = "labelFecha2";
             this.labelFecha2.Size = new System.Drawing.Size(60, 23);
             this.labelFecha2.TabIndex = 44;
@@ -985,17 +992,17 @@
             // 
             this.labelMante.AutoSize = true;
             this.labelMante.BackColor = System.Drawing.Color.Transparent;
-            this.labelMante.Font = new System.Drawing.Font("Calibri", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMante.Font = new System.Drawing.Font("Bahnschrift Condensed", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMante.ForeColor = System.Drawing.Color.White;
             this.labelMante.Location = new System.Drawing.Point(425, 15);
             this.labelMante.Name = "labelMante";
-            this.labelMante.Size = new System.Drawing.Size(275, 82);
+            this.labelMante.Size = new System.Drawing.Size(224, 81);
             this.labelMante.TabIndex = 29;
             this.labelMante.Text = "El Mante";
             // 
             // myPanel7
             // 
-            this.myPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.myPanel7.BackColor = System.Drawing.SystemColors.ControlLight;
             this.myPanel7.Controls.Add(this.picClima3);
             this.myPanel7.Controls.Add(this.labelPrecipitacion3);
             this.myPanel7.Controls.Add(this.labelMin3);
@@ -1061,7 +1068,7 @@
             this.labelFecha3.BackColor = System.Drawing.Color.Transparent;
             this.labelFecha3.Font = new System.Drawing.Font("Calibri", 14.25F);
             this.labelFecha3.ForeColor = System.Drawing.Color.Black;
-            this.labelFecha3.Location = new System.Drawing.Point(3, 56);
+            this.labelFecha3.Location = new System.Drawing.Point(6, 56);
             this.labelFecha3.Name = "labelFecha3";
             this.labelFecha3.Size = new System.Drawing.Size(60, 23);
             this.labelFecha3.TabIndex = 49;
@@ -1172,7 +1179,7 @@
             this.labelHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelHoy.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoy.ForeColor = System.Drawing.Color.White;
-            this.labelHoy.Location = new System.Drawing.Point(4, 56);
+            this.labelHoy.Location = new System.Drawing.Point(7, 56);
             this.labelHoy.Name = "labelHoy";
             this.labelHoy.Size = new System.Drawing.Size(145, 23);
             this.labelHoy.TabIndex = 34;
@@ -1373,13 +1380,6 @@
             this.btnRest.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnRest.UseVisualStyleBackColor = true;
             this.btnRest.Click += new System.EventHandler(this.BtnRest_Click);
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.myPanel1;
-            this.bunifuDragControl1.Vertical = true;
             // 
             // Menu
             // 

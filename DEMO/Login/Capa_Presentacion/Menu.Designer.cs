@@ -592,7 +592,7 @@
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 106);
+            this.lblDescripcion.Location = new System.Drawing.Point(3, 104);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(517, 25);
             this.lblDescripcion.TabIndex = 54;
@@ -600,7 +600,7 @@
             // 
             // picClimaActual
             // 
-            this.picClimaActual.Location = new System.Drawing.Point(580, 44);
+            this.picClimaActual.Location = new System.Drawing.Point(595, 44);
             this.picClimaActual.Name = "picClimaActual";
             this.picClimaActual.Size = new System.Drawing.Size(90, 90);
             this.picClimaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -849,7 +849,7 @@
             this.labelFechaCompletaHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelFechaCompletaHoy.Font = new System.Drawing.Font("Leelawadee", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaCompletaHoy.ForeColor = System.Drawing.Color.White;
-            this.labelFechaCompletaHoy.Location = new System.Drawing.Point(-1, 74);
+            this.labelFechaCompletaHoy.Location = new System.Drawing.Point(3, 75);
             this.labelFechaCompletaHoy.Name = "labelFechaCompletaHoy";
             this.labelFechaCompletaHoy.Size = new System.Drawing.Size(410, 32);
             this.labelFechaCompletaHoy.TabIndex = 30;

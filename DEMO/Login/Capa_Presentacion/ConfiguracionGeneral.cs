@@ -73,7 +73,6 @@ namespace Capa_Presentacion
         private void button3_Click(object sender, EventArgs e)
         {
             try { 
-            AbrirFormEnPanel<ConfiguracionGeneralAgregar>();
 
         }catch (Exception a) { MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         

@@ -30,6 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,15 +41,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboCultivo = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dgvFertilizantes = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvFertilizantes = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Insecticida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DosisComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EpocaControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EpocadeControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizantes)).BeginInit();
@@ -61,9 +64,10 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -155,53 +159,61 @@
             // dgvFertilizantes
             // 
             this.dgvFertilizantes.AllowUserToAddRows = false;
+            this.dgvFertilizantes.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvFertilizantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFertilizantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFertilizantes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFertilizantes.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFertilizantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvFertilizantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFertilizantes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFertilizantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFertilizantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFertilizantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
+            this.IDCultivo,
             this.Cultivo,
             this.Plaga,
             this.Insecticida,
             this.Dosis,
             this.NombreComercial,
             this.DosisComercial,
-            this.EpocaControl});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFertilizantes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.EpocadeControl});
+            this.dgvFertilizantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFertilizantes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFertilizantes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFertilizantes.DoubleBuffered = true;
             this.dgvFertilizantes.EnableHeadersVisualStyles = false;
-            this.dgvFertilizantes.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvFertilizantes.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvFertilizantes.HeaderForeColor = System.Drawing.Color.White;
             this.dgvFertilizantes.Location = new System.Drawing.Point(3, 35);
             this.dgvFertilizantes.Name = "dgvFertilizantes";
             this.dgvFertilizantes.ReadOnly = true;
+            this.dgvFertilizantes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvFertilizantes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvFertilizantes.RowHeadersVisible = false;
             this.dgvFertilizantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFertilizantes.Size = new System.Drawing.Size(794, 412);
-            this.dgvFertilizantes.TabIndex = 1;
-            this.dgvFertilizantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFertilizantes_CellContentClick);
+            this.dgvFertilizantes.Size = new System.Drawing.Size(794, 392);
+            this.dgvFertilizantes.TabIndex = 56;
             // 
-            // Id
+            // IDCultivo
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.IDCultivo.DataPropertyName = "Id";
+            this.IDCultivo.HeaderText = "ID";
+            this.IDCultivo.Name = "IDCultivo";
+            this.IDCultivo.ReadOnly = true;
             // 
             // Cultivo
             // 
@@ -216,10 +228,14 @@
             this.Plaga.HeaderText = "Plaga";
             this.Plaga.Name = "Plaga";
             this.Plaga.ReadOnly = true;
+            this.Plaga.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Insecticida
             // 
             this.Insecticida.DataPropertyName = "Insecticida";
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Insecticida.DefaultCellStyle = dataGridViewCellStyle3;
             this.Insecticida.HeaderText = "Insecticida";
             this.Insecticida.Name = "Insecticida";
             this.Insecticida.ReadOnly = true;
@@ -227,6 +243,9 @@
             // Dosis
             // 
             this.Dosis.DataPropertyName = "Dosis";
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Dosis.DefaultCellStyle = dataGridViewCellStyle4;
             this.Dosis.HeaderText = "Dosis";
             this.Dosis.Name = "Dosis";
             this.Dosis.ReadOnly = true;
@@ -245,12 +264,12 @@
             this.DosisComercial.Name = "DosisComercial";
             this.DosisComercial.ReadOnly = true;
             // 
-            // EpocaControl
+            // EpocadeControl
             // 
-            this.EpocaControl.DataPropertyName = "Epoca de Control";
-            this.EpocaControl.HeaderText = "Epoca Control";
-            this.EpocaControl.Name = "EpocaControl";
-            this.EpocaControl.ReadOnly = true;
+            this.EpocadeControl.DataPropertyName = "Epoca de Control";
+            this.EpocadeControl.HeaderText = "Epoca de Control";
+            this.EpocadeControl.Name = "EpocadeControl";
+            this.EpocadeControl.ReadOnly = true;
             // 
             // Fertilizantes
             // 
@@ -275,18 +294,18 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboCultivo;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.DataGridView dgvFertilizantes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboPlaga;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvFertilizantes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
         private System.Windows.Forms.DataGridViewTextBoxColumn Insecticida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreComercial;
         private System.Windows.Forms.DataGridViewTextBoxColumn DosisComercial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EpocaControl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EpocadeControl;
     }
 }

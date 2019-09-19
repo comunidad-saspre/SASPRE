@@ -207,9 +207,9 @@
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -226,8 +226,8 @@
             this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsers.DoubleBuffered = true;
             this.dgvUsers.EnableHeadersVisualStyles = false;
-            this.dgvUsers.HeaderBgColor = System.Drawing.Color.White;
-            this.dgvUsers.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvUsers.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvUsers.HeaderForeColor = System.Drawing.Color.White;
             this.dgvUsers.Location = new System.Drawing.Point(3, 32);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";

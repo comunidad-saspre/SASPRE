@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Presentacion", "Capa_Presentacion\Capa_Presentacion.csproj", "{F2DE86B8-B2AD-4A53-9354-0FDA04645D1E}"
 EndProject
@@ -11,21 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Negocio", "Capa_Negoci
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DED261EF-E0C4-41EA-B6E8-77D1504F8E96}"
 	ProjectSection(SolutionItems) = preProject
-		BD010619.sql = BD010619.sql
-		BD020619.sql = BD020619.sql
-		BD090619.sql = BD090619.sql
-		BD170619.sql = BD170619.sql
-		BD180619.sql = BD180619.sql
-		BD190619.sql = BD190619.sql
-		BDFINAL260519.sql = BDFINAL260519.sql
-		BDFINALFINAL.sql = BDFINALFINAL.sql
-		BDNUEVA100519.sql = BDNUEVA100519.sql
 		BDSASPRE.sql = BDSASPRE.sql
-		españolsql.sql = españolsql.sql
 		ProcedimientoAlmacenadoDatosAtmosfericos.sql = ProcedimientoAlmacenadoDatosAtmosfericos.sql
 	EndProjectSection
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SASPRE", "SASPRE\SASPRE.vdproj", "{1FD26461-EA5A-472C-A7D5-59EE3C930F1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +33,6 @@ Global
 		{057FBDA6-8E76-43D9-8EF6-D1D104C71B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057FBDA6-8E76-43D9-8EF6-D1D104C71B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{057FBDA6-8E76-43D9-8EF6-D1D104C71B38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FD26461-EA5A-472C-A7D5-59EE3C930F1D}.Debug|Any CPU.ActiveCfg = Debug
-		{1FD26461-EA5A-472C-A7D5-59EE3C930F1D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

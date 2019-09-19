@@ -94,9 +94,9 @@
             this.dgvHistorial.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHistorial.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -118,8 +118,8 @@
             this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHistorial.DoubleBuffered = true;
             this.dgvHistorial.EnableHeadersVisualStyles = false;
-            this.dgvHistorial.HeaderBgColor = System.Drawing.Color.White;
-            this.dgvHistorial.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvHistorial.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvHistorial.HeaderForeColor = System.Drawing.Color.White;
             this.dgvHistorial.Location = new System.Drawing.Point(49, 120);
             this.dgvHistorial.MultiSelect = false;
             this.dgvHistorial.Name = "dgvHistorial";

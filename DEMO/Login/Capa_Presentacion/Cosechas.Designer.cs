@@ -101,9 +101,9 @@
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -128,8 +128,8 @@
             this.dgvCultivo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCultivo.DoubleBuffered = true;
             this.dgvCultivo.EnableHeadersVisualStyles = false;
-            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.White;
-            this.dgvCultivo.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvCultivo.HeaderForeColor = System.Drawing.Color.White;
             this.dgvCultivo.Location = new System.Drawing.Point(34, 96);
             this.dgvCultivo.MultiSelect = false;
             this.dgvCultivo.Name = "dgvCultivo";

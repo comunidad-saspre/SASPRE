@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageListPlantas = new System.Windows.Forms.ImageList(this.components);
-            this.panelContenedor = new Capa_Presentacion.MyPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCalcularEstado = new System.Windows.Forms.Button();
             this.btnCosechar = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpPlantado = new System.Windows.Forms.DateTimePicker();
             this.cbPlanta = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblNombreCientifico = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picCultivo = new System.Windows.Forms.PictureBox();
@@ -61,10 +59,10 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
@@ -80,53 +78,27 @@
             this.imageListPlantas.Images.SetKeyName(4, "CEBOLLA.png");
             this.imageListPlantas.Images.SetKeyName(5, "SOYA2.jpg");
             // 
-            // panelContenedor
-            // 
-            this.panelContenedor.Controls.Add(this.dateTimePicker1);
-            this.panelContenedor.Controls.Add(this.btnCalcularEstado);
-            this.panelContenedor.Controls.Add(this.btnCosechar);
-            this.panelContenedor.Controls.Add(this.btnExportar);
-            this.panelContenedor.Controls.Add(this.txtCantidad);
-            this.panelContenedor.Controls.Add(this.label5);
-            this.panelContenedor.Controls.Add(this.label4);
-            this.panelContenedor.Controls.Add(this.dtpCosecha);
-            this.panelContenedor.Controls.Add(this.label3);
-            this.panelContenedor.Controls.Add(this.dtpPlantado);
-            this.panelContenedor.Controls.Add(this.cbPlanta);
-            this.panelContenedor.Controls.Add(this.label1);
-            this.panelContenedor.Controls.Add(this.lblNombreCientifico);
-            this.panelContenedor.Controls.Add(this.label2);
-            this.panelContenedor.Controls.Add(this.picCultivo);
-            this.panelContenedor.Controls.Add(this.dgvCultivo);
-            this.panelContenedor.Controls.Add(this.txtBuscarUnCultivo);
-            this.panelContenedor.Controls.Add(this.btnAgregar);
-            this.panelContenedor.Controls.Add(this.btnEditar);
-            this.panelContenedor.Controls.Add(this.label9);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(985, 720);
-            this.panelContenedor.TabIndex = 56;
-            // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(324, 65);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(462, 67);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
             this.dateTimePicker1.TabIndex = 66;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnCalcularEstado
             // 
-            this.btnCalcularEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCalcularEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.btnCalcularEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCalcularEstado.FlatAppearance.BorderSize = 0;
             this.btnCalcularEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
             this.btnCalcularEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalcularEstado.ForeColor = System.Drawing.Color.Black;
-            this.btnCalcularEstado.Location = new System.Drawing.Point(361, 329);
+            this.btnCalcularEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCalcularEstado.ForeColor = System.Drawing.Color.White;
+            this.btnCalcularEstado.Location = new System.Drawing.Point(609, 384);
             this.btnCalcularEstado.Name = "btnCalcularEstado";
-            this.btnCalcularEstado.Size = new System.Drawing.Size(155, 34);
+            this.btnCalcularEstado.Size = new System.Drawing.Size(155, 40);
             this.btnCalcularEstado.TabIndex = 65;
             this.btnCalcularEstado.Text = "Calcular estado";
             this.btnCalcularEstado.UseVisualStyleBackColor = false;
@@ -134,15 +106,16 @@
             // 
             // btnCosechar
             // 
-            this.btnCosechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnCosechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.btnCosechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCosechar.FlatAppearance.BorderSize = 0;
             this.btnCosechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
             this.btnCosechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCosechar.ForeColor = System.Drawing.Color.Black;
-            this.btnCosechar.Location = new System.Drawing.Point(537, 329);
+            this.btnCosechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCosechar.ForeColor = System.Drawing.Color.White;
+            this.btnCosechar.Location = new System.Drawing.Point(785, 384);
             this.btnCosechar.Name = "btnCosechar";
-            this.btnCosechar.Size = new System.Drawing.Size(155, 34);
+            this.btnCosechar.Size = new System.Drawing.Size(155, 40);
             this.btnCosechar.TabIndex = 64;
             this.btnCosechar.Text = "Cosechar";
             this.btnCosechar.UseVisualStyleBackColor = false;
@@ -150,15 +123,16 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportar.FlatAppearance.BorderSize = 0;
             this.btnExportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(537, 52);
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Location = new System.Drawing.Point(785, 63);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(155, 34);
+            this.btnExportar.Size = new System.Drawing.Size(155, 40);
             this.btnExportar.TabIndex = 63;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
@@ -166,10 +140,10 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(361, 592);
+            this.txtCantidad.Location = new System.Drawing.Point(539, 550);
             this.txtCantidad.MaxLength = 4;
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(200, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(123, 26);
             this.txtCantidad.TabIndex = 62;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
@@ -178,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(357, 566);
+            this.label5.Location = new System.Drawing.Point(325, 556);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 20);
@@ -189,7 +163,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(357, 503);
+            this.label4.Location = new System.Drawing.Point(323, 516);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(209, 20);
@@ -199,16 +173,16 @@
             // dtpCosecha
             // 
             this.dtpCosecha.CustomFormat = "yyyy-MM-dd";
-            this.dtpCosecha.Location = new System.Drawing.Point(361, 533);
+            this.dtpCosecha.Location = new System.Drawing.Point(539, 511);
             this.dtpCosecha.Name = "dtpCosecha";
-            this.dtpCosecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpCosecha.Size = new System.Drawing.Size(284, 26);
             this.dtpCosecha.TabIndex = 59;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(357, 439);
+            this.label3.Location = new System.Drawing.Point(323, 480);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 20);
@@ -218,9 +192,9 @@
             // dtpPlantado
             // 
             this.dtpPlantado.CustomFormat = "yyyy-MM-dd";
-            this.dtpPlantado.Location = new System.Drawing.Point(361, 468);
+            this.dtpPlantado.Location = new System.Drawing.Point(539, 474);
             this.dtpPlantado.Name = "dtpPlantado";
-            this.dtpPlantado.Size = new System.Drawing.Size(200, 20);
+            this.dtpPlantado.Size = new System.Drawing.Size(289, 26);
             this.dtpPlantado.TabIndex = 57;
             this.dtpPlantado.ValueChanged += new System.EventHandler(this.dtpPlantado_ValueChanged);
             // 
@@ -234,29 +208,18 @@
             "Soya",
             "Caña",
             "Cebolla"});
-            this.cbPlanta.Location = new System.Drawing.Point(42, 380);
+            this.cbPlanta.Location = new System.Drawing.Point(42, 384);
             this.cbPlanta.Name = "cbPlanta";
-            this.cbPlanta.Size = new System.Drawing.Size(255, 21);
+            this.cbPlanta.Size = new System.Drawing.Size(255, 28);
             this.cbPlanta.TabIndex = 56;
             this.cbPlanta.SelectedIndexChanged += new System.EventHandler(this.cbPlanta_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 25);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Administrar Cultivos";
             // 
             // lblNombreCientifico
             // 
             this.lblNombreCientifico.AutoSize = true;
             this.lblNombreCientifico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreCientifico.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblNombreCientifico.Location = new System.Drawing.Point(357, 410);
+            this.lblNombreCientifico.Location = new System.Drawing.Point(535, 440);
             this.lblNombreCientifico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreCientifico.Name = "lblNombreCientifico";
             this.lblNombreCientifico.Size = new System.Drawing.Size(78, 20);
@@ -267,11 +230,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 66);
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(37, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(157, 26);
             this.label2.TabIndex = 31;
             this.label2.Text = "Buscar un cultivo";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -279,7 +243,7 @@
             // picCultivo
             // 
             this.picCultivo.Image = global::Capa_Presentacion.Properties.Resources.MAÍZFINAL;
-            this.picCultivo.Location = new System.Drawing.Point(42, 414);
+            this.picCultivo.Location = new System.Drawing.Point(42, 440);
             this.picCultivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picCultivo.Name = "picCultivo";
             this.picCultivo.Size = new System.Drawing.Size(255, 199);
@@ -298,8 +262,8 @@
             this.dgvCultivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCultivo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -317,7 +281,7 @@
             this.dgvCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -325,16 +289,16 @@
             this.dgvCultivo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCultivo.DoubleBuffered = true;
             this.dgvCultivo.EnableHeadersVisualStyles = false;
-            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.DarkGreen;
+            this.dgvCultivo.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.dgvCultivo.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvCultivo.Location = new System.Drawing.Point(42, 97);
+            this.dgvCultivo.Location = new System.Drawing.Point(42, 113);
             this.dgvCultivo.Name = "dgvCultivo";
             this.dgvCultivo.ReadOnly = true;
             this.dgvCultivo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvCultivo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCultivo.RowHeadersVisible = false;
             this.dgvCultivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCultivo.Size = new System.Drawing.Size(650, 215);
+            this.dgvCultivo.Size = new System.Drawing.Size(898, 252);
             this.dgvCultivo.TabIndex = 53;
             this.dgvCultivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
             // 
@@ -396,106 +360,119 @@
             // 
             // txtBuscarUnCultivo
             // 
-            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(187, 66);
+            this.txtBuscarUnCultivo.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.txtBuscarUnCultivo.Location = new System.Drawing.Point(201, 65);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
-            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(131, 20);
+            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(232, 33);
             this.txtBuscarUnCultivo.TabIndex = 36;
             this.txtBuscarUnCultivo.TextChanged += new System.EventHandler(this.txtBuscarUnCultivo_TextChanged);
             this.txtBuscarUnCultivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarUnCultivo_KeyPress);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(144)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(537, 649);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(155, 34);
-            this.btnAgregar.TabIndex = 52;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
-
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.ForeColor = System.Drawing.Color.Black;
-            this.btnEditar.Location = new System.Drawing.Point(361, 649);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(155, 34);
-            this.btnEditar.TabIndex = 51;
-            this.btnEditar.Text = "Eliminar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnEliminar
-            // 
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(357, 381);
+            this.label9.Location = new System.Drawing.Point(324, 440);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(131, 20);
             this.label9.TabIndex = 44;
             this.label9.Text = "Nombre científico";
             // 
-            // AdministrarCultivos2
+            // label6
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label6.Location = new System.Drawing.Point(35, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(277, 39);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Administrar cultivos";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(507, 599);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(155, 40);
+            this.btnAgregar.TabIndex = 52;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(329, 599);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(155, 40);
+            this.btnEditar.TabIndex = 51;
+            this.btnEditar.Text = "Eliminar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // AdministrarCultivos
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1030, 720);
+            this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnCalcularEstado);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnCosechar);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.picCultivo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.picCultivo);
+            this.Controls.Add(this.dtpCosecha);
+            this.Controls.Add(this.dtpPlantado);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.cbPlanta);
+            this.Controls.Add(this.txtBuscarUnCultivo);
+            this.Controls.Add(this.lblNombreCientifico);
+            this.Controls.Add(this.dgvCultivo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientSize = new System.Drawing.Size(985, 720);
-            this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AdministrarCultivos2";
+            this.Name = "AdministrarCultivos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCultivos2";
             this.Load += new System.EventHandler(this.AdministrarCultivos2_Load);
-            this.panelContenedor.ResumeLayout(false);
-            this.panelContenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBuscarUnCultivo;
         private System.Windows.Forms.PictureBox picCultivo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCultivo;
         private System.Windows.Forms.Label lblNombreCientifico;
-        private MyPanel panelContenedor;
         private System.Windows.Forms.ComboBox cbPlanta;
         private System.Windows.Forms.ImageList imageListPlantas;
         private System.Windows.Forms.TextBox txtCantidad;
@@ -515,5 +492,8 @@
         private System.Windows.Forms.Button btnCosechar;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

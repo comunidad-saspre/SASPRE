@@ -301,5 +301,9 @@ namespace Capa_Presentacion
 
             }
         }
+
+        private void TableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }

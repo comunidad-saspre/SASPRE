@@ -587,11 +587,16 @@ namespace Capa_Presentacion
         Thread th;
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            Login log = new Login();
-            log.Show();
-            Cursor.Current = Cursors.Default;
-            this.Hide();
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                Login log = new Login();
+                log.Show();
+                Cursor.Current = Cursors.Default;
+                this.Hide();
+            }
+
+                
         }
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {

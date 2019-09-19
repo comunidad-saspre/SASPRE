@@ -630,6 +630,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\ARROW WHITE.png" />
+    <None Include="Resources\CONFIGURE WHITE1.png" />
+    <None Include="Resources\CONFIGURE WHITE.png" />
+    <None Include="Resources\CLOCK WHITE.png" />
+    <None Include="Resources\BAG WHITE.png" />
+    <None Include="Resources\DATOS ATMOSFERICOS WHITE.png" />
+    <None Include="Resources\PLANT WHITE.png" />
+    <None Include="Resources\FIELD WHITE.png" />
+    <None Include="Resources\CLOUD WHITE.png" />
     <None Include="Resources\Imagen1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

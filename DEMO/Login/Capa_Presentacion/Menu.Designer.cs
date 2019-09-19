@@ -233,7 +233,7 @@
             this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.ForeColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.CONFIGURE_WHITE1;
             this.bunifuFlatButton1.Iconimage_right = null;
             this.bunifuFlatButton1.Iconimage_right_Selected = null;
             this.bunifuFlatButton1.Iconimage_Selected = null;
@@ -272,7 +272,7 @@
             this.btnFertilizantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFertilizantes.ForeColor = System.Drawing.Color.White;
             this.btnFertilizantes.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnFertilizantes.Iconimage = global::Capa_Presentacion.Properties.Resources.BAG_WHITE;
             this.btnFertilizantes.Iconimage_right = null;
             this.btnFertilizantes.Iconimage_right_Selected = null;
             this.btnFertilizantes.Iconimage_Selected = null;
@@ -310,7 +310,7 @@
             this.btnAdministrarCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarCosechas.ForeColor = System.Drawing.Color.White;
             this.btnAdministrarCosechas.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarCosechas.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnAdministrarCosechas.Iconimage = global::Capa_Presentacion.Properties.Resources.FIELD_WHITE;
             this.btnAdministrarCosechas.Iconimage_right = null;
             this.btnAdministrarCosechas.Iconimage_right_Selected = null;
             this.btnAdministrarCosechas.Iconimage_Selected = null;
@@ -348,7 +348,7 @@
             this.btnAdministrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnAdministrarUsuarios.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarUsuarios.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Settings_32px;
+            this.btnAdministrarUsuarios.Iconimage = global::Capa_Presentacion.Properties.Resources.CONFIGURE_WHITE;
             this.btnAdministrarUsuarios.Iconimage_right = null;
             this.btnAdministrarUsuarios.Iconimage_right_Selected = null;
             this.btnAdministrarUsuarios.Iconimage_Selected = null;
@@ -386,7 +386,7 @@
             this.btnDatosAtmosfericos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatosAtmosfericos.ForeColor = System.Drawing.Color.White;
             this.btnDatosAtmosfericos.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnDatosAtmosfericos.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Edit_Pie_Chart_Report_32px;
+            this.btnDatosAtmosfericos.Iconimage = global::Capa_Presentacion.Properties.Resources.DATOS_ATMOSFERICOS_WHITE;
             this.btnDatosAtmosfericos.Iconimage_right = null;
             this.btnDatosAtmosfericos.Iconimage_right_Selected = null;
             this.btnDatosAtmosfericos.Iconimage_Selected = null;
@@ -424,7 +424,7 @@
             this.btnHistorialDePlagas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorialDePlagas.ForeColor = System.Drawing.Color.White;
             this.btnHistorialDePlagas.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnHistorialDePlagas.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Time_Machine_32px;
+            this.btnHistorialDePlagas.Iconimage = global::Capa_Presentacion.Properties.Resources.CLOCK_WHITE;
             this.btnHistorialDePlagas.Iconimage_right = null;
             this.btnHistorialDePlagas.Iconimage_right_Selected = null;
             this.btnHistorialDePlagas.Iconimage_Selected = null;
@@ -474,7 +474,7 @@
             this.btnAdministrarCultivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarCultivos.ForeColor = System.Drawing.Color.White;
             this.btnAdministrarCultivos.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarCultivos.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Leaf_32px;
+            this.btnAdministrarCultivos.Iconimage = global::Capa_Presentacion.Properties.Resources.PLANT_WHITE;
             this.btnAdministrarCultivos.Iconimage_right = null;
             this.btnAdministrarCultivos.Iconimage_right_Selected = null;
             this.btnAdministrarCultivos.Iconimage_Selected = null;
@@ -512,7 +512,7 @@
             this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnInicio.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Partly_Cloudy_Day_32px;
+            this.btnInicio.Iconimage = global::Capa_Presentacion.Properties.Resources.CLOUD_WHITE;
             this.btnInicio.Iconimage_right = null;
             this.btnInicio.Iconimage_right_Selected = null;
             this.btnInicio.Iconimage_Selected = null;
@@ -549,7 +549,7 @@
             this.btnCerrarSesion.DisabledColor = System.Drawing.Color.Gray;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.Iconimage = global::Capa_Presentacion.Properties.Resources.icons8_Long_Arrow_Left_32px_1;
+            this.btnCerrarSesion.Iconimage = global::Capa_Presentacion.Properties.Resources.ARROW_WHITE;
             this.btnCerrarSesion.Iconimage_right = null;
             this.btnCerrarSesion.Iconimage_right_Selected = null;
             this.btnCerrarSesion.Iconimage_Selected = null;
@@ -996,7 +996,7 @@
             this.labelMante.ForeColor = System.Drawing.Color.White;
             this.labelMante.Location = new System.Drawing.Point(425, 15);
             this.labelMante.Name = "labelMante";
-            this.labelMante.Size = new System.Drawing.Size(224, 81);
+            this.labelMante.Size = new System.Drawing.Size(221, 81);
             this.labelMante.TabIndex = 29;
             this.labelMante.Text = "El Mante";
             // 

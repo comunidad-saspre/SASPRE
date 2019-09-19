@@ -630,6 +630,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <Content Include="Resources\ARROW WHITE.png" />
+    <None Include="Resources\PLANT WHITE1.png" />
+    <None Include="Resources\ARROW WHITE1.png" />
+    <Content Include="Resources\BAG WHITE.png" />
+    <None Include="Resources\BAG WHITE1.png" />
+    <Content Include="Resources\CLOCK WHITE.png" />
+    <None Include="Resources\CLOCK WHITE1.png" />
+    <Content Include="Resources\CLOUD WHITE.png" />
+    <None Include="Resources\CLOUD WHITE1.png" />
+    <Content Include="Resources\CONFIGURE WHITE.png" />
+    <None Include="Resources\CONFIGURE WHITE2.png" />
+    <Content Include="Resources\DATOS ATMOSFERICOS WHITE.png" />
+    <None Include="Resources\DATOS ATMOSFERICOS WHITE1.png" />
+    <Content Include="Resources\FIELD WHITE.png" />
+    <None Include="Resources\FIELD WHITE1.png" />
+    <Content Include="Resources\LEAF WHITE.png" />
+    <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />
     <None Include="Resources\Imagen1.png" />
   </ItemGroup>

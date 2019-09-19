@@ -36,17 +36,18 @@ namespace Capa_Presentacion
             try
             {
                 Form formulario;
-                formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
+                //formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
 
                 //si el formulario/instancia no existe, creamos nueva instancia y mostramos
+                /*
                 if (formulario == null)
                 {
                     formulario = new Forms();
                     formulario.TopLevel = false;
                     formulario.FormBorderStyle = FormBorderStyle.None;
                     formulario.Dock = DockStyle.Fill;
-                    panelContenedor.Controls.Add(formulario);
-                    panelContenedor.Tag = formulario;
+                   // panelContenedor.Controls.Add(formulario);
+                    //panelContenedor.Tag = formulario;
                     formulario.Show();
                     formulario.BringToFront();
                     formulario.Opacity = .5;
@@ -65,6 +66,7 @@ namespace Capa_Presentacion
                     }
 
                 }
+                */
             }
             catch (Exception a)
             {
@@ -75,7 +77,7 @@ namespace Capa_Presentacion
         private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
         {
             Form formulario = new Forms();
-            formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
+            //formulario = panelContenedor.Controls.OfType<Forms>().FirstOrDefault();
 
             if (!(formulario == null))
             {

@@ -647,7 +647,6 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton10_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<ConfiguracionGeneral>();
             lblTemp.Visible = true;
             panelClima.Visible = false;
             lblCentigrados.Visible = true;
@@ -669,7 +668,6 @@ namespace Capa_Presentacion
             pictureBox1.Visible = true;
             pictureBox2.Visible = true;
             CerrarFormEnPanel<AdministrarCultivos>();
-            CerrarFormEnPanel<ConfiguracionGeneral>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel <FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();

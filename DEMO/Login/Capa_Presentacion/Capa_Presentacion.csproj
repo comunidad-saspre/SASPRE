@@ -183,12 +183,6 @@
     </Compile>
     <Compile Include="Ciudad.cs" />
     <Compile Include="CiudadDia.cs" />
-    <Compile Include="ConfiguracionGeneral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfiguracionGeneral.Designer.cs">
-      <DependentUpon>ConfiguracionGeneral.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cosechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,12 +194,6 @@
     </Compile>
     <Compile Include="Datos_Atmosfericos.Designer.cs">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogoEditarInformacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogoEditarInformacion.Designer.cs">
-      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
     </Compile>
     <Compile Include="dsAtmosfericos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -331,17 +319,11 @@
     <EmbeddedResource Include="CalculoDePlagas.resx">
       <DependentUpon>CalculoDePlagas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfiguracionGeneral.resx">
-      <DependentUpon>ConfiguracionGeneral.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Cosechas.resx">
       <DependentUpon>Cosechas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Datos_Atmosfericos.resx">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogoEditarInformacion.resx">
-      <DependentUpon>DialogoEditarInformacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Envio_Correo.resx">
       <DependentUpon>Envio_Correo.cs</DependentUpon>

@@ -144,7 +144,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(549, 93);
+            this.pictureBox1.Location = new System.Drawing.Point(549, 123);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(177, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -176,11 +176,11 @@
             this.lblSASPRE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSASPRE.AutoSize = true;
             this.lblSASPRE.BackColor = System.Drawing.Color.Transparent;
-            this.lblSASPRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSASPRE.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSASPRE.Location = new System.Drawing.Point(576, 291);
+            this.lblSASPRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSASPRE.ForeColor = System.Drawing.Color.White;
+            this.lblSASPRE.Location = new System.Drawing.Point(553, 340);
             this.lblSASPRE.Name = "lblSASPRE";
-            this.lblSASPRE.Size = new System.Drawing.Size(121, 24);
+            this.lblSASPRE.Size = new System.Drawing.Size(170, 31);
             this.lblSASPRE.TabIndex = 5;
             this.lblSASPRE.Text = "S A S P R E";
             // 

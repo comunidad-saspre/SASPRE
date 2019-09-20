@@ -215,7 +215,7 @@
             this.txtBuscarUnCultivo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarUnCultivo.Location = new System.Drawing.Point(201, 67);
             this.txtBuscarUnCultivo.Name = "txtBuscarUnCultivo";
-            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(207, 33);
+            this.txtBuscarUnCultivo.Size = new System.Drawing.Size(148, 33);
             this.txtBuscarUnCultivo.TabIndex = 66;
             this.txtBuscarUnCultivo.TextChanged += new System.EventHandler(this.txtBuscarUnCultivo_TextChanged);
             // 
@@ -224,9 +224,9 @@
             this.dtpPlantado.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPlantado.CustomFormat = "";
             this.dtpPlantado.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.dtpPlantado.Location = new System.Drawing.Point(414, 69);
+            this.dtpPlantado.Location = new System.Drawing.Point(459, 69);
             this.dtpPlantado.Name = "dtpPlantado";
-            this.dtpPlantado.Size = new System.Drawing.Size(367, 31);
+            this.dtpPlantado.Size = new System.Drawing.Size(322, 31);
             this.dtpPlantado.TabIndex = 69;
             this.dtpPlantado.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 

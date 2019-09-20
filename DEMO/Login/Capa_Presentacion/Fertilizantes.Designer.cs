@@ -58,7 +58,6 @@
             this.dgvFertilizantes.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvFertilizantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFertilizantes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvFertilizantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFertilizantes.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvFertilizantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -169,7 +168,6 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
             this.txtBuscar.Location = new System.Drawing.Point(35, 82);
@@ -184,7 +182,6 @@
             // 
             // comboCultivo
             // 
-            this.comboCultivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboCultivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCultivo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.comboCultivo.FormattingEnabled = true;
@@ -196,7 +193,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label2.ForeColor = System.Drawing.Color.DimGray;
             this.label2.Location = new System.Drawing.Point(604, 86);
@@ -208,7 +204,6 @@
             // 
             // comboPlaga
             // 
-            this.comboPlaga.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboPlaga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPlaga.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.comboPlaga.FormattingEnabled = true;
@@ -220,7 +215,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
             this.label3.Location = new System.Drawing.Point(241, 85);
@@ -232,7 +226,6 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;

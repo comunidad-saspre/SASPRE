@@ -1233,6 +1233,7 @@
             this.panelDerecho.Controls.Add(this.lblPrecipitacion);
             this.panelDerecho.Controls.Add(this.lblCentigrados);
             this.panelDerecho.Controls.Add(this.btnRest);
+            this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDerecho.Location = new System.Drawing.Point(1072, 0);
             this.panelDerecho.Name = "panelDerecho";
             this.panelDerecho.Size = new System.Drawing.Size(208, 720);
@@ -1428,7 +1429,6 @@
         #endregion
         private System.Timers.Timer MouseDetect;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private MyPanel myPanel1;
         private MyPanel myPanel2;
         private Bunifu.Framework.UI.BunifuFlatButton btnCerrarSesion;
         private System.Windows.Forms.Label label1;
@@ -1495,7 +1495,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblAdvertencia;
-        private MyPanel panelDerecho;
         private System.Windows.Forms.Label lblTemp;
         private System.Windows.Forms.Label lblPrecipitacionmm;
         private System.Windows.Forms.Label lblHumedad;
@@ -1507,5 +1506,7 @@
         private System.Windows.Forms.Button btnMin;
         private System.Windows.Forms.Button btnRest;
         private MyPanel panelClima;
+        public MyPanel panelDerecho;
+        private MyPanel myPanel1;
     }
 }

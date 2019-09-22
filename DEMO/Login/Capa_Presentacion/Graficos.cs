@@ -29,5 +29,33 @@ namespace Capa_Presentacion
         {
 
         }
+
+        private void Posicion_Tick(object sender, EventArgs e)
+        {
+
+            Point locationOnForm = tomatepng.FindForm().PointToClient(tomatepng.Parent.PointToScreen(tomatepng.Location));
+            tomatepng.Location = new Point(locationOnForm.X, locationOnForm.Y);
+            //MessageBox.Show("X:"+tomatepng.Location.X.ToString());
+            //MessageBox.Show("Y:" + tomatepng.Location.Y.ToString());
+        }
+
+        private void tomatepng_DragEnter(object sender, DragEventArgs e)
+        {
+        }
+
+        int i = 0;
+        int NoTomate = 0;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = new PictureBox();
+            pb.Name = "tomate" + NoTomate++;
+            pb.SizeMode = PictureBoxSizeMode.Zoom;
+            pb.Image = Properties.Resources.TOMATE;
+            pb.Location = new System.Drawing.Point(90, 25 + i);
+            pb.Size = new System.Drawing.Size(50, 50);
+            this.panelPrincipal.Controls.Add(pb);
+            ControlExtension.Draggable(pb , true);
+            i += 60;
+        }
     }
 }

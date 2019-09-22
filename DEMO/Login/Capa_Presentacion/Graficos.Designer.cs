@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.Posicion = new System.Windows.Forms.Timer(this.components);
             this.panelPrincipal = new Capa_Presentacion.MyPanel();
             this.tomatepng = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,6 +39,12 @@
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tomatepng)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Posicion
+            // 
+            this.Posicion.Enabled = true;
+            this.Posicion.Interval = 5000;
+            this.Posicion.Tick += new System.EventHandler(this.Posicion_Tick);
             // 
             // panelPrincipal
             // 
@@ -54,13 +62,15 @@
             // 
             // tomatepng
             // 
+            this.tomatepng.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tomatepng.Image = global::Capa_Presentacion.Properties.Resources.TOMATE;
-            this.tomatepng.Location = new System.Drawing.Point(686, 95);
+            this.tomatepng.Location = new System.Drawing.Point(653, 81);
             this.tomatepng.Name = "tomatepng";
             this.tomatepng.Size = new System.Drawing.Size(70, 65);
             this.tomatepng.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.tomatepng.TabIndex = 4;
             this.tomatepng.TabStop = false;
+            this.tomatepng.DragEnter += new System.Windows.Forms.DragEventHandler(this.tomatepng_DragEnter);
             // 
             // label2
             // 
@@ -74,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(747, 320);
+            this.label1.Location = new System.Drawing.Point(668, 337);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -82,17 +92,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(720, 260);
+            this.button1.Location = new System.Drawing.Point(653, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 38);
+            this.button1.Size = new System.Drawing.Size(123, 38);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Agregar tomates";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(720, 190);
+            this.checkBox1.Location = new System.Drawing.Point(671, 203);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 1;
@@ -123,5 +134,6 @@
         private System.Windows.Forms.Label label2;
         private MyPanel panelPrincipal;
         private System.Windows.Forms.PictureBox tomatepng;
+        private System.Windows.Forms.Timer Posicion;
     }
 }

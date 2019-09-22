@@ -54,6 +54,7 @@
             this.btnAdministrarCultivos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panelClima = new Capa_Presentacion.MyPanel();
             this.lblAdvertencia = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
@@ -116,10 +117,10 @@
             this.lblPrecipitacion = new System.Windows.Forms.Label();
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.btnRest = new System.Windows.Forms.Button();
-            this.panelClima = new Capa_Presentacion.MyPanel();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.myPanel2.SuspendLayout();
+            this.panelClima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
             this.myPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClima4)).BeginInit();
@@ -132,7 +133,6 @@
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).BeginInit();
             this.panelDerecho.SuspendLayout();
-            this.panelClima.SuspendLayout();
             this.SuspendLayout();
             // 
             // MouseDetect
@@ -575,6 +575,29 @@
             this.btnCerrarSesion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
+            // panelClima
+            // 
+            this.panelClima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelClima.BackColor = System.Drawing.Color.Transparent;
+            this.panelClima.Controls.Add(this.lblAdvertencia);
+            this.panelClima.Controls.Add(this.lblDescripcion);
+            this.panelClima.Controls.Add(this.picClimaActual);
+            this.panelClima.Controls.Add(this.myPanel5);
+            this.panelClima.Controls.Add(this.myPanel10);
+            this.panelClima.Controls.Add(this.labelClimaHoy);
+            this.panelClima.Controls.Add(this.labelFechaCompletaHoy);
+            this.panelClima.Controls.Add(this.myPanel8);
+            this.panelClima.Controls.Add(this.labelMante);
+            this.panelClima.Controls.Add(this.myPanel7);
+            this.panelClima.Controls.Add(this.myPanel3);
+            this.panelClima.Location = new System.Drawing.Point(245, 89);
+            this.panelClima.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.panelClima.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.panelClima.Name = "panelClima";
+            this.panelClima.Size = new System.Drawing.Size(1280, 720);
+            this.panelClima.TabIndex = 28;
+            this.panelClima.Paint += new System.Windows.Forms.PaintEventHandler(this.panelClima_Paint);
+            // 
             // lblAdvertencia
             // 
             this.lblAdvertencia.AutoSize = true;
@@ -839,7 +862,7 @@
             this.labelClimaHoy.ForeColor = System.Drawing.Color.White;
             this.labelClimaHoy.Location = new System.Drawing.Point(676, 43);
             this.labelClimaHoy.Name = "labelClimaHoy";
-            this.labelClimaHoy.Size = new System.Drawing.Size(162, 88);
+            this.labelClimaHoy.Size = new System.Drawing.Size(158, 88);
             this.labelClimaHoy.TabIndex = 31;
             this.labelClimaHoy.Text = "33° C";
             // 
@@ -974,7 +997,7 @@
             this.labelMante.ForeColor = System.Drawing.Color.White;
             this.labelMante.Location = new System.Drawing.Point(-9, -2);
             this.labelMante.Name = "labelMante";
-            this.labelMante.Size = new System.Drawing.Size(224, 81);
+            this.labelMante.Size = new System.Drawing.Size(221, 81);
             this.labelMante.TabIndex = 29;
             this.labelMante.Text = "El Mante";
             // 
@@ -1269,7 +1292,7 @@
             this.lblTemp.AutoSize = true;
             this.lblTemp.BackColor = System.Drawing.Color.Transparent;
             this.lblTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemp.ForeColor = System.Drawing.Color.White;
+            this.lblTemp.ForeColor = System.Drawing.Color.DarkGray;
             this.lblTemp.Location = new System.Drawing.Point(42, 138);
             this.lblTemp.Name = "lblTemp";
             this.lblTemp.Size = new System.Drawing.Size(100, 20);
@@ -1295,7 +1318,7 @@
             this.lblHumedad.AutoSize = true;
             this.lblHumedad.BackColor = System.Drawing.Color.Transparent;
             this.lblHumedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHumedad.ForeColor = System.Drawing.Color.White;
+            this.lblHumedad.ForeColor = System.Drawing.Color.DarkGray;
             this.lblHumedad.Location = new System.Drawing.Point(42, 322);
             this.lblHumedad.Name = "lblHumedad";
             this.lblHumedad.Size = new System.Drawing.Size(79, 20);
@@ -1308,7 +1331,7 @@
             this.lblEstado.AutoSize = true;
             this.lblEstado.BackColor = System.Drawing.Color.Transparent;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.ForeColor = System.Drawing.Color.White;
+            this.lblEstado.ForeColor = System.Drawing.Color.DarkGray;
             this.lblEstado.Location = new System.Drawing.Point(42, 356);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(130, 16);
@@ -1322,7 +1345,7 @@
             this.lblPrecipitacion.AutoSize = true;
             this.lblPrecipitacion.BackColor = System.Drawing.Color.Transparent;
             this.lblPrecipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecipitacion.ForeColor = System.Drawing.Color.White;
+            this.lblPrecipitacion.ForeColor = System.Drawing.Color.DarkGray;
             this.lblPrecipitacion.Location = new System.Drawing.Point(42, 486);
             this.lblPrecipitacion.Name = "lblPrecipitacion";
             this.lblPrecipitacion.Size = new System.Drawing.Size(99, 20);
@@ -1335,7 +1358,7 @@
             this.lblCentigrados.AutoSize = true;
             this.lblCentigrados.BackColor = System.Drawing.Color.Transparent;
             this.lblCentigrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCentigrados.ForeColor = System.Drawing.Color.White;
+            this.lblCentigrados.ForeColor = System.Drawing.Color.DarkGray;
             this.lblCentigrados.Location = new System.Drawing.Point(42, 171);
             this.lblCentigrados.Name = "lblCentigrados";
             this.lblCentigrados.Size = new System.Drawing.Size(0, 16);
@@ -1359,29 +1382,6 @@
             this.btnRest.UseVisualStyleBackColor = true;
             this.btnRest.Click += new System.EventHandler(this.BtnRest_Click);
             // 
-            // panelClima
-            // 
-            this.panelClima.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelClima.BackColor = System.Drawing.Color.Transparent;
-            this.panelClima.Controls.Add(this.lblAdvertencia);
-            this.panelClima.Controls.Add(this.lblDescripcion);
-            this.panelClima.Controls.Add(this.picClimaActual);
-            this.panelClima.Controls.Add(this.myPanel5);
-            this.panelClima.Controls.Add(this.myPanel10);
-            this.panelClima.Controls.Add(this.labelClimaHoy);
-            this.panelClima.Controls.Add(this.labelFechaCompletaHoy);
-            this.panelClima.Controls.Add(this.myPanel8);
-            this.panelClima.Controls.Add(this.labelMante);
-            this.panelClima.Controls.Add(this.myPanel7);
-            this.panelClima.Controls.Add(this.myPanel3);
-            this.panelClima.Location = new System.Drawing.Point(245, 89);
-            this.panelClima.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.panelClima.MinimumSize = new System.Drawing.Size(1280, 720);
-            this.panelClima.Name = "panelClima";
-            this.panelClima.Size = new System.Drawing.Size(1280, 720);
-            this.panelClima.TabIndex = 28;
-            this.panelClima.Paint += new System.Windows.Forms.PaintEventHandler(this.panelClima_Paint);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1401,6 +1401,8 @@
             this.myPanel1.PerformLayout();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
+            this.panelClima.ResumeLayout(false);
+            this.panelClima.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();
             this.myPanel5.ResumeLayout(false);
             this.myPanel5.PerformLayout();
@@ -1419,8 +1421,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
-            this.panelClima.ResumeLayout(false);
-            this.panelClima.PerformLayout();
             this.ResumeLayout(false);
 
         }

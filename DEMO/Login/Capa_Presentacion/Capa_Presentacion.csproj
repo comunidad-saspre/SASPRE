@@ -78,6 +78,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <HintPath>..\packages\CrystalReports.Engine.13.0.3501\lib\net20\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
@@ -246,6 +249,12 @@
     <Compile Include="FromUsuarioABC.Designer.cs">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Graficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graficos.Designer.cs">
+      <DependentUpon>Graficos.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistorialPlagas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -333,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FromUsuarioABC.resx">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graficos.resx">
+      <DependentUpon>Graficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialPlagas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -631,6 +643,7 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="Resources\ARROW WHITE.png" />
+    <None Include="Resources\TOMATE.png" />
     <None Include="Resources\PLANT WHITE1.png" />
     <None Include="Resources\ARROW WHITE1.png" />
     <Content Include="Resources\BAG WHITE.png" />

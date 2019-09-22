@@ -191,10 +191,10 @@
             // 
             this.myPanel1.BackgroundImage = global::Capa_Presentacion.Properties.Resources.cielo;
             this.myPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Controls.Add(this.myPanel2);
             this.myPanel1.Controls.Add(this.panelClima);
             this.myPanel1.Controls.Add(this.lblfechaprincipal);
-            this.myPanel1.Controls.Add(this.panelDerecho);
             this.myPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myPanel1.Location = new System.Drawing.Point(0, 0);
             this.myPanel1.Name = "myPanel1";
@@ -223,7 +223,7 @@
             // 
             // bunifuFlatButton1
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 0;
@@ -262,7 +262,7 @@
             // 
             // btnFertilizantes
             // 
-            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnFertilizantes.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnFertilizantes.BackColor = System.Drawing.Color.Transparent;
             this.btnFertilizantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnFertilizantes.BorderRadius = 0;
@@ -300,7 +300,7 @@
             // 
             // btnAdministrarCosechas
             // 
-            this.btnAdministrarCosechas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarCosechas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCosechas.BackColor = System.Drawing.Color.Transparent;
             this.btnAdministrarCosechas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdministrarCosechas.BorderRadius = 0;
@@ -338,7 +338,7 @@
             // 
             // btnAdministrarUsuarios
             // 
-            this.btnAdministrarUsuarios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarUsuarios.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarUsuarios.BackColor = System.Drawing.Color.Transparent;
             this.btnAdministrarUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdministrarUsuarios.BorderRadius = 0;
@@ -376,7 +376,7 @@
             // 
             // btnDatosAtmosfericos
             // 
-            this.btnDatosAtmosfericos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnDatosAtmosfericos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnDatosAtmosfericos.BackColor = System.Drawing.Color.Transparent;
             this.btnDatosAtmosfericos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDatosAtmosfericos.BorderRadius = 0;
@@ -414,7 +414,7 @@
             // 
             // btnHistorialDePlagas
             // 
-            this.btnHistorialDePlagas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnHistorialDePlagas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnHistorialDePlagas.BackColor = System.Drawing.Color.Transparent;
             this.btnHistorialDePlagas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHistorialDePlagas.BorderRadius = 0;
@@ -464,7 +464,7 @@
             // 
             // btnAdministrarCultivos
             // 
-            this.btnAdministrarCultivos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnAdministrarCultivos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCultivos.BackColor = System.Drawing.Color.Transparent;
             this.btnAdministrarCultivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdministrarCultivos.BorderRadius = 0;
@@ -502,7 +502,7 @@
             // 
             // btnInicio
             // 
-            this.btnInicio.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnInicio.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnInicio.BackColor = System.Drawing.Color.Transparent;
             this.btnInicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnInicio.BorderRadius = 0;
@@ -540,7 +540,7 @@
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(145)))), ((int)(((byte)(64)))));
+            this.btnCerrarSesion.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrarSesion.BorderRadius = 0;
@@ -1222,7 +1222,7 @@
             // 
             // panelDerecho
             // 
-            this.panelDerecho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelDerecho.BackColor = System.Drawing.Color.Transparent;
             this.panelDerecho.Controls.Add(this.btnCer);
             this.panelDerecho.Controls.Add(this.btnMax);
             this.panelDerecho.Controls.Add(this.btnMin);
@@ -1292,11 +1292,11 @@
             // 
             this.lblTemp.AutoSize = true;
             this.lblTemp.BackColor = System.Drawing.Color.Transparent;
-            this.lblTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemp.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemp.ForeColor = System.Drawing.Color.White;
-            this.lblTemp.Location = new System.Drawing.Point(42, 138);
+            this.lblTemp.Location = new System.Drawing.Point(15, 49);
             this.lblTemp.Name = "lblTemp";
-            this.lblTemp.Size = new System.Drawing.Size(100, 20);
+            this.lblTemp.Size = new System.Drawing.Size(125, 23);
             this.lblTemp.TabIndex = 21;
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
@@ -1305,11 +1305,11 @@
             // 
             this.lblPrecipitacionmm.AutoSize = true;
             this.lblPrecipitacionmm.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrecipitacionmm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitacionmm.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecipitacionmm.ForeColor = System.Drawing.Color.White;
-            this.lblPrecipitacionmm.Location = new System.Drawing.Point(42, 520);
+            this.lblPrecipitacionmm.Location = new System.Drawing.Point(17, 207);
             this.lblPrecipitacionmm.Name = "lblPrecipitacionmm";
-            this.lblPrecipitacionmm.Size = new System.Drawing.Size(75, 16);
+            this.lblPrecipitacionmm.Size = new System.Drawing.Size(106, 23);
             this.lblPrecipitacionmm.TabIndex = 26;
             this.lblPrecipitacionmm.Text = "999.444mm";
             this.lblPrecipitacionmm.Visible = false;
@@ -1318,11 +1318,11 @@
             // 
             this.lblHumedad.AutoSize = true;
             this.lblHumedad.BackColor = System.Drawing.Color.Transparent;
-            this.lblHumedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHumedad.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHumedad.ForeColor = System.Drawing.Color.White;
-            this.lblHumedad.Location = new System.Drawing.Point(42, 322);
+            this.lblHumedad.Location = new System.Drawing.Point(17, 116);
             this.lblHumedad.Name = "lblHumedad";
-            this.lblHumedad.Size = new System.Drawing.Size(79, 20);
+            this.lblHumedad.Size = new System.Drawing.Size(98, 23);
             this.lblHumedad.TabIndex = 22;
             this.lblHumedad.Text = "Humedad";
             this.lblHumedad.Visible = false;
@@ -1331,11 +1331,11 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstado.ForeColor = System.Drawing.Color.White;
-            this.lblEstado.Location = new System.Drawing.Point(42, 356);
+            this.lblEstado.Location = new System.Drawing.Point(17, 141);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(130, 16);
+            this.lblEstado.Size = new System.Drawing.Size(177, 23);
             this.lblEstado.TabIndex = 25;
             this.lblEstado.Text = "Estado de humedad";
             this.lblEstado.Visible = false;
@@ -1345,11 +1345,11 @@
             // 
             this.lblPrecipitacion.AutoSize = true;
             this.lblPrecipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrecipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitacion.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecipitacion.ForeColor = System.Drawing.Color.White;
-            this.lblPrecipitacion.Location = new System.Drawing.Point(42, 486);
+            this.lblPrecipitacion.Location = new System.Drawing.Point(17, 182);
             this.lblPrecipitacion.Name = "lblPrecipitacion";
-            this.lblPrecipitacion.Size = new System.Drawing.Size(99, 20);
+            this.lblPrecipitacion.Size = new System.Drawing.Size(129, 23);
             this.lblPrecipitacion.TabIndex = 23;
             this.lblPrecipitacion.Text = "Precipitación";
             this.lblPrecipitacion.Visible = false;
@@ -1358,12 +1358,13 @@
             // 
             this.lblCentigrados.AutoSize = true;
             this.lblCentigrados.BackColor = System.Drawing.Color.Transparent;
-            this.lblCentigrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCentigrados.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCentigrados.ForeColor = System.Drawing.Color.White;
-            this.lblCentigrados.Location = new System.Drawing.Point(42, 171);
+            this.lblCentigrados.Location = new System.Drawing.Point(17, 75);
             this.lblCentigrados.Name = "lblCentigrados";
-            this.lblCentigrados.Size = new System.Drawing.Size(0, 16);
+            this.lblCentigrados.Size = new System.Drawing.Size(134, 23);
             this.lblCentigrados.TabIndex = 24;
+            this.lblCentigrados.Text = "3° Centigrados";
             this.lblCentigrados.Visible = false;
             // 
             // btnRest
@@ -1375,7 +1376,7 @@
             this.btnRest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.btnRest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnRest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRest.Location = new System.Drawing.Point(102, 0);
+            this.btnRest.Location = new System.Drawing.Point(103, 2);
             this.btnRest.Name = "btnRest";
             this.btnRest.Size = new System.Drawing.Size(50, 35);
             this.btnRest.TabIndex = 31;
@@ -1506,7 +1507,7 @@
         private System.Windows.Forms.Button btnMin;
         private System.Windows.Forms.Button btnRest;
         private MyPanel panelClima;
-        public MyPanel panelDerecho;
+        private MyPanel panelDerecho;
         private MyPanel myPanel1;
     }
 }

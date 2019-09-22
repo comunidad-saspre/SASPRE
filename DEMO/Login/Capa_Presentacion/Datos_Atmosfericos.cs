@@ -289,11 +289,6 @@ namespace Capa_Presentacion
             this.Close();
         }
 
-        private void BtnMax_Click(object sender, EventArgs e)
-        {
-         
-        }
-
         private void Button3_Click(object sender, EventArgs e)
         {
           
@@ -313,6 +308,11 @@ namespace Capa_Presentacion
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void BtnMax_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

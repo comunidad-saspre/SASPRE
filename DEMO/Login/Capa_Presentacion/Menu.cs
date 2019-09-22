@@ -252,6 +252,7 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            panelDerecho.BackColor = Color.Transparent;
             try
             {
                 if(HayInternet() == true)
@@ -589,6 +590,7 @@ namespace Capa_Presentacion
         {
             if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                panelDerecho.BackColor = Color.Transparent;
                 Cursor.Current = Cursors.WaitCursor;
                 Login log = new Login();
                 log.Show();
@@ -660,6 +662,7 @@ namespace Capa_Presentacion
         }
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
+            panelDerecho.BackColor = Color.Transparent;
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel <FromUsuarioABC>();
@@ -1134,11 +1137,14 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            btnDatAtmos = true;
-            panelDerecho.Visible = false;
+            //btnDatAtmos = true;
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
-            
+
+
+           
+
+
             //lblTemp.Visible = true;
             //lblCentigrados.Visible = true;
             //lblHumedad.Visible = true;

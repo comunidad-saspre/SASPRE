@@ -172,7 +172,7 @@
             this.txtBuscar.ForeColor = System.Drawing.Color.Gray;
             this.txtBuscar.Location = new System.Drawing.Point(35, 82);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(179, 33);
+            this.txtBuscar.Size = new System.Drawing.Size(200, 33);
             this.txtBuscar.TabIndex = 0;
             this.txtBuscar.Text = "Buscar";
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);

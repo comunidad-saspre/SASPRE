@@ -57,7 +57,6 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellidos.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtApellidos.Location = new System.Drawing.Point(352, 117);
             this.txtApellidos.Name = "txtApellidos";
@@ -66,7 +65,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label5.ForeColor = System.Drawing.Color.DimGray;
@@ -79,7 +77,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
@@ -92,7 +89,6 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtNombre.Location = new System.Drawing.Point(352, 74);
             this.txtNombre.Name = "txtNombre";
@@ -101,7 +97,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,7 +112,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -131,7 +127,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -150,7 +146,9 @@
             this.dgvUsers.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -192,7 +190,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -207,7 +205,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -223,7 +221,6 @@
             // 
             // txtCargo
             // 
-            this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtCargo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtCargo.FormattingEnabled = true;
@@ -237,7 +234,6 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCorreo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtCorreo.Location = new System.Drawing.Point(717, 160);
             this.txtCorreo.Name = "txtCorreo";
@@ -246,7 +242,6 @@
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label9.ForeColor = System.Drawing.Color.DimGray;
@@ -259,7 +254,6 @@
             // 
             // txtContra
             // 
-            this.txtContra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContra.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtContra.Location = new System.Drawing.Point(717, 117);
             this.txtContra.Name = "txtContra";
@@ -268,7 +262,6 @@
             // 
             // txtNick
             // 
-            this.txtNick.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNick.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtNick.Location = new System.Drawing.Point(717, 74);
             this.txtNick.Name = "txtNick";
@@ -277,7 +270,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label8.ForeColor = System.Drawing.Color.DimGray;
@@ -290,7 +282,6 @@
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label7.ForeColor = System.Drawing.Color.DimGray;
@@ -303,7 +294,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label6.ForeColor = System.Drawing.Color.DimGray;
@@ -316,7 +306,6 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
             this.pbImagen.Location = new System.Drawing.Point(36, 69);

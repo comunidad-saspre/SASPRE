@@ -623,6 +623,7 @@
             // 
             // picClimaActual
             // 
+            this.picClimaActual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClimaActual.Location = new System.Drawing.Point(595, 44);
             this.picClimaActual.Name = "picClimaActual";
             this.picClimaActual.Size = new System.Drawing.Size(90, 90);
@@ -633,6 +634,9 @@
             // 
             // myPanel5
             // 
+            this.myPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.myPanel5.Controls.Add(this.labelPrecipitacion4);
             this.myPanel5.Controls.Add(this.labelMin4);
@@ -744,6 +748,9 @@
             // 
             // myPanel10
             // 
+            this.myPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel10.BackColor = System.Drawing.Color.White;
             this.myPanel10.Controls.Add(this.labelFecha1Min);
             this.myPanel10.Controls.Add(this.labelFecha1Max);
@@ -857,13 +864,14 @@
             // 
             // labelClimaHoy
             // 
+            this.labelClimaHoy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelClimaHoy.AutoSize = true;
             this.labelClimaHoy.BackColor = System.Drawing.Color.Transparent;
             this.labelClimaHoy.Font = new System.Drawing.Font("Bahnschrift Condensed", 54.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClimaHoy.ForeColor = System.Drawing.Color.White;
             this.labelClimaHoy.Location = new System.Drawing.Point(676, 43);
             this.labelClimaHoy.Name = "labelClimaHoy";
-            this.labelClimaHoy.Size = new System.Drawing.Size(158, 88);
+            this.labelClimaHoy.Size = new System.Drawing.Size(162, 88);
             this.labelClimaHoy.TabIndex = 31;
             this.labelClimaHoy.Text = "33° C";
             // 
@@ -881,6 +889,9 @@
             // 
             // myPanel8
             // 
+            this.myPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel8.BackColor = System.Drawing.Color.White;
             this.myPanel8.Controls.Add(this.labelPrecipitacion2);
             this.myPanel8.Controls.Add(this.labelMin2);
@@ -998,12 +1009,15 @@
             this.labelMante.ForeColor = System.Drawing.Color.White;
             this.labelMante.Location = new System.Drawing.Point(-9, -2);
             this.labelMante.Name = "labelMante";
-            this.labelMante.Size = new System.Drawing.Size(221, 81);
+            this.labelMante.Size = new System.Drawing.Size(224, 81);
             this.labelMante.TabIndex = 29;
             this.labelMante.Text = "El Mante";
             // 
             // myPanel7
             // 
+            this.myPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel7.BackColor = System.Drawing.SystemColors.ControlLight;
             this.myPanel7.Controls.Add(this.picClima3);
             this.myPanel7.Controls.Add(this.labelPrecipitacion3);
@@ -1115,6 +1129,9 @@
             // 
             // myPanel3
             // 
+            this.myPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.myPanel3.Controls.Add(this.labelPrecipitacionHoy);
             this.myPanel3.Controls.Add(this.picClimaHoy);
@@ -1222,6 +1239,7 @@
             // 
             // panelDerecho
             // 
+            this.panelDerecho.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelDerecho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panelDerecho.Controls.Add(this.btnCer);
             this.panelDerecho.Controls.Add(this.btnMax);
@@ -1233,7 +1251,6 @@
             this.panelDerecho.Controls.Add(this.lblPrecipitacion);
             this.panelDerecho.Controls.Add(this.lblCentigrados);
             this.panelDerecho.Controls.Add(this.btnRest);
-            this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDerecho.Location = new System.Drawing.Point(1072, 0);
             this.panelDerecho.Name = "panelDerecho";
             this.panelDerecho.Size = new System.Drawing.Size(208, 720);

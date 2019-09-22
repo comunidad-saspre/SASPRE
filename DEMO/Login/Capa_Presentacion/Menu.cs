@@ -1198,6 +1198,12 @@ namespace Capa_Presentacion
             btnMax.Visible = true;
         }
 
+        private void picClimaActual_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClimaActual, descripcionDia1);
+        }
+
         private bool HayInternet()
         {
             try

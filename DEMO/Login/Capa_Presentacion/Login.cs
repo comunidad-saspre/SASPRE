@@ -292,17 +292,16 @@ namespace Capa_Presentacion
 
             if (ConexionAInternet() == true)
             {
-
-                btnEnviar.Location = new Point(655, 520);
-                btnCancelar.Location = new Point(521, 520);
-                pictureBox6.Location = new Point(512, 475);
                 linklblcontrasena.Visible = false;
                 txtNickname.Visible = false;
                 pictureBox2.Visible = true;
                 pictureBox3.Visible = false;
                 txtContra.Visible = false;
                 btnIngresar.Visible = false;
+                pictureBox6.Visible = false;
+
                 bunifuMaterialTextbox1.Visible = true;
+                pictureBox5.Visible = true;
                 btnEnviar.Visible = true;
                 btnCancelar.Visible = true;
             }
@@ -428,16 +427,21 @@ namespace Capa_Presentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            bunifuMaterialTextbox1.Visible = false;
+            btnEnviar.Visible = false;
+            btnCancelar.Visible = false;
+            pictureBox5.Visible = false;
+            btnEnviar.Visible = false;
+            btnCancelar.Visible = false;
+
             linklblcontrasena.Visible = true;
             txtNickname.Visible = true;
             pictureBox2.Visible = true;
             pictureBox3.Visible = true;
             txtContra.Visible = true;
             btnIngresar.Visible = true;
-            bunifuMaterialTextbox1.Visible = false;
-            btnEnviar.Visible = false;
-            btnCancelar.Visible = false;
-            pictureBox6.Location = new Point(512, 547);
+            pictureBox6.Visible = true;
+            
         }
 
         private void bunifuSeparator2_Load(object sender, EventArgs e)

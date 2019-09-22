@@ -645,6 +645,8 @@
     <None Include="Resources\DATOS ATMOSFERICOS WHITE1.png" />
     <Content Include="Resources\FIELD WHITE.png" />
     <None Include="Resources\FIELD WHITE1.png" />
+    <None Include="Resources\Imagen2.png" />
+    <None Include="Resources\Imagen3.png" />
     <Content Include="Resources\LEAF WHITE.png" />
     <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />

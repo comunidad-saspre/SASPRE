@@ -49,7 +49,6 @@
             this.cbPlanta = new System.Windows.Forms.ComboBox();
             this.lblNombreCientifico = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.picCultivo = new System.Windows.Forms.PictureBox();
             this.dgvCultivo = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +62,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
+            this.picCultivo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             this.SuspendLayout();
             // 
             // imageListPlantas
@@ -81,9 +81,9 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(462, 67);
+            this.dateTimePicker1.Location = new System.Drawing.Point(469, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(310, 31);
             this.dateTimePicker1.TabIndex = 66;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -239,17 +239,6 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "Buscar un cultivo";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // picCultivo
-            // 
-            this.picCultivo.Image = global::Capa_Presentacion.Properties.Resources.MAÍZFINAL;
-            this.picCultivo.Location = new System.Drawing.Point(42, 440);
-            this.picCultivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.picCultivo.Name = "picCultivo";
-            this.picCultivo.Size = new System.Drawing.Size(255, 199);
-            this.picCultivo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCultivo.TabIndex = 32;
-            this.picCultivo.TabStop = false;
             // 
             // dgvCultivo
             // 
@@ -426,6 +415,17 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click);
             // 
+            // picCultivo
+            // 
+            this.picCultivo.Image = global::Capa_Presentacion.Properties.Resources.MAÍZFINAL;
+            this.picCultivo.Location = new System.Drawing.Point(42, 440);
+            this.picCultivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picCultivo.Name = "picCultivo";
+            this.picCultivo.Size = new System.Drawing.Size(255, 199);
+            this.picCultivo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCultivo.TabIndex = 32;
+            this.picCultivo.TabStop = false;
+            // 
             // AdministrarCultivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -459,8 +459,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCultivos2";
             this.Load += new System.EventHandler(this.AdministrarCultivos2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -750,6 +750,10 @@ namespace Capa_Presentacion
                                 {
                                     labelFechaCompletaHoy.Text = DateTime.ParseExact(info.LocalValidDate.Substring(0, 8), "yyyyMMdd", CultureInfo.InvariantCulture).ToLongDateString();
                                     labelHoy.Text = DateTime.Now.ToString("m");
+                                    ktf.Kuto scrap = new ktf.Kuto(DateTime.Now.ToString("m"));
+                                    string mes = scrap.Extract("de ", "").ToString();
+                                    labelHoy.Text = mes;
+                                    //MessageBox.Show(mes+" lol");
                                     labelHoyMax.Text = info.HiTempC + "°";
                                     labelHoyMin.Text = info.LowTempC + "°";
                                     labelPrecipitacionHoy.Text = info.ProbabilityOfPrecip + "%";

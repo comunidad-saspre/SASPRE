@@ -1239,7 +1239,6 @@
             // 
             // panelDerecho
             // 
-            this.panelDerecho.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelDerecho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panelDerecho.Controls.Add(this.btnCer);
             this.panelDerecho.Controls.Add(this.btnMax);

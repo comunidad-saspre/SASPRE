@@ -35,8 +35,8 @@ namespace Capa_Presentacion
 
             Point locationOnForm = tomatepng.FindForm().PointToClient(tomatepng.Parent.PointToScreen(tomatepng.Location));
             tomatepng.Location = new Point(locationOnForm.X, locationOnForm.Y);
-            //MessageBox.Show("X:"+tomatepng.Location.X.ToString());
-            //MessageBox.Show("Y:" + tomatepng.Location.Y.ToString());
+            //MessageBox.Show("X:"+tomatepng.Location.X.ToString()); /*Aquí para obtener la localización de X*/
+            //MessageBox.Show("Y:" + tomatepng.Location.Y.ToString()); /*Aqúí para obtener la localización de Y*/
         }
 
         private void tomatepng_DragEnter(object sender, DragEventArgs e)
@@ -53,6 +53,7 @@ namespace Capa_Presentacion
             pb.Image = Properties.Resources.TOMATE;
             pb.Location = new System.Drawing.Point(90, 25 + i);
             pb.Size = new System.Drawing.Size(50, 50);
+            pb.Cursor = Cursors.Hand;
             this.panelPrincipal.Controls.Add(pb);
             ControlExtension.Draggable(pb , true);
             i += 60;

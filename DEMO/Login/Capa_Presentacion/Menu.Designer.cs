@@ -41,7 +41,6 @@
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
             this.btnCer = new System.Windows.Forms.Button();
@@ -61,10 +60,10 @@
             this.btnAdministrarUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDatosAtmosfericos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHistorialDePlagas = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAdministrarCultivos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCerrarSesion = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelClima = new Capa_Presentacion.MyPanel();
             this.lblAdvertencia = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -117,11 +116,13 @@
             this.labelDiaHoyNombre = new System.Windows.Forms.Label();
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelDerecho.SuspendLayout();
             this.myPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelClima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).BeginInit();
             this.myPanel5.SuspendLayout();
@@ -134,7 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picClima3)).BeginInit();
             this.myPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MouseDetect
@@ -181,13 +181,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 0;
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.myPanel1;
-            this.bunifuDragControl1.Vertical = true;
             // 
             // myPanel1
             // 
@@ -411,11 +404,11 @@
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 450);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 405);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
             this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
@@ -450,11 +443,11 @@
             this.btnFertilizantes.IconVisible = true;
             this.btnFertilizantes.IconZoom = 60D;
             this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 300);
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 270);
             this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFertilizantes.Name = "btnFertilizantes";
             this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnFertilizantes.selected = false;
             this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
@@ -488,11 +481,11 @@
             this.btnAdministrarCosechas.IconVisible = true;
             this.btnAdministrarCosechas.IconZoom = 60D;
             this.btnAdministrarCosechas.IsTab = false;
-            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 150);
+            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 135);
             this.btnAdministrarCosechas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCosechas.Name = "btnAdministrarCosechas";
             this.btnAdministrarCosechas.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarCosechas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnAdministrarCosechas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCosechas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarCosechas.selected = false;
             this.btnAdministrarCosechas.Size = new System.Drawing.Size(250, 45);
@@ -526,11 +519,11 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 400);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 360);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarUsuarios.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarUsuarios.selected = false;
             this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
@@ -564,11 +557,11 @@
             this.btnDatosAtmosfericos.IconVisible = true;
             this.btnDatosAtmosfericos.IconZoom = 60D;
             this.btnDatosAtmosfericos.IsTab = false;
-            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 250);
+            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 225);
             this.btnDatosAtmosfericos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDatosAtmosfericos.Name = "btnDatosAtmosfericos";
             this.btnDatosAtmosfericos.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnDatosAtmosfericos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnDatosAtmosfericos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnDatosAtmosfericos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDatosAtmosfericos.selected = false;
             this.btnDatosAtmosfericos.Size = new System.Drawing.Size(250, 45);
@@ -602,11 +595,11 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 350);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 315);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnHistorialDePlagas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnHistorialDePlagas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnHistorialDePlagas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnHistorialDePlagas.selected = false;
             this.btnHistorialDePlagas.Size = new System.Drawing.Size(250, 45);
@@ -616,18 +609,6 @@
             this.btnHistorialDePlagas.Textcolor = System.Drawing.Color.White;
             this.btnHistorialDePlagas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorialDePlagas.Click += new System.EventHandler(this.bunifuFlatButton5_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Funcionalidades";
             // 
             // btnAdministrarCultivos
             // 
@@ -652,11 +633,11 @@
             this.btnAdministrarCultivos.IconVisible = true;
             this.btnAdministrarCultivos.IconZoom = 60D;
             this.btnAdministrarCultivos.IsTab = false;
-            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 200);
+            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 180);
             this.btnAdministrarCultivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCultivos.Name = "btnAdministrarCultivos";
             this.btnAdministrarCultivos.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnAdministrarCultivos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnAdministrarCultivos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCultivos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarCultivos.selected = false;
             this.btnAdministrarCultivos.Size = new System.Drawing.Size(250, 45);
@@ -690,11 +671,11 @@
             this.btnInicio.IconVisible = true;
             this.btnInicio.IconZoom = 60D;
             this.btnInicio.IsTab = false;
-            this.btnInicio.Location = new System.Drawing.Point(0, 55);
+            this.btnInicio.Location = new System.Drawing.Point(0, 45);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnInicio.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnInicio.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnInicio.OnHoverTextColor = System.Drawing.Color.White;
             this.btnInicio.selected = false;
             this.btnInicio.Size = new System.Drawing.Size(250, 45);
@@ -731,7 +712,7 @@
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnCerrarSesion.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCerrarSesion.selected = false;
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 45);
@@ -741,6 +722,15 @@
             this.btnCerrarSesion.Textcolor = System.Drawing.Color.White;
             this.btnCerrarSesion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(266, 45);
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
             // 
             // panelClima
             // 
@@ -1387,14 +1377,24 @@
             this.lblfechaprincipal.Text = "Viernes 5 de Abril";
             this.lblfechaprincipal.Visible = false;
             // 
-            // pictureBox1
+            // bunifuDragControl1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 103);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(266, 45);
-            this.pictureBox1.TabIndex = 61;
-            this.pictureBox1.TabStop = false;
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.myPanel1;
+            this.bunifuDragControl1.Vertical = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(47, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Funcionalidades";
             // 
             // Menu
             // 
@@ -1417,6 +1417,7 @@
             this.panelDerecho.PerformLayout();
             this.myPanel2.ResumeLayout(false);
             this.myPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelClima.ResumeLayout(false);
             this.panelClima.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaActual)).EndInit();
@@ -1435,7 +1436,6 @@
             this.myPanel3.ResumeLayout(false);
             this.myPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClimaHoy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1445,7 +1445,6 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private MyPanel myPanel2;
         private Bunifu.Framework.UI.BunifuFlatButton btnCerrarSesion;
-        private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton btnAdministrarCultivos;
         private Bunifu.Framework.UI.BunifuFlatButton btnHistorialDePlagas;
         private Bunifu.Framework.UI.BunifuFlatButton btnInicio;
@@ -1523,5 +1522,6 @@
         private MyPanel panelDerecho;
         private MyPanel myPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

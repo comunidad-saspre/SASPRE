@@ -1175,17 +1175,17 @@ namespace Capa_Presentacion
 
         private void BtnCer_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("¿Desea cerrar el programa?", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
+                panelDerecho.BackColor = Color.Transparent;
+                Cursor.Current = Cursors.WaitCursor;
+                Login log = new Login();
+                log.Show();
+                Cursor.Current = Cursors.Default;
+                this.Hide();
             }
-            catch (Exception ex)
-            {
 
-            }
+            
         }
 
         private void BtnMin_Click(object sender, EventArgs e)

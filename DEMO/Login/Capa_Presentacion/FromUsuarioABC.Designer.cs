@@ -259,7 +259,7 @@
             // pbImagen
             // 
             this.pbImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.Captura;
+            this.pbImagen.Image = global::Capa_Presentacion.Properties.Resources.AddIMG;
             this.pbImagen.Location = new System.Drawing.Point(36, 69);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbImagen.Name = "pbImagen";

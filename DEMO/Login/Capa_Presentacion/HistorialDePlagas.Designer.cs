@@ -187,10 +187,10 @@
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 14.25F);
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(610, 106);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(702, 109);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(332, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(240, 26);
             this.dateTimePicker1.TabIndex = 65;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -202,9 +202,9 @@
             this.label4.Location = new System.Drawing.Point(37, 25);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 39);
+            this.label4.Size = new System.Drawing.Size(253, 39);
             this.label4.TabIndex = 100;
-            this.label4.Text = "Historial";
+            this.label4.Text = "Historial de plagas";
             // 
             // HistorialDePlagas
             // 

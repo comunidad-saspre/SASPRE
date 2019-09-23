@@ -81,10 +81,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(469, 65);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(539, 69);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(310, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(240, 26);
             this.dateTimePicker1.TabIndex = 66;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -183,7 +183,7 @@
             this.dtpCosecha.CustomFormat = "yyyy-MM-dd";
             this.dtpCosecha.Location = new System.Drawing.Point(539, 511);
             this.dtpCosecha.Name = "dtpCosecha";
-            this.dtpCosecha.Size = new System.Drawing.Size(284, 26);
+            this.dtpCosecha.Size = new System.Drawing.Size(240, 26);
             this.dtpCosecha.TabIndex = 59;
             // 
             // label3
@@ -201,10 +201,11 @@
             // dtpPlantado
             // 
             this.dtpPlantado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpPlantado.CalendarFont = new System.Drawing.Font("Corbel", 8.25F);
             this.dtpPlantado.CustomFormat = "yyyy-MM-dd";
             this.dtpPlantado.Location = new System.Drawing.Point(539, 474);
             this.dtpPlantado.Name = "dtpPlantado";
-            this.dtpPlantado.Size = new System.Drawing.Size(289, 26);
+            this.dtpPlantado.Size = new System.Drawing.Size(240, 26);
             this.dtpPlantado.TabIndex = 57;
             this.dtpPlantado.ValueChanged += new System.EventHandler(this.dtpPlantado_ValueChanged);
             // 

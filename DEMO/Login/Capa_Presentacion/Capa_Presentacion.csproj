@@ -630,6 +630,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\AddIMG.png" />
     <Content Include="Resources\ARROW WHITE.png" />
     <None Include="Resources\PLANT WHITE1.png" />
     <None Include="Resources\ARROW WHITE1.png" />

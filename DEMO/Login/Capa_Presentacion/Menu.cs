@@ -23,6 +23,9 @@ namespace Capa_Presentacion
    
     public partial class Menu : Form
     {
+        private string rutadirectorio;
+        String thisDay = DateTime.Now.ToLongDateString().ToString();
+
         WebBrowser navegador = new WebBrowser();
 
         private bool Drag;
@@ -74,7 +77,6 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
-
 
         public struct MARGINS
         {
@@ -248,8 +250,11 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        //Manda a llamar a la clase CD_DatosClimaMes.cs
         CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
 
+        //Aqui es donde extrae la informacion del clima de la base de datos y la muestra en el from
         private void Menu_Load(object sender, EventArgs e)
         {
             panelDerecho.BackColor = Color.Transparent;
@@ -275,9 +280,20 @@ namespace Capa_Presentacion
                         // Cambia el DateTime fecha_hora a un día después.
                         fecha_hora = fecha_hora.AddDays(1);
                     }
+
+                    /*
+                     Si comento esta linea de codigo el panel principal del clima deja de mostrar
+                     los datos del clima actual y el pronosticado
+                     */
+
+                    //Checarlo
                     MostrarInformacionClima();
                     panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
-                    _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
+
+                    //Checarlos
+
+                    //Manda a guardar la fecha del dia actual a la base de datos
+                    //_DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
                     bunifuFlatButton1_Click(null, e);
                 }
                 else
@@ -294,211 +310,6 @@ namespace Capa_Presentacion
             {
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-        private void MostrarInformacionClima()
-        {
-            MostrarTemperaturaMaxima();
-            MostrarTemperaturaMinima();
-            MostrarPrecipitaciones();
-            MostrarDescripcionDia();
-            MostrarInformacionHoy();
-        }
-        private const int TEMPERATURA_MINIMA_PERMITIDA = 5;
-        private const int TEMPERATURA_MAXIMA_PERMITIDA = 40;
-
-        private const string MAX_TEMP_WARNING = "Alerta: Temperatura mayor a 40 grados";
-        private const string MIN_TEMP_WARNING = "Alerta: Temperatura menor a 5 grados";
-        
-        //DICE EL OSCAR QUE AUI SE SACAN LOS DATOS CLIMATOLOGICOS
-        private void datos_cargados(object sender, EventArgs e)
-        {
-            try
-            {
-                int.TryParse(navegador.Document.GetElementById("wob_tm").InnerText, out int grados);
-
-                lblCentigrados.Text = grados + "° Centigrados";
-
-                labelClimaHoy.Text = grados + "° C";
-
-                if (grados >= TEMPERATURA_MAXIMA_PERMITIDA)
-                {
-                    lblAdvertencia.Text = MAX_TEMP_WARNING;
-                }
-
-                if (grados <= TEMPERATURA_MINIMA_PERMITIDA)
-                {
-                    lblAdvertencia.Text = MIN_TEMP_WARNING;
-                }
-
-                //foreach (HtmlElement etiqueta in navegador.Document.All)
-                //{
-                //    if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
-                //    {
-
-                //        ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
-                //        //precipitaciones: 
-                //        //lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
-                //        //lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
-
-                //    }
-                //}
-            }
-            catch (Exception)
-            {
-            }
-            
-        }
-        private void MostrarInformacionHoy()
-        {
-            /*var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
-            //MessageBox.Show(temperaturaHoy.ToString());
-            var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
-            var humedad = GetHumedad(precipitacion);
-            var valorPrecipitacion = GetPrecipitacion(precipitacion);
-
-            lblCentigrados.Text = temperaturaHoy.ToString() + "° Centigrados";
-            lblPrecipitacionmm.Text = valorPrecipitacion;
-            lblEstado.Text = humedad;*/
-
-        }
-
-        private void MostrarTemperaturaMaxima()
-        {
-            var maxTemperature = ScrapperCN.GetMaxTemperature();
-
-            labelHoyMax.Text = maxTemperature["dia1"] + "°C";
-            labelMax1.Text = maxTemperature["dia2"] + "°C";
-            labelMax2.Text = maxTemperature["dia3"] + "°C";
-            labelMax3.Text = maxTemperature["dia4"] + "°C";
-            labelMax4.Text = maxTemperature["dia5"] + "°C";
-        }
-
-        private void MostrarTemperaturaMinima()
-        {
-            var minTemperature = ScrapperCN.GetMinTemperature();
-
-            labelHoyMin.Text = minTemperature["dia1"] + "°C";
-            labelMin1.Text = minTemperature["dia2"] + "°C";
-            labelMin2.Text = minTemperature["dia3"] + "°C";
-            labelMin3.Text = minTemperature["dia4"] + "°C";
-            labelMin4.Text = minTemperature["dia5"] + "°C";
-        }
-
-        private void MostrarPrecipitaciones()
-        {
-            var cero = "   0%\n0.0 mm";
-            
-            labelPrecipitacionHoy.Text = GetPrecipitationDayString(1);
-            if (String.IsNullOrWhiteSpace(labelPrecipitacionHoy.Text)) labelPrecipitacionHoy.Text = cero;
-
-            labelPrecipitacion1.Text = GetPrecipitationDayString(2);
-            if (String.IsNullOrWhiteSpace(labelPrecipitacion1.Text)) labelPrecipitacion1.Text = cero;
-
-            labelPrecipitacion2.Text = GetPrecipitationDayString(3);
-            if (String.IsNullOrWhiteSpace(labelPrecipitacion2.Text)) labelPrecipitacion2.Text = cero;
-
-            labelPrecipitacion3.Text = GetPrecipitationDayString(4);
-            if (String.IsNullOrWhiteSpace(labelPrecipitacion3.Text)) labelPrecipitacion3.Text = cero;
-
-            labelPrecipitacion4.Text = GetPrecipitationDayString(5);
-            if (String.IsNullOrWhiteSpace(labelPrecipitacion4.Text)) labelPrecipitacion4.Text = cero;
-        }
-
-        private string GetPrecipitationDayString(int day)
-        {
-            string result = "";
-            var gap = "   ";
-
-            var precipitationsInformation = ScrapperCN.GetPrecipitation();
-
-            var precipitationDay = precipitationsInformation[$"dia{day}"];
-
-            if (precipitationDay.Contains('%'))
-            {
-                var precipitationDayInformation = precipitationDay.Split(' ');
-
-                var precipitationPercentageDay = precipitationDayInformation[0];
-                if (String.IsNullOrEmpty(precipitationPercentageDay)) precipitationPercentageDay = "0%";
-
-                var precipitationMmDay = precipitationDayInformation[1];
-                if (String.IsNullOrWhiteSpace(precipitationMmDay)) precipitationMmDay = "0.0 mm";
-
-                result += gap + precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
-
-                if(day == 1)
-                {
-                    lblPrecipitacionmm.Text = precipitationMmDay + " mm";
-                    lblEstado.Text = precipitationPercentageDay;
-                }
-                    
-
-                return result;
-            }
-
-            result += precipitationDay;
-
-            return result;
-        }
-
-        private string GetHumedad(string precipitacion)
-        {
-            if (precipitacion.Contains('%'))
-            {
-                var precipitationDayInformation = precipitacion.Split(' ');
-
-                var humedad = precipitationDayInformation[0].ToString();
-
-                var result = humedad;
-
-                return result;
-            }
-
-            return "";
-        }
-
-        private string GetPrecipitacion(string precipitacion)
-        {
-
-            if (precipitacion.Contains('%'))
-            {
-                var precipitationDayInformation = precipitacion.Split(' ');
-
-                var valorPrecipitacion = precipitationDayInformation[1];
-
-                var result = valorPrecipitacion + " mm";
-
-                return result;
-            }
-            return "";
-        }
-
-        private string descripcionDia1;
-        private string descripcionDia2;
-        private string descripcionDia3;
-        private string descripcionDia4;
-        private string descripcionDia5;
-
-        private void MostrarDescripcionDia()
-        {
-            var descriptions = ScrapperCN.GetDescription();
-
-            var infoDay1 = descriptions["dia1"].Split(':');
-            var infoDay2 = descriptions["dia2"].Split(':');
-            var infoDay3 = descriptions["dia3"].Split(':');
-            var infoDay4 = descriptions["dia4"].Split(':');
-            var infoDay5 = descriptions["dia5"].Split(':');
-
-            this.picClimaHoy.Image = picClimaActual.Image =  ObtenerImagenDesdeCodigo(infoDay1[0], 1);
-            this.picClima1.Image = ObtenerImagenDesdeCodigo(infoDay2[0], 2);
-            this.picClima2.Image = ObtenerImagenDesdeCodigo(infoDay3[0], 3);
-            this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
-            this.picClima4.Image = ObtenerImagenDesdeCodigo(infoDay5[0], 5);
-
-            descripcionDia1 = lblDescripcion.Text = infoDay1[1];
-            descripcionDia2 = infoDay2[1];
-            descripcionDia3 = infoDay3[1];
-            descripcionDia4 = infoDay4[1];
-            descripcionDia5 = infoDay5[1];
 
         }
 
@@ -525,6 +336,8 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        //Este solo manda a la ventana el dia actual
         private String TranslateDay(String day)
         {
             try
@@ -694,6 +507,386 @@ namespace Capa_Presentacion
         {
 
         }
+
+
+        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AbrirFormEnPanel<FromUsuarioABC>();
+                lblTemp.Visible = true;
+                panelClima.Visible = false;
+                lblCentigrados.Visible = true;
+                lblHumedad.Visible = true;
+                lblEstado.Visible = true;
+                lblPrecipitacion.Visible = true;
+                lblPrecipitacionmm.Visible = true;
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAdministrarCosechas_Click(object sender, EventArgs e)
+        {
+            panelDerecho.Visible = true;
+            AbrirFormEnPanel<Cosechas>();
+            panelClima.Visible = false;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+        bool btnDatAtmos;
+
+        private void btnFertilizantes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<Fertilizantes>();
+            panelClima.Visible = false;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+
+        private void picClimaHoy_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClimaHoy, descripcionDia1);
+        }
+
+        private void picClima1_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima1, descripcionDia2);
+        }
+
+        private void picClima2_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima2, descripcionDia3);
+        }
+
+        private void picClima3_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima3, descripcionDia4);
+        }
+
+        private void picClima4_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClima4, descripcionDia5);
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            //btnDatAtmos = true;
+            AbrirFormEnPanel<Datos_Atmosfericos>();
+            panelClima.Visible = false;
+
+
+           
+
+
+            //lblTemp.Visible = true;
+            //lblCentigrados.Visible = true;
+            //lblHumedad.Visible = true;
+            //lblEstado.Visible = true;
+            //lblPrecipitacion.Visible = true;
+            //lblPrecipitacionmm.Visible = true;
+            //Datos_Atmosfericos datos = new Datos_Atmosfericos();
+            //datos.Visible = true;
+
+        }
+
+        private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<CalculoDePlagas>();
+            lblTemp.Visible = true;
+            panelClima.Visible = false;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
+        }
+
+        
+        private void panelClima_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        
+
+        private void BtnCer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                panelDerecho.BackColor = Color.Transparent;
+                Cursor.Current = Cursors.WaitCursor;
+                Login log = new Login();
+                log.Show();
+                Cursor.Current = Cursors.Default;
+                this.Hide();
+            }
+
+            
+        }
+
+        private void BtnMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void BtnMax_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMax.Visible = false;
+            btnRest.Visible = true;
+        }
+
+        private void BtnRest_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRest.Visible = false;
+            btnMax.Visible = true;
+        }
+
+        private void picClimaActual_MouseHover(object sender, EventArgs e)
+        {
+            var toolTip = new ToolTip();
+            toolTip.SetToolTip(picClimaActual, descripcionDia1);
+        }
+
+        //Hacia arriba solo se encontraran difentes tipos de metodos
+        //-----------------------------------------------------------------------------------------------------------------------------
+        //Aqui se encontraran todos los metodos que tengan relacion respecto al clima
+
+        //Este metodo tambien se va
+        private void MostrarInformacionClima()
+        {
+            MostrarTemperaturaMaxima();
+            MostrarTemperaturaMinima();
+            MostrarPrecipitaciones();
+            MostrarDescripcionDia();
+            MostrarInformacionHoy();
+        }
+        private const int TEMPERATURA_MINIMA_PERMITIDA = 5;
+        private const int TEMPERATURA_MAXIMA_PERMITIDA = 40;
+
+        private const string MAX_TEMP_WARNING = "Alerta: Temperatura mayor a 40 grados";
+        private const string MIN_TEMP_WARNING = "Alerta: Temperatura menor a 5 grados";
+
+        //DICE EL OSCAR QUE AUI SE SACAN LOS DATOS CLIMATOLOGICOS
+        private void datos_cargados(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(navegador.Document.GetElementById("wob_tm").InnerText, out int grados);
+
+                lblCentigrados.Text = grados + "° Centigrados";
+
+                labelClimaHoy.Text = grados + "° C";
+
+                if (grados >= TEMPERATURA_MAXIMA_PERMITIDA)
+                {
+                    lblAdvertencia.Text = MAX_TEMP_WARNING;
+                }
+
+                if (grados <= TEMPERATURA_MINIMA_PERMITIDA)
+                {
+                    lblAdvertencia.Text = MIN_TEMP_WARNING;
+                }
+
+                //foreach (HtmlElement etiqueta in navegador.Document.All)
+                //{
+                //    if (etiqueta.GetAttribute("Classname").Contains("vk_gy vk_sh wob-dtl"))
+                //    {
+
+                //        ktf.Kuto scrapper = new ktf.Kuto(etiqueta.InnerText);
+                //        //precipitaciones: 
+                //        //lblPrecipitacionmm.Text = scrapper.Extract("precipitaciones: ", "Humedad:").ToString();
+                //        //lblEstado.Text = scrapper.Extract("Humedad: ", ".").ToString();
+
+                //    }
+                //}
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+        private void MostrarInformacionHoy()
+        {
+            /*var temperaturaHoy = ScrapperCN.GetTemperaturaHoy();
+            //MessageBox.Show(temperaturaHoy.ToString());
+            var precipitacion = ScrapperCN.GetPrecipitation()["dia1"];
+            var humedad = GetHumedad(precipitacion);
+            var valorPrecipitacion = GetPrecipitacion(precipitacion);
+
+            lblCentigrados.Text = temperaturaHoy.ToString() + "° Centigrados";
+            lblPrecipitacionmm.Text = valorPrecipitacion;
+            lblEstado.Text = humedad;*/
+
+        }
+
+        private void MostrarTemperaturaMaxima()
+        {
+            var maxTemperature = ScrapperCN.GetMaxTemperature();
+
+            labelHoyMax.Text = maxTemperature["dia1"] + "°C";
+            labelMax1.Text = maxTemperature["dia2"] + "°C";
+            labelMax2.Text = maxTemperature["dia3"] + "°C";
+            labelMax3.Text = maxTemperature["dia4"] + "°C";
+            labelMax4.Text = maxTemperature["dia5"] + "°C";
+        }
+
+        private void MostrarTemperaturaMinima()
+        {
+            var minTemperature = ScrapperCN.GetMinTemperature();
+
+            labelHoyMin.Text = minTemperature["dia1"] + "°C";
+            labelMin1.Text = minTemperature["dia2"] + "°C";
+            labelMin2.Text = minTemperature["dia3"] + "°C";
+            labelMin3.Text = minTemperature["dia4"] + "°C";
+            labelMin4.Text = minTemperature["dia5"] + "°C";
+        }
+
+        private void MostrarPrecipitaciones()
+        {
+            var cero = "   0%\n0.0 mm";
+
+            labelPrecipitacionHoy.Text = GetPrecipitationDayString(1);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacionHoy.Text)) labelPrecipitacionHoy.Text = cero;
+
+            labelPrecipitacion1.Text = GetPrecipitationDayString(2);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion1.Text)) labelPrecipitacion1.Text = cero;
+
+            labelPrecipitacion2.Text = GetPrecipitationDayString(3);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion2.Text)) labelPrecipitacion2.Text = cero;
+
+            labelPrecipitacion3.Text = GetPrecipitationDayString(4);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion3.Text)) labelPrecipitacion3.Text = cero;
+
+            labelPrecipitacion4.Text = GetPrecipitationDayString(5);
+            if (String.IsNullOrWhiteSpace(labelPrecipitacion4.Text)) labelPrecipitacion4.Text = cero;
+        }
+
+        private string GetPrecipitationDayString(int day)
+        {
+            string result = "";
+            var gap = "   ";
+
+            var precipitationsInformation = ScrapperCN.GetPrecipitation();
+
+            var precipitationDay = precipitationsInformation[$"dia{day}"];
+
+            if (precipitationDay.Contains('%'))
+            {
+                var precipitationDayInformation = precipitationDay.Split(' ');
+
+                var precipitationPercentageDay = precipitationDayInformation[0];
+                if (String.IsNullOrEmpty(precipitationPercentageDay)) precipitationPercentageDay = "0%";
+
+                var precipitationMmDay = precipitationDayInformation[1];
+                if (String.IsNullOrWhiteSpace(precipitationMmDay)) precipitationMmDay = "0.0 mm";
+
+                result += gap + precipitationPercentageDay + "\n\r" + precipitationMmDay + " mm";
+
+                if (day == 1)
+                {
+                    lblPrecipitacionmm.Text = precipitationMmDay + " mm";
+                    lblEstado.Text = precipitationPercentageDay;
+                }
+
+
+                return result;
+            }
+
+            result += precipitationDay;
+
+            return result;
+        }
+
+        private string GetHumedad(string precipitacion)
+        {
+            if (precipitacion.Contains('%'))
+            {
+                var precipitationDayInformation = precipitacion.Split(' ');
+
+                var humedad = precipitationDayInformation[0].ToString();
+
+                var result = humedad;
+
+                return result;
+            }
+
+            return "";
+        }
+
+        private string GetPrecipitacion(string precipitacion)
+        {
+
+            if (precipitacion.Contains('%'))
+            {
+                var precipitationDayInformation = precipitacion.Split(' ');
+
+                var valorPrecipitacion = precipitationDayInformation[1];
+
+                var result = valorPrecipitacion + " mm";
+
+                return result;
+            }
+            return "";
+        }
+
+        private string descripcionDia1;
+        private string descripcionDia2;
+        private string descripcionDia3;
+        private string descripcionDia4;
+        private string descripcionDia5;
+
+        /*
+         * Esta metodo se ira
+         * Aqui extraen la imagen necesario de la base de datos para los iconos del clima
+         * y los envian a la interfaz de menu
+         */
+        private void MostrarDescripcionDia()
+        {
+            var descriptions = ScrapperCN.GetDescription();
+
+            var infoDay1 = descriptions["dia1"].Split(':');
+            var infoDay2 = descriptions["dia2"].Split(':');
+            var infoDay3 = descriptions["dia3"].Split(':');
+            var infoDay4 = descriptions["dia4"].Split(':');
+            var infoDay5 = descriptions["dia5"].Split(':');
+
+            this.picClimaHoy.Image = picClimaActual.Image = ObtenerImagenDesdeCodigo(infoDay1[0], 1);
+            this.picClima1.Image = ObtenerImagenDesdeCodigo(infoDay2[0], 2);
+            this.picClima2.Image = ObtenerImagenDesdeCodigo(infoDay3[0], 3);
+            this.picClima3.Image = ObtenerImagenDesdeCodigo(infoDay4[0], 4);
+            this.picClima4.Image = ObtenerImagenDesdeCodigo(infoDay5[0], 5);
+
+            descripcionDia1 = lblDescripcion.Text = infoDay1[1];
+            descripcionDia2 = infoDay2[1];
+            descripcionDia3 = infoDay3[1];
+            descripcionDia4 = infoDay4[1];
+            descripcionDia5 = infoDay5[1];
+
+        }
+
+        //Este se va
         async void GetRequestHora()
         {
             try
@@ -727,6 +920,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Este se va
         async void GetRequestDia()
         {
             try
@@ -816,11 +1010,14 @@ namespace Capa_Presentacion
         }
 
 
+        //Este se va
         private void ObtenerDias()
         {
 
 
         }
+
+        //Este tambien se va
         private void timerClima_Tick(object sender, EventArgs e)
         {
             /*if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
@@ -830,6 +1027,7 @@ namespace Capa_Presentacion
             navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
 
+        //Este tambien se va
         public Image vectorClima(String texto, int panel)
         {
             try
@@ -985,6 +1183,12 @@ namespace Capa_Presentacion
             */
         }
 
+
+        //Este tambien se va
+        /*
+         * Obitene imagenes del clima de la base de datos y evalua que imagen colocar
+         * respecto al clima que esta sucediendo
+         */
         public Image ObtenerImagenDesdeCodigo(String texto, int dayPictureBox)
         {
             try
@@ -1046,9 +1250,9 @@ namespace Capa_Presentacion
 
                         break;
                 }
-                
+
             }
-            catch(Exception a)
+            catch (Exception a)
             {
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
@@ -1056,169 +1260,14 @@ namespace Capa_Presentacion
             return null;
         }
 
-        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                AbrirFormEnPanel<FromUsuarioABC>();
-                lblTemp.Visible = true;
-                panelClima.Visible = false;
-                lblCentigrados.Visible = true;
-                lblHumedad.Visible = true;
-                lblEstado.Visible = true;
-                lblPrecipitacion.Visible = true;
-                lblPrecipitacionmm.Visible = true;
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnAdministrarCosechas_Click(object sender, EventArgs e)
-        {
-            panelDerecho.Visible = true;
-            AbrirFormEnPanel<Cosechas>();
-            panelClima.Visible = false;
-            lblTemp.Visible = true;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
-        }
-        bool btnDatAtmos;
-
-        private void btnFertilizantes_Click(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel<Fertilizantes>();
-            panelClima.Visible = false;
-            lblTemp.Visible = true;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
-        }
-
-        private void picClimaHoy_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClimaHoy, descripcionDia1);
-        }
-
-        private void picClima1_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClima1, descripcionDia2);
-        }
-
-        private void picClima2_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClima2, descripcionDia3);
-        }
-
-        private void picClima3_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClima3, descripcionDia4);
-        }
-
-        private void picClima4_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClima4, descripcionDia5);
-        }
-
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
-        {
-            //btnDatAtmos = true;
-            AbrirFormEnPanel<Datos_Atmosfericos>();
-            panelClima.Visible = false;
-
-
-           
-
-
-            //lblTemp.Visible = true;
-            //lblCentigrados.Visible = true;
-            //lblHumedad.Visible = true;
-            //lblEstado.Visible = true;
-            //lblPrecipitacion.Visible = true;
-            //lblPrecipitacionmm.Visible = true;
-            //Datos_Atmosfericos datos = new Datos_Atmosfericos();
-            //datos.Visible = true;
-
-        }
-
-        private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel<CalculoDePlagas>();
-            lblTemp.Visible = true;
-            panelClima.Visible = false;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
-        }
-
-        private void panelClima_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void BtnCer_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                panelDerecho.BackColor = Color.Transparent;
-                Cursor.Current = Cursors.WaitCursor;
-                Login log = new Login();
-                log.Show();
-                Cursor.Current = Cursors.Default;
-                this.Hide();
-            }
-
-            
-        }
-
-        private void BtnMin_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-
-        }
-
-        private void BtnMax_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnMax.Visible = false;
-            btnRest.Visible = true;
-        }
-
-        private void BtnRest_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnRest.Visible = false;
-            btnMax.Visible = true;
-        }
-
-        private void picClimaActual_MouseHover(object sender, EventArgs e)
-        {
-            var toolTip = new ToolTip();
-            toolTip.SetToolTip(picClimaActual, descripcionDia1);
-        }
-
+        //Este metodo tambien se viene
         private bool HayInternet()
         {
             try
             {
                 System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+                //descargaDocumento();
 
                 return true;
             }
@@ -1226,6 +1275,118 @@ namespace Capa_Presentacion
             {
                 return false;
             }
+        }
+
+        //Aqui empezara los datos de descarga de los documentos
+        private void descargaDocumento()
+        {
+            try
+            {
+                rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+                //crear carpeta
+                crear_carpeta();
+                //Guardar informacion
+                DownloadGamefile DGF = new DownloadGamefile();
+
+
+                //Su funcion es descargar los registros de climas que ya pasaron y guardarlos en registros por si 
+                //el cliente desea obtener detalles de los climas pasados
+                DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
+                //aqui es donde te dice si ya se descargo 
+                //while (DGF.DownloadCompleted == false)
+                //{
+                //    MessageBox.Show(DGF.DownloadCompleted.ToString());
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Metodo para descargar archivo de datos atmosfericos
+        public async void getArchivo()
+        {
+            try
+            {
+                WebClient wc = new WebClient();
+                String url = "https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ";
+                //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
+                Cursor.Current = Cursors.WaitCursor;
+                await wc.DownloadFileTaskAsync(url, rutadirectorio);
+                Cursor.Current = Cursors.Default;
+                //Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error con la descarga de un archivo, compruebe su conexion a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void PicClimaHoy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //metodo para crear carpeta donde se almacenara el documento descargado
+        public void crear_carpeta()
+        {
+            try
+            {
+                string ruta = "C:\\SASPRE_DATOS_ATMOSFERICOS";
+                if (!Directory.Exists(ruta))
+                {
+                    System.IO.Directory.CreateDirectory(ruta);
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+    }
+
+    //Aqui empieza los datos que extraje del from Login
+    public class DownloadGamefile
+    {
+        private volatile bool _completed;
+
+        public void DescargAsincrona(string address, string location)
+        {
+            WebClient client = new WebClient();
+            Uri uri = new Uri(address);
+            _completed = false;
+            client.DownloadFileAsync(uri, location);
+            while (client.IsBusy)
+                Thread.Sleep(1000);
+
+        }
+
+        public bool DownloadCompleted { get { return _completed; } }
+
+        private void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
+        {
+            // Displays the operation identifier, and the transfer progress.
+            Console.WriteLine("{0}    downloaded {1} of {2} bytes. {3} % complete...",
+                (string)e.UserState,
+                e.BytesReceived,
+                e.TotalBytesToReceive,
+                e.ProgressPercentage);
+        }
+
+        private void Completed(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                Console.WriteLine("Download has been canceled.");
+            }
+            else
+            {
+                Console.WriteLine("Download completed!");
+            }
+
+            _completed = true;
         }
     }
 }

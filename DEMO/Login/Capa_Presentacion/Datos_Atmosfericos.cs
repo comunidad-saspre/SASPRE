@@ -314,5 +314,10 @@ namespace Capa_Presentacion
         {
 
         }
+
+        private void DtgDatosElMante_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -20,10 +20,13 @@ namespace Capa_Presentacion
 {
     public partial class Login : Form
     {
+
         private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
         Thread th;
-        private string rutadirectorio;
-        String thisDay = DateTime.Now.ToLongDateString().ToString();
+        
+        //private string rutadirectorio;
+        //String thisDay = DateTime.Now.ToLongDateString().ToString();
+
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -158,13 +161,13 @@ namespace Capa_Presentacion
             //{
             try
             {
-                rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+            //    rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
                 //crear carpeta
-                crear_carpeta();
+            //    crear_carpeta();
                 //Guardar informacion
-                DownloadGamefile DGF = new DownloadGamefile();
+            //    DownloadGamefile DGF = new DownloadGamefile();
 
-                DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
+            //    DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
                 //aqui es donde te dice si ya se descargo 
                 //while (DGF.DownloadCompleted == false)
                 //{
@@ -197,9 +200,13 @@ namespace Capa_Presentacion
                         Ds.Tables[0].Rows.Add(new object[] { Loguear["Cargo"].ToString(), Loguear["Nombre"].ToString(),
                     Loguear["Correo"].ToString()});
                     }
+
                     Reportes r = new Reportes();
+
                     r.setInformacion(Ds);
+
                     Menu mn = new Menu();
+                    //Aqui manda a llamar a la clase Menu.cs y lanza el from del menu
                     mn.Show();
                     Cursor.Current = Cursors.Default;
                     this.Hide();
@@ -246,6 +253,7 @@ namespace Capa_Presentacion
 
         }
         //Metodo para descargar archivo de datos atmosfericos
+        /*
         public async void getArchivo()
         {
             try
@@ -264,7 +272,10 @@ namespace Capa_Presentacion
             }
 
         }
+        */
+
         //metodo para crear carpeta donde se almacenara el documento descargado
+        /*
         public void crear_carpeta()
         {
             try
@@ -280,6 +291,7 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        */
 
         private void txtContra_OnValueChanged(object sender, EventArgs e)
         {
@@ -500,6 +512,7 @@ namespace Capa_Presentacion
         }
     }
 
+    /*
     public class DownloadGamefile
     {
         private volatile bool _completed;
@@ -540,6 +553,6 @@ namespace Capa_Presentacion
 
             _completed = true;
         }
-    }
+    }*/
 
 }

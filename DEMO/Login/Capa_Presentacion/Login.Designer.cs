@@ -196,7 +196,7 @@
             this.txtNickname.HintForeColor = System.Drawing.Color.DimGray;
             this.txtNickname.HintText = "Usuario";
             this.txtNickname.isPassword = false;
-            this.txtNickname.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.txtNickname.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtNickname.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtNickname.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtNickname.LineThickness = 3;
@@ -219,7 +219,7 @@
             this.txtContra.HintForeColor = System.Drawing.Color.DimGray;
             this.txtContra.HintText = "Contraseña";
             this.txtContra.isPassword = true;
-            this.txtContra.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.txtContra.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtContra.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtContra.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtContra.LineThickness = 3;
@@ -305,7 +305,7 @@
             this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.DimGray;
             this.bunifuMaterialTextbox1.HintText = "Correo electrónico";
             this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.bunifuMaterialTextbox1.LineThickness = 3;

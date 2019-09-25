@@ -124,11 +124,11 @@
   <data name="CONFIGURE WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CONFIGURE WHITE2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MenuIzquierdo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuIzquierdo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="54516082_831687770532189_4577809296376463360_o" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\54516082_831687770532189_4577809296376463360_o.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="agro-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agro-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Long_Arrow_Left_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Long_Arrow_Left_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,23 +145,20 @@
   <data name="icons8_Delete_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Delete_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Privacy_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_Privacy_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MAÍZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAÍZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cielo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cielo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondooficial31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondooficial3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MAÍZFINAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MAÍZFINAL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="candado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\candado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Services_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_Services_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondooficial3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondooficial3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Bug_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Bug_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,17 +178,23 @@
   <data name="icons8_Minimize_Window_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Minimize_Window_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CLOUD WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CLOUD WHITE1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8_Potted_Plant_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Potted_Plant_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="descarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descarga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Time_Machine_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Time_Machine_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Imagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Imagen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BAG WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BAG WHITE1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gastos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gastos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Partly_Cloudy_Day_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Partly_Cloudy_Day_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +232,8 @@
   <data name="MenuIzquierdoVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIzquierdoVerde.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MenuIzquierdo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MenuIzquierdo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CLOUD WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CLOUD WHITE1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Customer_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Customer_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,20 +244,23 @@
   <data name="icons8_Home_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Home_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descarga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Privacy_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_Privacy_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddIMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddIMG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_Horizontal_Line_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Horizontal_Line_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MAÍZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MAÍZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Forward_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_Forward_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Delete_32px_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_Delete_32px_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MAÍZFINAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAÍZFINAL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Imagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Imagen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="agro-bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agro-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Captura" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,11 +268,14 @@
   <data name="icons8_Combo_Chart_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Combo_Chart_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Forward_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_Forward_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Delete_32px_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_Delete_32px_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CEBOLLA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CEBOLLA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SOYA3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SOYA3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DATOS ATMOSFERICOS WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DATOS ATMOSFERICOS WHITE1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,11 +289,11 @@
   <data name="PLANT WHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PLANT WHITE1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fondooficial3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondooficial3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cielo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cielo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SOYA3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SOYA3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Services_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_Services_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SOYA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SOYA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,7 +304,7 @@
   <data name="icons8_Settings_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_Settings_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddIMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddIMG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="almacen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\almacen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

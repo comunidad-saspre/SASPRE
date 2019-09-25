@@ -630,7 +630,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\ventas.png" />
     <None Include="Resources\AddIMG.png" />
+    <None Include="Resources\almacen.png" />
     <Content Include="Resources\ARROW WHITE.png" />
     <None Include="Resources\PLANT WHITE1.png" />
     <None Include="Resources\ARROW WHITE1.png" />
@@ -648,6 +650,7 @@
     <None Include="Resources\FIELD WHITE1.png" />
     <None Include="Resources\Imagen2.png" />
     <None Include="Resources\Imagen3.png" />
+    <None Include="Resources\gastos.png" />
     <Content Include="Resources\LEAF WHITE.png" />
     <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />

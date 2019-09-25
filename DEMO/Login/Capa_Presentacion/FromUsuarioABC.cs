@@ -246,8 +246,7 @@ namespace Capa_Presentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             VaciarCampos();
-            if (isEditar) IsEditar(false);
-            else IsEditar(true);
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

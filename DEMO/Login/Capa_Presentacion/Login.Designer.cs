@@ -324,11 +324,12 @@
             this.linklblcontrasena.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linklblcontrasena.AutoSize = true;
             this.linklblcontrasena.BackColor = System.Drawing.Color.Transparent;
-            this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklblcontrasena.LinkColor = System.Drawing.Color.Silver;
+            this.linklblcontrasena.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblcontrasena.LinkColor = System.Drawing.Color.WhiteSmoke;
             this.linklblcontrasena.Location = new System.Drawing.Point(563, 517);
             this.linklblcontrasena.Name = "linklblcontrasena";
-            this.linklblcontrasena.Size = new System.Drawing.Size(154, 16);
+            this.linklblcontrasena.Size = new System.Drawing.Size(167, 18);
             this.linklblcontrasena.TabIndex = 11;
             this.linklblcontrasena.TabStop = true;
             this.linklblcontrasena.Text = "Olvidé mi contraseña";
@@ -442,7 +443,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::Capa_Presentacion.Properties.Resources.Imagen3;
+            this.BackgroundImage = global::Capa_Presentacion.Properties.Resources.Imagen4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pictureBox5);

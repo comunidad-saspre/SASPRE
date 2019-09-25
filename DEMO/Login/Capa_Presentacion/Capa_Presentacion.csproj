@@ -678,6 +678,7 @@
     <None Include="Resources\Imagen2.png" />
     <None Include="Resources\Imagen3.png" />
     <None Include="Resources\gastos.png" />
+    <None Include="Resources\Imagen4.png" />
     <Content Include="Resources\LEAF WHITE.png" />
     <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />

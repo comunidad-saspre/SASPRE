@@ -603,6 +603,7 @@ namespace Capa_Presentacion
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
+
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -669,6 +670,10 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Fertilizantes>();
             CerrarFormEnPanel<Datos_Atmosfericos>();
             CerrarFormEnPanel<Cosechas>();
+            CerrarFormEnPanel<Ventas>();
+            CerrarFormEnPanel<Almacen>();
+            CerrarFormEnPanel<Gastos>();
+
             panelDerecho.Visible = true;
             panelClima.Visible = true;
             lblTemp.Visible = false;
@@ -1061,6 +1066,8 @@ namespace Capa_Presentacion
             try
             {
                 AbrirFormEnPanel<FromUsuarioABC>();
+
+
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
                 lblCentigrados.Visible = true;
@@ -1083,6 +1090,8 @@ namespace Capa_Presentacion
         {
             panelDerecho.Visible = true;
             AbrirFormEnPanel<Cosechas>();
+
+
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1096,6 +1105,7 @@ namespace Capa_Presentacion
         private void btnFertilizantes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Fertilizantes>();
+
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1142,7 +1152,6 @@ namespace Capa_Presentacion
             panelClima.Visible = false;
 
 
-           
 
 
             //lblTemp.Visible = true;
@@ -1212,6 +1221,68 @@ namespace Capa_Presentacion
         {
             var toolTip = new ToolTip();
             toolTip.SetToolTip(picClimaActual, descripcionDia1);
+        }
+
+        private void BunifuFlatButtonAlmacen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AbrirFormEnPanel<Almacen>();
+
+                lblTemp.Visible = true;
+                panelClima.Visible = false;
+                lblCentigrados.Visible = true;
+                lblHumedad.Visible = true;
+                lblEstado.Visible = true;
+                lblPrecipitacion.Visible = true;
+                lblPrecipitacionmm.Visible = true;
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void BunifuFlatButtonGastos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AbrirFormEnPanel<Gastos>();
+
+
+                lblTemp.Visible = true;
+                panelClima.Visible = false;
+                lblCentigrados.Visible = true;
+                lblHumedad.Visible = true;
+                lblEstado.Visible = true;
+                lblPrecipitacion.Visible = true;
+                lblPrecipitacionmm.Visible = true;
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void BunifuFlatButtonVentas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AbrirFormEnPanel<Ventas>();
+
+
+                lblTemp.Visible = true;
+                panelClima.Visible = false;
+                lblCentigrados.Visible = true;
+                lblHumedad.Visible = true;
+                lblEstado.Visible = true;
+                lblPrecipitacion.Visible = true;
+                lblPrecipitacionmm.Visible = true;
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private bool HayInternet()

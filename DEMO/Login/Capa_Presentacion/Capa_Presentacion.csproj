@@ -175,6 +175,12 @@
     <Compile Include="AdministrarCultivos.Designer.cs">
       <DependentUpon>AdministrarCultivos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen.Designer.cs">
+      <DependentUpon>Almacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalculoDePlagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,12 @@
     <Compile Include="FromUsuarioABC.Designer.cs">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos.Designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistorialPlagas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,9 +324,18 @@
       <DependentUpon>ReporteUsuario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdministrarCultivos.resx">
       <DependentUpon>AdministrarCultivos.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen.resx">
+      <DependentUpon>Almacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CalculoDePlagas.resx">
       <DependentUpon>CalculoDePlagas.cs</DependentUpon>
@@ -333,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FromUsuarioABC.resx">
       <DependentUpon>FromUsuarioABC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialPlagas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -380,6 +404,9 @@
     <EmbeddedResource Include="ReporteUsuario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dsAtmosfericos.xsc">
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>

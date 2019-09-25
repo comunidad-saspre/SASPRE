@@ -320,12 +320,12 @@
             // 
             // linklblcontrasena
             // 
-            this.linklblcontrasena.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linklblcontrasena.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.linklblcontrasena.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linklblcontrasena.AutoSize = true;
             this.linklblcontrasena.BackColor = System.Drawing.Color.Transparent;
             this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklblcontrasena.LinkColor = System.Drawing.Color.White;
+            this.linklblcontrasena.LinkColor = System.Drawing.Color.Silver;
             this.linklblcontrasena.Location = new System.Drawing.Point(563, 517);
             this.linklblcontrasena.Name = "linklblcontrasena";
             this.linklblcontrasena.Size = new System.Drawing.Size(154, 16);

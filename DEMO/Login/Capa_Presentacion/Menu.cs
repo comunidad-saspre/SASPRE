@@ -23,6 +23,9 @@ namespace Capa_Presentacion
    
     public partial class Menu : Form
     {
+        ThreadStart delegado;
+        Thread hilo;
+
         WebBrowser navegador = new WebBrowser();
 
         private bool Drag;
@@ -275,6 +278,7 @@ namespace Capa_Presentacion
                         // Cambia el DateTime fecha_hora a un día después.
                         fecha_hora = fecha_hora.AddDays(1);
                     }
+
                     MostrarInformacionClima();
                     panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
                     _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
@@ -295,6 +299,7 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
         private void MostrarInformacionClima()
         {
             MostrarTemperaturaMaxima();
@@ -366,7 +371,8 @@ namespace Capa_Presentacion
         {
             var maxTemperature = ScrapperCN.GetMaxTemperature();
 
-            labelHoyMax.Text = maxTemperature["dia1"] + "°C";
+            //Aqui truena cuando intento implementar el codigo----------------------------------
+            labelHoyMax.Text = maxTemperature["dia1"] + "°C"; //Exactamente aqui
             labelMax1.Text = maxTemperature["dia2"] + "°C";
             labelMax2.Text = maxTemperature["dia3"] + "°C";
             labelMax3.Text = maxTemperature["dia4"] + "°C";

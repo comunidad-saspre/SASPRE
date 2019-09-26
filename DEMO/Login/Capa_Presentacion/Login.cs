@@ -20,6 +20,9 @@ namespace Capa_Presentacion
 {
     public partial class Login : Form
     {
+        ThreadStart delegado;
+        Thread hilo;
+
         private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
         Thread th;
         private string rutadirectorio;
@@ -139,8 +142,26 @@ namespace Capa_Presentacion
 
         public Login()
         {
+            //Al momento de iniciar la aplicacion manda a llamar al hilo que descarga el documento (GG)
+            if (HayInternet() == true)
+            {
+                Hilo1();
+            }
+            else
+            {
+                MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Conexion a internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             InitializeComponent();
             m_aeroEnabled = false;
+        }
+
+        //Crea un hilo para que desde la ejecucion de la aplicacion se descarge los datos
+        //atmosfericos (GG)
+        private void Hilo1()
+        {
+            delegado = new ThreadStart(DescargaDocumento);
+            hilo = new Thread(delegado);
+            hilo.Start();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -158,23 +179,12 @@ namespace Capa_Presentacion
             //{
             try
             {
-                rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
-                //crear carpeta
-                crear_carpeta();
-                //Guardar informacion
-                DownloadGamefile DGF = new DownloadGamefile();
-
-                DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
-                //aqui es donde te dice si ya se descargo 
-                //while (DGF.DownloadCompleted == false)
-                //{
-                //    MessageBox.Show(DGF.DownloadCompleted.ToString());
-                //}
                 CN_Login _Login = new CN_Login();
                 MySqlDataReader Loguear;
                 Loguear = _Login.IniciarSesion(txtNickname.Text, txtContra.Text);
                 if (Loguear.Read() == true)
                 {
+                    /*
                     if (HayInternet() == true)
                     {
 
@@ -184,6 +194,8 @@ namespace Capa_Presentacion
                         
                         MessageBox.Show("Compruebe su conexión a internet, no tendrá todas las funcionalidades", "Conexion a internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    */
+
                     Cursor.Current = Cursors.WaitCursor;
                     Program.nickname = txtNickname.Text;
                     Program.contraseña = txtContra.Text;
@@ -218,6 +230,26 @@ namespace Capa_Presentacion
             //    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
+
+        //Se encarga de descargar el documento utilizado para los reportes de datos atmosfericos (GG)
+        private void DescargaDocumento()
+        {
+            
+            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+            //crear carpeta
+            crear_carpeta();
+            //Guardar informacion
+            DownloadGamefile DGF = new DownloadGamefile();
+
+            DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
+            //aqui es donde te dice si ya se descargo 
+            //while (DGF.DownloadCompleted == false)
+            //{
+            //    MessageBox.Show(DGF.DownloadCompleted.ToString());
+            //}
+            hilo.Abort();
+        }
+
 
         public bool ConexionAInternet()
         {

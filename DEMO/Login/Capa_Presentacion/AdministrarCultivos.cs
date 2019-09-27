@@ -551,7 +551,6 @@ namespace Capa_Presentacion
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
         }
 
-        String plaga = null;
         private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom,String dgvplantado,String dgvcosecha)
         {
             DateTime fechahoy = DateTime.Now;

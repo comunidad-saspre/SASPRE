@@ -24,7 +24,6 @@ namespace Capa_Presentacion
         Thread hilo;
 
         private CN_ABCUsuario _ABCUsuario = new CN_ABCUsuario();
-        Thread th;
         private string rutadirectorio;
         String thisDay = DateTime.Now.ToLongDateString().ToString();
         private bool Drag;

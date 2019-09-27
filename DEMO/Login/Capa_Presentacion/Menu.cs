@@ -1124,7 +1124,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[16];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[3];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas")) return Vectores.Images[3];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[3];
 
                         break;
@@ -1151,7 +1151,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[17];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("Tormentas dispersas") || texto.Equals("n310")) return Vectores.Images[5];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas")) return Vectores.Images[5];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
 
                         break;

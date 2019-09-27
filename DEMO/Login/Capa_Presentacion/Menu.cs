@@ -255,34 +255,25 @@ namespace Capa_Presentacion
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            panelDerecho.BackColor = Color.Transparent;
             try
             {
-                if(HayInternet() == true)
+                if (HayInternet() == true)
                 {
-                    navegador.ScriptErrorsSuppressed = true;
 
-                    navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
-                    navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
-                    timerClima.Start();
-
+                    panelDerecho.BackColor = Color.Transparent;
                     PrivilegioUsuario();
-                    labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
-                    // Hago el ciclo para agregar hasta 7 días
-                    for (int i = 1; i <= 5; i++)
-                    {
-                        // Este metodo solo pone en los labels el día que está en fecha_hora
-                        if (i != 1)
-                            SetDateTime(labelsDia[i - 1], fecha_hora);
-                        PonerFechas(labelsFecha[i - 1], fecha_hora);
-                        // Cambia el DateTime fecha_hora a un día después.
-                        fecha_hora = fecha_hora.AddDays(1);
-                    }
-
-                    MostrarInformacionClima();
                     panelDerecho.BackColor = Color.FromArgb(0, 0, 0, 0);
-                    _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
+                    labelFechaCompletaHoy.Text = DateTime.Now.ToLongDateString();
+                    AgregarDias();
+                    MostrarClima();
+                    _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd")); // Esto tira una excepcion y se tilda el programa, no poner nada debajo de esto, solo funciona 1 vez al día
                     bunifuFlatButton1_Click(null, e);
+                    //navegador.ScriptErrorsSuppressed = true;
+                    //navegador.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datos_cargados);
+                    //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+                    //timerClima.Start();
+                    //MostrarInformacionClima(); Es el metodo anterior
+
                 }
                 else
                 {
@@ -292,12 +283,120 @@ namespace Capa_Presentacion
             }
             catch (MySqlException ex)
             {
-
+                
             }
             catch (Exception a)
             {
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+        private void AgregarDias()
+        {
+            // Hago el ciclo para agregar hasta 7 días
+            for (int i = 1; i <= 5; i++)
+            {
+                // Este metodo solo pone en los labels el día que está en fecha_hora
+                if (i != 1)
+                    SetDateTime(labelsDia[i - 1], fecha_hora);
+                PonerFechas(labelsFecha[i - 1], fecha_hora);
+                // Cambia el DateTime fecha_hora a un día después.
+                fecha_hora = fecha_hora.AddDays(1);
+            }
+        }
+        private void MostrarClima()
+        {
+            obtenerDatosClimaHoy();
+            obtenerDatosClima5Dias();
+        }
+        private void obtenerDatosClimaHoy()
+        {
+            ScrapperClima scrapper = new ScrapperClima();
+            scrapper.obtenerDatosClimaHoy();
+
+            List<String> nombre = new List<String>();
+            List<String> temperatura = new List<String>();
+            List<String> humedad = new List<String>();
+            List<String> sensacion = new List<String>();
+            List<String> climaToday = new List<String>();
+
+            nombre = scrapper.nombre_ahora();
+            //viento.Text = nombre.ElementAt(0);
+            //visibilidad.Text = nombre.ElementAt(4);
+
+            temperatura = scrapper.datos_ahora();
+            //condensacion.Text = temperatura.ElementAt(2);
+            //presion.Text = temperatura.ElementAt(3);
+
+            humedad = scrapper.condensacion_nom();
+            lblEstado.Text = humedad.ElementAt(1) + "%";
+
+            sensacion = scrapper.sensacion_ahora();
+            //sensacion.Text = sensacio.ElementAt(0);
+
+            climaToday = scrapper.hoy_ahora();
+            labelClimaHoy.Text = climaToday.ElementAt(0) + "° C";
+            lblCentigrados.Text = climaToday.ElementAt(0) + "° Centigrados";
+        }
+
+        private void obtenerDatosClima5Dias()
+        {
+            ScrapperClima scrapper = new ScrapperClima();
+            scrapper.obtenerDatosClima5dias();
+            List<String> descripcion = new List<String>();
+            List<String> temperatura = new List<String>();
+            List<String> precipitacion = new List<String>();
+            List<String> humedad = new List<String>();
+            List<String> viento = new List<String>();
+            List<String> sensacion = new List<String>();
+
+
+            descripcion = scrapper.datos_descripcion();
+            temperatura = scrapper.datos_temperatura();
+            precipitacion = scrapper.datos_precipitacion();
+            humedad = scrapper.datos_humedad();
+            //viento = scrapper.datos_viento();
+
+            this.picClimaHoy.Image = picClimaActual.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(1), 1);
+            this.picClima1.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(2), 2);
+            this.picClima2.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(3), 3);
+            this.picClima3.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(4), 4);
+            this.picClima4.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(5), 5);
+            lblDescripcion.Text = descripcion.ElementAt(1);
+            descripcionDia1 = lblDescripcion.Text;
+            descripcionDia2 = descripcion.ElementAt(2);
+            descripcionDia3 = descripcion.ElementAt(3);
+            descripcionDia4 = descripcion.ElementAt(4);
+            descripcionDia5 = descripcion.ElementAt(5);
+            //
+            labelHoyMax.Text = temperatura.ElementAt(1).Split('/').ElementAt(0)+" C";
+            labelHoyMin.Text = temperatura.ElementAt(1).Split('/').ElementAt(1) + " C";
+            labelMax1.Text = temperatura.ElementAt(2).Split('/').ElementAt(0) + " C";
+            labelMin1.Text = temperatura.ElementAt(2).Split('/').ElementAt(1) + " C";
+            labelMax2.Text = temperatura.ElementAt(3).Split('/').ElementAt(0) + " C";
+            labelMin2.Text = temperatura.ElementAt(3).Split('/').ElementAt(1) + " C";
+            labelMax3.Text = temperatura.ElementAt(4).Split('/').ElementAt(0) + " C";
+            labelMin3.Text = temperatura.ElementAt(4).Split('/').ElementAt(1) + " C";
+            labelMax4.Text = temperatura.ElementAt(5).Split('/').ElementAt(0) + " C";
+            labelMin4.Text = temperatura.ElementAt(5).Split('/').ElementAt(1) + " C";
+            //
+            labelPrecipitacionHoy.Text = precipitacion.ElementAt(1)+"%";
+            lblPrecipitacionmm.Text = precipitacion.ElementAt(1) + "%";
+            labelPrecipitacion1.Text = precipitacion.ElementAt(2) + "%";
+            labelPrecipitacion2.Text = precipitacion.ElementAt(3) + "%";
+            labelPrecipitacion3.Text = precipitacion.ElementAt(4) + "%";
+            labelPrecipitacion4.Text = precipitacion.ElementAt(5) + "%";
+            //
+            //viento1.Text = viento2.ElementAt(2);
+            //viento22.Text = viento2.ElementAt(3);
+            //viento3.Text = viento2.ElementAt(4);
+            //viento4.Text = viento2.ElementAt(5);
+            //viento5.Text = viento2.ElementAt(6);
+            //
+            //humedad1.Text = humedad2.ElementAt(2);
+            //humedad22.Text = humedad2.ElementAt(3);
+            //humedad3.Text = humedad2.ElementAt(4);
+            //humedad4.Text = humedad2.ElementAt(5);
+            //humedad5.Text = humedad2.ElementAt(6);
         }
 
         private void MostrarInformacionClima()
@@ -781,8 +880,8 @@ namespace Capa_Presentacion
                                 if (iteracion == 1)
                                 {
                                     labelFecha1.Text = DateTime.Now.ToString("m");
-                                    labelFecha1Max.Text = info.HiTempC + "°";
-                                    labelFecha1Min.Text = info.LowTempC + "°";
+                                    //labelFecha1Max.Text = info.HiTempC + "°";
+                                    //labelFecha1Min.Text = info.LowTempC + "°";
                                     labelPrecipitacion1.Text = info.ProbabilityOfPrecip + "%";
                                     picClima1.Image = vectorClima(info.SkyText, 0);
                                     iteracion++;
@@ -838,7 +937,7 @@ namespace Capa_Presentacion
             {
                 //GetRequestHora();
             }*/
-            navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
+            //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
 
         public Image vectorClima(String texto, int panel)
@@ -1007,7 +1106,7 @@ namespace Capa_Presentacion
                 {
                     case 1:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[18];
+                        if (texto.Equals("Tormentas") || texto.Equals("Tormentas")) return Vectores.Images[18];
                         else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
@@ -1015,14 +1114,14 @@ namespace Capa_Presentacion
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[0];
+                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[0];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
 
                         // Nublado
-                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[9];
+                        else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[9];
 
                         // Despejado
-                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[16];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[16];
 
                         // Nublado, lluvia ligera
                         if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[3];
@@ -1034,7 +1133,7 @@ namespace Capa_Presentacion
                     case 4:
                     case 5:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("d240") || texto.Equals("n240")) return Vectores.Images[20];
+                        if (texto.Equals("Tormentas") || texto.Equals("n240")) return Vectores.Images[20];
                         else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
@@ -1042,17 +1141,17 @@ namespace Capa_Presentacion
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("d210") || texto.Equals("n210")) return Vectores.Images[2];
+                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[2];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
 
                         // Nublado
-                        else if (texto.Equals("d300") || texto.Equals("n300")) return Vectores.Images[11];
+                        else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[11];
 
                         // Despejado
-                        else if (texto.Equals("d000") || texto.Equals("n000")) return Vectores.Images[17];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[17];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("d310") || texto.Equals("n310")) return Vectores.Images[5];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("n310")) return Vectores.Images[5];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
 
                         break;

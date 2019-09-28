@@ -73,6 +73,7 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picClimaActual = new System.Windows.Forms.PictureBox();
             this.myPanel5 = new Capa_Presentacion.MyPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.labelPrecipitacion4 = new System.Windows.Forms.Label();
             this.labelMin4 = new System.Windows.Forms.Label();
             this.labelMax4 = new System.Windows.Forms.Label();
@@ -82,6 +83,7 @@
             this.labelFecha4Min = new System.Windows.Forms.Label();
             this.labelFecha4Max = new System.Windows.Forms.Label();
             this.myPanel10 = new Capa_Presentacion.MyPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.labelMin1 = new System.Windows.Forms.Label();
             this.labelPrecipitacion1 = new System.Windows.Forms.Label();
             this.labelMax1 = new System.Windows.Forms.Label();
@@ -91,6 +93,7 @@
             this.labelClimaHoy = new System.Windows.Forms.Label();
             this.labelFechaCompletaHoy = new System.Windows.Forms.Label();
             this.myPanel8 = new Capa_Presentacion.MyPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.labelPrecipitacion2 = new System.Windows.Forms.Label();
             this.labelMin2 = new System.Windows.Forms.Label();
             this.labelMax2 = new System.Windows.Forms.Label();
@@ -101,6 +104,7 @@
             this.labelDia2 = new System.Windows.Forms.Label();
             this.labelMante = new System.Windows.Forms.Label();
             this.myPanel7 = new Capa_Presentacion.MyPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.picClima3 = new System.Windows.Forms.PictureBox();
             this.labelPrecipitacion3 = new System.Windows.Forms.Label();
             this.labelMin3 = new System.Windows.Forms.Label();
@@ -110,6 +114,7 @@
             this.lblmin4 = new System.Windows.Forms.Label();
             this.lblmax4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Capa_Presentacion.MyPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelPrecipitacionHoy = new System.Windows.Forms.Label();
             this.picClimaHoy = new System.Windows.Forms.PictureBox();
             this.labelHoyMin = new System.Windows.Forms.Label();
@@ -119,11 +124,6 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelDerecho.SuspendLayout();
@@ -940,6 +940,18 @@
             this.myPanel5.Size = new System.Drawing.Size(160, 350);
             this.myPanel5.TabIndex = 53;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(30, 271);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 20);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Precipitación";
+            // 
             // labelPrecipitacion4
             // 
             this.labelPrecipitacion4.AutoSize = true;
@@ -1049,6 +1061,18 @@
             this.myPanel10.Name = "myPanel10";
             this.myPanel10.Size = new System.Drawing.Size(160, 350);
             this.myPanel10.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(30, 271);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Precipitación";
             // 
             // labelMin1
             // 
@@ -1161,6 +1185,18 @@
             this.myPanel8.Name = "myPanel8";
             this.myPanel8.Size = new System.Drawing.Size(160, 350);
             this.myPanel8.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(30, 271);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.TabIndex = 48;
+            this.label4.Text = "Precipitación";
             // 
             // labelPrecipitacion2
             // 
@@ -1286,6 +1322,18 @@
             this.myPanel7.Size = new System.Drawing.Size(160, 350);
             this.myPanel7.TabIndex = 4;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(30, 271);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "Precipitación";
+            // 
             // picClima3
             // 
             this.picClima3.Location = new System.Drawing.Point(48, 133);
@@ -1397,6 +1445,18 @@
             this.myPanel3.Size = new System.Drawing.Size(160, 350);
             this.myPanel3.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(30, 271);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Precipitación";
+            // 
             // labelPrecipitacionHoy
             // 
             this.labelPrecipitacionHoy.AutoSize = true;
@@ -1495,66 +1555,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(30, 271);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Precipitación";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(30, 271);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Precipitación";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(30, 271);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 20);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "Precipitación";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(30, 271);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 20);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Precipitación";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(30, 271);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 20);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Precipitación";
             // 
             // Menu
             // 

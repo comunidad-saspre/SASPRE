@@ -357,6 +357,7 @@ namespace Capa_Presentacion
             //viento = scrapper.datos_viento();
 
             this.picClimaHoy.Image = picClimaActual.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(1), 1);
+            
             this.picClima1.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(2), 2);
             this.picClima2.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(3), 3);
             this.picClima3.Image = ObtenerImagenDesdeCodigo(descripcion.ElementAt(4), 4);
@@ -1107,7 +1108,7 @@ namespace Capa_Presentacion
                     case 1:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
                         if (texto.Equals("Tormentas") || texto.Equals("Tormentas")) return Vectores.Images[18];
-                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[18];
+                        else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
                         else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[14];
@@ -1134,7 +1135,7 @@ namespace Capa_Presentacion
                     case 5:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
                         if (texto.Equals("Tormentas") || texto.Equals("n240")) return Vectores.Images[20];
-                        else if (texto.Equals("d440") || texto.Equals("n440")) return Vectores.Images[20];
+                        else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
                         else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[15];

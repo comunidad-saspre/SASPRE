@@ -589,7 +589,14 @@ namespace Capa_Presentacion
                     estadomaiz += "30% gallina ciega, ";
                 }
             }
-            return estadomaiz.TrimEnd(new Char[] { ' ', ',' });
+            if(estadomaiz == null || estadomaiz == "")
+            {
+                return estadomaiz;
+            }
+            else
+            {
+                return estadomaiz.TrimEnd(new Char[] { ' ', ',' });
+            }
         }
 
         private String Plagasojaoscar(double temperatura, Double humedad_relativa, double precipitacion)

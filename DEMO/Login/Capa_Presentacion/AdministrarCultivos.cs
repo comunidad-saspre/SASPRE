@@ -627,7 +627,14 @@ namespace Capa_Presentacion
             {
                 estadosoja += "Chinches, ";
             }
-            return estadosoja.TrimEnd(new Char[] { ' ', ',' });
+            if (estadosoja == null || estadosoja == "")
+            {
+                return estadosoja;
+            }
+            else
+            {
+                return estadosoja.TrimEnd(new Char[] { ' ', ',' });
+            }
         }
         private String PlagaSorgoAndres(DateTime fechaPlantado, double precipitacion, double temperatura, double humedad)
         {
@@ -702,7 +709,16 @@ namespace Capa_Presentacion
                 plagas += $"Posible Tizon de la Panoja(Hongo Fusariummoniliforme), ";
             }
 
-            return plagas.TrimEnd(new Char[] { ' ', ',' });
+            
+
+            if (plagas == null || plagas == "")
+            {
+                return plagas;
+            }
+            else
+            {
+                return plagas.TrimEnd(new Char[] { ' ', ',' });
+            }
         }
         InformacionAXDias _informacionAXDias;
         DateTime primaverainicio = DateTime.Parse("21/03/19");
@@ -757,7 +773,16 @@ namespace Capa_Presentacion
             {
                 estadocaña += "Piojo harinoso de la vid, ";
             }
-            return estadocaña.TrimEnd(new Char[] { ' ', ',' });
+            if (estadocaña == null || estadocaña == "")
+            {
+                return estadocaña;
+            }
+            else
+            {
+                return estadocaña.TrimEnd(new Char[] { ' ', ',' });
+            }
+            
+
         }
         private String PlagaCebolla(double temperaturaprom, double humedad_relativaprom, double precipitacionprom, String dgvplantado, String dgvcosecha)
         {
@@ -790,7 +815,16 @@ namespace Capa_Presentacion
             {
                 estadocebolla += "Minador de la hoja adulto";
             }
-            return estadocebolla.TrimEnd(new Char[] { ' ', ',' });
+
+            if (estadocebolla == null || estadocebolla == "")
+            {
+                return estadocebolla;
+            }
+            else
+            {
+                return estadocebolla.TrimEnd(new Char[] { ' ', ',' });
+            }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)

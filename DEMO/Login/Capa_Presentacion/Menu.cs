@@ -932,12 +932,13 @@ namespace Capa_Presentacion
 
 
         }
+        //Actualiza el clima cada hora
         private void timerClima_Tick(object sender, EventArgs e)
         {
-            /*if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 00 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
-                //GetRequestHora();
-            }*/
+                MostrarClima();
+            }
             //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
 

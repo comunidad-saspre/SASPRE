@@ -178,7 +178,7 @@
             // timerClima
             // 
             this.timerClima.Enabled = true;
-            this.timerClima.Interval = 3600000;
+            this.timerClima.Interval = 10;
             this.timerClima.Tick += new System.EventHandler(this.timerClima_Tick);
             // 
             // label5

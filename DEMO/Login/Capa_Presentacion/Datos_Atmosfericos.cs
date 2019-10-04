@@ -158,7 +158,7 @@ namespace Capa_Presentacion
                     }
                     else
                     {
-                        MessageBox.Show("Archivo vacio");
+                        MessageBox.Show("No se ha podido descargar el archivo, cargue de nuevo el sistema");
                     }
                     if (dt.Rows.Count > 0)
                     {

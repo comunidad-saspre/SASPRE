@@ -1111,11 +1111,11 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[0];
+                        if (texto.Equals("") || texto.Equals("n210")) return Vectores.Images[0];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
 
                         // Nublado
@@ -1125,7 +1125,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[16];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde")) return Vectores.Images[3];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche")) return Vectores.Images[3];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[3];
 
                         break;
@@ -1138,11 +1138,11 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[2];
+                        if (texto.Equals("") || texto.Equals("n210")) return Vectores.Images[2];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
 
                         // Nublado
@@ -1152,7 +1152,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[17];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde")) return Vectores.Images[5];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche")) return Vectores.Images[5];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
 
                         break;

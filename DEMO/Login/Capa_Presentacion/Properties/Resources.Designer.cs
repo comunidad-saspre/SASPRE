@@ -633,6 +633,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap notifi {
+            get {
+                object obj = ResourceManager.GetObject("notifi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PLANT_WHITE {
             get {
                 object obj = ResourceManager.GetObject("PLANT WHITE", resourceCulture);

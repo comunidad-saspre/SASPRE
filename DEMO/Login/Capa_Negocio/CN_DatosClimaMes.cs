@@ -32,5 +32,9 @@ namespace Capa_Negocio
         {
             _DatosClimaMes.AgregarDiario(fecha);
         }
+        public String top_fecha()
+        {
+            return _DatosClimaMes.top_fecha();
+        }
     }
 }

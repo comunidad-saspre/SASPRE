@@ -63,5 +63,20 @@ namespace Capa_Datos
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
+        public String top_fecha()
+        {
+            
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT  distinct Fecha_Local  FROM datosclimames WHERE Fecha_Local=(SELECT MAX(Fecha_local)  FROM datosclimames);";
+            leer = comando.ExecuteReader();
+            String salida = "";
+            if (leer.Read()==true)
+            {
+                salida = Convert.ToString(leer["Fecha_Local"]);
+            }
+            conexion.CerrarConexion();
+            return salida;
+           
+        }
     }
 }

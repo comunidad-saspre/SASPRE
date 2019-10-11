@@ -176,18 +176,32 @@ namespace Capa_Presentacion
         {
 
         }
-
+        public int intervalos(String anterior)
+        {
+            DateTime fecha_actual = DateTime.Now;
+            DateTime fecha_anterior = Convert.ToDateTime(anterior);
+            TimeSpan tSpan = fecha_actual - fecha_anterior;
+            String[] dias = tSpan.ToString().Split('.');
+            int intervalo = Convert.ToInt32(dias[0]);
+            return intervalo;
+        }
         private void InsertarDatosClimaMes()
         {
             try
             {
-                CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+               /* CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
                 Cursor.Current = Cursors.WaitCursor;
+               
+                int intervalo = intervalos(_DatosClimaMes.top_fecha());
+                MessageBox.Show(intervalo.ToString());*/
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
-                    if(Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
+                   // MessageBox.Show(item.Cells["Fecha Local"].Value.ToString());
+                   // int intervalo2 = intervalos(_DatosClimaMes.top_fecha());
+                    if (Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
                     {
                         String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                        MessageBox.Show("fecha "+fecha);
                         String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
                         _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),

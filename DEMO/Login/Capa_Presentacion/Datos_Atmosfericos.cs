@@ -182,30 +182,52 @@ namespace Capa_Presentacion
             DateTime fecha_anterior = Convert.ToDateTime(anterior);
             TimeSpan tSpan = fecha_actual - fecha_anterior;
             String[] dias = tSpan.ToString().Split('.');
-            int intervalo = Convert.ToInt32(dias[0]);
+            int intervalo=0;
+            try
+            {
+                intervalo = Convert.ToInt32(dias[0]);
+            }
+            catch (Exception e)
+            {
+                intervalo = 0;
+            }
             return intervalo;
+        }
+      
+        public String acomodarfecha(String fecha)
+        {   //2019/10/08
+            String[] separar = fecha.Split('/');
+            return separar[2] + "/" + separar[1] + "/" + separar[0];
         }
         private void InsertarDatosClimaMes()
         {
             try
             {
-               /* CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
                 Cursor.Current = Cursors.WaitCursor;
+                CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+                String[] aux1 = _DatosClimaMes.top_fecha().Split(' ');
+                int parametro = intervalos(aux1[0]);
                
-                int intervalo = intervalos(_DatosClimaMes.top_fecha());
-                MessageBox.Show(intervalo.ToString());*/
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
-                   // MessageBox.Show(item.Cells["Fecha Local"].Value.ToString());
-                   // int intervalo2 = intervalos(_DatosClimaMes.top_fecha());
+                    String aux = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                    aux = aux.Replace("-", "/");
+                    aux = aux.Replace("\"", "");
+                    String[] aux2 = aux.Split(' ');
+                    int intervalo2 = intervalos(acomodarfecha(aux2[0]));
+                    MessageBox.Show(parametro+" "+intervalo2.ToString());
+                    if (parametro>intervalo2||intervalo2==0)
+                    {
+                        MessageBox.Show("agregar");
+                    }
                     if (Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
                     {
                         String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
-                        MessageBox.Show("fecha "+fecha);
-                        String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                        
+                      /*  String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
                         _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
-                        item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+                        item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());*/
                     }
                     
                 }

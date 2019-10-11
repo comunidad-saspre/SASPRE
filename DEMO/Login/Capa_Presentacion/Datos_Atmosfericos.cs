@@ -215,14 +215,17 @@ namespace Capa_Presentacion
                     aux = aux.Replace("\"", "");
                     String[] aux2 = aux.Split(' ');
                     int intervalo2 = intervalos(acomodarfecha(aux2[0]));
-                    MessageBox.Show(parametro+" "+intervalo2.ToString());
-                    if (parametro>intervalo2||intervalo2==0)
+                    if (parametro>intervalo2&&intervalo2!=0)
                     {
-                        MessageBox.Show("agregar");
+                        String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                        String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                        _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                        item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
+                        item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
                     }
                     if (Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
                     {
-                        String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                       
                         
                       /*  String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
                         _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),

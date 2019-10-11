@@ -1391,6 +1391,32 @@ namespace Capa_Presentacion
             }
         }
 
+       
+
+        private void succes_Click(object sender, EventArgs e)
+        {
+            alert.Show("Este es caso de exito", Alertype.succes);
+
+        }
+
+        private void info_Click(object sender, EventArgs e)
+        {
+            alert.Show("Este es informmacion", Alertype.info);
+
+        }
+
+        private void warning_Click(object sender, EventArgs e)
+        {
+            alert.Show("Este es advertencia", Alertype.warning);
+
+        }
+
+        private void error_Click(object sender, EventArgs e)
+        {
+            alert.Show("Este es error", Alertype.error);
+
+        }
+
         private bool HayInternet()
         {
             try

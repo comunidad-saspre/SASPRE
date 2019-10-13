@@ -258,6 +258,12 @@
     <Compile Include="Gastos.Designer.cs">
       <DependentUpon>Gastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gráficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gráficos.Designer.cs">
+      <DependentUpon>Gráficos.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistorialPlagas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gastos.resx">
       <DependentUpon>Gastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gráficos.resx">
+      <DependentUpon>Gráficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialPlagas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

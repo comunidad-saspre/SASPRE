@@ -39,18 +39,18 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.txtCargo = new System.Windows.Forms.ComboBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.cbTipoSiembra = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNick = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbNombre = new System.Windows.Forms.ComboBox();
+            this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +124,7 @@
             this.btnAgregar.TabIndex = 104;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // btnEliminar
             // 
@@ -182,26 +183,18 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
-            // txtCargo
+            // cbTipoSiembra
             // 
-            this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtCargo.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtCargo.FormattingEnabled = true;
-            this.txtCargo.Items.AddRange(new object[] {
+            this.cbTipoSiembra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoSiembra.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.cbTipoSiembra.FormattingEnabled = true;
+            this.cbTipoSiembra.Items.AddRange(new object[] {
             "Admin",
             "Estudiante"});
-            this.txtCargo.Location = new System.Drawing.Point(259, 174);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(216, 34);
-            this.txtCargo.TabIndex = 117;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtCorreo.Location = new System.Drawing.Point(716, 174);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(217, 33);
-            this.txtCorreo.TabIndex = 116;
+            this.cbTipoSiembra.Location = new System.Drawing.Point(259, 174);
+            this.cbTipoSiembra.Name = "cbTipoSiembra";
+            this.cbTipoSiembra.Size = new System.Drawing.Size(216, 34);
+            this.cbTipoSiembra.TabIndex = 117;
             // 
             // label6
             // 
@@ -211,9 +204,9 @@
             this.label6.Location = new System.Drawing.Point(545, 88);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 26);
+            this.label6.Size = new System.Drawing.Size(81, 26);
             this.label6.TabIndex = 110;
-            this.label6.Text = "Precio";
+            this.label6.Text = "Precio $";
             // 
             // label9
             // 
@@ -232,12 +225,12 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(35, 131);
+            this.label5.Location = new System.Drawing.Point(546, 134);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 26);
+            this.label5.Size = new System.Drawing.Size(125, 26);
             this.label5.TabIndex = 106;
-            this.label5.Text = "Cantidad";
+            this.label5.Text = "Cantidad (kg)";
             // 
             // txtContra
             // 
@@ -252,12 +245,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(35, 88);
+            this.label3.Location = new System.Drawing.Point(38, 131);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 26);
+            this.label3.Size = new System.Drawing.Size(82, 26);
             this.label3.TabIndex = 105;
-            this.label3.Text = "Nombre semillas cultivo";
+            this.label3.Text = "Nombre";
             // 
             // txtNick
             // 
@@ -267,45 +260,69 @@
             this.txtNick.Size = new System.Drawing.Size(217, 33);
             this.txtNick.TabIndex = 113;
             // 
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtNombre.Location = new System.Drawing.Point(259, 88);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(217, 33);
-            this.txtNombre.TabIndex = 102;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(35, 174);
+            this.label8.Location = new System.Drawing.Point(38, 177);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 26);
             this.label8.TabIndex = 112;
             this.label8.Text = "Tipo siembra";
             // 
-            // txtApellidos
+            // dtpFechaIngreso
             // 
-            this.txtApellidos.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtApellidos.Location = new System.Drawing.Point(259, 131);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(217, 33);
-            this.txtApellidos.TabIndex = 107;
+            this.dtpFechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpFechaIngreso.CalendarFont = new System.Drawing.Font("Corbel", 8.25F);
+            this.dtpFechaIngreso.CustomFormat = "yyyy-MM-dd";
+            this.dtpFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(716, 177);
+            this.dtpFechaIngreso.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
+            this.dtpFechaIngreso.Size = new System.Drawing.Size(217, 22);
+            this.dtpFechaIngreso.TabIndex = 121;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(545, 131);
+            this.label7.Location = new System.Drawing.Point(38, 83);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 26);
-            this.label7.TabIndex = 111;
+            this.label7.TabIndex = 124;
             this.label7.Text = "Tipo objeto";
+            // 
+            // cbNombre
+            // 
+            this.cbNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNombre.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.cbNombre.FormattingEnabled = true;
+            this.cbNombre.Items.AddRange(new object[] {
+            "Admin",
+            "Estudiante"});
+            this.cbNombre.Location = new System.Drawing.Point(259, 128);
+            this.cbNombre.Name = "cbNombre";
+            this.cbNombre.Size = new System.Drawing.Size(216, 34);
+            this.cbNombre.TabIndex = 125;
+            // 
+            // cbTipoObjeto
+            // 
+            this.cbTipoObjeto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoObjeto.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.cbTipoObjeto.FormattingEnabled = true;
+            this.cbTipoObjeto.Items.AddRange(new object[] {
+            "Cultivo",
+            "Fertilizante",
+            "Otro"});
+            this.cbTipoObjeto.Location = new System.Drawing.Point(259, 80);
+            this.cbTipoObjeto.Name = "cbTipoObjeto";
+            this.cbTipoObjeto.Size = new System.Drawing.Size(216, 34);
+            this.cbTipoObjeto.TabIndex = 126;
+            this.cbTipoObjeto.SelectedIndexChanged += new System.EventHandler(this.CbTipoObjeto_SelectedIndexChanged);
             // 
             // Almacen
             // 
@@ -313,6 +330,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.cbTipoObjeto);
+            this.Controls.Add(this.cbNombre);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.dgvAlmacen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
@@ -320,18 +341,14 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.txtCargo);
-            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.cbTipoSiembra);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNick);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtApellidos);
-            this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Almacen";
@@ -351,17 +368,17 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.ComboBox txtCargo;
-        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.ComboBox cbTipoSiembra;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNick;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtApellidos;
+        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbNombre;
+        private System.Windows.Forms.ComboBox cbTipoObjeto;
     }
 }

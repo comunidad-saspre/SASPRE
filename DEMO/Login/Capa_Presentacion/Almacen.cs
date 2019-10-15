@@ -16,5 +16,18 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
         }
+
+        private void CbTipoObjeto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipoObjeto.SelectedItem.Equals("Cultivo"))
+            {
+
+            }
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

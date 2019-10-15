@@ -26,17 +26,47 @@ namespace Capa_Datos
             return tablaAlmacen;
         }
 
-        public void AgregarAlmacen()
+        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso)
         {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "altaAlmacen";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_tipoObjeto", tipoObjeto);
+            comando.Parameters.AddWithValue("_nombreObjeto", nombreObjeto);
+            comando.Parameters.AddWithValue("_cantidadObjeto",cantidadObjeto);
+            comando.Parameters.AddWithValue("_tipoSiembra", tipoSiembra);
+            comando.Parameters.AddWithValue("_precio", precio);
+            comando.Parameters.AddWithValue("_fechaIngreso", fechaIngreso);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
 
-        public void EditarAlmacen()
+        public void EditarAlmacen(int IDAlmacen,String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso)
         {
-
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "cambioAlmacen";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_IDAlmacen", IDAlmacen);
+            comando.Parameters.AddWithValue("_tipoObjeto", tipoObjeto);
+            comando.Parameters.AddWithValue("_nombreObjeto", nombreObjeto);
+            comando.Parameters.AddWithValue("_cantidadObjeto", cantidadObjeto);
+            comando.Parameters.AddWithValue("_tipoSiembra", tipoSiembra);
+            comando.Parameters.AddWithValue("_precio", precio);
+            comando.Parameters.AddWithValue("_fechaIngreso", fechaIngreso);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
-        public void BorrarAlmacen()
+        public void BorrarAlmacen(int IDAlmacen)
         {
-
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "bajaAlmacen";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_IDAlmacen", IDAlmacen);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
 
     }

@@ -153,6 +153,7 @@
             this.btnCancelar.TabIndex = 109;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // button1
             // 
@@ -182,6 +183,7 @@
             this.btnEditar.TabIndex = 103;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // cbTipoSiembra
             // 

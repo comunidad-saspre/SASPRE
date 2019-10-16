@@ -11,10 +11,25 @@ namespace Capa_Negocio
     class CN_Almacen
     {
         DataTable tablaAlmacen = new DataTable();
-        CD_Almacen _Almacen = new CD_Almacen();
+        CD_Almacen _CD_Almacen = new CD_Almacen();
         public DataTable MostrarAlmacen()
         {
-            return tablaAlmacen = _Almacen.MostrarAlmacen();
+            return tablaAlmacen = _CD_Almacen.MostrarAlmacen();
+        }
+
+        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso)
+        {
+            _CD_Almacen.AgregarAlmacen(tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso);
+        }
+
+        public void EditarAlmacen(String IDAlmacen, String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso)
+        {
+            _CD_Almacen.EditarAlmacen(Convert.ToInt32(IDAlmacen), tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso);
+        }
+
+        public void BorrarAlmacen(String IDAlmacen)
+        {
+            _CD_Almacen.BorrarAlmacen(Convert.ToInt32(IDAlmacen));
         }
     }
 }

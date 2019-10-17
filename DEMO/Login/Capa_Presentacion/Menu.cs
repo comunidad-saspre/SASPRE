@@ -1397,8 +1397,10 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Gráficos>();
         }
 
-        
-
+        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<CalendarioAct>();
+        }
 
         private bool HayInternet()
         {

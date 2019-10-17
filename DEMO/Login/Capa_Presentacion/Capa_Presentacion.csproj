@@ -684,6 +684,7 @@
     <None Include="Resources\ARROW WHITE1.png" />
     <Content Include="Resources\BAG WHITE.png" />
     <None Include="Resources\BAG WHITE1.png" />
+    <None Include="Resources\calendario.png" />
     <Content Include="Resources\CLOCK WHITE.png" />
     <None Include="Resources\CLOCK WHITE1.png" />
     <Content Include="Resources\CLOUD WHITE.png" />

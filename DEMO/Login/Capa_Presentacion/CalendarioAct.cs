@@ -49,17 +49,7 @@ namespace Capa_Presentacion
 
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {            
-            nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-            descripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
-            fechaInicio.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
-            fechaFin.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
-            id.Text = dataGridView1.CurrentRow.Cells["idCalendario"].Value.ToString();
-            editar.Enabled = true;
-            eliminar.Enabled = true;
-            agregar.Enabled = false;
-        }
+        
 
         private void editar_Click(object sender, EventArgs e)
         {
@@ -84,6 +74,18 @@ namespace Capa_Presentacion
             id.Text = "";
             nombre.Text = "";
             descripcion.Text = "";
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+            descripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+            //fechaInicio.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
+            //fechaFin.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
+            id.Text = dataGridView1.CurrentRow.Cells["idCalendario"].Value.ToString();
+            editar.Enabled = true;
+            eliminar.Enabled = true;
+            agregar.Enabled = false;
         }
     }
 }

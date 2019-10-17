@@ -34,7 +34,7 @@ namespace Capa_Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            _CN_Almacen.EditarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString(),
+            //_CN_Almacen.EditarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString(),
 
         }
 

@@ -51,6 +51,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbNombre = new System.Windows.Forms.ComboBox();
             this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
+            this.IDAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoSiembra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +84,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAlmacen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDAlmacen,
+            this.tipoObjeto,
+            this.nombreObjeto,
+            this.cantidadObjeto,
+            this.tipoSiembra,
+            this.Precio,
+            this.fechaIngreso,
+            this.usuarioAlmacen});
             this.dgvAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -326,6 +343,62 @@
             this.cbTipoObjeto.TabIndex = 126;
             this.cbTipoObjeto.SelectedIndexChanged += new System.EventHandler(this.CbTipoObjeto_SelectedIndexChanged);
             // 
+            // IDAlmacen
+            // 
+            this.IDAlmacen.DataPropertyName = "IDAlmacen";
+            this.IDAlmacen.HeaderText = "IDAlmacen";
+            this.IDAlmacen.Name = "IDAlmacen";
+            this.IDAlmacen.ReadOnly = true;
+            // 
+            // tipoObjeto
+            // 
+            this.tipoObjeto.DataPropertyName = "tipoObjeto";
+            this.tipoObjeto.HeaderText = "Tipo de objeto";
+            this.tipoObjeto.Name = "tipoObjeto";
+            this.tipoObjeto.ReadOnly = true;
+            // 
+            // nombreObjeto
+            // 
+            this.nombreObjeto.DataPropertyName = "nombreObjeto";
+            this.nombreObjeto.HeaderText = "Nombre del objeto";
+            this.nombreObjeto.Name = "nombreObjeto";
+            this.nombreObjeto.ReadOnly = true;
+            // 
+            // cantidadObjeto
+            // 
+            this.cantidadObjeto.DataPropertyName = "cantidadObjeto";
+            this.cantidadObjeto.HeaderText = "Cantidad de objeto";
+            this.cantidadObjeto.Name = "cantidadObjeto";
+            this.cantidadObjeto.ReadOnly = true;
+            // 
+            // tipoSiembra
+            // 
+            this.tipoSiembra.DataPropertyName = "tipoSiembra";
+            this.tipoSiembra.HeaderText = "Tipo de Siembra";
+            this.tipoSiembra.Name = "tipoSiembra";
+            this.tipoSiembra.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            this.fechaIngreso.HeaderText = "Fecha de ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
+            // usuarioAlmacen
+            // 
+            this.usuarioAlmacen.DataPropertyName = "usuarioAlmacen";
+            this.usuarioAlmacen.HeaderText = "Usuario";
+            this.usuarioAlmacen.Name = "usuarioAlmacen";
+            this.usuarioAlmacen.ReadOnly = true;
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +456,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbNombre;
         private System.Windows.Forms.ComboBox cbTipoObjeto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDAlmacen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoObjeto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreObjeto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadObjeto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoSiembra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioAlmacen;
     }
 }

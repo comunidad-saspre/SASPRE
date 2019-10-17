@@ -19,7 +19,7 @@ namespace Capa_Negocio
 
         public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso, String usuarioAlmacen)
         {
-            _CD_Almacen.AgregarAlmacen(tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso);
+            _CD_Almacen.AgregarAlmacen(tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso, usuarioAlmacen);
         }
 
         public void EditarAlmacen(String IDAlmacen, String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso)

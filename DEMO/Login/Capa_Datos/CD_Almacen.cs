@@ -15,10 +15,19 @@ namespace Capa_Datos
         DataTable tablaAlmacen = new DataTable();
         MySqlCommand comando;
 
-        public DataTable MostrarAlmacen()
+        public DataTable MostrarAlmacen(String cargo, String usuario)
         {
+            comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "verAlmacen";
+            if(cargo == "Admin")
+            {
+                comando.CommandText = "verAlmacen";
+            }
+            else
+            {
+                comando.CommandText = "verAlmacenUsuario";
+                comando.Parameters.AddWithValue("_usuarioAlmacen",usuario);
+            }
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tablaAlmacen.Load(leer);
@@ -26,8 +35,9 @@ namespace Capa_Datos
             return tablaAlmacen;
         }
 
-        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso)
+        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso, String usuarioAlmacen)
         {
+            comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "altaAlmacen";
             comando.CommandType = CommandType.StoredProcedure;
@@ -37,6 +47,7 @@ namespace Capa_Datos
             comando.Parameters.AddWithValue("_tipoSiembra", tipoSiembra);
             comando.Parameters.AddWithValue("_precio", precio);
             comando.Parameters.AddWithValue("_fechaIngreso", fechaIngreso);
+            comando.Parameters.AddWithValue("_usuarioAlmacen", usuarioAlmacen);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
@@ -44,6 +55,7 @@ namespace Capa_Datos
 
         public void EditarAlmacen(int IDAlmacen,String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso)
         {
+            comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "cambioAlmacen";
             comando.CommandType = CommandType.StoredProcedure;
@@ -60,6 +72,7 @@ namespace Capa_Datos
         }
         public void BorrarAlmacen(int IDAlmacen)
         {
+            comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "bajaAlmacen";
             comando.CommandType = CommandType.StoredProcedure;

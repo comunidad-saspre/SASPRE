@@ -43,11 +43,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtContra = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNick = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaAgregado = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cbNombre = new System.Windows.Forms.ComboBox();
             this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
@@ -234,13 +234,13 @@
             this.label5.TabIndex = 106;
             this.label5.Text = "Cantidad (kg)";
             // 
-            // txtContra
+            // txtCantidad
             // 
-            this.txtContra.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtContra.Location = new System.Drawing.Point(716, 131);
-            this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(217, 33);
-            this.txtContra.TabIndex = 114;
+            this.txtCantidad.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.txtCantidad.Location = new System.Drawing.Point(716, 131);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(217, 33);
+            this.txtCantidad.TabIndex = 114;
             // 
             // label3
             // 
@@ -254,13 +254,13 @@
             this.label3.TabIndex = 105;
             this.label3.Text = "Nombre";
             // 
-            // txtNick
+            // txtPrecio
             // 
-            this.txtNick.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtNick.Location = new System.Drawing.Point(716, 88);
-            this.txtNick.Name = "txtNick";
-            this.txtNick.Size = new System.Drawing.Size(217, 33);
-            this.txtNick.TabIndex = 113;
+            this.txtPrecio.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.txtPrecio.Location = new System.Drawing.Point(716, 88);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(217, 33);
+            this.txtPrecio.TabIndex = 113;
             // 
             // label8
             // 
@@ -274,17 +274,17 @@
             this.label8.TabIndex = 112;
             this.label8.Text = "Tipo siembra";
             // 
-            // dtpFechaIngreso
+            // dtpFechaAgregado
             // 
-            this.dtpFechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpFechaIngreso.CalendarFont = new System.Drawing.Font("Corbel", 8.25F);
-            this.dtpFechaIngreso.CustomFormat = "yyyy-MM-dd";
-            this.dtpFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(716, 177);
-            this.dtpFechaIngreso.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            this.dtpFechaIngreso.Size = new System.Drawing.Size(217, 22);
-            this.dtpFechaIngreso.TabIndex = 121;
+            this.dtpFechaAgregado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpFechaAgregado.CalendarFont = new System.Drawing.Font("Corbel", 8.25F);
+            this.dtpFechaAgregado.CustomFormat = "yyyy-MM-dd";
+            this.dtpFechaAgregado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaAgregado.Location = new System.Drawing.Point(716, 177);
+            this.dtpFechaAgregado.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaAgregado.Name = "dtpFechaAgregado";
+            this.dtpFechaAgregado.Size = new System.Drawing.Size(217, 22);
+            this.dtpFechaAgregado.TabIndex = 121;
             // 
             // label7
             // 
@@ -335,7 +335,7 @@
             this.Controls.Add(this.cbTipoObjeto);
             this.Controls.Add(this.cbNombre);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dtpFechaIngreso);
+            this.Controls.Add(this.dtpFechaAgregado);
             this.Controls.Add(this.dgvAlmacen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
@@ -347,14 +347,15 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtContra);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNick);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Almacen";
             this.Text = "Almacen";
+            this.Load += new System.EventHandler(this.Almacen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -374,11 +375,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtContra;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNick;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
+        private System.Windows.Forms.DateTimePicker dtpFechaAgregado;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbNombre;
         private System.Windows.Forms.ComboBox cbTipoObjeto;

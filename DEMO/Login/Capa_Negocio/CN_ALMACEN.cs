@@ -8,16 +8,16 @@ using Capa_Datos;
 
 namespace Capa_Negocio
 {
-    class CN_Almacen
+    public class CN_Almacen
     {
         DataTable tablaAlmacen = new DataTable();
         CD_Almacen _CD_Almacen = new CD_Almacen();
-        public DataTable MostrarAlmacen()
+        public DataTable MostrarAlmacen(String cargo, String usuario)
         {
-            return tablaAlmacen = _CD_Almacen.MostrarAlmacen();
+            return tablaAlmacen = _CD_Almacen.MostrarAlmacen(cargo,usuario);
         }
 
-        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso)
+        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso, String usuarioAlmacen)
         {
             _CD_Almacen.AgregarAlmacen(tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso);
         }

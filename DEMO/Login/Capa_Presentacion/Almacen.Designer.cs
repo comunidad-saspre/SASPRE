@@ -34,6 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Almacen));
             this.dgvAlmacen = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.IDAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoSiembra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -43,7 +51,7 @@
             this.cbTipoSiembra = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelCantidad = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -52,14 +60,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbNombre = new System.Windows.Forms.ComboBox();
             this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
-            this.IDAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoSiembra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +118,65 @@
             this.dgvAlmacen.TabIndex = 120;
             this.dgvAlmacen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlmacen_CellDoubleClick);
             // 
+            // IDAlmacen
+            // 
+            this.IDAlmacen.DataPropertyName = "IDAlmacen";
+            this.IDAlmacen.HeaderText = "IDAlmacen";
+            this.IDAlmacen.Name = "IDAlmacen";
+            this.IDAlmacen.ReadOnly = true;
+            // 
+            // usuarioAlmacen
+            // 
+            this.usuarioAlmacen.DataPropertyName = "usuarioAlmacen";
+            this.usuarioAlmacen.HeaderText = "Usuario";
+            this.usuarioAlmacen.Name = "usuarioAlmacen";
+            this.usuarioAlmacen.ReadOnly = true;
+            // 
+            // tipoObjeto
+            // 
+            this.tipoObjeto.DataPropertyName = "tipoObjeto";
+            this.tipoObjeto.HeaderText = "Tipo de objeto";
+            this.tipoObjeto.Name = "tipoObjeto";
+            this.tipoObjeto.ReadOnly = true;
+            // 
+            // nombreObjeto
+            // 
+            this.nombreObjeto.DataPropertyName = "nombreObjeto";
+            this.nombreObjeto.HeaderText = "Nombre del objeto";
+            this.nombreObjeto.Name = "nombreObjeto";
+            this.nombreObjeto.ReadOnly = true;
+            // 
+            // tipoSiembra
+            // 
+            this.tipoSiembra.DataPropertyName = "tipoSiembra";
+            this.tipoSiembra.HeaderText = "Tipo de Siembra";
+            this.tipoSiembra.Name = "tipoSiembra";
+            this.tipoSiembra.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // cantidadObjeto
+            // 
+            this.cantidadObjeto.DataPropertyName = "cantidadObjeto";
+            this.cantidadObjeto.HeaderText = "Cantidad de objeto";
+            this.cantidadObjeto.Name = "cantidadObjeto";
+            this.cantidadObjeto.ReadOnly = true;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.fechaIngreso.DefaultCellStyle = dataGridViewCellStyle3;
+            this.fechaIngreso.HeaderText = "Fecha de ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -150,20 +209,23 @@
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Location = new System.Drawing.Point(627, 617);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(145, 40);
             this.btnEliminar.TabIndex = 101;
-            this.btnEliminar.Text = "Eliminar seleccionados";
+            this.btnEliminar.Text = "Eliminar seleccionado";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(788, 228);
@@ -194,6 +256,7 @@
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Location = new System.Drawing.Point(637, 228);
@@ -206,12 +269,9 @@
             // 
             // cbTipoSiembra
             // 
-            this.cbTipoSiembra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoSiembra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbTipoSiembra.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.cbTipoSiembra.FormattingEnabled = true;
-            this.cbTipoSiembra.Items.AddRange(new object[] {
-            "Admin",
-            "Estudiante"});
             this.cbTipoSiembra.Location = new System.Drawing.Point(259, 174);
             this.cbTipoSiembra.Name = "cbTipoSiembra";
             this.cbTipoSiembra.Size = new System.Drawing.Size(216, 34);
@@ -241,17 +301,17 @@
             this.label9.TabIndex = 115;
             this.label9.Text = "Fecha de agregado";
             // 
-            // label5
+            // labelCantidad
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(546, 134);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 26);
-            this.label5.TabIndex = 106;
-            this.label5.Text = "Cantidad (kg)";
+            this.labelCantidad.AutoSize = true;
+            this.labelCantidad.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.labelCantidad.ForeColor = System.Drawing.Color.DimGray;
+            this.labelCantidad.Location = new System.Drawing.Point(546, 134);
+            this.labelCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCantidad.Name = "labelCantidad";
+            this.labelCantidad.Size = new System.Drawing.Size(125, 26);
+            this.labelCantidad.TabIndex = 106;
+            this.labelCantidad.Text = "Cantidad (kg)";
             // 
             // txtCantidad
             // 
@@ -348,65 +408,6 @@
             this.cbTipoObjeto.TabIndex = 126;
             this.cbTipoObjeto.SelectedIndexChanged += new System.EventHandler(this.CbTipoObjeto_SelectedIndexChanged);
             // 
-            // IDAlmacen
-            // 
-            this.IDAlmacen.DataPropertyName = "IDAlmacen";
-            this.IDAlmacen.HeaderText = "IDAlmacen";
-            this.IDAlmacen.Name = "IDAlmacen";
-            this.IDAlmacen.ReadOnly = true;
-            // 
-            // usuarioAlmacen
-            // 
-            this.usuarioAlmacen.DataPropertyName = "usuarioAlmacen";
-            this.usuarioAlmacen.HeaderText = "Usuario";
-            this.usuarioAlmacen.Name = "usuarioAlmacen";
-            this.usuarioAlmacen.ReadOnly = true;
-            // 
-            // tipoObjeto
-            // 
-            this.tipoObjeto.DataPropertyName = "tipoObjeto";
-            this.tipoObjeto.HeaderText = "Tipo de objeto";
-            this.tipoObjeto.Name = "tipoObjeto";
-            this.tipoObjeto.ReadOnly = true;
-            // 
-            // nombreObjeto
-            // 
-            this.nombreObjeto.DataPropertyName = "nombreObjeto";
-            this.nombreObjeto.HeaderText = "Nombre del objeto";
-            this.nombreObjeto.Name = "nombreObjeto";
-            this.nombreObjeto.ReadOnly = true;
-            // 
-            // tipoSiembra
-            // 
-            this.tipoSiembra.DataPropertyName = "tipoSiembra";
-            this.tipoSiembra.HeaderText = "Tipo de Siembra";
-            this.tipoSiembra.Name = "tipoSiembra";
-            this.tipoSiembra.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "Precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // cantidadObjeto
-            // 
-            this.cantidadObjeto.DataPropertyName = "cantidadObjeto";
-            this.cantidadObjeto.HeaderText = "Cantidad de objeto";
-            this.cantidadObjeto.Name = "cantidadObjeto";
-            this.cantidadObjeto.ReadOnly = true;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.DataPropertyName = "fechaIngreso";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.fechaIngreso.DefaultCellStyle = dataGridViewCellStyle3;
-            this.fechaIngreso.HeaderText = "Fecha de ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,7 +428,7 @@
             this.Controls.Add(this.cbTipoSiembra);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelCantidad);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPrecio);
@@ -455,7 +456,7 @@
         private System.Windows.Forms.ComboBox cbTipoSiembra;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelCantidad;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPrecio;

@@ -1394,7 +1394,7 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<Almacen>();
+            AbrirFormEnPanel<Gráficos>();
         }
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)

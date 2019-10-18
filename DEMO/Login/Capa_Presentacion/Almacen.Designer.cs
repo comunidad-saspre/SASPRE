@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Almacen));
             this.dgvAlmacen = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -52,13 +53,13 @@
             this.cbNombre = new System.Windows.Forms.ComboBox();
             this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
             this.IDAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoSiembra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioAlmacen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,22 +87,22 @@
             this.dgvAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlmacen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDAlmacen,
+            this.usuarioAlmacen,
             this.tipoObjeto,
             this.nombreObjeto,
-            this.cantidadObjeto,
             this.tipoSiembra,
             this.Precio,
-            this.fechaIngreso,
-            this.usuarioAlmacen});
+            this.cantidadObjeto,
+            this.fechaIngreso});
             this.dgvAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlmacen.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlmacen.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAlmacen.DoubleBuffered = true;
             this.dgvAlmacen.EnableHeadersVisualStyles = false;
             this.dgvAlmacen.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
@@ -115,6 +116,7 @@
             this.dgvAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlmacen.Size = new System.Drawing.Size(898, 310);
             this.dgvAlmacen.TabIndex = 120;
+            this.dgvAlmacen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlmacen_CellDoubleClick);
             // 
             // label1
             // 
@@ -321,8 +323,11 @@
             this.cbNombre.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.cbNombre.FormattingEnabled = true;
             this.cbNombre.Items.AddRange(new object[] {
-            "Admin",
-            "Estudiante"});
+            "Maíz",
+            "Caña",
+            "Sorgo",
+            "Soya",
+            "Cebolla"});
             this.cbNombre.Location = new System.Drawing.Point(259, 128);
             this.cbNombre.Name = "cbNombre";
             this.cbNombre.Size = new System.Drawing.Size(216, 34);
@@ -350,6 +355,13 @@
             this.IDAlmacen.Name = "IDAlmacen";
             this.IDAlmacen.ReadOnly = true;
             // 
+            // usuarioAlmacen
+            // 
+            this.usuarioAlmacen.DataPropertyName = "usuarioAlmacen";
+            this.usuarioAlmacen.HeaderText = "Usuario";
+            this.usuarioAlmacen.Name = "usuarioAlmacen";
+            this.usuarioAlmacen.ReadOnly = true;
+            // 
             // tipoObjeto
             // 
             this.tipoObjeto.DataPropertyName = "tipoObjeto";
@@ -363,13 +375,6 @@
             this.nombreObjeto.HeaderText = "Nombre del objeto";
             this.nombreObjeto.Name = "nombreObjeto";
             this.nombreObjeto.ReadOnly = true;
-            // 
-            // cantidadObjeto
-            // 
-            this.cantidadObjeto.DataPropertyName = "cantidadObjeto";
-            this.cantidadObjeto.HeaderText = "Cantidad de objeto";
-            this.cantidadObjeto.Name = "cantidadObjeto";
-            this.cantidadObjeto.ReadOnly = true;
             // 
             // tipoSiembra
             // 
@@ -385,19 +390,22 @@
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             // 
+            // cantidadObjeto
+            // 
+            this.cantidadObjeto.DataPropertyName = "cantidadObjeto";
+            this.cantidadObjeto.HeaderText = "Cantidad de objeto";
+            this.cantidadObjeto.Name = "cantidadObjeto";
+            this.cantidadObjeto.ReadOnly = true;
+            // 
             // fechaIngreso
             // 
             this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.fechaIngreso.DefaultCellStyle = dataGridViewCellStyle3;
             this.fechaIngreso.HeaderText = "Fecha de ingreso";
             this.fechaIngreso.Name = "fechaIngreso";
             this.fechaIngreso.ReadOnly = true;
-            // 
-            // usuarioAlmacen
-            // 
-            this.usuarioAlmacen.DataPropertyName = "usuarioAlmacen";
-            this.usuarioAlmacen.HeaderText = "Usuario";
-            this.usuarioAlmacen.Name = "usuarioAlmacen";
-            this.usuarioAlmacen.ReadOnly = true;
             // 
             // Almacen
             // 
@@ -457,12 +465,12 @@
         private System.Windows.Forms.ComboBox cbNombre;
         private System.Windows.Forms.ComboBox cbTipoObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDAlmacen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioAlmacen;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreObjeto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoSiembra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioAlmacen;
     }
 }

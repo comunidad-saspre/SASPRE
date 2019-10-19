@@ -1402,6 +1402,12 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<CalendarioAct>();
         }
 
+        private void btnAlarmas_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<Alarmas>();
+
+        }
+
         private bool HayInternet()
         {
             try

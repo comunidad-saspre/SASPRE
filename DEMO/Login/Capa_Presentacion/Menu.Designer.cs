@@ -55,6 +55,7 @@
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.btnRest = new System.Windows.Forms.Button();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
+            this.btnAlarmas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonVentas = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -284,11 +285,11 @@
             // 
             this.lblTemp.AutoSize = true;
             this.lblTemp.BackColor = System.Drawing.Color.Transparent;
-            this.lblTemp.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTemp.ForeColor = System.Drawing.Color.White;
             this.lblTemp.Location = new System.Drawing.Point(15, 49);
             this.lblTemp.Name = "lblTemp";
-            this.lblTemp.Size = new System.Drawing.Size(125, 23);
+            this.lblTemp.Size = new System.Drawing.Size(129, 24);
             this.lblTemp.TabIndex = 21;
             this.lblTemp.Text = "Temperatura";
             this.lblTemp.Visible = false;
@@ -297,11 +298,11 @@
             // 
             this.lblPrecipitacionmm.AutoSize = true;
             this.lblPrecipitacionmm.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrecipitacionmm.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitacionmm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecipitacionmm.ForeColor = System.Drawing.Color.White;
             this.lblPrecipitacionmm.Location = new System.Drawing.Point(17, 207);
             this.lblPrecipitacionmm.Name = "lblPrecipitacionmm";
-            this.lblPrecipitacionmm.Size = new System.Drawing.Size(106, 23);
+            this.lblPrecipitacionmm.Size = new System.Drawing.Size(107, 24);
             this.lblPrecipitacionmm.TabIndex = 26;
             this.lblPrecipitacionmm.Text = "999.444mm";
             this.lblPrecipitacionmm.Visible = false;
@@ -310,11 +311,11 @@
             // 
             this.lblHumedad.AutoSize = true;
             this.lblHumedad.BackColor = System.Drawing.Color.Transparent;
-            this.lblHumedad.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHumedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHumedad.ForeColor = System.Drawing.Color.White;
             this.lblHumedad.Location = new System.Drawing.Point(17, 116);
             this.lblHumedad.Name = "lblHumedad";
-            this.lblHumedad.Size = new System.Drawing.Size(98, 23);
+            this.lblHumedad.Size = new System.Drawing.Size(101, 24);
             this.lblHumedad.TabIndex = 22;
             this.lblHumedad.Text = "Humedad";
             this.lblHumedad.Visible = false;
@@ -323,11 +324,11 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstado.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstado.ForeColor = System.Drawing.Color.White;
             this.lblEstado.Location = new System.Drawing.Point(17, 141);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(177, 23);
+            this.lblEstado.Size = new System.Drawing.Size(181, 24);
             this.lblEstado.TabIndex = 25;
             this.lblEstado.Text = "Estado de humedad";
             this.lblEstado.Visible = false;
@@ -337,11 +338,11 @@
             // 
             this.lblPrecipitacion.AutoSize = true;
             this.lblPrecipitacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrecipitacion.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecipitacion.ForeColor = System.Drawing.Color.White;
             this.lblPrecipitacion.Location = new System.Drawing.Point(17, 182);
             this.lblPrecipitacion.Name = "lblPrecipitacion";
-            this.lblPrecipitacion.Size = new System.Drawing.Size(129, 23);
+            this.lblPrecipitacion.Size = new System.Drawing.Size(131, 24);
             this.lblPrecipitacion.TabIndex = 23;
             this.lblPrecipitacion.Text = "Precipitación";
             this.lblPrecipitacion.Visible = false;
@@ -350,11 +351,11 @@
             // 
             this.lblCentigrados.AutoSize = true;
             this.lblCentigrados.BackColor = System.Drawing.Color.Transparent;
-            this.lblCentigrados.Font = new System.Drawing.Font("Leelawadee", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCentigrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCentigrados.ForeColor = System.Drawing.Color.White;
             this.lblCentigrados.Location = new System.Drawing.Point(17, 75);
             this.lblCentigrados.Name = "lblCentigrados";
-            this.lblCentigrados.Size = new System.Drawing.Size(134, 23);
+            this.lblCentigrados.Size = new System.Drawing.Size(132, 24);
             this.lblCentigrados.TabIndex = 24;
             this.lblCentigrados.Text = "3° Centigrados";
             this.lblCentigrados.Visible = false;
@@ -379,6 +380,7 @@
             // myPanel2
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.myPanel2.Controls.Add(this.btnAlarmas);
             this.myPanel2.Controls.Add(this.bunifuFlatButton3);
             this.myPanel2.Controls.Add(this.bunifuFlatButton2);
             this.myPanel2.Controls.Add(this.bunifuFlatButtonVentas);
@@ -398,8 +400,46 @@
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.myPanel2.Location = new System.Drawing.Point(0, 0);
             this.myPanel2.Name = "myPanel2";
-            this.myPanel2.Size = new System.Drawing.Size(45, 720);
+            this.myPanel2.Size = new System.Drawing.Size(230, 720);
             this.myPanel2.TabIndex = 20;
+            // 
+            // btnAlarmas
+            // 
+            this.btnAlarmas.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnAlarmas.BackColor = System.Drawing.Color.Transparent;
+            this.btnAlarmas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAlarmas.BorderRadius = 0;
+            this.btnAlarmas.ButtonText = "   Alarmas";
+            this.btnAlarmas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlarmas.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAlarmas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlarmas.ForeColor = System.Drawing.Color.White;
+            this.btnAlarmas.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAlarmas.Iconimage = global::Capa_Presentacion.Properties.Resources.alarm_30px;
+            this.btnAlarmas.Iconimage_right = null;
+            this.btnAlarmas.Iconimage_right_Selected = null;
+            this.btnAlarmas.Iconimage_Selected = null;
+            this.btnAlarmas.IconMarginLeft = 0;
+            this.btnAlarmas.IconMarginRight = 0;
+            this.btnAlarmas.IconRightVisible = true;
+            this.btnAlarmas.IconRightZoom = 0D;
+            this.btnAlarmas.IconVisible = true;
+            this.btnAlarmas.IconZoom = 60D;
+            this.btnAlarmas.IsTab = false;
+            this.btnAlarmas.Location = new System.Drawing.Point(0, 560);
+            this.btnAlarmas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAlarmas.Name = "btnAlarmas";
+            this.btnAlarmas.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnAlarmas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnAlarmas.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAlarmas.selected = false;
+            this.btnAlarmas.Size = new System.Drawing.Size(250, 40);
+            this.btnAlarmas.TabIndex = 67;
+            this.btnAlarmas.Text = "   Alarmas";
+            this.btnAlarmas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlarmas.Textcolor = System.Drawing.Color.White;
+            this.btnAlarmas.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlarmas.Click += new System.EventHandler(this.btnAlarmas_Click);
             // 
             // bunifuFlatButton3
             // 
@@ -424,14 +464,14 @@
             this.bunifuFlatButton3.IconVisible = true;
             this.bunifuFlatButton3.IconZoom = 60D;
             this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(0, 540);
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(0, 480);
             this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton3.Name = "bunifuFlatButton3";
             this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton3.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButton3.TabIndex = 66;
             this.bunifuFlatButton3.Text = "  Calendario actividades";
             this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -462,14 +502,14 @@
             this.bunifuFlatButton2.IconVisible = true;
             this.bunifuFlatButton2.IconZoom = 60D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(0, 585);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(0, 520);
             this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButton2.TabIndex = 65;
             this.bunifuFlatButton2.Text = "  Gráficos";
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -500,14 +540,14 @@
             this.bunifuFlatButtonVentas.IconVisible = true;
             this.bunifuFlatButtonVentas.IconZoom = 60D;
             this.bunifuFlatButtonVentas.IsTab = false;
-            this.bunifuFlatButtonVentas.Location = new System.Drawing.Point(0, 495);
+            this.bunifuFlatButtonVentas.Location = new System.Drawing.Point(0, 440);
             this.bunifuFlatButtonVentas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButtonVentas.Name = "bunifuFlatButtonVentas";
             this.bunifuFlatButtonVentas.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButtonVentas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButtonVentas.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButtonVentas.selected = false;
-            this.bunifuFlatButtonVentas.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButtonVentas.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButtonVentas.TabIndex = 64;
             this.bunifuFlatButtonVentas.Text = "  Administrar ventas";
             this.bunifuFlatButtonVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -538,14 +578,14 @@
             this.bunifuFlatButtonGastos.IconVisible = true;
             this.bunifuFlatButtonGastos.IconZoom = 60D;
             this.bunifuFlatButtonGastos.IsTab = false;
-            this.bunifuFlatButtonGastos.Location = new System.Drawing.Point(0, 450);
+            this.bunifuFlatButtonGastos.Location = new System.Drawing.Point(0, 400);
             this.bunifuFlatButtonGastos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButtonGastos.Name = "bunifuFlatButtonGastos";
             this.bunifuFlatButtonGastos.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButtonGastos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButtonGastos.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButtonGastos.selected = false;
-            this.bunifuFlatButtonGastos.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButtonGastos.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButtonGastos.TabIndex = 63;
             this.bunifuFlatButtonGastos.Text = "  Administrar gastos";
             this.bunifuFlatButtonGastos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -576,14 +616,14 @@
             this.bunifuFlatButtonAlmacen.IconVisible = true;
             this.bunifuFlatButtonAlmacen.IconZoom = 60D;
             this.bunifuFlatButtonAlmacen.IsTab = false;
-            this.bunifuFlatButtonAlmacen.Location = new System.Drawing.Point(0, 405);
+            this.bunifuFlatButtonAlmacen.Location = new System.Drawing.Point(0, 360);
             this.bunifuFlatButtonAlmacen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButtonAlmacen.Name = "bunifuFlatButtonAlmacen";
             this.bunifuFlatButtonAlmacen.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButtonAlmacen.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButtonAlmacen.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButtonAlmacen.selected = false;
-            this.bunifuFlatButtonAlmacen.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButtonAlmacen.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButtonAlmacen.TabIndex = 62;
             this.bunifuFlatButtonAlmacen.Text = "   Administra almacén";
             this.bunifuFlatButtonAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -614,14 +654,14 @@
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 60D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 630);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 680);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 45);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButton1.TabIndex = 60;
             this.bunifuFlatButton1.Text = "   Administrar usuarios";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -653,14 +693,14 @@
             this.btnFertilizantes.IconVisible = true;
             this.btnFertilizantes.IconZoom = 60D;
             this.btnFertilizantes.IsTab = false;
-            this.btnFertilizantes.Location = new System.Drawing.Point(0, 270);
+            this.btnFertilizantes.Location = new System.Drawing.Point(0, 240);
             this.btnFertilizantes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFertilizantes.Name = "btnFertilizantes";
             this.btnFertilizantes.Normalcolor = System.Drawing.Color.Transparent;
             this.btnFertilizantes.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnFertilizantes.OnHoverTextColor = System.Drawing.Color.White;
             this.btnFertilizantes.selected = false;
-            this.btnFertilizantes.Size = new System.Drawing.Size(250, 45);
+            this.btnFertilizantes.Size = new System.Drawing.Size(250, 40);
             this.btnFertilizantes.TabIndex = 59;
             this.btnFertilizantes.Text = "   Fertilizantes";
             this.btnFertilizantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -691,14 +731,14 @@
             this.btnAdministrarCosechas.IconVisible = true;
             this.btnAdministrarCosechas.IconZoom = 60D;
             this.btnAdministrarCosechas.IsTab = false;
-            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 135);
+            this.btnAdministrarCosechas.Location = new System.Drawing.Point(0, 120);
             this.btnAdministrarCosechas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCosechas.Name = "btnAdministrarCosechas";
             this.btnAdministrarCosechas.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAdministrarCosechas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCosechas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarCosechas.selected = false;
-            this.btnAdministrarCosechas.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarCosechas.Size = new System.Drawing.Size(250, 40);
             this.btnAdministrarCosechas.TabIndex = 59;
             this.btnAdministrarCosechas.Text = "   Administrar cosechas";
             this.btnAdministrarCosechas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -729,14 +769,14 @@
             this.btnAdministrarUsuarios.IconVisible = true;
             this.btnAdministrarUsuarios.IconZoom = 60D;
             this.btnAdministrarUsuarios.IsTab = false;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 360);
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(0, 320);
             this.btnAdministrarUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
             this.btnAdministrarUsuarios.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAdministrarUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarUsuarios.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarUsuarios.selected = false;
-            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(250, 40);
             this.btnAdministrarUsuarios.TabIndex = 58;
             this.btnAdministrarUsuarios.Text = "   Administrar usuarios";
             this.btnAdministrarUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -767,14 +807,14 @@
             this.btnDatosAtmosfericos.IconVisible = true;
             this.btnDatosAtmosfericos.IconZoom = 60D;
             this.btnDatosAtmosfericos.IsTab = false;
-            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 225);
+            this.btnDatosAtmosfericos.Location = new System.Drawing.Point(0, 200);
             this.btnDatosAtmosfericos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDatosAtmosfericos.Name = "btnDatosAtmosfericos";
             this.btnDatosAtmosfericos.Normalcolor = System.Drawing.Color.Transparent;
             this.btnDatosAtmosfericos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnDatosAtmosfericos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDatosAtmosfericos.selected = false;
-            this.btnDatosAtmosfericos.Size = new System.Drawing.Size(250, 45);
+            this.btnDatosAtmosfericos.Size = new System.Drawing.Size(250, 40);
             this.btnDatosAtmosfericos.TabIndex = 58;
             this.btnDatosAtmosfericos.Text = "   Datos atmosfericos";
             this.btnDatosAtmosfericos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -805,14 +845,14 @@
             this.btnHistorialDePlagas.IconVisible = true;
             this.btnHistorialDePlagas.IconZoom = 60D;
             this.btnHistorialDePlagas.IsTab = false;
-            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 315);
+            this.btnHistorialDePlagas.Location = new System.Drawing.Point(0, 280);
             this.btnHistorialDePlagas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHistorialDePlagas.Name = "btnHistorialDePlagas";
             this.btnHistorialDePlagas.Normalcolor = System.Drawing.Color.Transparent;
             this.btnHistorialDePlagas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnHistorialDePlagas.OnHoverTextColor = System.Drawing.Color.White;
             this.btnHistorialDePlagas.selected = false;
-            this.btnHistorialDePlagas.Size = new System.Drawing.Size(250, 45);
+            this.btnHistorialDePlagas.Size = new System.Drawing.Size(250, 40);
             this.btnHistorialDePlagas.TabIndex = 52;
             this.btnHistorialDePlagas.Text = "   Historial de plagas";
             this.btnHistorialDePlagas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -826,7 +866,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(47, 105);
+            this.label1.Location = new System.Drawing.Point(44, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 16);
             this.label1.TabIndex = 57;
@@ -855,14 +895,14 @@
             this.btnAdministrarCultivos.IconVisible = true;
             this.btnAdministrarCultivos.IconZoom = 60D;
             this.btnAdministrarCultivos.IsTab = false;
-            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 180);
+            this.btnAdministrarCultivos.Location = new System.Drawing.Point(0, 160);
             this.btnAdministrarCultivos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdministrarCultivos.Name = "btnAdministrarCultivos";
             this.btnAdministrarCultivos.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAdministrarCultivos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnAdministrarCultivos.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAdministrarCultivos.selected = false;
-            this.btnAdministrarCultivos.Size = new System.Drawing.Size(250, 45);
+            this.btnAdministrarCultivos.Size = new System.Drawing.Size(250, 40);
             this.btnAdministrarCultivos.TabIndex = 54;
             this.btnAdministrarCultivos.Text = "   Administrar cultivos";
             this.btnAdministrarCultivos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -893,14 +933,14 @@
             this.btnInicio.IconVisible = true;
             this.btnInicio.IconZoom = 60D;
             this.btnInicio.IsTab = false;
-            this.btnInicio.Location = new System.Drawing.Point(0, 45);
+            this.btnInicio.Location = new System.Drawing.Point(0, 40);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Normalcolor = System.Drawing.Color.Transparent;
             this.btnInicio.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnInicio.OnHoverTextColor = System.Drawing.Color.White;
             this.btnInicio.selected = false;
-            this.btnInicio.Size = new System.Drawing.Size(250, 45);
+            this.btnInicio.Size = new System.Drawing.Size(250, 40);
             this.btnInicio.TabIndex = 51;
             this.btnInicio.Text = "   Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -937,7 +977,7 @@
             this.btnCerrarSesion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
             this.btnCerrarSesion.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCerrarSesion.selected = false;
-            this.btnCerrarSesion.Size = new System.Drawing.Size(250, 45);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
             this.btnCerrarSesion.TabIndex = 15;
             this.btnCerrarSesion.Text = "   Cerrar sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -948,9 +988,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(152)))), ((int)(((byte)(38)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 80);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(266, 45);
+            this.pictureBox1.Size = new System.Drawing.Size(266, 40);
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
             // 
@@ -992,11 +1032,11 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcion.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion.Location = new System.Drawing.Point(3, 110);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(517, 25);
+            this.lblDescripcion.Size = new System.Drawing.Size(533, 25);
             this.lblDescripcion.TabIndex = 54;
             this.lblDescripcion.Text = "Parcialmente nuboso, posibilidad de tormentas y lluvia";
             // 
@@ -1248,11 +1288,11 @@
             // 
             this.labelFechaCompletaHoy.AutoSize = true;
             this.labelFechaCompletaHoy.BackColor = System.Drawing.Color.Transparent;
-            this.labelFechaCompletaHoy.Font = new System.Drawing.Font("Leelawadee", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaCompletaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaCompletaHoy.ForeColor = System.Drawing.Color.White;
             this.labelFechaCompletaHoy.Location = new System.Drawing.Point(3, 75);
             this.labelFechaCompletaHoy.Name = "labelFechaCompletaHoy";
-            this.labelFechaCompletaHoy.Size = new System.Drawing.Size(410, 32);
+            this.labelFechaCompletaHoy.Size = new System.Drawing.Size(420, 31);
             this.labelFechaCompletaHoy.TabIndex = 30;
             this.labelFechaCompletaHoy.Text = "Jueves 19 de septiembre de 2019";
             // 
@@ -1771,5 +1811,6 @@
         private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAlarmas;
     }
 }

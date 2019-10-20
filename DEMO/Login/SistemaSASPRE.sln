@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDatos", "BaseDeDatos", "{DED261EF-E0C4-41EA-B6E8-77D1504F8E96}"
 	ProjectSection(SolutionItems) = preProject
 		BD181019.sql = BD181019.sql
+		BD201019.sql = BD201019.sql
 		BD260919.sql = BD260919.sql
 		BDSASPRE.sql = BDSASPRE.sql
 		ProcedimientoAlmacenadoDatosAtmosfericos.sql = ProcedimientoAlmacenadoDatosAtmosfericos.sql

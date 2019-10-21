@@ -15,6 +15,7 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlCommand comando = new MySqlCommand();
         DataTable tablaDatosClimaMes = new DataTable();
+        DataTable tablaDatosClima = new DataTable();
         MySqlDataReader leer;
 
         public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
@@ -51,6 +52,19 @@ namespace Capa_Datos
             tablaDatosClimaMes.Load(leer);
             conexion.CerrarConexion();
             return tablaDatosClimaMes;
+        }
+        //Trae desde la bd Los datos Fecha_Local y temperatura y
+        //Los hace una tabla
+        public DataTable MostrarAlarmaClima()
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "mostrarAlarmaClima";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tablaDatosClima.Load(leer);
+            conexion.CerrarConexion();
+            return tablaDatosClima;
         }
         public void AgregarDiario(String fecha)
         {

@@ -779,6 +779,7 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Ventas>();
             CerrarFormEnPanel<Almacen>();
             CerrarFormEnPanel<Gastos>();
+            CerrarFormEnPanel<Alarmas>();
             CerrarFormEnPanel<Gráficos>();
 
             panelDerecho.Visible = true;

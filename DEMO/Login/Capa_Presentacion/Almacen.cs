@@ -150,5 +150,10 @@ namespace Capa_Presentacion
                 MostrarAlmacen();
             }
         }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

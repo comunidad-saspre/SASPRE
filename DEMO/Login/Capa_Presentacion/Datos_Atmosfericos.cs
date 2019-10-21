@@ -242,6 +242,65 @@ namespace Capa_Presentacion
                 Cursor.Current = Cursors.Default;
             }
         }
+        private void MostrarAlarmaClima()
+        {
+            int contadorAlarma = 0;
+            int contadorDias = 0;
+            int contadorHoras = 0;
+            String fecha1 = "", fecha2 = "", fecha3 = "";
+            double temperatura;
+            double temperaturaMaxima = 24;
+            double temperatura1 = 0, temperatura2 = 0, temperatura3 = 0;
+            DataTable tablaDatosClima = new DataTable();
+            tablaDatosClima = _DatosClimaMes.MostrarAlarmaClima();
+
+
+            for (int i = 0; i < 72; i++)
+            {
+                contadorHoras++;
+                temperatura = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+                if (i < 24 && contadorDias == 0)
+                {
+                    if (temperatura >= temperaturaMaxima)
+                    {
+                        fecha1 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                        temperatura1 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                        contadorDias++;
+                    }
+                }
+                else
+                {
+                    if (i >= 24 && contadorHoras < 48 && contadorDias == 1)
+                    {
+                        if (temperatura >= temperaturaMaxima)
+                        {
+                            fecha2 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                            temperatura2 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                            contadorDias++;
+                        }
+                    }
+                    else
+                    {
+
+                        if (i > 48 && contadorDias == 2)
+                        {
+                            if (temperatura >= temperaturaMaxima)
+                            {
+                                fecha3 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                                temperatura3 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                                //alert.Show("Se ha registrado que en 3 dias seguidos"+"\n la temperatura a revasado el limite estable para "+"\nlos cultivos: "+temperaturaMaxima+" C",Alertype.warning);
+                                //alert.Show("\nFecha 1: " + fecha1+" "+temperatura1 + "\nFecha 2: " + fecha2+" "+temperatura2+ "\nFecha 3: " + fecha3+" "+temperatura3,Alertype.warning);
+                                MessageBox.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C");
+                                MessageBox.Show("\nFecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3);
+                                contadorDias++;
+                                i = 72;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -269,6 +328,7 @@ namespace Capa_Presentacion
         private void button1_Click_1(object sender, EventArgs e)
         {
             InsertarDatosClimaMes();
+            MostrarAlarmaClima();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

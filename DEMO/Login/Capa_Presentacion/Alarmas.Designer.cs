@@ -49,6 +49,7 @@
             this.lbCult = new System.Windows.Forms.Label();
             this.txtCultivo = new System.Windows.Forms.ComboBox();
             this.lbTem = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +148,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(800, 158);
+            this.btnCancelar.Location = new System.Drawing.Point(800, 204);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(145, 40);
             this.btnCancelar.TabIndex = 147;
@@ -293,7 +294,9 @@
             this.txtCultivo.Location = new System.Drawing.Point(141, 584);
             this.txtCultivo.Name = "txtCultivo";
             this.txtCultivo.Size = new System.Drawing.Size(217, 34);
+            this.txtCultivo.Sorted = true;
             this.txtCultivo.TabIndex = 163;
+            this.txtCultivo.SelectedIndexChanged += new System.EventHandler(this.TxtCultivo_SelectedIndexChanged);
             // 
             // lbTem
             // 
@@ -309,12 +312,28 @@
             this.lbTem.TabIndex = 164;
             this.lbTem.Text = "Temperatura";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(800, 158);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(145, 40);
+            this.btnEliminar.TabIndex = 165;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Alarmas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lbTem);
             this.Controls.Add(this.txtCultivo);
             this.Controls.Add(this.lbCult);
@@ -361,5 +380,6 @@
         private System.Windows.Forms.Label lbCult;
         private System.Windows.Forms.ComboBox txtCultivo;
         private System.Windows.Forms.Label lbTem;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

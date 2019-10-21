@@ -279,6 +279,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label6.ForeColor = System.Drawing.Color.DimGray;
@@ -288,9 +289,11 @@
             this.label6.Size = new System.Drawing.Size(81, 26);
             this.label6.TabIndex = 110;
             this.label6.Text = "Precio $";
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label9.ForeColor = System.Drawing.Color.DimGray;
@@ -303,6 +306,7 @@
             // 
             // labelCantidad
             // 
+            this.labelCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCantidad.AutoSize = true;
             this.labelCantidad.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.labelCantidad.ForeColor = System.Drawing.Color.DimGray;
@@ -315,6 +319,7 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidad.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtCantidad.Location = new System.Drawing.Point(716, 131);
             this.txtCantidad.Name = "txtCantidad";
@@ -335,6 +340,7 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrecio.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtPrecio.Location = new System.Drawing.Point(716, 88);
             this.txtPrecio.Name = "txtPrecio";
@@ -355,7 +361,7 @@
             // 
             // dtpFechaAgregado
             // 
-            this.dtpFechaAgregado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtpFechaAgregado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFechaAgregado.CalendarFont = new System.Drawing.Font("Corbel", 8.25F);
             this.dtpFechaAgregado.CustomFormat = "yyyy-MM-dd";
             this.dtpFechaAgregado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.2.22-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             10.1.0.5464
+-- Server version:               10.3.13-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Volcando estructura de base de datos para saspre
+-- Dumping database structure for saspre
 CREATE DATABASE IF NOT EXISTS `saspre` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `saspre`;
 
--- Volcando estructura para procedimiento saspre.AgregarCalendario
+-- Dumping structure for procedure saspre.AgregarCalendario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarCalendario`(
 IN `nombre_usuario` VARCHAR(100),
@@ -29,7 +29,7 @@ INSERT INTO calendarioact(Usuario_Calendario,Nombre,Descripcion,FechaInicio,Fech
 VALUES(nombre_usuario,nombre_actividad,descripcion_act,fecha_inicio,fecha_fin)//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.AgregarCosechas
+-- Dumping structure for procedure saspre.AgregarCosechas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarCosechas`(
 IN `_Usuario_Cultivo` VARCHAR(100),
@@ -43,7 +43,7 @@ INSERT INTO Cosechas (Usuario_Cultivo,Cultivo,Fecha_Plantado,Fecha_Cosecha,Canti
 VALUES(_Usuario_Cultivo,_Cultivo,_Fecha_Plantado,_Fecha_Cosecha,_Cantidad,_Estado)//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.AgregarCultivos
+-- Dumping structure for procedure saspre.AgregarCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarCultivos`(
 IN `_Usuario_Cultivo` VARCHAR(100),
@@ -57,7 +57,7 @@ INSERT INTO Cultivos (Usuario_Cultivo,Cultivo,Fecha_Plantado,Fecha_Cosecha,Canti
 VALUES(_Usuario_Cultivo,_Cultivo,_Fecha_Plantado,_Fecha_Cosecha,_Cantidad,_Estado)//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.agregardiarios
+-- Dumping structure for procedure saspre.agregardiarios
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `agregardiarios`(
 IN `_Fecha` DATE
@@ -65,7 +65,7 @@ IN `_Fecha` DATE
 INSERT INTO datosatmosfericosdiarios(fecha) VALUES(_Fecha)//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.AgregarPlaga
+-- Dumping structure for procedure saspre.AgregarPlaga
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarPlaga`(
 	IN `_Cultivo` VARCHAR(100),
@@ -76,7 +76,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarPlaga`(
 INSERT INTO plaga (Cultivo,Plaga,FechaEncontrada) VALUES(_Cultivo,_Nombre_Plaga,_FechaEncontrada)//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.agroinsumos
+-- Dumping structure for table saspre.agroinsumos
 CREATE TABLE IF NOT EXISTS `agroinsumos` (
   `IDagroinsumo` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(50) NOT NULL,
@@ -89,9 +89,9 @@ CREATE TABLE IF NOT EXISTS `agroinsumos` (
   PRIMARY KEY (`IDagroinsumo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.agroinsumos: ~41 rows (aproximadamente)
+-- Dumping data for table saspre.agroinsumos: ~41 rows (approximately)
 /*!40000 ALTER TABLE `agroinsumos` DISABLE KEYS */;
-REPLACE INTO `agroinsumos` (`IDagroinsumo`, `Nombre`, `Marca`, `CantUso`, `Precio`, `Quimicos`, `Hormonas`, `Nutrientes`) VALUES
+INSERT INTO `agroinsumos` (`IDagroinsumo`, `Nombre`, `Marca`, `CantUso`, `Precio`, `Quimicos`, `Hormonas`, `Nutrientes`) VALUES
 	(1, 'Maíz', 'Blazer', '1.5 Kg por  hectárea', '$176', 'Atrazina', 'Ninguno', 'Ninguno'),
 	(2, 'Maíz', 'Faena', '2.0 Lts por hectárea', '$260', 'Dual (Metacloro) o Lasso (Ataclor)', 'Ninguno', 'Ninguno'),
 	(3, 'Maíz', 'Sifatec', '2.0 Lts por hectárea', '$388', 'Prowl 500 (Pendimetalin)', 'Ninguno', 'Ninguno'),
@@ -135,7 +135,7 @@ REPLACE INTO `agroinsumos` (`IDagroinsumo`, `Nombre`, `Marca`, `CantUso`, `Preci
 	(41, 'Sorgo', 'Fósforo', '40 kg por hectárea', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno');
 /*!40000 ALTER TABLE `agroinsumos` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.alarmascultivos
+-- Dumping structure for table saspre.alarmascultivos
 CREATE TABLE IF NOT EXISTS `alarmascultivos` (
   `IDalarma` int(11) NOT NULL AUTO_INCREMENT,
   `nombreAlarma` varchar(100) NOT NULL,
@@ -146,11 +146,11 @@ CREATE TABLE IF NOT EXISTS `alarmascultivos` (
   PRIMARY KEY (`IDalarma`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.alarmascultivos: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.alarmascultivos: ~0 rows (approximately)
 /*!40000 ALTER TABLE `alarmascultivos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `alarmascultivos` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.almacen
+-- Dumping structure for table saspre.almacen
 CREATE TABLE IF NOT EXISTS `almacen` (
   `IDalmacen` int(11) NOT NULL AUTO_INCREMENT,
   `tipoObjeto` varchar(30) DEFAULT NULL,
@@ -163,14 +163,14 @@ CREATE TABLE IF NOT EXISTS `almacen` (
   PRIMARY KEY (`IDalmacen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.almacen: ~2 rows (aproximadamente)
+-- Dumping data for table saspre.almacen: ~2 rows (approximately)
 /*!40000 ALTER TABLE `almacen` DISABLE KEYS */;
-REPLACE INTO `almacen` (`IDalmacen`, `tipoObjeto`, `nombreObjeto`, `cantidadObjeto`, `tipoSiembra`, `precio`, `fechaIngreso`, `usuarioAlmacen`) VALUES
+INSERT INTO `almacen` (`IDalmacen`, `tipoObjeto`, `nombreObjeto`, `cantidadObjeto`, `tipoSiembra`, `precio`, `fechaIngreso`, `usuarioAlmacen`) VALUES
 	(2, 'Cultivo', 'Maíz', 500, 'a', 500, '2019-10-01', 'Emiliano'),
 	(4, 'Fertilizante', 'a', 500, '', 500, '2019-10-18', 'Emiliano');
 /*!40000 ALTER TABLE `almacen` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.altaAlarmaCultivos
+-- Dumping structure for procedure saspre.altaAlarmaCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaAlarmaCultivos`(
 	in _nombreAlarma VARCHAR(100),
@@ -192,7 +192,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaAlmacen
+-- Dumping structure for procedure saspre.altaAlmacen
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaAlmacen`(
 	IN `_tipoObjeto` varchar(30),
@@ -218,7 +218,7 @@ begin
         end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaBitacoraAlertas
+-- Dumping structure for procedure saspre.altaBitacoraAlertas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaBitacoraAlertas`(
     in `_descripcion` varchar(100),
@@ -233,7 +233,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaCalendarioAct
+-- Dumping structure for procedure saspre.altaCalendarioAct
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaCalendarioAct`(
     in `_descripcion` varchar(100),
@@ -250,7 +250,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaGastos
+-- Dumping structure for procedure saspre.altaGastos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaGastos`(
     in `_fechaCompra` date,
@@ -265,7 +265,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaGrafico
+-- Dumping structure for procedure saspre.altaGrafico
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaGrafico`(    
     in `_nombreTerreno` varchar(20),
@@ -292,7 +292,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaMovimientos
+-- Dumping structure for procedure saspre.altaMovimientos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaMovimientos`(
     in `_fecha` date,
@@ -307,7 +307,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.altaSaldo
+-- Dumping structure for procedure saspre.altaSaldo
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `altaSaldo`(
     in `_ingresoMensual` double,
@@ -322,7 +322,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaAlarmaCultivos
+-- Dumping structure for procedure saspre.bajaAlarmaCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaAlarmaCultivos`(
 	in _nombreAlarma VARCHAR (100)
@@ -333,7 +333,7 @@ BEGIN
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaAlmacen
+-- Dumping structure for procedure saspre.bajaAlmacen
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaAlmacen`(
     in `_IDalmacen` int
@@ -344,7 +344,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaBitacoraAlertas
+-- Dumping structure for procedure saspre.bajaBitacoraAlertas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaBitacoraAlertas`(
     in `_IDbitacoraAlertas` int
@@ -355,7 +355,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaCalendarioAct
+-- Dumping structure for procedure saspre.bajaCalendarioAct
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaCalendarioAct`(
     in `_IDbajaCalendarioAct` int
@@ -366,7 +366,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaGastos
+-- Dumping structure for procedure saspre.bajaGastos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaGastos`(
     in `_IDgastos` int
@@ -377,7 +377,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaGrafico
+-- Dumping structure for procedure saspre.bajaGrafico
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaGrafico`(
     in `_IDgrafico` int
@@ -388,7 +388,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaMovimientos
+-- Dumping structure for procedure saspre.bajaMovimientos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaMovimientos`(            
     in `_IDmovimientos` double 
@@ -399,7 +399,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaSaldo
+-- Dumping structure for procedure saspre.bajaSaldo
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaSaldo`(
     in `_IDsaldo` int
@@ -410,7 +410,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.bajaVentas
+-- Dumping structure for procedure saspre.bajaVentas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `bajaVentas`(
     in `_IDventas` int
@@ -421,7 +421,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.bitacoraalertas
+-- Dumping structure for table saspre.bitacoraalertas
 CREATE TABLE IF NOT EXISTS `bitacoraalertas` (
   `IDbitacoraAlertas` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) DEFAULT NULL,
@@ -429,11 +429,11 @@ CREATE TABLE IF NOT EXISTS `bitacoraalertas` (
   PRIMARY KEY (`IDbitacoraAlertas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.bitacoraalertas: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.bitacoraalertas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `bitacoraalertas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bitacoraalertas` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.buscarAlmacen
+-- Dumping structure for procedure saspre.buscarAlmacen
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarAlmacen`(
     in `_IDalmacen` int
@@ -444,7 +444,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarBitacoraAlertas
+-- Dumping structure for procedure saspre.buscarBitacoraAlertas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarBitacoraAlertas`(
     in `_IDbitacoraAlertas` int
@@ -455,7 +455,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarCalendarioAct
+-- Dumping structure for procedure saspre.buscarCalendarioAct
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarCalendarioAct`(
     in `_IDCalendarioAct` int
@@ -466,7 +466,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarGastos
+-- Dumping structure for procedure saspre.buscarGastos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarGastos`(
     in `_IDgastos` int
@@ -477,7 +477,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarGrafico
+-- Dumping structure for procedure saspre.buscarGrafico
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarGrafico`(
     in `_IDgrafico` int
@@ -488,7 +488,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarMovimientos
+-- Dumping structure for procedure saspre.buscarMovimientos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarMovimientos`(
     in `_IDmovimientos` int
@@ -499,7 +499,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarSaldo
+-- Dumping structure for procedure saspre.buscarSaldo
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarSaldo`(
     in `_IDsaldo` int
@@ -510,7 +510,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.buscarVentas
+-- Dumping structure for procedure saspre.buscarVentas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarVentas`(
     in `_IDventas` int
@@ -521,7 +521,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.calendarioact
+-- Dumping structure for table saspre.calendarioact
 CREATE TABLE IF NOT EXISTS `calendarioact` (
   `idCalendario` int(11) NOT NULL AUTO_INCREMENT,
   `Usuario_Calendario` varchar(100) NOT NULL,
@@ -532,11 +532,11 @@ CREATE TABLE IF NOT EXISTS `calendarioact` (
   PRIMARY KEY (`idCalendario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.calendarioact: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.calendarioact: ~0 rows (approximately)
 /*!40000 ALTER TABLE `calendarioact` DISABLE KEYS */;
 /*!40000 ALTER TABLE `calendarioact` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.cambioAlarmaCultivos
+-- Dumping structure for procedure saspre.cambioAlarmaCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioAlarmaCultivos`(
 	in _nombreAlarma VARCHAR(100),
@@ -558,7 +558,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioAlmacen
+-- Dumping structure for procedure saspre.cambioAlmacen
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioAlmacen`(
     in `_IDalmacen` int,
@@ -582,7 +582,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioBitacoraAlertas
+-- Dumping structure for procedure saspre.cambioBitacoraAlertas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioBitacoraAlertas`(
     in `_IDbitacoraAlertas` int,
@@ -598,7 +598,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioCalendarioAct
+-- Dumping structure for procedure saspre.cambioCalendarioAct
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioCalendarioAct`(
     in `_IDbajaCalendarioAct` int,
@@ -616,7 +616,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioGastos
+-- Dumping structure for procedure saspre.cambioGastos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioGastos`(
     in `_IDgastos` int,
@@ -632,7 +632,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioGrafico
+-- Dumping structure for procedure saspre.cambioGrafico
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioGrafico`(
     in `_IDgrafico` int,
@@ -660,7 +660,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioMovimientos
+-- Dumping structure for procedure saspre.cambioMovimientos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioMovimientos`(
     in `_IDmovimientos` int,
@@ -676,7 +676,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.cambioSaldo
+-- Dumping structure for procedure saspre.cambioSaldo
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioSaldo`(
     in `_IDsaldo` int,
@@ -692,7 +692,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.controlplaga
+-- Dumping structure for table saspre.controlplaga
 CREATE TABLE IF NOT EXISTS `controlplaga` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Cultivo` varchar(200) DEFAULT NULL,
@@ -705,9 +705,9 @@ CREATE TABLE IF NOT EXISTS `controlplaga` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.controlplaga: ~93 rows (aproximadamente)
+-- Dumping data for table saspre.controlplaga: ~93 rows (approximately)
 /*!40000 ALTER TABLE `controlplaga` DISABLE KEYS */;
-REPLACE INTO `controlplaga` (`Id`, `Cultivo`, `Plaga`, `Insecticida`, `Dosis`, `NombreComercial`, `DosisComercial`, `EpocaControl`) VALUES
+INSERT INTO `controlplaga` (`Id`, `Cultivo`, `Plaga`, `Insecticida`, `Dosis`, `NombreComercial`, `DosisComercial`, `EpocaControl`) VALUES
 	(1, 'Sorgo', 'Gusano cogollero Spodoptera frugiperda', 'Clorpirifos Etil ', '360', 'Lorsban 480 EM', '0.75 L ', 'Cuando se tenga 20% de plantas dañadas.'),
 	(2, 'Sorgo', 'Gusano de la panoja/Celama sorghiella', 'Meditatión', '416.00', 'Supracid 40 E', '1.0', 'Cuando se encuentre de dos a tres gusanos por panoja'),
 	(3, 'Sorgo', 'Mosca midge o mosca de la panoja / Contarinia sorghicola', 'Clorpirifos Etil', '240', 'Lorsban 480 EM', '0.5 L', 'Cuando haya una o más mosquitas por panoja'),
@@ -803,7 +803,7 @@ REPLACE INTO `controlplaga` (`Id`, `Cultivo`, `Plaga`, `Insecticida`, `Dosis`, `
 	(93, 'Cebolla', 'Minador de la hoja Liriomyza trifolii', 'Cyromazina', '75', '-', '-', 'Cuando se tenga dos plantas dañadas por cada 10 plantas');
 /*!40000 ALTER TABLE `controlplaga` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.cosechas
+-- Dumping structure for table saspre.cosechas
 CREATE TABLE IF NOT EXISTS `cosechas` (
   `IDCultivo` int(11) NOT NULL AUTO_INCREMENT,
   `Usuario_Cultivo` varchar(100) NOT NULL,
@@ -815,9 +815,9 @@ CREATE TABLE IF NOT EXISTS `cosechas` (
   PRIMARY KEY (`IDCultivo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.cosechas: ~16 rows (aproximadamente)
+-- Dumping data for table saspre.cosechas: ~16 rows (approximately)
 /*!40000 ALTER TABLE `cosechas` DISABLE KEYS */;
-REPLACE INTO `cosechas` (`IDCultivo`, `Usuario_Cultivo`, `Cultivo`, `Fecha_Plantado`, `Fecha_Cosecha`, `Cantidad`, `Estado`) VALUES
+INSERT INTO `cosechas` (`IDCultivo`, `Usuario_Cultivo`, `Cultivo`, `Fecha_Plantado`, `Fecha_Cosecha`, `Cantidad`, `Estado`) VALUES
 	(1, 'muski', 'Maíz', '2019-06-01', '2019-06-01', 10, NULL),
 	(2, 'muski', 'Maíz', '2019-06-11', '2019-07-06', 15, NULL),
 	(3, 'muski', 'Maíz', '2019-05-28', '2019-06-04', 10, NULL),
@@ -836,7 +836,7 @@ REPLACE INTO `cosechas` (`IDCultivo`, `Usuario_Cultivo`, `Cultivo`, `Fecha_Plant
 	(16, 'a', 'Caña', '2019-06-03', '2019-06-18', 1, NULL);
 /*!40000 ALTER TABLE `cosechas` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.cosechas_log
+-- Dumping structure for table saspre.cosechas_log
 CREATE TABLE IF NOT EXISTS `cosechas_log` (
   `IDLog` int(11) NOT NULL AUTO_INCREMENT,
   `IDCultivo_log` int(11) NOT NULL,
@@ -850,9 +850,9 @@ CREATE TABLE IF NOT EXISTS `cosechas_log` (
   PRIMARY KEY (`IDLog`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.cosechas_log: ~10 rows (aproximadamente)
+-- Dumping data for table saspre.cosechas_log: ~10 rows (approximately)
 /*!40000 ALTER TABLE `cosechas_log` DISABLE KEYS */;
-REPLACE INTO `cosechas_log` (`IDLog`, `IDCultivo_log`, `Usuario_Cultivo_log`, `Cultivo_log`, `Fecha_Plantado_log`, `Cantidad_log`, `Estado_log`, `accion`, `tiempo_log`) VALUES
+INSERT INTO `cosechas_log` (`IDLog`, `IDCultivo_log`, `Usuario_Cultivo_log`, `Cultivo_log`, `Fecha_Plantado_log`, `Cantidad_log`, `Estado_log`, `accion`, `tiempo_log`) VALUES
 	(1, 10, 'a', 'Maíz', '2019-06-05', 1, NULL, 'insert', '2019-06-09 17:05:00'),
 	(2, 11, 'a', 'Caña', '2019-06-11', 14, NULL, 'insert', '2019-06-11 21:54:20'),
 	(3, 12, 'b', 'Sorgo', '2019-06-11', 142, NULL, 'insert', '2019-06-11 21:55:57'),
@@ -865,7 +865,7 @@ REPLACE INTO `cosechas_log` (`IDLog`, `IDCultivo_log`, `Usuario_Cultivo_log`, `C
 	(10, 16, 'a', 'Caña', '2019-06-03', 1, NULL, 'update', '2019-06-18 14:01:25');
 /*!40000 ALTER TABLE `cosechas_log` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.cultivos
+-- Dumping structure for table saspre.cultivos
 CREATE TABLE IF NOT EXISTS `cultivos` (
   `IDcultivo` int(11) NOT NULL AUTO_INCREMENT,
   `Usuario_Cultivo` varchar(100) NOT NULL,
@@ -877,16 +877,16 @@ CREATE TABLE IF NOT EXISTS `cultivos` (
   PRIMARY KEY (`IDcultivo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.cultivos: ~4 rows (aproximadamente)
+-- Dumping data for table saspre.cultivos: ~4 rows (approximately)
 /*!40000 ALTER TABLE `cultivos` DISABLE KEYS */;
-REPLACE INTO `cultivos` (`IDcultivo`, `Usuario_Cultivo`, `Cultivo`, `Fecha_Plantado`, `Fecha_Cosecha`, `Cantidad`, `Estado`) VALUES
+INSERT INTO `cultivos` (`IDcultivo`, `Usuario_Cultivo`, `Cultivo`, `Fecha_Plantado`, `Fecha_Cosecha`, `Cantidad`, `Estado`) VALUES
 	(21, 'a', 'Soya', '2019-04-23', '2019-06-13', 13, 'Sin estado'),
 	(22, 'a', 'Maíz', '2019-03-27', '2019-06-14', 15, 'Probabilidad de Gusano cogollero, Gallina ciega'),
 	(23, 'a', 'Caña', '2019-04-23', '2019-06-14', 1, 'Probabilidad de Gusano Barrenador, Rata'),
 	(27, 'a', 'Soya', '2019-06-15', '2019-06-15', 14, 'Sin estado');
 /*!40000 ALTER TABLE `cultivos` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.cultivos_log
+-- Dumping structure for table saspre.cultivos_log
 CREATE TABLE IF NOT EXISTS `cultivos_log` (
   `IDLog` int(11) NOT NULL AUTO_INCREMENT,
   `IDCultivoCosecha_log` int(11) NOT NULL,
@@ -901,9 +901,9 @@ CREATE TABLE IF NOT EXISTS `cultivos_log` (
   PRIMARY KEY (`IDLog`)
 ) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.cultivos_log: ~88 rows (aproximadamente)
+-- Dumping data for table saspre.cultivos_log: ~88 rows (approximately)
 /*!40000 ALTER TABLE `cultivos_log` DISABLE KEYS */;
-REPLACE INTO `cultivos_log` (`IDLog`, `IDCultivoCosecha_log`, `Usuario_Cultivo_log`, `Cultivo_log`, `Fecha_Plantado_log`, `Fecha_Cosecha_log`, `Cantidad_log`, `Estado_log`, `accion`, `tiempo_log`) VALUES
+INSERT INTO `cultivos_log` (`IDLog`, `IDCultivoCosecha_log`, `Usuario_Cultivo_log`, `Cultivo_log`, `Fecha_Plantado_log`, `Fecha_Cosecha_log`, `Cantidad_log`, `Estado_log`, `accion`, `tiempo_log`) VALUES
 	(1, 21, 'a', 'Soya', '2019-04-23', '2019-06-13', 13, 'Sin estado', 'update', '2019-06-17 16:56:24'),
 	(2, 22, 'a', 'Maíz', '2019-03-27', '2019-06-14', 15, 'Probabilidad de Gusano cogollero, Gusano elotero, 30% gallina ciega', 'update', '2019-06-17 16:56:24'),
 	(3, 23, 'a', 'Caña', '2019-04-23', '2019-06-14', 1, 'Probabilidad de Gusano Barrenador, Rata, Piojo harinoso de la vid', 'update', '2019-06-17 16:56:24'),
@@ -994,16 +994,16 @@ REPLACE INTO `cultivos_log` (`IDLog`, `IDCultivoCosecha_log`, `Usuario_Cultivo_l
 	(88, 27, 'a', 'Soya', '2019-06-15', '2019-06-15', 14, 'Sin estado', 'update', '2019-06-18 23:32:41');
 /*!40000 ALTER TABLE `cultivos_log` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.datosatmosfericosdiarios
+-- Dumping structure for table saspre.datosatmosfericosdiarios
 CREATE TABLE IF NOT EXISTS `datosatmosfericosdiarios` (
   `fecha` date NOT NULL,
   `num` int(11) DEFAULT NULL,
   PRIMARY KEY (`fecha`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.datosatmosfericosdiarios: ~8 rows (aproximadamente)
+-- Dumping data for table saspre.datosatmosfericosdiarios: ~9 rows (approximately)
 /*!40000 ALTER TABLE `datosatmosfericosdiarios` DISABLE KEYS */;
-REPLACE INTO `datosatmosfericosdiarios` (`fecha`, `num`) VALUES
+INSERT INTO `datosatmosfericosdiarios` (`fecha`, `num`) VALUES
 	('2019-06-17', NULL),
 	('2019-06-18', NULL),
 	('2019-06-19', NULL),
@@ -1015,7 +1015,7 @@ REPLACE INTO `datosatmosfericosdiarios` (`fecha`, `num`) VALUES
 	('2019-10-20', NULL);
 /*!40000 ALTER TABLE `datosatmosfericosdiarios` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.datosclimames
+-- Dumping structure for table saspre.datosclimames
 CREATE TABLE IF NOT EXISTS `datosclimames` (
   `Estacion` varchar(50) DEFAULT NULL,
   `Fecha_Local` date DEFAULT NULL,
@@ -1031,9 +1031,9 @@ CREATE TABLE IF NOT EXISTS `datosclimames` (
   `Radiacion_Solar` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.datosclimames: ~2,299 rows (aproximadamente)
+-- Dumping data for table saspre.datosclimames: ~2,299 rows (approximately)
 /*!40000 ALTER TABLE `datosclimames` DISABLE KEYS */;
-REPLACE INTO `datosclimames` (`Estacion`, `Fecha_Local`, `Fecha_UTC`, `Direccion_del_Viento`, `Direccion_de_Rafaga`, `Rapidez_de_Viento`, `Rapidez_de_Rafaga`, `Temperatura`, `Humedad_Relativa`, `Presion_Atmosferica`, `Precipitacion`, `Radiacion_Solar`) VALUES
+INSERT INTO `datosclimames` (`Estacion`, `Fecha_Local`, `Fecha_UTC`, `Direccion_del_Viento`, `Direccion_de_Rafaga`, `Rapidez_de_Viento`, `Rapidez_de_Rafaga`, `Temperatura`, `Humedad_Relativa`, `Presion_Atmosferica`, `Precipitacion`, `Radiacion_Solar`) VALUES
 	('CIUDADMANTE', '2019-06-15', '2019-06-16', 105, 124, 6.3, 16.6, 28.5, 75, 1003.1, 0, 0),
 	('CIUDADMANTE', '2019-06-15', '2019-06-16', 111, 117, 9.9, 26.6, 28.9, 70, 1002.1, 0, 0),
 	('CIUDADMANTE', '2019-06-15', '2019-06-16', 120, 111, 13.8, 30.2, 30.3, 60, 1000.3, 0, 0),
@@ -3335,7 +3335,7 @@ REPLACE INTO `datosclimames` (`Estacion`, `Fecha_Local`, `Fecha_UTC`, `Direccion
 	('CIUDADMANTE', '2019-06-16', '2019-06-16', 86, 114, 4.6, 14.4, 28.1, 78, 1003.6, 0, 0);
 /*!40000 ALTER TABLE `datosclimames` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.datosclimames_log
+-- Dumping structure for table saspre.datosclimames_log
 CREATE TABLE IF NOT EXISTS `datosclimames_log` (
   `IDLog` int(11) NOT NULL AUTO_INCREMENT,
   `Estacion_log` varchar(50) DEFAULT NULL,
@@ -3355,11 +3355,11 @@ CREATE TABLE IF NOT EXISTS `datosclimames_log` (
   PRIMARY KEY (`IDLog`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.datosclimames_log: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.datosclimames_log: ~0 rows (approximately)
 /*!40000 ALTER TABLE `datosclimames_log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `datosclimames_log` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.EditarCalendario
+-- Dumping structure for procedure saspre.EditarCalendario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EditarCalendario`(
 IN `nombre_actividad` VARCHAR(300),
@@ -3371,7 +3371,7 @@ IN `id_calendario` INT
 UPDATE calendarioact SET Nombre=nombre_actividad,Descripcion=descripcion_act,FechaInicio=fecha_inicio,FechaFin=fecha_fin WHERE idCalendario = id_calendario//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EditarCosechas
+-- Dumping structure for procedure saspre.EditarCosechas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EditarCosechas`(
 IN `_IDCultivo` INT,
@@ -3380,7 +3380,7 @@ IN `_Estado` VARCHAR(500)
 UPDATE cosechas SET Estado = _Estado WHERE IDCultivo = _IDCultivo//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EditarCultivos
+-- Dumping structure for procedure saspre.EditarCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EditarCultivos`(
 IN `_IDcultivo` INT,
@@ -3389,7 +3389,7 @@ IN `_Estado` VARCHAR(500)
 UPDATE cultivos SET Estado = _Estado WHERE IDcultivo = _IDcultivo//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EditarUsuario
+-- Dumping structure for procedure saspre.EditarUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EditarUsuario`(
 	IN `_Idusuario` INT,
@@ -3412,7 +3412,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EliminarCalendario
+-- Dumping structure for procedure saspre.EliminarCalendario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarCalendario`(
 IN `id_calendario` INT
@@ -3420,14 +3420,14 @@ IN `id_calendario` INT
 DELETE FROM calendarioact WHERE idCalendario = id_calendario//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EliminarCultivos
+-- Dumping structure for procedure saspre.EliminarCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarCultivos`(
 IN `_IDCultivo` INT)
 DELETE FROM cultivos WHERE IDCultivo = _IDCultivo//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.EliminarUsuario
+-- Dumping structure for procedure saspre.EliminarUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarUsuario`(
 	IN `_nickname` VARCHAR(50)
@@ -3440,7 +3440,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.gastos
+-- Dumping structure for table saspre.gastos
 CREATE TABLE IF NOT EXISTS `gastos` (
   `IDgastos` int(11) NOT NULL AUTO_INCREMENT,
   `fechaCompra` date DEFAULT NULL,
@@ -3448,11 +3448,11 @@ CREATE TABLE IF NOT EXISTS `gastos` (
   PRIMARY KEY (`IDgastos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.gastos: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.gastos: ~0 rows (approximately)
 /*!40000 ALTER TABLE `gastos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gastos` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.grafico
+-- Dumping structure for table saspre.grafico
 CREATE TABLE IF NOT EXISTS `grafico` (
   `IDgrafico` int(11) NOT NULL AUTO_INCREMENT,
   `nombreTerreno` varchar(20) DEFAULT NULL,
@@ -3466,11 +3466,11 @@ CREATE TABLE IF NOT EXISTS `grafico` (
   PRIMARY KEY (`IDgrafico`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.grafico: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.grafico: ~0 rows (approximately)
 /*!40000 ALTER TABLE `grafico` DISABLE KEYS */;
 /*!40000 ALTER TABLE `grafico` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.infoestacion
+-- Dumping structure for table saspre.infoestacion
 CREATE TABLE IF NOT EXISTS `infoestacion` (
   `IDinfo` int(11) NOT NULL AUTO_INCREMENT,
   `FechaLocal` varchar(100) NOT NULL,
@@ -3485,11 +3485,11 @@ CREATE TABLE IF NOT EXISTS `infoestacion` (
   PRIMARY KEY (`IDinfo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.infoestacion: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.infoestacion: ~0 rows (approximately)
 /*!40000 ALTER TABLE `infoestacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `infoestacion` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.IniciarSesion
+-- Dumping structure for procedure saspre.IniciarSesion
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `IniciarSesion`(
 	IN `_nickname` VARCHAR(100),
@@ -3499,7 +3499,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `IniciarSesion`(
 SELECT * FROM usuario WHERE nickname = _nickname and binary contra = _contra//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.InsertarDatosClimaMes
+-- Dumping structure for procedure saspre.InsertarDatosClimaMes
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarDatosClimaMes`(
 IN `_Estacion` VARCHAR(50),
@@ -3526,7 +3526,7 @@ _Temperatura,_Humedad_Relativa,_Presion_Atmosferica,_Precipitacion,
 _Radiacion_Solar)//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.mostrarAlarmaClima
+-- Dumping structure for procedure saspre.mostrarAlarmaClima
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarAlarmaClima`()
 BEGIN
@@ -3534,13 +3534,21 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCalendario
+-- Dumping structure for procedure saspre.mostrarAlarmas
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarAlarmas`()
+BEGIN
+	SELECT nombreAlarma,nombrePlanta,tempMaxAlarma,tempMinAlarma,lapsoDias FROM AlarmasCultivos;
+END//
+DELIMITER ;
+
+-- Dumping structure for procedure saspre.MostrarCalendario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCalendario`()
 SELECT * FROM calendarioact//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCalendarioUsuarios
+-- Dumping structure for procedure saspre.MostrarCalendarioUsuarios
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCalendarioUsuarios`(
 IN `nombre_usuario` VARCHAR(100)
@@ -3548,26 +3556,26 @@ IN `nombre_usuario` VARCHAR(100)
 SELECT * FROM calendarioact WHERE Usuario_Calendario= nombre_usuario//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCosechas
+-- Dumping structure for procedure saspre.MostrarCosechas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCosechas`()
 SELECT * FROM cosechas//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCosechasUsuario
+-- Dumping structure for procedure saspre.MostrarCosechasUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCosechasUsuario`(
 IN `_Usuario_Cultivo` VARCHAR(100))
 SELECT * FROM cosechas WHERE Usuario_Cultivo = _Usuario_Cultivo//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCultivos
+-- Dumping structure for procedure saspre.MostrarCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCultivos`()
 SELECT * FROM cultivos//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarCultivosUsuario
+-- Dumping structure for procedure saspre.MostrarCultivosUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCultivosUsuario`(
 IN `_Usuario_Cultivo` VARCHAR(100)
@@ -3575,13 +3583,13 @@ IN `_Usuario_Cultivo` VARCHAR(100)
 SELECT * from Cultivos WHERE Usuario_Cultivo = _Usuario_Cultivo//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarDatosClimaMes
+-- Dumping structure for procedure saspre.MostrarDatosClimaMes
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarDatosClimaMes`()
 SELECT * FROM datosclimames ORDER BY Fecha_Local DESC//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarFertilizantes
+-- Dumping structure for procedure saspre.MostrarFertilizantes
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarFertilizantes`()
 BEGIN
@@ -3598,7 +3606,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.mostrarNombreAlarmas
+-- Dumping structure for procedure saspre.mostrarNombreAlarmas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarNombreAlarmas`()
 BEGIN
@@ -3606,7 +3614,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.mostrarNombreCultivos
+-- Dumping structure for procedure saspre.mostrarNombreCultivos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarNombreCultivos`()
 BEGIN
@@ -3614,13 +3622,13 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarPlaga
+-- Dumping structure for procedure saspre.MostrarPlaga
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarPlaga`()
 SELECT * FROM plaga//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarPlagaFecha
+-- Dumping structure for procedure saspre.MostrarPlagaFecha
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarPlagaFecha`(
 IN `_FechaEncontrada` DATE
@@ -3628,7 +3636,7 @@ IN `_FechaEncontrada` DATE
 SELECT * FROM plaga WHERE FechaEncontrar = _FechaEncontrada//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.MostrarUsuarios
+-- Dumping structure for procedure saspre.MostrarUsuarios
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarUsuarios`()
     COMMENT 'Muestra todos los usuario existentes en la BD.'
@@ -3637,7 +3645,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.movimientos
+-- Dumping structure for table saspre.movimientos
 CREATE TABLE IF NOT EXISTS `movimientos` (
   `IDmovimientos` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
@@ -3645,11 +3653,11 @@ CREATE TABLE IF NOT EXISTS `movimientos` (
   PRIMARY KEY (`IDmovimientos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.movimientos: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.movimientos: ~0 rows (approximately)
 /*!40000 ALTER TABLE `movimientos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `movimientos` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.ObtenerContra
+-- Dumping structure for procedure saspre.ObtenerContra
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerContra`(
 	IN `_Correo` VARCHAR(100)
@@ -3661,7 +3669,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.parasitos
+-- Dumping structure for table saspre.parasitos
 CREATE TABLE IF NOT EXISTS `parasitos` (
   `IDparasito` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
@@ -3677,9 +3685,9 @@ CREATE TABLE IF NOT EXISTS `parasitos` (
   PRIMARY KEY (`IDparasito`)
 ) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.parasitos: ~82 rows (aproximadamente)
+-- Dumping data for table saspre.parasitos: ~82 rows (approximately)
 /*!40000 ALTER TABLE `parasitos` DISABLE KEYS */;
-REPLACE INTO `parasitos` (`IDparasito`, `Nombre`, `Dosis`, `NomComercial`, `DosisComercial`, `Control`, `Tipo`, `Clasificacion`, `Forma`, `Color`, `Textura`) VALUES
+INSERT INTO `parasitos` (`IDparasito`, `Nombre`, `Dosis`, `NomComercial`, `DosisComercial`, `Control`, `Tipo`, `Clasificacion`, `Forma`, `Color`, `Textura`) VALUES
 	(1, 'Roya', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno'),
 	(2, 'Gloeocercospora', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno'),
 	(3, 'Cercospora', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno'),
@@ -3764,7 +3772,7 @@ REPLACE INTO `parasitos` (`IDparasito`, `Nombre`, `Dosis`, `NomComercial`, `Dosi
 	(82, 'Langosta voladora', 'Ninguno', 'Regent 200 SC ', '0.01 L Aplicado en mezcla con melaza al 2% y en franjas en el 25% de la superficie', 'Cuando se encuentren cinco ninfas por metro o un adulto por metro', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno', 'Ninguno');
 /*!40000 ALTER TABLE `parasitos` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.plaga
+-- Dumping structure for table saspre.plaga
 CREATE TABLE IF NOT EXISTS `plaga` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Cultivo` varchar(100) DEFAULT NULL,
@@ -3773,9 +3781,9 @@ CREATE TABLE IF NOT EXISTS `plaga` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.plaga: ~35 rows (aproximadamente)
+-- Dumping data for table saspre.plaga: ~35 rows (approximately)
 /*!40000 ALTER TABLE `plaga` DISABLE KEYS */;
-REPLACE INTO `plaga` (`ID`, `Cultivo`, `Plaga`, `FechaEncontrada`) VALUES
+INSERT INTO `plaga` (`ID`, `Cultivo`, `Plaga`, `FechaEncontrada`) VALUES
 	(1, '22', 'Gusano cogollero', '2019-12-16'),
 	(2, '22', ' Gusano elotero', '2019-12-16'),
 	(3, '22', ' 30% gallina ciega', '2019-12-16'),
@@ -3813,7 +3821,7 @@ REPLACE INTO `plaga` (`ID`, `Cultivo`, `Plaga`, `FechaEncontrada`) VALUES
 	(35, 'Sorgo', 'Presencia Gusano de la Panoja', '2019-06-17');
 /*!40000 ALTER TABLE `plaga` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.planta
+-- Dumping structure for table saspre.planta
 CREATE TABLE IF NOT EXISTS `planta` (
   `IDplanta` int(11) NOT NULL AUTO_INCREMENT,
   `NombreComun` varchar(100) NOT NULL,
@@ -3823,9 +3831,9 @@ CREATE TABLE IF NOT EXISTS `planta` (
   UNIQUE KEY `NombreComun_NombreCientifico` (`NombreComun`,`NombreCientifico`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.planta: ~5 rows (aproximadamente)
+-- Dumping data for table saspre.planta: ~5 rows (approximately)
 /*!40000 ALTER TABLE `planta` DISABLE KEYS */;
-REPLACE INTO `planta` (`IDplanta`, `NombreComun`, `NombreCientifico`, `TipoRiego`) VALUES
+INSERT INTO `planta` (`IDplanta`, `NombreComun`, `NombreCientifico`, `TipoRiego`) VALUES
 	(1, 'Maíz', 'Zea mays', 'Por goteo'),
 	(2, 'Sorgo', 'Sorghum', 'Por goteo'),
 	(3, 'Soya', 'Glycine max', 'Por goteo'),
@@ -3833,7 +3841,7 @@ REPLACE INTO `planta` (`IDplanta`, `NombreComun`, `NombreCientifico`, `TipoRiego
 	(5, 'Cebolla', 'Allium cepa', 'Por goteo');
 /*!40000 ALTER TABLE `planta` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.problematica
+-- Dumping structure for table saspre.problematica
 CREATE TABLE IF NOT EXISTS `problematica` (
   `IDproblematica` int(11) NOT NULL AUTO_INCREMENT,
   `Situacion` varchar(100) NOT NULL,
@@ -3844,11 +3852,11 @@ CREATE TABLE IF NOT EXISTS `problematica` (
   PRIMARY KEY (`IDproblematica`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.problematica: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.problematica: ~0 rows (approximately)
 /*!40000 ALTER TABLE `problematica` DISABLE KEYS */;
 /*!40000 ALTER TABLE `problematica` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.RegistrarUsuario
+-- Dumping structure for procedure saspre.RegistrarUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuario`(
 IN _Nombre VARCHAR(100),
@@ -3862,7 +3870,7 @@ INSERT INTO usuario(Nombre,Apellidos,Contra,Cargo,Nickname,Correo)
 VALUES (_Nombre,_Apellidos,_Contra,_Cargo,_Nickname,_Correo)//
 DELIMITER ;
 
--- Volcando estructura para tabla saspre.saldo
+-- Dumping structure for table saspre.saldo
 CREATE TABLE IF NOT EXISTS `saldo` (
   `IDsaldo` int(11) NOT NULL AUTO_INCREMENT,
   `ingresoMensual` double DEFAULT NULL,
@@ -3870,11 +3878,11 @@ CREATE TABLE IF NOT EXISTS `saldo` (
   PRIMARY KEY (`IDsaldo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.saldo: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.saldo: ~0 rows (approximately)
 /*!40000 ALTER TABLE `saldo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `saldo` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.usuario
+-- Dumping structure for table saspre.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `IDUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
@@ -3888,14 +3896,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `IDUsuario` (`IDUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.usuario: ~2 rows (aproximadamente)
+-- Dumping data for table saspre.usuario: ~2 rows (approximately)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-REPLACE INTO `usuario` (`IDUsuario`, `Nombre`, `Apellidos`, `Contra`, `Cargo`, `Nickname`, `Correo`) VALUES
+INSERT INTO `usuario` (`IDUsuario`, `Nombre`, `Apellidos`, `Contra`, `Cargo`, `Nickname`, `Correo`) VALUES
 	(28, 'a', 'a', 'a', 'Admin', 'a', 'a@hotmail.com'),
 	(1, 'Emiliano', 'Salatino Fernández', 'admin', 'Admin', 'Emiliano', 'Emiliano@hotmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.usuario_log
+-- Dumping structure for table saspre.usuario_log
 CREATE TABLE IF NOT EXISTS `usuario_log` (
   `IDLog` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre_log` varchar(100) NOT NULL,
@@ -3909,26 +3917,26 @@ CREATE TABLE IF NOT EXISTS `usuario_log` (
   PRIMARY KEY (`IDLog`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.usuario_log: ~4 rows (aproximadamente)
+-- Dumping data for table saspre.usuario_log: ~4 rows (approximately)
 /*!40000 ALTER TABLE `usuario_log` DISABLE KEYS */;
-REPLACE INTO `usuario_log` (`IDLog`, `Nombre_log`, `Apellidos_log`, `Contra_log`, `Cargo_log`, `Nickname_log`, `Correo_log`, `accion`, `tiempo_log`) VALUES
+INSERT INTO `usuario_log` (`IDLog`, `Nombre_log`, `Apellidos_log`, `Contra_log`, `Cargo_log`, `Nickname_log`, `Correo_log`, `accion`, `tiempo_log`) VALUES
 	(11, 'a', 'a', 'a', 'a', 'a', 'a', 'delete', '2019-06-18 20:24:59'),
 	(12, 'a', 'a', 'a', 'Admin', 'a', 'a@hotmail.com', 'delete', '2019-06-18 20:26:32'),
 	(13, 'a', 'a', 'a', 'Admin', 'a', 'a@hotmail.com', 'insert', '2019-06-18 20:26:29'),
 	(14, 'b', 'b', 'b', 'Admin', 'b', 'b@hotmail.com', 'insert', '2019-06-18 20:26:53');
 /*!40000 ALTER TABLE `usuario_log` ENABLE KEYS */;
 
--- Volcando estructura para tabla saspre.ventas
+-- Dumping structure for table saspre.ventas
 CREATE TABLE IF NOT EXISTS `ventas` (
   `IDventas` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`IDventas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla saspre.ventas: ~0 rows (aproximadamente)
+-- Dumping data for table saspre.ventas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 
--- Volcando estructura para procedimiento saspre.verAlmacen
+-- Dumping structure for procedure saspre.verAlmacen
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verAlmacen`()
 begin
@@ -3936,7 +3944,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verAlmacenUsuario
+-- Dumping structure for procedure saspre.verAlmacenUsuario
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verAlmacenUsuario`(
 IN `_usuarioAlmacen` VARCHAR(100)
@@ -3944,7 +3952,7 @@ IN `_usuarioAlmacen` VARCHAR(100)
 SELECT * FROM Almacen WHERE usuarioAlmacen = _usuarioAlmacen//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verBitacoraAlertas
+-- Dumping structure for procedure saspre.verBitacoraAlertas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verBitacoraAlertas`()
 begin
@@ -3952,7 +3960,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verCalendarioAct
+-- Dumping structure for procedure saspre.verCalendarioAct
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verCalendarioAct`()
 begin
@@ -3960,7 +3968,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verGastos
+-- Dumping structure for procedure saspre.verGastos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verGastos`()
 begin
@@ -3968,7 +3976,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verGrafico
+-- Dumping structure for procedure saspre.verGrafico
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verGrafico`()
 begin
@@ -3976,7 +3984,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verMovimientos
+-- Dumping structure for procedure saspre.verMovimientos
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verMovimientos`()
 begin
@@ -3984,7 +3992,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verSaldo
+-- Dumping structure for procedure saspre.verSaldo
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verSaldo`()
 begin
@@ -3992,7 +4000,7 @@ begin
 end//
 DELIMITER ;
 
--- Volcando estructura para procedimiento saspre.verVentas
+-- Dumping structure for procedure saspre.verVentas
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `verVentas`()
 begin

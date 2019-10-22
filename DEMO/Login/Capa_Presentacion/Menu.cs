@@ -790,6 +790,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            ActivarAlarmas();
             
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
@@ -1421,6 +1422,122 @@ namespace Capa_Presentacion
             catch
             {
                 return false;
+            }
+        }
+        private void ActivarAlarmas()
+        {
+            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+            CN_Alarmas _Alarmas = new CN_Alarmas();
+
+            DataTable tablaDatosClima = new DataTable();
+            DataTable tablaAlarmas = new DataTable();
+
+            int horas = 24;
+            String nombreAlarma, fecha1, fecha2;
+            int contadorDias;
+            int dias;
+            int limiteHoras;
+            int recorrerDias;
+            double temperaturaMax, temperaturaMin;
+            double limiteTemperaturaMax, limiteTemperaturaMin;
+            tablaDatosClima = _DatosClimaMes.MostrarAlarmaClima();
+            tablaAlarmas = _Alarmas.MostrarAlarmas();
+
+
+            //El foreach busca en los registros de las alarmas la temperatura max de cada alarma y el lapso de dias
+            foreach (DataRow row in tablaAlarmas.Rows)
+            {
+                contadorDias = 0;
+                limiteHoras = 0;
+
+                //Dias es el lapso de dias que conteiene la alarma
+                dias = Convert.ToInt32(row["lapsoDias"]);
+
+                limiteTemperaturaMax = Convert.ToDouble(row["tempMaxAlarma"]);
+                limiteTemperaturaMin = Convert.ToDouble(row["tempMinAlarma"]);
+
+                nombreAlarma = row["nombreAlarma"].ToString();
+
+                //Cada dia tiene 24 registros por ende la cantidad de dias que tenga la alrma sera multiplicada por 24
+                recorrerDias = dias * horas;
+
+                /*
+                 * El for recorre todos los registros de temperaturas registrada en datos de clima
+                 * para evaluar la temperatura limite de la alrma y la cantidad de dias de la alarma
+                 */
+                for (int i = 0; i < recorrerDias; i++)
+                {
+                    //Obtiene la temperatura registrada por registro
+                    temperaturaMax = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+
+                    //Cuando se inicialice por primera vez el limite de horas sera 24 dando referencia al primer dia a evaluar
+                    if (limiteHoras == 0)
+                    {
+                        limiteHoras = 24;
+                    }
+
+
+                    if (i < limiteHoras)
+                    {
+                        if (temperaturaMax >= limiteTemperaturaMax)
+                        {
+                            contadorDias++;
+                            i += limiteHoras - i;
+                            limiteHoras += 24;
+
+                            if (contadorDias == dias)
+                            {
+
+                                alert.Show("La temperautra maxima ha sido" + "\nrebasada " + limiteTemperaturaMax + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMax, Alertype.error);
+                                i = recorrerDias;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        limiteHoras += 24;
+                    }
+                }
+
+                contadorDias = 0;
+                limiteHoras = 0;
+                Thread.Sleep(2000);
+                //Este for es para encontrar la temperatura minima
+                for (int i = 0; i < recorrerDias; i++)
+                {
+                    //Obtiene la temperatura registrada por registro
+                    temperaturaMin = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+
+                    //Cuando se inicialice por primera vez el limite de horas sera 24 dando referencia al primer dia a evaluar
+                    if (limiteHoras == 0)
+                    {
+                        limiteHoras = 24;
+                    }
+
+
+                    if (i < limiteHoras)
+                    {
+                        if (temperaturaMin <= limiteTemperaturaMax)
+                        {
+                            contadorDias++;
+                            i += limiteHoras - i;
+                            limiteHoras += 24;
+
+                            if (contadorDias == dias)
+                            {
+
+                                alert.Show("La temperatura ha disminuido por"+ "\ndebajo del limite establecido " +"\n"+limiteTemperaturaMin + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMin, Alertype.info);
+                                i = recorrerDias;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        limiteHoras += 24;
+                    }
+                }
             }
         }
     }

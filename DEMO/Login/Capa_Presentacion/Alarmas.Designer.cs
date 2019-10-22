@@ -97,6 +97,7 @@
             this.dgvAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlmacen.Size = new System.Drawing.Size(746, 417);
             this.dgvAlmacen.TabIndex = 154;
+            this.dgvAlmacen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlarmas_CellDoubleClick);
             // 
             // label1
             // 

@@ -131,19 +131,21 @@ namespace Capa_Presentacion
                     {
 
                         nombreAlarma = txtNombre.Text;
-                        nombrePlanta = txtCultivo.SelectedValue.ToString();
+                        nombrePlanta = txtCultivo.Text;
+                        MessageBox.Show(nombrePlanta);
                         tempMaxAlarma = Convert.ToDouble(txtMax.Text);
                         tempMinAlarma = Convert.ToDouble(txtMin.Text);
                         lapsoDias = Convert.ToInt32(txtDias.Text);
 
                         _Alarmas.InsertarAlarma(nombreAlarma,nombrePlanta,tempMaxAlarma,tempMinAlarma,lapsoDias);
-                        MessageBox.Show("Se agrego exitosamente la alarma");
+                        alert.Show("Se agrego exitosamente la alarma", Alertype.succes);
                         Limpiar();
                     }
                     else
                     {
-                        MessageBox.Show("No puede agregar alarmas que contengan el mismo nombre de una alarma ya existente");
+                        alert.Show("No se puede agregar alarmas que"+"\ncontengan el mismo nombre de una"+"\nalarma ya existente", Alertype.warning);
                         txtNombre.Text = "";
+                        Limpiar();
                     }
                     break;
 
@@ -152,12 +154,13 @@ namespace Capa_Presentacion
                     if (Evaluar(nombreAlarma) == false)
                     {
                         _Alarmas.EliminarAlarma(nombreAlarma);
-                        MessageBox.Show("Se ha eliminado exitosamente la alarma");
+                        alert.Show("Se ha eliminado la alarma", Alertype.succes);
                         Limpiar();
                     }
                     else
                     {
-                        MessageBox.Show("No se encontro la alarma ");
+                        alert.Show("No se encontro la alarma", Alertype.warning);
+                        Limpiar();
                     }
                     break;
 
@@ -166,19 +169,20 @@ namespace Capa_Presentacion
                     if (Evaluar(nombreAlarma) == false)
                     {
                         nombreAlarma = txtNombre.Text;
-                        nombrePlanta = txtCultivo.SelectedValue.ToString();
+                        nombrePlanta = txtCultivo.Text;
                         tempMaxAlarma = Convert.ToDouble(txtMax.Text);
                         tempMinAlarma = Convert.ToDouble(txtMin.Text);
                         lapsoDias = Convert.ToInt32(txtDias.Text);
 
                         _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias);
 
-                        MessageBox.Show("Se ha modificado exitosamente la alarma");
+                        alert.Show("Se ha modificado la alarma", Alertype.succes);
                         Limpiar();
                     }
                     else
                     {
-                        MessageBox.Show("No se encontro la alarma ");
+                        alert.Show("No se encontro la alarma", Alertype.warning);
+                        Limpiar();
                     }
                     break;
 
@@ -212,6 +216,18 @@ namespace Capa_Presentacion
                 }
             }
             return true;
+        }
+        private void EditarAlmacen()
+        {
+            txtNombre.Text = dgvAlmacen.CurrentRow.Cells["nombreAlarma"].Value.ToString();
+            txtDias.Text = dgvAlmacen.CurrentRow.Cells["lapsoDias"].Value.ToString();
+            txtMax.Text = dgvAlmacen.CurrentRow.Cells["tempMaxAlarma"].Value.ToString();
+            txtMin.Text = dgvAlmacen.CurrentRow.Cells["tempMinAlarma"].Value.ToString();
+        }
+
+        private void dgvAlarmas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarAlmacen();
         }
     }
 }

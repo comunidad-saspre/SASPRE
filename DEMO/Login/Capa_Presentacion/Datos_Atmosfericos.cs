@@ -248,9 +248,12 @@ namespace Capa_Presentacion
             int contadorDias = 0;
             int contadorHoras = 0;
             String fecha1 = "", fecha2 = "", fecha3 = "";
+            String fechaMin1 = "", fechaMin2 = "", fechaMin3 = "";
             double temperatura;
             double temperaturaMaxima = 24;
+            double temperaturaMin = 5;
             double temperatura1 = 0, temperatura2 = 0, temperatura3 = 0;
+            double temperaturaMin1 = 0, temperaturaMin2 = 0, temperaturaMin3 = 0;
             DataTable tablaDatosClima = new DataTable();
             tablaDatosClima = _DatosClimaMes.MostrarAlarmaClima();
 
@@ -289,10 +292,10 @@ namespace Capa_Presentacion
                             {
                                 fecha3 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
                                 temperatura3 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
-                                //alert.Show("Se ha registrado que en 3 dias seguidos"+"\n la temperatura a revasado el limite estable para "+"\nlos cultivos: "+temperaturaMaxima+" C",Alertype.warning);
-                                //alert.Show("\nFecha 1: " + fecha1+" "+temperatura1 + "\nFecha 2: " + fecha2+" "+temperatura2+ "\nFecha 3: " + fecha3+" "+temperatura3,Alertype.warning);
-                                MessageBox.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C");
-                                MessageBox.Show("\nFecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3);
+                                alert.Show("Se ha registrado que en 3 dias seguidos"+"\n la temperatura a revasado el limite estable para "+"\nlos cultivos: "+temperaturaMaxima+" C",Alertype.warning);
+                                alert.Show("Fecha 1: " + fecha1+" "+temperatura1 + "\nFecha 2: " + fecha2+" "+temperatura2+ "\nFecha 3: " + fecha3+" "+temperatura3,Alertype.warning);
+                                //MessageBox.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C");
+                                //MessageBox.Show("\nFecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3);
                                 contadorDias++;
                                 i = 72;
                             }
@@ -300,6 +303,54 @@ namespace Capa_Presentacion
                     }
                 }
             }
+
+            contadorDias = 0;
+            for (int i = 0; i < 72; i++)
+            {
+                contadorHoras++;
+                temperatura = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+                if (i < 24 && contadorDias == 0)
+                {
+                    if (temperatura <= temperaturaMin)
+                    {
+                        fechaMin1 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                        temperaturaMin1 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                        contadorDias++;
+                    }
+                }
+                else
+                {
+                    if (i >= 24 && contadorHoras < 48 && contadorDias == 1)
+                    {
+                        if (temperatura <= temperaturaMin)
+                        {
+                            fechaMin2 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                            temperaturaMin2 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                            contadorDias++;
+                        }
+                    }
+                    else
+                    {
+
+                        if (i > 48 && contadorDias == 2)
+                        {
+                            if (temperatura <= temperaturaMin)
+                            {
+                                fechaMin3 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
+                                temperaturaMin3 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+                                alert.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a bajado del limite estable para " + "\nlos cultivos: " + temperaturaMin + " C", Alertype.warning);
+                                alert.Show("Fecha 1: " + fechaMin1 + " " + temperaturaMin1 + "\nFecha 2: " + fechaMin2 + " " + temperaturaMin2 + "\nFecha 3: " + fechaMin3 + " " + temperaturaMin3, Alertype.warning);
+                                //MessageBox.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C");
+                                //MessageBox.Show("\nFecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3);
+                                contadorDias++;
+                                i = 72;
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

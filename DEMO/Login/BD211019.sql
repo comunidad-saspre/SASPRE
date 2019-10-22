@@ -144,10 +144,12 @@ CREATE TABLE IF NOT EXISTS `alarmascultivos` (
   `tempMinAlarma` float DEFAULT NULL,
   `lapsoDias` int(2) DEFAULT NULL,
   PRIMARY KEY (`IDalarma`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table saspre.alarmascultivos: ~0 rows (approximately)
 /*!40000 ALTER TABLE `alarmascultivos` DISABLE KEYS */;
+INSERT INTO `alarmascultivos` (`IDalarma`, `nombreAlarma`, `nombrePlanta`, `tempMaxAlarma`, `tempMinAlarma`, `lapsoDias`) VALUES
+	(1, 'Alarma1', 'Caña', 26, 20, 5);
 /*!40000 ALTER TABLE `alarmascultivos` ENABLE KEYS */;
 
 -- Dumping structure for table saspre.almacen
@@ -1001,7 +1003,7 @@ CREATE TABLE IF NOT EXISTS `datosatmosfericosdiarios` (
   PRIMARY KEY (`fecha`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table saspre.datosatmosfericosdiarios: ~9 rows (approximately)
+-- Dumping data for table saspre.datosatmosfericosdiarios: ~10 rows (approximately)
 /*!40000 ALTER TABLE `datosatmosfericosdiarios` DISABLE KEYS */;
 INSERT INTO `datosatmosfericosdiarios` (`fecha`, `num`) VALUES
 	('2019-06-17', NULL),
@@ -1012,7 +1014,8 @@ INSERT INTO `datosatmosfericosdiarios` (`fecha`, `num`) VALUES
 	('2019-10-16', NULL),
 	('2019-10-17', NULL),
 	('2019-10-18', NULL),
-	('2019-10-20', NULL);
+	('2019-10-20', NULL),
+	('2019-10-22', NULL);
 /*!40000 ALTER TABLE `datosatmosfericosdiarios` ENABLE KEYS */;
 
 -- Dumping structure for table saspre.datosclimames
@@ -3618,7 +3621,7 @@ DELIMITER ;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarNombreCultivos`()
 BEGIN
-	SELECT NombreComun FROM planta;
+	SELECT IDplanta,NombreComun FROM planta;
 END//
 DELIMITER ;
 

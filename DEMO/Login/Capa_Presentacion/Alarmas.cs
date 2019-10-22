@@ -132,7 +132,6 @@ namespace Capa_Presentacion
 
                         nombreAlarma = txtNombre.Text;
                         nombrePlanta = txtCultivo.Text;
-                        MessageBox.Show(nombrePlanta);
                         tempMaxAlarma = Convert.ToDouble(txtMax.Text);
                         tempMinAlarma = Convert.ToDouble(txtMin.Text);
                         lapsoDias = Convert.ToInt32(txtDias.Text);

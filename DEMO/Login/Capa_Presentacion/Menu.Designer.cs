@@ -41,7 +41,6 @@
             this.Vectores = new System.Windows.Forms.ImageList(this.components);
             this.timerClima = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
             this.btnCer = new System.Windows.Forms.Button();
@@ -127,6 +126,7 @@
             this.labelDiaHoyNombre = new System.Windows.Forms.Label();
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelDerecho.SuspendLayout();
@@ -190,13 +190,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 0;
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.myPanel1;
-            this.bunifuDragControl1.Vertical = true;
             // 
             // myPanel1
             // 
@@ -400,7 +393,7 @@
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.myPanel2.Location = new System.Drawing.Point(0, 0);
             this.myPanel2.Name = "myPanel2";
-            this.myPanel2.Size = new System.Drawing.Size(230, 720);
+            this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
             // 
             // btnAlarmas
@@ -1675,6 +1668,13 @@
             this.lblfechaprincipal.TabIndex = 30;
             this.lblfechaprincipal.Text = "Viernes 5 de Abril";
             this.lblfechaprincipal.Visible = false;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.myPanel1;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // Menu
             // 

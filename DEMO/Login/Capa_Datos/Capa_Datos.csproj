@@ -67,6 +67,7 @@
     <Compile Include="CD_Login.cs" />
     <Compile Include="CD_Plagas.cs" />
     <Compile Include="CD_Ventas.cs" />
+    <Compile Include="CD_Alarmas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scrapper.cs" />
   </ItemGroup>

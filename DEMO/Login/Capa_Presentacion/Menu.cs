@@ -772,13 +772,15 @@ namespace Capa_Presentacion
             panelDerecho.BackColor = Color.Transparent;
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
-            CerrarFormEnPanel <FromUsuarioABC>();
+            CerrarFormEnPanel<FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();
             CerrarFormEnPanel<Datos_Atmosfericos>();
             CerrarFormEnPanel<Cosechas>();
             CerrarFormEnPanel<Ventas>();
             CerrarFormEnPanel<Almacen>();
             CerrarFormEnPanel<Gastos>();
+            CerrarFormEnPanel<Alarmas>();
+            CerrarFormEnPanel<Gráficos>();
 
             panelDerecho.Visible = true;
             panelClima.Visible = true;

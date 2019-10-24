@@ -12,6 +12,7 @@ namespace Capa_Negocio
     {
         private CD_DatosClimaMes _DatosClimaMes = new CD_DatosClimaMes();
         DataTable tablaDatosClimaMes = new DataTable();
+        DataTable tablaDatosClima = new DataTable();
 
         public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
@@ -28,9 +29,19 @@ namespace Capa_Negocio
             return tablaDatosClimaMes;
         }
 
+        public DataTable MostrarAlarmaClima()
+        {
+            tablaDatosClima = _DatosClimaMes.MostrarAlarmaClima();
+            return tablaDatosClima;
+        }
+
         public void AgregarDiario(String fecha)
         {
             _DatosClimaMes.AgregarDiario(fecha);
+        }
+        public String top_fecha()
+        {
+            return _DatosClimaMes.top_fecha();
         }
     }
 }

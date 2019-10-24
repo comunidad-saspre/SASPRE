@@ -772,13 +772,15 @@ namespace Capa_Presentacion
             panelDerecho.BackColor = Color.Transparent;
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
-            CerrarFormEnPanel <FromUsuarioABC>();
+            CerrarFormEnPanel<FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();
             CerrarFormEnPanel<Datos_Atmosfericos>();
             CerrarFormEnPanel<Cosechas>();
             CerrarFormEnPanel<Ventas>();
             CerrarFormEnPanel<Almacen>();
             CerrarFormEnPanel<Gastos>();
+            CerrarFormEnPanel<Alarmas>();
+            CerrarFormEnPanel<Gráficos>();
 
             panelDerecho.Visible = true;
             panelClima.Visible = true;
@@ -788,6 +790,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            ActivarAlarmas();
             
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
@@ -932,12 +935,13 @@ namespace Capa_Presentacion
 
 
         }
+        //Actualiza el clima cada hora
         private void timerClima_Tick(object sender, EventArgs e)
         {
-            /*if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 0 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
+            if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 00 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
-                //GetRequestHora();
-            }*/
+                MostrarClima();
+            }
             //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
 
@@ -1107,25 +1111,25 @@ namespace Capa_Presentacion
                 {
                     case 1:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("Tormentas") || texto.Equals("Tormentas")) return Vectores.Images[18];
+                        if (texto.Equals("Tormentas") || texto.Equals("Tormentas") || texto.Contains("Lluvia") || texto.Contains("lluvia")) return Vectores.Images[18];
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[0];
+                        if (texto.Equals("") || texto.Equals("n210")) return Vectores.Images[0];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
 
                         // Nublado
                         else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[9];
 
                         // Despejado
-                        else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[16];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado")) return Vectores.Images[16];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde")) return Vectores.Images[3];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche") || texto.Equals("Chubascos") || texto.Equals("Chubascos matinales") || texto.Contains("Chubascos")) return Vectores.Images[3];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[3];
 
                         break;
@@ -1134,25 +1138,25 @@ namespace Capa_Presentacion
                     case 4:
                     case 5:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("Tormentas") || texto.Equals("n240")) return Vectores.Images[20];
+                        if (texto.Equals("Tormentas") || texto.Equals("n240") || texto.Contains("Lluvia") || texto.Contains("lluvia")) return Vectores.Images[20];
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("d100") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
-                        if (texto.Equals("Parcialmente nublado") || texto.Equals("n210")) return Vectores.Images[2];
+                        if (texto.Equals("") || texto.Equals("n210")) return Vectores.Images[2];
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
 
                         // Nublado
                         else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[11];
 
                         // Despejado
-                        else if (texto.Equals("Mayormente soleado") || texto.Equals("n000")) return Vectores.Images[17];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado")) return Vectores.Images[17];
 
                         // Nublado, lluvia ligera
-                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde")) return Vectores.Images[5];
+                        if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche") || texto.Equals("Chubascos") || texto.Equals("Chubascos matinales") || texto.Contains("Chubascos")) return Vectores.Images[5];
                         else if (texto.Equals("d320") || texto.Equals("3220")) return Vectores.Images[5];
 
                         break;
@@ -1257,15 +1261,12 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
 
-
-
-
-            //lblTemp.Visible = true;
-            //lblCentigrados.Visible = true;
-            //lblHumedad.Visible = true;
-            //lblEstado.Visible = true;
-            //lblPrecipitacion.Visible = true;
-            //lblPrecipitacionmm.Visible = true;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
@@ -1391,29 +1392,19 @@ namespace Capa_Presentacion
             }
         }
 
-       
-
-        private void succes_Click(object sender, EventArgs e)
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            alert.Show("Este es caso de exito", Alertype.succes);
-
+            AbrirFormEnPanel<Gráficos>();
         }
 
-        private void info_Click(object sender, EventArgs e)
+        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
-            alert.Show("Este es informmacion", Alertype.info);
-
+            AbrirFormEnPanel<CalendarioAct>();
         }
 
-        private void warning_Click(object sender, EventArgs e)
+        private void btnAlarmas_Click(object sender, EventArgs e)
         {
-            alert.Show("Este es advertencia", Alertype.warning);
-
-        }
-
-        private void error_Click(object sender, EventArgs e)
-        {
-            alert.Show("Este es error", Alertype.error);
+            AbrirFormEnPanel<Alarmas>();
 
         }
 
@@ -1428,6 +1419,122 @@ namespace Capa_Presentacion
             catch
             {
                 return false;
+            }
+        }
+        private void ActivarAlarmas()
+        {
+            CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
+            CN_Alarmas _Alarmas = new CN_Alarmas();
+
+            DataTable tablaDatosClima = new DataTable();
+            DataTable tablaAlarmas = new DataTable();
+
+            int horas = 24;
+            String nombreAlarma, fecha1, fecha2;
+            int contadorDias;
+            int dias;
+            int limiteHoras;
+            int recorrerDias;
+            double temperaturaMax, temperaturaMin;
+            double limiteTemperaturaMax, limiteTemperaturaMin;
+            tablaDatosClima = _DatosClimaMes.MostrarAlarmaClima();
+            tablaAlarmas = _Alarmas.MostrarAlarmas();
+
+
+            //El foreach busca en los registros de las alarmas la temperatura max de cada alarma y el lapso de dias
+            foreach (DataRow row in tablaAlarmas.Rows)
+            {
+                contadorDias = 0;
+                limiteHoras = 0;
+
+                //Dias es el lapso de dias que conteiene la alarma
+                dias = Convert.ToInt32(row["lapsoDias"]);
+
+                limiteTemperaturaMax = Convert.ToDouble(row["tempMaxAlarma"]);
+                limiteTemperaturaMin = Convert.ToDouble(row["tempMinAlarma"]);
+
+                nombreAlarma = row["nombreAlarma"].ToString();
+
+                //Cada dia tiene 24 registros por ende la cantidad de dias que tenga la alrma sera multiplicada por 24
+                recorrerDias = dias * horas;
+
+                /*
+                 * El for recorre todos los registros de temperaturas registrada en datos de clima
+                 * para evaluar la temperatura limite de la alrma y la cantidad de dias de la alarma
+                 */
+                for (int i = 0; i < recorrerDias; i++)
+                {
+                    //Obtiene la temperatura registrada por registro
+                    temperaturaMax = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+
+                    //Cuando se inicialice por primera vez el limite de horas sera 24 dando referencia al primer dia a evaluar
+                    if (limiteHoras == 0)
+                    {
+                        limiteHoras = 24;
+                    }
+
+
+                    if (i < limiteHoras)
+                    {
+                        if (temperaturaMax >= limiteTemperaturaMax)
+                        {
+                            contadorDias++;
+                            i += limiteHoras - i;
+                            limiteHoras += 24;
+
+                            if (contadorDias == dias)
+                            {
+
+                                alert.Show("La temperautra maxima ha sido" + "\nrebasada " + limiteTemperaturaMax + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMax, Alertype.error);
+                                i = recorrerDias;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        limiteHoras += 24;
+                    }
+                }
+
+                contadorDias = 0;
+                limiteHoras = 0;
+                Thread.Sleep(2000);
+                //Este for es para encontrar la temperatura minima
+                for (int i = 0; i < recorrerDias; i++)
+                {
+                    //Obtiene la temperatura registrada por registro
+                    temperaturaMin = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
+
+
+                    //Cuando se inicialice por primera vez el limite de horas sera 24 dando referencia al primer dia a evaluar
+                    if (limiteHoras == 0)
+                    {
+                        limiteHoras = 24;
+                    }
+
+
+                    if (i < limiteHoras)
+                    {
+                        if (temperaturaMin <= limiteTemperaturaMax)
+                        {
+                            contadorDias++;
+                            i += limiteHoras - i;
+                            limiteHoras += 24;
+
+                            if (contadorDias == dias)
+                            {
+
+                                alert.Show("La temperatura ha disminuido por"+ "\ndebajo del limite establecido " +"\n"+limiteTemperaturaMin + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMin, Alertype.info);
+                                i = recorrerDias;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        limiteHoras += 24;
+                    }
+                }
             }
         }
     }

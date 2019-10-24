@@ -1,12 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capa_Datos;
 
 namespace Capa_Negocio
 {
-    class CN_Almacen
+    public class CN_Almacen
     {
+        DataTable tablaAlmacen = new DataTable();
+        CD_Almacen _CD_Almacen = new CD_Almacen();
+        public DataTable MostrarAlmacen(String cargo, String usuario)
+        {
+            return tablaAlmacen = _CD_Almacen.MostrarAlmacen(cargo,usuario);
+        }
+
+        public void AgregarAlmacen(String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso, String usuarioAlmacen)
+        {
+            _CD_Almacen.AgregarAlmacen(tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso, usuarioAlmacen);
+        }
+
+        public void EditarAlmacen(String IDAlmacen, String tipoObjeto, String nombreObjeto, String cantidadObjeto, String tipoSiembra, String precio, String fechaIngreso)
+        {
+            _CD_Almacen.EditarAlmacen(Convert.ToInt32(IDAlmacen), tipoObjeto, nombreObjeto, Convert.ToDouble(cantidadObjeto), tipoSiembra, Convert.ToDouble(precio), fechaIngreso);
+        }
+
+        public void BorrarAlmacen(String IDAlmacen)
+        {
+            _CD_Almacen.BorrarAlmacen(Convert.ToInt32(IDAlmacen));
+        }
     }
 }

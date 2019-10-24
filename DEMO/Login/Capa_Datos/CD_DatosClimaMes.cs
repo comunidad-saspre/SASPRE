@@ -15,6 +15,7 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlCommand comando = new MySqlCommand();
         DataTable tablaDatosClimaMes = new DataTable();
+        DataTable tablaDatosClima = new DataTable();
         MySqlDataReader leer;
 
         public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
@@ -52,6 +53,19 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             return tablaDatosClimaMes;
         }
+        //Trae desde la bd Los datos Fecha_Local y temperatura y
+        //Los hace una tabla
+        public DataTable MostrarAlarmaClima()
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "mostrarAlarmaClima";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tablaDatosClima.Load(leer);
+            conexion.CerrarConexion();
+            return tablaDatosClima;
+        }
         public void AgregarDiario(String fecha)
         {
             comando = new MySqlCommand();
@@ -62,6 +76,21 @@ namespace Capa_Datos
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
+        }
+        public String top_fecha()
+        {
+            
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT  distinct Fecha_Local  FROM datosclimames WHERE Fecha_Local=(SELECT MAX(Fecha_local)  FROM datosclimames);";
+            leer = comando.ExecuteReader();
+            String salida = "";
+            if (leer.Read()==true)
+            {
+                salida = Convert.ToString(leer["Fecha_Local"]);
+            }
+            conexion.CerrarConexion();
+            return salida;
+           
         }
     }
 }

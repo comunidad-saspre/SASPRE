@@ -93,6 +93,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alarm_30px {
+            get {
+                object obj = ResourceManager.GetObject("alarm_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Alerta {
             get {
                 object obj = ResourceManager.GetObject("Alerta", resourceCulture);
@@ -126,6 +136,16 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap BAG_WHITE {
             get {
                 object obj = ResourceManager.GetObject("BAG WHITE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendario {
+            get {
+                object obj = ResourceManager.GetObject("calendario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,6 +413,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_design_90px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_design_90px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Edit_Pie_Chart_Report_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_Edit_Pie_Chart_Report_32px", resourceCulture);
@@ -636,16 +666,6 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap MenuIzquierdoVerde {
             get {
                 object obj = ResourceManager.GetObject("MenuIzquierdoVerde", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap notifi {
-            get {
-                object obj = ResourceManager.GetObject("notifi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

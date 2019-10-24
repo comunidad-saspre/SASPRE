@@ -1261,15 +1261,12 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
 
-
-
-
-            //lblTemp.Visible = true;
-            //lblCentigrados.Visible = true;
-            //lblHumedad.Visible = true;
-            //lblEstado.Visible = true;
-            //lblPrecipitacion.Visible = true;
-            //lblPrecipitacionmm.Visible = true;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 

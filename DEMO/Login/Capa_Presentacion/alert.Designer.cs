@@ -60,7 +60,7 @@
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox.Image = global::Capa_Presentacion.Properties.Resources.Alerta;
-            this.pictureBox.Location = new System.Drawing.Point(38, 21);
+            this.pictureBox.Location = new System.Drawing.Point(36, 39);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(70, 57);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -71,11 +71,11 @@
             // 
             this.message.AutoSize = true;
             this.message.BackColor = System.Drawing.Color.Transparent;
-            this.message.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.message.ForeColor = System.Drawing.Color.White;
-            this.message.Location = new System.Drawing.Point(125, 40);
+            this.message.Location = new System.Drawing.Point(125, 21);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(128, 22);
+            this.message.Size = new System.Drawing.Size(110, 24);
             this.message.TabIndex = 1;
             this.message.Text = "Advertencia";
             // 
@@ -89,7 +89,7 @@
             this.btnCer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(15)))), ((int)(((byte)(33)))));
             this.btnCer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
             this.btnCer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCer.Location = new System.Drawing.Point(355, 0);
+            this.btnCer.Location = new System.Drawing.Point(415, 0);
             this.btnCer.Name = "btnCer";
             this.btnCer.Size = new System.Drawing.Size(33, 28);
             this.btnCer.TabIndex = 31;
@@ -122,7 +122,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(389, 106);
+            this.ClientSize = new System.Drawing.Size(449, 149);
             this.Controls.Add(this.btnCer);
             this.Controls.Add(this.message);
             this.Controls.Add(this.pictureBox);

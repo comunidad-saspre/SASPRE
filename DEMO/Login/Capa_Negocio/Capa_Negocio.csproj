@@ -50,6 +50,7 @@
     <Compile Include="CN_Almacen.cs" />
     <Compile Include="CN_CalendarioAct.cs" />
     <Compile Include="CN_Cosechas.cs" />
+    <Compile Include="CN_Costos.cs" />
     <Compile Include="CN_Cultivos.cs" />
     <Compile Include="CN_DatosClimaMes.cs" />
     <Compile Include="CN_Fertilizantes.cs" />

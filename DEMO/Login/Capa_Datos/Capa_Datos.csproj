@@ -60,6 +60,7 @@
     <Compile Include="CD_CalendarioAct.cs" />
     <Compile Include="CD_ConexionBD.cs" />
     <Compile Include="CD_Cosechas.cs" />
+    <Compile Include="CD_Costos.cs" />
     <Compile Include="CD_Cultivos.cs" />
     <Compile Include="CD_DatosClimaMes.cs" />
     <Compile Include="CD_Fertilizantes.cs" />

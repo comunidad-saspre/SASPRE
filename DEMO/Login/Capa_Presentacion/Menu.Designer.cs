@@ -54,6 +54,7 @@
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.btnRest = new System.Windows.Forms.Button();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
+            this.btnCostos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAlarmas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -373,6 +374,7 @@
             // myPanel2
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.myPanel2.Controls.Add(this.btnCostos);
             this.myPanel2.Controls.Add(this.btnAlarmas);
             this.myPanel2.Controls.Add(this.bunifuFlatButton3);
             this.myPanel2.Controls.Add(this.bunifuFlatButton2);
@@ -395,6 +397,44 @@
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Size = new System.Drawing.Size(45, 720);
             this.myPanel2.TabIndex = 20;
+            // 
+            // btnCostos
+            // 
+            this.btnCostos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnCostos.BackColor = System.Drawing.Color.Transparent;
+            this.btnCostos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCostos.BorderRadius = 0;
+            this.btnCostos.ButtonText = "   Costos";
+            this.btnCostos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCostos.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCostos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCostos.ForeColor = System.Drawing.Color.White;
+            this.btnCostos.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCostos.Iconimage = global::Capa_Presentacion.Properties.Resources.cost_127px;
+            this.btnCostos.Iconimage_right = null;
+            this.btnCostos.Iconimage_right_Selected = null;
+            this.btnCostos.Iconimage_Selected = null;
+            this.btnCostos.IconMarginLeft = 0;
+            this.btnCostos.IconMarginRight = 0;
+            this.btnCostos.IconRightVisible = true;
+            this.btnCostos.IconRightZoom = 0D;
+            this.btnCostos.IconVisible = true;
+            this.btnCostos.IconZoom = 60D;
+            this.btnCostos.IsTab = false;
+            this.btnCostos.Location = new System.Drawing.Point(0, 600);
+            this.btnCostos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCostos.Name = "btnCostos";
+            this.btnCostos.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnCostos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnCostos.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCostos.selected = false;
+            this.btnCostos.Size = new System.Drawing.Size(250, 40);
+            this.btnCostos.TabIndex = 68;
+            this.btnCostos.Text = "   Costos";
+            this.btnCostos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCostos.Textcolor = System.Drawing.Color.White;
+            this.btnCostos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCostos.Click += new System.EventHandler(this.btnCostos_Click);
             // 
             // btnAlarmas
             // 
@@ -630,13 +670,13 @@
             this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "   Administrar usuarios";
+            this.bunifuFlatButton1.ButtonText = "  Calculadora";
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.ForeColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.calculator_127px;
             this.bunifuFlatButton1.Iconimage_right = null;
             this.bunifuFlatButton1.Iconimage_right_Selected = null;
             this.bunifuFlatButton1.Iconimage_Selected = null;
@@ -656,11 +696,10 @@
             this.bunifuFlatButton1.selected = false;
             this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButton1.TabIndex = 60;
-            this.bunifuFlatButton1.Text = "   Administrar usuarios";
+            this.bunifuFlatButton1.Text = "  Calculadora";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Visible = false;
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click_1);
             // 
             // btnFertilizantes
@@ -1812,5 +1851,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton btnAlarmas;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCostos;
     }
 }

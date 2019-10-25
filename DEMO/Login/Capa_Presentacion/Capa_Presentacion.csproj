@@ -193,6 +193,12 @@
     <Compile Include="Almacen.Designer.cs">
       <DependentUpon>Almacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calculadora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calculadora.Designer.cs">
+      <DependentUpon>Calculadora.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalculoDePlagas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,12 @@
     </Compile>
     <Compile Include="Cosechas.Designer.cs">
       <DependentUpon>Cosechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Costos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Costos.Designer.cs">
+      <DependentUpon>Costos.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos_Atmosfericos.cs">
       <SubType>Form</SubType>
@@ -368,6 +380,9 @@
     <EmbeddedResource Include="Almacen.resx">
       <DependentUpon>Almacen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calculadora.resx">
+      <DependentUpon>Calculadora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CalculoDePlagas.resx">
       <DependentUpon>CalculoDePlagas.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cosechas.resx">
       <DependentUpon>Cosechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Costos.resx">
+      <DependentUpon>Costos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Datos_Atmosfericos.resx">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
@@ -706,12 +724,14 @@
     <Content Include="Resources\BAG WHITE.png" />
     <None Include="Resources\BAG WHITE1.png" />
     <None Include="Resources\calendario.png" />
+    <None Include="Resources\calculator_127px.png" />
     <Content Include="Resources\CLOCK WHITE.png" />
     <None Include="Resources\CLOCK WHITE1.png" />
     <Content Include="Resources\CLOUD WHITE.png" />
     <None Include="Resources\CLOUD WHITE1.png" />
     <Content Include="Resources\CONFIGURE WHITE.png" />
     <None Include="Resources\CONFIGURE WHITE2.png" />
+    <None Include="Resources\cost_127px.png" />
     <Content Include="Resources\DATOS ATMOSFERICOS WHITE.png" />
     <None Include="Resources\DATOS ATMOSFERICOS WHITE1.png" />
     <Content Include="Resources\FIELD WHITE.png" />

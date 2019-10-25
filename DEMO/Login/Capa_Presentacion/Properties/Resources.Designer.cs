@@ -143,6 +143,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calculator_127px {
+            get {
+                object obj = ResourceManager.GetObject("calculator_127px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendario {
             get {
                 object obj = ResourceManager.GetObject("calendario", resourceCulture);
@@ -246,6 +256,16 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap CONFIGURE_WHITE {
             get {
                 object obj = ResourceManager.GetObject("CONFIGURE WHITE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cost_127px {
+            get {
+                object obj = ResourceManager.GetObject("cost_127px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

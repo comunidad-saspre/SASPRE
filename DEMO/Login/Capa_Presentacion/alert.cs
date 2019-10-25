@@ -68,10 +68,6 @@ namespace Capa_Presentacion
             close.Start();
         }
 
-        void animateFormShow()
-        {
-
-        }
         int interval=0;
         private void show_Tick(object sender, EventArgs e)
         {

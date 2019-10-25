@@ -290,6 +290,19 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        public void AlertaCalendario()
+        {
+            CalendarioAct obj = new CalendarioAct();
+            DateTime dt = DateTime.Now;
+            String x = dt.ToShortDateString();
+            if (obj.Evaluar(x) == true)
+            {
+                alertCalendario.Show("Hoy " + x + " tiene una\n" +
+                "actividad pendiente, revise\n" +
+                "su calendario de actividades.");
+            }
+
+        }
         private void AgregarDias()
         {
             // Hago el ciclo para agregar hasta 7 días
@@ -791,7 +804,10 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
             ActivarAlarmas();
-            
+            AlertaCalendario();
+
+
+
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {

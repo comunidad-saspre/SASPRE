@@ -36,6 +36,23 @@ namespace Capa_Presentacion
             MostrarCalendario();
             editar.Enabled = false;
             eliminar.Enabled = false;
+            
+        }
+
+
+        public bool Evaluar(String fecha) {
+            CN_CalendarioAct _Calendario = new CN_CalendarioAct();
+            tablaCalendario = _Calendario.MostrarCalendario(Program.cargo, Program.nickname);
+            String nombre;
+            foreach (DataRow row in tablaCalendario.Rows)
+            {
+                nombre = row["FechaInicio"].ToString();
+                if (nombre == fecha)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private void MostrarCalendario()
         {
@@ -87,5 +104,7 @@ namespace Capa_Presentacion
             eliminar.Enabled = true;
             agregar.Enabled = false;
         }
+
+       
     }
 }

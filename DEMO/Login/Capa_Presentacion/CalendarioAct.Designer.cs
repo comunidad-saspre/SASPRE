@@ -57,10 +57,9 @@
             this.agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agregar.ForeColor = System.Drawing.Color.White;
-            this.agregar.Location = new System.Drawing.Point(628, 726);
-            this.agregar.Margin = new System.Windows.Forms.Padding(4);
+            this.agregar.Location = new System.Drawing.Point(471, 590);
             this.agregar.Name = "agregar";
-            this.agregar.Size = new System.Drawing.Size(193, 49);
+            this.agregar.Size = new System.Drawing.Size(145, 40);
             this.agregar.TabIndex = 1;
             this.agregar.Text = "Agregar";
             this.agregar.UseVisualStyleBackColor = false;
@@ -70,20 +69,18 @@
             // 
             this.nombre.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.nombre.ForeColor = System.Drawing.Color.Gray;
-            this.nombre.Location = new System.Drawing.Point(288, 135);
-            this.nombre.Margin = new System.Windows.Forms.Padding(4);
+            this.nombre.Location = new System.Drawing.Point(216, 110);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(239, 40);
+            this.nombre.Size = new System.Drawing.Size(180, 33);
             this.nombre.TabIndex = 2;
             // 
             // descripcion
             // 
             this.descripcion.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.descripcion.ForeColor = System.Drawing.Color.Gray;
-            this.descripcion.Location = new System.Drawing.Point(288, 183);
-            this.descripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.descripcion.Location = new System.Drawing.Point(216, 149);
             this.descripcion.Name = "descripcion";
-            this.descripcion.Size = new System.Drawing.Size(239, 40);
+            this.descripcion.Size = new System.Drawing.Size(180, 33);
             this.descripcion.TabIndex = 3;
             // 
             // editar
@@ -92,10 +89,9 @@
             this.editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editar.ForeColor = System.Drawing.Color.White;
-            this.editar.Location = new System.Drawing.Point(829, 726);
-            this.editar.Margin = new System.Windows.Forms.Padding(4);
+            this.editar.Location = new System.Drawing.Point(622, 590);
             this.editar.Name = "editar";
-            this.editar.Size = new System.Drawing.Size(193, 49);
+            this.editar.Size = new System.Drawing.Size(145, 40);
             this.editar.TabIndex = 6;
             this.editar.Text = "Editar";
             this.editar.UseVisualStyleBackColor = false;
@@ -107,10 +103,9 @@
             this.eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eliminar.ForeColor = System.Drawing.Color.White;
-            this.eliminar.Location = new System.Drawing.Point(1048, 726);
-            this.eliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.eliminar.Location = new System.Drawing.Point(786, 590);
             this.eliminar.Name = "eliminar";
-            this.eliminar.Size = new System.Drawing.Size(193, 49);
+            this.eliminar.Size = new System.Drawing.Size(145, 40);
             this.eliminar.TabIndex = 7;
             this.eliminar.Text = "Eliminar";
             this.eliminar.UseVisualStyleBackColor = false;
@@ -121,18 +116,16 @@
             this.id.Enabled = false;
             this.id.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.id.ForeColor = System.Drawing.Color.Gray;
-            this.id.Location = new System.Drawing.Point(288, 87);
-            this.id.Margin = new System.Windows.Forms.Padding(4);
+            this.id.Location = new System.Drawing.Point(216, 71);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(239, 40);
+            this.id.Size = new System.Drawing.Size(180, 33);
             this.id.TabIndex = 8;
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.monthCalendar1.Location = new System.Drawing.Point(556, 91);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendar1.Location = new System.Drawing.Point(417, 74);
             this.monthCalendar1.MaxDate = new System.DateTime(3000, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
@@ -144,8 +137,7 @@
             // monthCalendar2
             // 
             this.monthCalendar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar2.Location = new System.Drawing.Point(911, 91);
-            this.monthCalendar2.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendar2.Location = new System.Drawing.Point(683, 74);
             this.monthCalendar2.MaxSelectionCount = 1;
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 13;
@@ -157,10 +149,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(643, 48);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(482, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 33);
+            this.label4.Size = new System.Drawing.Size(119, 26);
             this.label4.TabIndex = 14;
             this.label4.Text = "Fecha Inicio:";
             // 
@@ -170,10 +161,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(997, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(748, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 33);
+            this.label5.Size = new System.Drawing.Size(99, 26);
             this.label5.TabIndex = 15;
             this.label5.Text = "Fecha Fin:";
             // 
@@ -212,8 +202,7 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.dataGridView1.HeaderForeColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 305);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 248);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -230,7 +219,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1204, 404);
+            this.dataGridView1.Size = new System.Drawing.Size(903, 328);
             this.dataGridView1.TabIndex = 69;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
@@ -239,10 +228,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label6.Location = new System.Drawing.Point(49, 31);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(37, 25);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(387, 49);
+            this.label6.Size = new System.Drawing.Size(309, 39);
             this.label6.TabIndex = 70;
             this.label6.Text = "Calendario actividades";
             // 
@@ -250,10 +239,9 @@
             // 
             this.label7.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(52, 91);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(39, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 32);
+            this.label7.Size = new System.Drawing.Size(119, 26);
             this.label7.TabIndex = 71;
             this.label7.Text = "IdActividad:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,10 +250,9 @@
             // 
             this.label8.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(48, 143);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(36, 116);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(232, 32);
+            this.label8.Size = new System.Drawing.Size(174, 26);
             this.label8.TabIndex = 72;
             this.label8.Text = "Nombre actividad:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,20 +261,19 @@
             // 
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(52, 187);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(39, 152);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(232, 32);
+            this.label9.Size = new System.Drawing.Size(174, 26);
             this.label9.TabIndex = 73;
             this.label9.Text = "Descripción:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CalendarioAct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1271, 790);
+            this.ClientSize = new System.Drawing.Size(953, 642);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -305,7 +291,6 @@
             this.Controls.Add(this.agregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CalendarioAct";
             this.Text = "CalendarioAct";
             this.Load += new System.EventHandler(this.CalendarioAct_Load);

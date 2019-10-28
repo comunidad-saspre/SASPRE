@@ -62,7 +62,7 @@ namespace Capa_Presentacion
 
         private void Calculadora_Load(object sender, EventArgs e)
         {
-            tablaCostos = _Costos.MostrarCostos();
+            /*tablaCostos = _Costos.MostrarCostos();
             cbCultivo.SelectedIndex = 0;
             cbCultivo.Items.Clear();
 
@@ -70,7 +70,7 @@ namespace Capa_Presentacion
             {
                 cbCultivo.Items.Add(row["cultivo"].ToString());
             }
-
+            */
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

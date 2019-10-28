@@ -93,7 +93,7 @@ namespace Capa_Presentacion
             descripcion.Text = "";
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
             descripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
@@ -104,7 +104,5 @@ namespace Capa_Presentacion
             eliminar.Enabled = true;
             agregar.Enabled = false;
         }
-
-       
     }
 }

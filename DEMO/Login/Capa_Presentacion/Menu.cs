@@ -783,6 +783,7 @@ namespace Capa_Presentacion
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
             panelDerecho.BackColor = Color.Transparent;
+            CerrarFormEnPanel<Cosechas>();
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel<FromUsuarioABC>();
@@ -794,6 +795,9 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Gastos>();
             CerrarFormEnPanel<Alarmas>();
             CerrarFormEnPanel<Gráficos>();
+            CerrarFormEnPanel<CalendarioAct>();
+            CerrarFormEnPanel<FromUsuarioABC>();
+
 
             panelDerecho.Visible = true;
             panelClima.Visible = true;

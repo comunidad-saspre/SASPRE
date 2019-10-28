@@ -393,7 +393,7 @@
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.myPanel2.Location = new System.Drawing.Point(0, 0);
             this.myPanel2.Name = "myPanel2";
-            this.myPanel2.Size = new System.Drawing.Size(45, 720);
+            this.myPanel2.Size = new System.Drawing.Size(200, 720);
             this.myPanel2.TabIndex = 20;
             // 
             // btnAlarmas

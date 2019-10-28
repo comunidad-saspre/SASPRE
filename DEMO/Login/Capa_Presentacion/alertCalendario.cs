@@ -32,7 +32,7 @@ namespace Capa_Presentacion
             this.Top = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.Bounds.Height/2-500;
             this.Left = Screen.PrimaryScreen.Bounds.Width - Screen.PrimaryScreen.Bounds.Width/2-500;
 
-            show.Start();
+           // show.Start();
         }
         
         private void btnCer_Click(object sender, EventArgs e)

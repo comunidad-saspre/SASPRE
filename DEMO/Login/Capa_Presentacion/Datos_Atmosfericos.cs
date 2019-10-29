@@ -89,7 +89,7 @@ namespace Capa_Presentacion
             }
         }
         //lectura del archivo con datos atmosfericos
-        private void leercsv(String filepath)
+        public void leercsv(String filepath)
         {
             int contadordias = 0;
             String cambiodia = null;

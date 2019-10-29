@@ -709,7 +709,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
-
+            HistorialDePlagas historialplagas = new HistorialDePlagas();
+            historialplagas.MostrarHistorialplagas();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -731,6 +732,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<AdministrarCultivos>();
+            AdministrarCultivos admincultivos = new AdministrarCultivos();
+            admincultivos.MostrarCultivos();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1176,7 +1179,8 @@ namespace Capa_Presentacion
             try
             {
                 AbrirFormEnPanel<FromUsuarioABC>();
-
+                FromUsuarioABC usuarios = new FromUsuarioABC();
+                usuarios.Mostrar();
 
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
@@ -1200,7 +1204,8 @@ namespace Capa_Presentacion
         {
             panelDerecho.Visible = true;
             AbrirFormEnPanel<Cosechas>();
-
+            Cosechas cosechas = new Cosechas();
+            cosechas.MostrarCosechas();
 
             panelClima.Visible = false;
             lblTemp.Visible = true;
@@ -1215,7 +1220,8 @@ namespace Capa_Presentacion
         private void btnFertilizantes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Fertilizantes>();
-
+            Fertilizantes ferilizantes = new Fertilizantes();
+            ferilizantes.MostrarFertilizantes();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1260,7 +1266,8 @@ namespace Capa_Presentacion
             //btnDatAtmos = true;
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
-
+            Datos_Atmosfericos datosatmosfericos = new Datos_Atmosfericos();
+           
 
 
 
@@ -1335,10 +1342,12 @@ namespace Capa_Presentacion
 
         private void BunifuFlatButtonAlmacen_Click(object sender, EventArgs e)
         {
+          
             try
             {
                 AbrirFormEnPanel<Almacen>();
-
+                AdministrarCultivos admincultivos = new AdministrarCultivos();
+                admincultivos.MostrarCultivos();
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
                 lblCentigrados.Visible = true;

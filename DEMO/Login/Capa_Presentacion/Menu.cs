@@ -1267,7 +1267,7 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
             Datos_Atmosfericos datosatmosfericos = new Datos_Atmosfericos();
-            datosatmosfericos.MOstrardatosatmosfericos();
+         //   datosatmosfericos.MOstrardatosatmosfericos();
 
 
 

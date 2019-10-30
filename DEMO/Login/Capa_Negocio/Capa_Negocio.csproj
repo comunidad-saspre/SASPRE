@@ -54,6 +54,7 @@
     <Compile Include="CN_DatosClimaMes.cs" />
     <Compile Include="CN_Fertilizantes.cs" />
     <Compile Include="CN_Gastos.cs" />
+    <Compile Include="CN_Gráficos.cs" />
     <Compile Include="CN_Login.cs" />
     <Compile Include="CN_Plagas.cs" />
     <Compile Include="CN_Ventas.cs" />

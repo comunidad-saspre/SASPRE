@@ -1135,7 +1135,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1162,7 +1162,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1281,15 +1281,12 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
 
-
-
-
-            //lblTemp.Visible = true;
-            //lblCentigrados.Visible = true;
-            //lblHumedad.Visible = true;
-            //lblEstado.Visible = true;
-            //lblPrecipitacion.Visible = true;
-            //lblPrecipitacionmm.Visible = true;
+            lblTemp.Visible = true;
+            lblCentigrados.Visible = true;
+            lblHumedad.Visible = true;
+            lblEstado.Visible = true;
+            lblPrecipitacion.Visible = true;
+            lblPrecipitacionmm.Visible = true;
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 

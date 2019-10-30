@@ -48,13 +48,13 @@ namespace Capa_Presentacion
             }
             catch (MySqlException ex)
             {
-                
+
             }
             finally
             {
-                
+
             }
-            
+
         }
         //Metodo para descargar archivo de datos atmosfericos
         public async void getArchivo(String url)
@@ -182,7 +182,7 @@ namespace Capa_Presentacion
             DateTime fecha_anterior = Convert.ToDateTime(anterior);
             TimeSpan tSpan = fecha_actual - fecha_anterior;
             String[] dias = tSpan.ToString().Split('.');
-            int intervalo=0;
+            int intervalo = 0;
             try
             {
                 intervalo = Convert.ToInt32(dias[0]);
@@ -193,7 +193,7 @@ namespace Capa_Presentacion
             }
             return intervalo;
         }
-      
+
         public String acomodarfecha(String fecha)
         {   //2019/10/08
             String[] separar = fecha.Split('/');
@@ -207,7 +207,7 @@ namespace Capa_Presentacion
                 CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
                 String[] aux1 = _DatosClimaMes.top_fecha().Split(' ');
                 int parametro = intervalos(aux1[0]);
-               
+
                 foreach (DataGridViewRow item in dtgDatosElMante.Rows)
                 {
                     String aux = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
@@ -215,7 +215,7 @@ namespace Capa_Presentacion
                     aux = aux.Replace("\"", "");
                     String[] aux2 = aux.Split(' ');
                     int intervalo2 = intervalos(acomodarfecha(aux2[0]));
-                    if (parametro>intervalo2&&intervalo2!=0)
+                    if (parametro > intervalo2 && intervalo2 != 0)
                     {
                         String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
                         String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
@@ -223,16 +223,16 @@ namespace Capa_Presentacion
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
                     }
-                   /* if (Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
-                    {
-                       
-                        
-                      /*  String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
-                        _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
-                        item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
-                        item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
-                    }*/
-                    
+                    /* if (Convert.ToDateTime(item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "")).ToString("yy-MM-dd") == DateTime.Now.AddDays(-1).ToString("yy-MM-dd"))
+                     {
+
+
+                       /*  String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
+                         _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
+                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
+                     }*/
+
                 }
                 Cursor.Current = Cursors.Default;
             }
@@ -292,8 +292,8 @@ namespace Capa_Presentacion
                             {
                                 fecha3 = tablaDatosClima.Rows[i]["Fecha_Local"].ToString();
                                 temperatura3 = Convert.ToDouble(tablaDatosClima.Rows[i]["Temperatura"]);
-                                alert.Show("Se ha registrado que en 3 dias seguidos"+"\n la temperatura a revasado el limite estable para "+"\nlos cultivos: "+temperaturaMaxima+" C",Alertype.warning);
-                                alert.Show("Fecha 1: " + fecha1+" "+temperatura1 + "\nFecha 2: " + fecha2+" "+temperatura2+ "\nFecha 3: " + fecha3+" "+temperatura3,Alertype.warning);
+                                alert.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C", Alertype.warning);
+                                alert.Show("Fecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3, Alertype.warning);
                                 //MessageBox.Show("Se ha registrado que en 3 dias seguidos" + "\n la temperatura a revasado el limite estable para " + "\nlos cultivos: " + temperaturaMaxima + " C");
                                 //MessageBox.Show("\nFecha 1: " + fecha1 + " " + temperatura1 + "\nFecha 2: " + fecha2 + " " + temperatura2 + "\nFecha 3: " + fecha3 + " " + temperatura3);
                                 contadorDias++;
@@ -375,7 +375,9 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        public void MOstrardatosatmosfericos(){
+            leercsv(rutadirectorio);
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
             InsertarDatosClimaMes();

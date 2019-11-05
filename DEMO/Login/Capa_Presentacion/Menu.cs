@@ -17,6 +17,7 @@ using System.Globalization;
 using Capa_Negocio;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace Capa_Presentacion
 {
@@ -718,6 +719,9 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
+            textoAlarma.Visible = true;
+            textAlarma2.Visible = true;
         }
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
@@ -739,6 +743,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {
@@ -795,8 +800,10 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            textoAlarma.Visible = false;
+            textAlarma2.Visible = false;
+            link.Visible = false;
             ActivarAlarmas();
-            AlertaCalendario();
 
 
 
@@ -806,14 +813,24 @@ namespace Capa_Presentacion
             CalendarioAct obj = new CalendarioAct();
             DateTime dt = DateTime.Now;
             String x = dt.ToShortDateString();
+            
             if (obj.Evaluar(x) == false)
             {
-                alertCalendario.Show("Hoy " + x + " tiene una\n" +
-                "actividad pendiente, revise\n" +
-                "su calendario de actividades.");
-            }
+                link.Visible = true;
+                textAlarma2.Visible = true;
+                textoAlarma.Visible = true;
 
+
+            }
+            else
+            {
+                link.Visible = false;
+                textoAlarma.Visible = false;
+                textAlarma2.Visible = false;
+
+            }
         }
+       
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1206,6 +1223,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1221,8 +1239,7 @@ namespace Capa_Presentacion
         {
             panelDerecho.Visible = true;
             AbrirFormEnPanel<Cosechas>();
-
-
+            AlertaCalendario();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1244,6 +1261,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
 
         private void picClimaHoy_MouseHover(object sender, EventArgs e)
@@ -1288,6 +1306,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
@@ -1303,6 +1322,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
 
         private void panelClima_Paint(object sender, PaintEventArgs e)
@@ -1364,6 +1384,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1385,6 +1406,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1406,6 +1428,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1421,11 +1444,13 @@ namespace Capa_Presentacion
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
             AbrirFormEnPanel<CalendarioAct>();
+            AlertaCalendario();
         }
 
         private void btnAlarmas_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Alarmas>();
+            AlertaCalendario();
 
         }
 
@@ -1442,6 +1467,14 @@ namespace Capa_Presentacion
                 return false;
             }
         }
+
+        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AbrirFormEnPanel<CalendarioAct>();
+            AlertaCalendario();
+        }
+        
+
         private void ActivarAlarmas()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();

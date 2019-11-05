@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +38,9 @@ namespace Capa_Presentacion
             MostrarCalendario();
             editar.Enabled = false;
             eliminar.Enabled = false;
-            
+            monthCalendar1.MinDate = DateTime.Now;
+            monthCalendar2.MinDate = DateTime.Now;
+
         }
 
 
@@ -45,11 +48,13 @@ namespace Capa_Presentacion
             CN_CalendarioAct _Calendario = new CN_CalendarioAct();
             tablaCalendario = _Calendario.MostrarCalendario(Program.cargo, Program.nickname);
             String nombre;
+            
             foreach (DataRow row in tablaCalendario.Rows)
             {
                 nombre = row["FechaInicio"].ToString();
                 var nombre2 = DateTime.Parse(nombre);
                 var fec = nombre2.ToShortDateString();
+
                 if (fec == fecha)
                 {
                     return false;
@@ -106,6 +111,11 @@ namespace Capa_Presentacion
             editar.Enabled = true;
             eliminar.Enabled = true;
             agregar.Enabled = false;
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            monthCalendar2.MinDate = monthCalendar1.SelectionRange.Start;
         }
     }
 }

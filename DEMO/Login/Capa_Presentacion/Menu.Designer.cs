@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
+            this.textoAlarma = new System.Windows.Forms.Label();
             this.btnCer = new System.Windows.Forms.Button();
             this.btnMax = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
@@ -127,6 +128,8 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.link = new System.Windows.Forms.LinkLabel();
+            this.textAlarma2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelDerecho.SuspendLayout();
@@ -209,6 +212,9 @@
             // panelDerecho
             // 
             this.panelDerecho.BackColor = System.Drawing.Color.Transparent;
+            this.panelDerecho.Controls.Add(this.textAlarma2);
+            this.panelDerecho.Controls.Add(this.link);
+            this.panelDerecho.Controls.Add(this.textoAlarma);
             this.panelDerecho.Controls.Add(this.btnCer);
             this.panelDerecho.Controls.Add(this.btnMax);
             this.panelDerecho.Controls.Add(this.btnMin);
@@ -225,6 +231,19 @@
             this.panelDerecho.Size = new System.Drawing.Size(208, 720);
             this.panelDerecho.TabIndex = 27;
             this.panelDerecho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDerecho_Paint);
+            // 
+            // textoAlarma
+            // 
+            this.textoAlarma.AutoSize = true;
+            this.textoAlarma.BackColor = System.Drawing.Color.Transparent;
+            this.textoAlarma.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textoAlarma.ForeColor = System.Drawing.Color.White;
+            this.textoAlarma.Location = new System.Drawing.Point(38, 339);
+            this.textoAlarma.Name = "textoAlarma";
+            this.textoAlarma.Size = new System.Drawing.Size(151, 18);
+            this.textoAlarma.TabIndex = 32;
+            this.textoAlarma.Text = "El dia de hoy tiene ";
+            this.textoAlarma.Visible = false;
             // 
             // btnCer
             // 
@@ -1676,10 +1695,40 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // link
+            // 
+            this.link.AutoSize = true;
+            this.link.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link.ForeColor = System.Drawing.Color.White;
+            this.link.LinkColor = System.Drawing.SystemColors.MenuText;
+            this.link.Location = new System.Drawing.Point(30, 371);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(165, 18);
+            this.link.TabIndex = 35;
+            this.link.TabStop = true;
+            this.link.Text = "Revise su calendario";
+            this.link.Visible = false;
+            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            // 
+            // textAlarma2
+            // 
+            this.textAlarma2.AutoSize = true;
+            this.textAlarma2.BackColor = System.Drawing.Color.Transparent;
+            this.textAlarma2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textAlarma2.ForeColor = System.Drawing.Color.White;
+            this.textAlarma2.Location = new System.Drawing.Point(24, 354);
+            this.textAlarma2.Name = "textAlarma2";
+            this.textAlarma2.Size = new System.Drawing.Size(178, 18);
+            this.textAlarma2.TabIndex = 36;
+            this.textAlarma2.Text = "actividades pendientes";
+            this.textAlarma2.Visible = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.myPanel1);
             this.DoubleBuffered = true;
@@ -1812,5 +1861,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton btnAlarmas;
+        private System.Windows.Forms.Label textoAlarma;
+        private System.Windows.Forms.LinkLabel link;
+        private System.Windows.Forms.Label textAlarma2;
     }
 }

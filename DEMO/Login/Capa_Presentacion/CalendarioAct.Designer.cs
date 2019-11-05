@@ -133,6 +133,7 @@
             this.monthCalendar1.TabIndex = 9;
             this.monthCalendar1.TitleBackColor = System.Drawing.Color.Chartreuse;
             this.monthCalendar1.TrailingForeColor = System.Drawing.SystemColors.Info;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // monthCalendar2
             // 

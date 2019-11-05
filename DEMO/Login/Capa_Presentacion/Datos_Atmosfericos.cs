@@ -378,7 +378,7 @@ namespace Capa_Presentacion
         public void MOstrardatosatmosfericos(){
             leercsv(rutadirectorio);
         }
-        public void MOstrardatosatmosfericos(){
+        public void Mostrardatosatmosfericos(){
             rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
             leercsv(rutadirectorio);
         }

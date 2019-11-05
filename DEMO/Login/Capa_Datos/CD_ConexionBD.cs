@@ -20,7 +20,7 @@ namespace Capa_Datos
         MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3306; Database = saspre; Uid = root; Pwd = root");
         //MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = admin");
         //MySqlConnection Conexion = new MySqlConnection("Server = localhost; Port = 3320; Database = saspre; Uid = root; Pwd = papasote2121");
-        MySqlConnection Conexion = new MySqlConnection("Server = 138.68.246.105; Port = 3306; Database = tecdb; Uid = hector; Pwd = hectorpass1?");
+        //MySqlConnection Conexion = new MySqlConnection("Server = 138.68.246.105; Port = 3306; Database = tecdb; Uid = hector; Pwd = hectorpass1?");
 
         public MySqlConnection AbrirConexion()
         {

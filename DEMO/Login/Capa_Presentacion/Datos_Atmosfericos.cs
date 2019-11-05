@@ -375,6 +375,10 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        public void MOstrardatosatmosfericos(){
+            rutadirectorio = "C:\\SASPRE_DATOS_ATMOSFERICOS\\datos_CIUDADMANTE_" + thisDay + ".csv";
+            leercsv(rutadirectorio);
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {

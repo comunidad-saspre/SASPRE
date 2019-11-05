@@ -161,7 +161,7 @@ namespace Capa_Presentacion
             CalcularPlagaAutomatico();
         }
 
-        private void MostrarCultivos()
+        public void MostrarCultivos()
         {
             CN_Cultivos _Cultivos = new CN_Cultivos();
             tablaCultivos = _Cultivos.MostrarCultivos(Program.cargo, Program.nickname);
@@ -360,7 +360,7 @@ namespace Capa_Presentacion
                 resultado = r.ShowDialog();
             }
         }
-
+        
         DataTable tablaDatosClimaMes;
         String estadocaña = null;
         String estadocebolla = null;

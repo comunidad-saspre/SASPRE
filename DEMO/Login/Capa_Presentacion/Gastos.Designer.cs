@@ -120,6 +120,7 @@
             this.btnAgregar.TabIndex = 124;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // btnEliminar
             // 

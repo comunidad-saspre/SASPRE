@@ -710,7 +710,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
-
+            HistorialDePlagas historialplagas = new HistorialDePlagas();
+            historialplagas.MostrarHistorialplagas();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -732,6 +733,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<AdministrarCultivos>();
+            AdministrarCultivos admincultivos = new AdministrarCultivos();
+            admincultivos.MostrarCultivos();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1136,7 +1139,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1163,7 +1166,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1197,7 +1200,8 @@ namespace Capa_Presentacion
             try
             {
                 AbrirFormEnPanel<FromUsuarioABC>();
-
+                FromUsuarioABC usuarios = new FromUsuarioABC();
+                usuarios.Mostrar();
 
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
@@ -1221,7 +1225,8 @@ namespace Capa_Presentacion
         {
             panelDerecho.Visible = true;
             AbrirFormEnPanel<Cosechas>();
-
+            Cosechas cosechas = new Cosechas();
+            cosechas.MostrarCosechas();
 
             panelClima.Visible = false;
             lblTemp.Visible = true;
@@ -1236,7 +1241,8 @@ namespace Capa_Presentacion
         private void btnFertilizantes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Fertilizantes>();
-
+            Fertilizantes ferilizantes = new Fertilizantes();
+            ferilizantes.MostrarFertilizantes();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1286,12 +1292,12 @@ namespace Capa_Presentacion
 
 
 
-            lblTemp.Visible = true;
-            lblCentigrados.Visible = true;
-            lblHumedad.Visible = true;
-            lblEstado.Visible = true;
-            lblPrecipitacion.Visible = true;
-            lblPrecipitacionmm.Visible = true;
+            //lblTemp.Visible = true;
+            //lblCentigrados.Visible = true;
+            //lblHumedad.Visible = true;
+            //lblEstado.Visible = true;
+            //lblPrecipitacion.Visible = true;
+            //lblPrecipitacionmm.Visible = true;
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
@@ -1357,10 +1363,12 @@ namespace Capa_Presentacion
 
         private void BunifuFlatButtonAlmacen_Click(object sender, EventArgs e)
         {
+          
             try
             {
                 AbrirFormEnPanel<Almacen>();
-
+                AdministrarCultivos admincultivos = new AdministrarCultivos();
+                admincultivos.MostrarCultivos();
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
                 lblCentigrados.Visible = true;

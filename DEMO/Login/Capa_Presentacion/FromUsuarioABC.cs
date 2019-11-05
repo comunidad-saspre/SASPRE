@@ -166,7 +166,7 @@ namespace Capa_Presentacion
             }
         }
 
-        private void Mostrar()
+        public void Mostrar()
         {
             try
             {

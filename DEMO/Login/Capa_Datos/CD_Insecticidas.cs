@@ -69,7 +69,7 @@ namespace Capa_Datos
             comando.Parameters.AddWithValue("_nombre", Nombre);
             comando.Parameters.AddWithValue("_precio", Precio);
             comando.Parameters.AddWithValue("_nombre_plaga", Plaga);
-            comando.Parameters.AddWithValue("idinsecticida", idInsecticida);
+            comando.Parameters.AddWithValue("_idinsecticida", idInsecticida);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();

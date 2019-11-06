@@ -25,6 +25,9 @@ namespace Capa_Presentacion
         {
             MostrarInsecticidas();
             comboBox1.SelectedIndex = 0;
+            agregar.Enabled = true;
+            eliminar.Enabled = false;
+            editar.Enabled = false;
         }
 
         public void MostrarInsecticidas()
@@ -50,6 +53,9 @@ namespace Capa_Presentacion
             _Insecticidas.AgregarInsecticida(Program.nickname,nombre.Text, precio.Text, comboBox1.Text);
             MostrarInsecticidas();
             limpiar();
+            agregar.Enabled = true;
+            eliminar.Enabled = false;
+            editar.Enabled = false;
 
         }
 
@@ -58,6 +64,9 @@ namespace Capa_Presentacion
             _Insecticidas.EliminarInsecticida(idInsecticida.Text);
             MostrarInsecticidas();
             limpiar();
+            agregar.Enabled = true;
+            eliminar.Enabled = false;
+            editar.Enabled = false;
         }
 
         private void editar_Click(object sender, EventArgs e)
@@ -65,6 +74,9 @@ namespace Capa_Presentacion
             _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text);
             MostrarInsecticidas();
             limpiar();
+            agregar.Enabled = true;
+            eliminar.Enabled = false;
+            editar.Enabled = false;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -73,6 +85,17 @@ namespace Capa_Presentacion
             nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
             precio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
             comboBox1.Text =dataGridView1.CurrentRow.Cells["NombrePlaga"].Value.ToString();
+            agregar.Enabled = false;
+            eliminar.Enabled = true;
+            editar.Enabled = true;
+        }
+
+        private void precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) { e.Handled = false; }
+            else if (Char.IsControl(e.KeyChar)) { e.Handled = false; }
+            else if (Char.IsSeparator(e.KeyChar)) { e.Handled = false; }
+            else { e.Handled = true; }
         }
     }
 }

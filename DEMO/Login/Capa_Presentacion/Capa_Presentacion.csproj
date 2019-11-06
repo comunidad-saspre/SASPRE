@@ -295,6 +295,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="InformacionAXDias.cs" />
+    <Compile Include="Insecticidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insecticidas.Designer.cs">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +413,9 @@
     <EmbeddedResource Include="HistorialPlagas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HistorialPlagas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insecticidas.resx">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

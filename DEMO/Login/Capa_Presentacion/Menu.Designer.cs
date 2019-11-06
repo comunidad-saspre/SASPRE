@@ -43,6 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
+            this.textAlarma2 = new System.Windows.Forms.Label();
+            this.link = new System.Windows.Forms.LinkLabel();
             this.textoAlarma = new System.Windows.Forms.Label();
             this.btnCer = new System.Windows.Forms.Button();
             this.btnMax = new System.Windows.Forms.Button();
@@ -128,8 +130,7 @@
             this.myPanel4 = new Capa_Presentacion.MyPanel();
             this.lblfechaprincipal = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.link = new System.Windows.Forms.LinkLabel();
-            this.textAlarma2 = new System.Windows.Forms.Label();
+            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.MouseDetect)).BeginInit();
             this.myPanel1.SuspendLayout();
             this.panelDerecho.SuspendLayout();
@@ -231,6 +232,35 @@
             this.panelDerecho.Size = new System.Drawing.Size(208, 720);
             this.panelDerecho.TabIndex = 27;
             this.panelDerecho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDerecho_Paint);
+            // 
+            // textAlarma2
+            // 
+            this.textAlarma2.AutoSize = true;
+            this.textAlarma2.BackColor = System.Drawing.Color.Transparent;
+            this.textAlarma2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textAlarma2.ForeColor = System.Drawing.Color.White;
+            this.textAlarma2.Location = new System.Drawing.Point(24, 354);
+            this.textAlarma2.Name = "textAlarma2";
+            this.textAlarma2.Size = new System.Drawing.Size(178, 18);
+            this.textAlarma2.TabIndex = 36;
+            this.textAlarma2.Text = "actividades pendientes";
+            this.textAlarma2.Visible = false;
+            // 
+            // link
+            // 
+            this.link.AutoSize = true;
+            this.link.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link.ForeColor = System.Drawing.Color.White;
+            this.link.LinkColor = System.Drawing.SystemColors.MenuText;
+            this.link.Location = new System.Drawing.Point(30, 371);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(165, 18);
+            this.link.TabIndex = 35;
+            this.link.TabStop = true;
+            this.link.Text = "Revise su calendario";
+            this.link.Visible = false;
+            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
             // 
             // textoAlarma
             // 
@@ -392,6 +422,7 @@
             // myPanel2
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.myPanel2.Controls.Add(this.bunifuFlatButton4);
             this.myPanel2.Controls.Add(this.btnAlarmas);
             this.myPanel2.Controls.Add(this.bunifuFlatButton3);
             this.myPanel2.Controls.Add(this.bunifuFlatButton2);
@@ -1695,34 +1726,43 @@
             this.bunifuDragControl1.TargetControl = this.myPanel1;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // link
+            // bunifuFlatButton4
             // 
-            this.link.AutoSize = true;
-            this.link.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link.ForeColor = System.Drawing.Color.White;
-            this.link.LinkColor = System.Drawing.SystemColors.MenuText;
-            this.link.Location = new System.Drawing.Point(30, 371);
-            this.link.Name = "link";
-            this.link.Size = new System.Drawing.Size(165, 18);
-            this.link.TabIndex = 35;
-            this.link.TabStop = true;
-            this.link.Text = "Revise su calendario";
-            this.link.Visible = false;
-            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
-            // 
-            // textAlarma2
-            // 
-            this.textAlarma2.AutoSize = true;
-            this.textAlarma2.BackColor = System.Drawing.Color.Transparent;
-            this.textAlarma2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAlarma2.ForeColor = System.Drawing.Color.White;
-            this.textAlarma2.Location = new System.Drawing.Point(24, 354);
-            this.textAlarma2.Name = "textAlarma2";
-            this.textAlarma2.Size = new System.Drawing.Size(178, 18);
-            this.textAlarma2.TabIndex = 36;
-            this.textAlarma2.Text = "actividades pendientes";
-            this.textAlarma2.Visible = false;
+            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton4.BorderRadius = 0;
+            this.bunifuFlatButton4.ButtonText = "  Insecticidas";
+            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.ForeColor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.Iconimage = global::Capa_Presentacion.Properties.Resources.alarm_30px;
+            this.bunifuFlatButton4.Iconimage_right = null;
+            this.bunifuFlatButton4.Iconimage_right_Selected = null;
+            this.bunifuFlatButton4.Iconimage_Selected = null;
+            this.bunifuFlatButton4.IconMarginLeft = 0;
+            this.bunifuFlatButton4.IconMarginRight = 0;
+            this.bunifuFlatButton4.IconRightVisible = true;
+            this.bunifuFlatButton4.IconRightZoom = 0D;
+            this.bunifuFlatButton4.IconVisible = true;
+            this.bunifuFlatButton4.IconZoom = 60D;
+            this.bunifuFlatButton4.IsTab = false;
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(0, 597);
+            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
+            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.selected = false;
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(250, 40);
+            this.bunifuFlatButton4.TabIndex = 68;
+            this.bunifuFlatButton4.Text = "  Insecticidas";
+            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click_1);
             // 
             // Menu
             // 
@@ -1864,5 +1904,6 @@
         private System.Windows.Forms.Label textoAlarma;
         private System.Windows.Forms.LinkLabel link;
         private System.Windows.Forms.Label textAlarma2;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
     }
 }

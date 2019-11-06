@@ -25,7 +25,7 @@ namespace Capa_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+             
             _calendario.AgregarCalendario(Program.nickname, nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"));
             MessageBox.Show("Listo");
             //fechaInicio.Value.ToString("yy-MM-dd"), fechaFin.Value.ToString("yy-MM-dd"), id.Text

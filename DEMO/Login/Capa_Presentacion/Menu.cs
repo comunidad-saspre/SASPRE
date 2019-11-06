@@ -793,6 +793,7 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Gráficos>();
             CerrarFormEnPanel<CalendarioAct>();
             CerrarFormEnPanel<FromUsuarioABC>();
+            CerrarFormEnPanel<Insecticidas>();
 
 
             panelDerecho.Visible = true;
@@ -1487,7 +1488,11 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<CalendarioAct>();
             AlertaCalendario();
         }
-        
+
+        private void bunifuFlatButton4_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<Insecticidas>();
+        }
 
         private void ActivarAlarmas()
         {

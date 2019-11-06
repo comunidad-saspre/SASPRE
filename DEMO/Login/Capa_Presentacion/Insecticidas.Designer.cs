@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,42 +42,41 @@
             this.agregar = new System.Windows.Forms.Button();
             this.eliminar = new System.Windows.Forms.Button();
             this.editar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(91, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 150);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 262);
+            this.label1.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(36, 486);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(120, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "IDInsecticida";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 294);
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(36, 525);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.Size = new System.Drawing.Size(177, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombre Insecticida";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(105, 323);
+            this.label3.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(36, 564);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.Size = new System.Drawing.Size(65, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Precio";
             // 
@@ -90,23 +91,27 @@
             // 
             // idInsecticida
             // 
-            this.idInsecticida.Location = new System.Drawing.Point(219, 262);
+            this.idInsecticida.Enabled = false;
+            this.idInsecticida.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.idInsecticida.Location = new System.Drawing.Point(219, 483);
             this.idInsecticida.Name = "idInsecticida";
-            this.idInsecticida.Size = new System.Drawing.Size(100, 20);
+            this.idInsecticida.Size = new System.Drawing.Size(216, 33);
             this.idInsecticida.TabIndex = 5;
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(219, 294);
+            this.nombre.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.nombre.Location = new System.Drawing.Point(219, 522);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(100, 20);
+            this.nombre.Size = new System.Drawing.Size(216, 33);
             this.nombre.TabIndex = 6;
             // 
             // precio
             // 
-            this.precio.Location = new System.Drawing.Point(219, 323);
+            this.precio.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.precio.Location = new System.Drawing.Point(219, 561);
             this.precio.Name = "precio";
-            this.precio.Size = new System.Drawing.Size(100, 20);
+            this.precio.Size = new System.Drawing.Size(216, 33);
             this.precio.TabIndex = 7;
             // 
             // comboBox1
@@ -122,39 +127,112 @@
             // 
             // agregar
             // 
-            this.agregar.Location = new System.Drawing.Point(403, 277);
+            this.agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.agregar.FlatAppearance.BorderSize = 0;
+            this.agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregar.ForeColor = System.Drawing.Color.White;
+            this.agregar.Location = new System.Drawing.Point(464, 609);
             this.agregar.Name = "agregar";
-            this.agregar.Size = new System.Drawing.Size(75, 23);
+            this.agregar.Size = new System.Drawing.Size(145, 40);
             this.agregar.TabIndex = 9;
             this.agregar.Text = "Agregar";
-            this.agregar.UseVisualStyleBackColor = true;
+            this.agregar.UseVisualStyleBackColor = false;
             this.agregar.Click += new System.EventHandler(this.agregar_Click);
             // 
             // eliminar
             // 
-            this.eliminar.Location = new System.Drawing.Point(511, 277);
+            this.eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.eliminar.FlatAppearance.BorderSize = 0;
+            this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eliminar.ForeColor = System.Drawing.Color.White;
+            this.eliminar.Location = new System.Drawing.Point(628, 609);
             this.eliminar.Name = "eliminar";
-            this.eliminar.Size = new System.Drawing.Size(75, 23);
+            this.eliminar.Size = new System.Drawing.Size(145, 40);
             this.eliminar.TabIndex = 10;
             this.eliminar.Text = "Eliminar";
-            this.eliminar.UseVisualStyleBackColor = true;
+            this.eliminar.UseVisualStyleBackColor = false;
             this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(619, 277);
+            this.editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.editar.FlatAppearance.BorderSize = 0;
+            this.editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editar.ForeColor = System.Drawing.Color.White;
+            this.editar.Location = new System.Drawing.Point(791, 609);
             this.editar.Name = "editar";
-            this.editar.Size = new System.Drawing.Size(75, 23);
+            this.editar.Size = new System.Drawing.Size(145, 40);
             this.editar.TabIndex = 11;
             this.editar.Text = "Editar";
-            this.editar.UseVisualStyleBackColor = true;
+            this.editar.UseVisualStyleBackColor = false;
             this.editar.Click += new System.EventHandler(this.editar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.DoubleBuffered = true;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
+            this.dataGridView1.HeaderForeColor = System.Drawing.Color.White;
+            this.dataGridView1.Location = new System.Drawing.Point(38, 81);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(898, 372);
+            this.dataGridView1.TabIndex = 121;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label5.Location = new System.Drawing.Point(36, 24);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 39);
+            this.label5.TabIndex = 122;
+            this.label5.Text = "Insecticidas";
             // 
             // Insecticidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.editar);
             this.Controls.Add(this.eliminar);
             this.Controls.Add(this.agregar);
@@ -166,7 +244,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Insecticidas";
             this.Text = "Insecticidas";
             this.Load += new System.EventHandler(this.Insecticidas_Load);
@@ -177,8 +255,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -190,5 +266,7 @@
         private System.Windows.Forms.Button agregar;
         private System.Windows.Forms.Button eliminar;
         private System.Windows.Forms.Button editar;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dataGridView1;
+        private System.Windows.Forms.Label label5;
     }
 }

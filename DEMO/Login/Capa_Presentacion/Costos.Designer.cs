@@ -192,10 +192,6 @@
             this.cbCultivo.Enabled = false;
             this.cbCultivo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.cbCultivo.FormattingEnabled = true;
-            this.cbCultivo.Items.AddRange(new object[] {
-            "Cultivo",
-            "Fertilizante",
-            "Otro"});
             this.cbCultivo.Location = new System.Drawing.Point(134, 506);
             this.cbCultivo.Name = "cbCultivo";
             this.cbCultivo.Size = new System.Drawing.Size(173, 34);

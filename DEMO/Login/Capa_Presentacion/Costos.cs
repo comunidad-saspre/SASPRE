@@ -133,15 +133,15 @@ namespace Capa_Presentacion
         private void Costos_Load(object sender, EventArgs e)
         {
             
-            /*tablaCostos = _Costos.MostrarCostos();
-            cbCultivo.SelectedIndex = 0;
+            tablaCostos = _Costos.MostrarCostos();
+           // cbCultivo.SelectedIndex = 0;
             cbCultivo.Items.Clear();
 
             foreach (DataRow row in tablaCostos.Rows)
             {
                 cbCultivo.Items.Add(row["cultivo"].ToString());
                 
-            }*/
+            }
         }
 
         public void Limpiar()

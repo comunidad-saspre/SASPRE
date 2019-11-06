@@ -22,8 +22,8 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "altaCostos";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_cultivo", cultivo);
-            comando.Parameters.AddWithValue("_precio", precio);
+            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
+            comando.Parameters.AddWithValue("_precioCultivoXtonelada", precio);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
@@ -36,7 +36,7 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "bajaCostos";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_cultivo", cultivo);
+            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
@@ -49,8 +49,8 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "cambioCostos";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_cultivo", cultivo);
-            comando.Parameters.AddWithValue("_precio", precio);
+            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
+            comando.Parameters.AddWithValue("_precioCultivoXtonelada", precio);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
@@ -58,13 +58,14 @@ namespace Capa_Datos
 
         public DataTable MostrarCostos()
         {
-            comando = new MySqlCommand("mostrarCostos", conexion.AbrirConexion());
+            
+
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "verCostos";
             comando.CommandType = CommandType.StoredProcedure;
-
-            MySqlDataAdapter da = new MySqlDataAdapter(comando);
-            da.Fill(tablaCostos);
-
-
+            leer = comando.ExecuteReader();
+            tablaCostos.Load(leer);
             conexion.CerrarConexion();
 
             return tablaCostos;

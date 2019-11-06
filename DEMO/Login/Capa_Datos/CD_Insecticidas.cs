@@ -54,7 +54,7 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EliminarInsecticida";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("idinsecticida", idInsecticida);
+            comando.Parameters.AddWithValue("_idinsecticida", idInsecticida);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();

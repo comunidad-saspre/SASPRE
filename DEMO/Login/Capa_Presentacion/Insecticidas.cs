@@ -37,25 +37,42 @@ namespace Capa_Presentacion
                 dataGridView1.Columns["UsuarioNombre"].Visible = false;
             }
         }
+        public void limpiar()
+        {
+            idInsecticida.Text = "";
+            nombre.Text = "";
+            precio.Text = "";
+            comboBox1.SelectedIndex = 0;
+        }
 
         private void agregar_Click(object sender, EventArgs e)
         {
-            _Insecticidas.AgregarInsecticida(Program.nickname,nombre.Text, precio.Text, comboBox1.Text);   
+            _Insecticidas.AgregarInsecticida(Program.nickname,nombre.Text, precio.Text, comboBox1.Text);
+            MostrarInsecticidas();
+            limpiar();
+
         }
 
         private void eliminar_Click(object sender, EventArgs e)
         {
             _Insecticidas.EliminarInsecticida(idInsecticida.Text);
+            MostrarInsecticidas();
+            limpiar();
         }
 
         private void editar_Click(object sender, EventArgs e)
         {
             _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text);
+            MostrarInsecticidas();
+            limpiar();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            idInsecticida.Text = dataGridView1.CurrentRow.Cells["idInsecticida"].Value.ToString();
             nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+            precio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
+            comboBox1.Text =dataGridView1.CurrentRow.Cells["NombrePlaga"].Value.ToString();
         }
     }
 }

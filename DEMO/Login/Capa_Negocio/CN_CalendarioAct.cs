@@ -12,6 +12,7 @@ namespace Capa_Negocio
     {
         CD_CalendarioAct _Calendario = new CD_CalendarioAct();
         DataTable tablaCalendario = new DataTable();
+        DataTable tablaCalendario2 = new DataTable();
 
         public DataTable MostrarCalendario(String cargo,String usuario)
         {

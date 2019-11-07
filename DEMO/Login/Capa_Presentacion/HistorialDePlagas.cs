@@ -38,12 +38,15 @@ namespace Capa_Presentacion
             DialogResult resultado = new DialogResult();
             resultado = r.ShowDialog();
         }
-
-        private void HistorialDePlagas_Load(object sender, EventArgs e)
+        public void MostrarHistorialplagas()
         {
             CN_Plagas _Plagas = new CN_Plagas();
             tablaPlagas = _Plagas.MostrarPlaga();
             dgvHistorial.DataSource = tablaPlagas;
+        }
+        public void HistorialDePlagas_Load(object sender, EventArgs e)
+        {
+            MostrarHistorialplagas();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

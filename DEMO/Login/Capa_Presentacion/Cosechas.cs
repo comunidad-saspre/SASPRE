@@ -24,7 +24,7 @@ namespace Capa_Presentacion
         {
             MostrarCosechas();
         }
-        private void MostrarCosechas()
+        public void MostrarCosechas()
         {
             try
             {

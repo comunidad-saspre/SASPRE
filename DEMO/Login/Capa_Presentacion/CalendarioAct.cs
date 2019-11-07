@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,7 @@ namespace Capa_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+             
             _calendario.AgregarCalendario(Program.nickname, nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"));
             MessageBox.Show("Listo");
             //fechaInicio.Value.ToString("yy-MM-dd"), fechaFin.Value.ToString("yy-MM-dd"), id.Text
@@ -36,6 +38,29 @@ namespace Capa_Presentacion
             MostrarCalendario();
             editar.Enabled = false;
             eliminar.Enabled = false;
+            monthCalendar1.MinDate = DateTime.Now;
+            monthCalendar2.MinDate = DateTime.Now;
+
+        }
+
+
+        public bool Evaluar(String fecha) {
+            CN_CalendarioAct _Calendario = new CN_CalendarioAct();
+            tablaCalendario = _Calendario.MostrarCalendario(Program.cargo, Program.nickname);
+            String nombre;
+            
+            foreach (DataRow row in tablaCalendario.Rows)
+            {
+                nombre = row["FechaInicio"].ToString();
+                var nombre2 = DateTime.Parse(nombre);
+                var fec = nombre2.ToShortDateString();
+
+                if (fec == fecha)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private void MostrarCalendario()
         {
@@ -76,7 +101,7 @@ namespace Capa_Presentacion
             descripcion.Text = "";
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
             descripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
@@ -86,6 +111,11 @@ namespace Capa_Presentacion
             editar.Enabled = true;
             eliminar.Enabled = true;
             agregar.Enabled = false;
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            monthCalendar2.MinDate = monthCalendar1.SelectionRange.Start;
         }
     }
 }

@@ -187,6 +187,12 @@
     <Compile Include="alert.designer.cs">
       <DependentUpon>alert.cs</DependentUpon>
     </Compile>
+    <Compile Include="alertCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertCalendario.Designer.cs">
+      <DependentUpon>alertCalendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Almacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="InformacionAXDias.cs" />
+    <Compile Include="Insecticidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insecticidas.Designer.cs">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +377,9 @@
     <EmbeddedResource Include="alert.resx">
       <DependentUpon>alert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="alertCalendario.resx">
+      <DependentUpon>alertCalendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacen.resx">
       <DependentUpon>Almacen.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +413,9 @@
     <EmbeddedResource Include="HistorialPlagas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HistorialPlagas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insecticidas.resx">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

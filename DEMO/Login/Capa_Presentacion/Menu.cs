@@ -17,6 +17,7 @@ using System.Globalization;
 using Capa_Negocio;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace Capa_Presentacion
 {
@@ -290,6 +291,7 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+       
         private void AgregarDias()
         {
             // Hago el ciclo para agregar hasta 7 días
@@ -709,7 +711,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<HistorialDePlagas>();
-
+            HistorialDePlagas historialplagas = new HistorialDePlagas();
+            historialplagas.MostrarHistorialplagas();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -717,6 +720,9 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
+            textoAlarma.Visible = true;
+            textAlarma2.Visible = true;
         }
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
@@ -731,6 +737,8 @@ namespace Capa_Presentacion
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<AdministrarCultivos>();
+            AdministrarCultivos admincultivos = new AdministrarCultivos();
+            admincultivos.MostrarCultivos();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -738,6 +746,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {
@@ -770,6 +779,7 @@ namespace Capa_Presentacion
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
             panelDerecho.BackColor = Color.Transparent;
+            CerrarFormEnPanel<Cosechas>();
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel<FromUsuarioABC>();
@@ -781,6 +791,10 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Gastos>();
             CerrarFormEnPanel<Alarmas>();
             CerrarFormEnPanel<Gráficos>();
+            CerrarFormEnPanel<CalendarioAct>();
+            CerrarFormEnPanel<FromUsuarioABC>();
+            CerrarFormEnPanel<Insecticidas>();
+
 
             panelDerecho.Visible = true;
             panelClima.Visible = true;
@@ -790,9 +804,37 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            textoAlarma.Visible = false;
+            textAlarma2.Visible = false;
+            link.Visible = false;
             ActivarAlarmas();
-            
+
+
+
         }
+        public void AlertaCalendario()
+        {
+            CalendarioAct obj = new CalendarioAct();
+            DateTime dt = DateTime.Now;
+            String x = dt.ToShortDateString();
+            
+            if (obj.Evaluar(x) == false)
+            {
+                link.Visible = true;
+                textAlarma2.Visible = true;
+                textoAlarma.Visible = true;
+
+
+            }
+            else
+            {
+                link.Visible = false;
+                textoAlarma.Visible = false;
+                textAlarma2.Visible = false;
+
+            }
+        }
+       
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1115,7 +1157,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1142,7 +1184,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Contains("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1176,7 +1218,8 @@ namespace Capa_Presentacion
             try
             {
                 AbrirFormEnPanel<FromUsuarioABC>();
-
+                FromUsuarioABC usuarios = new FromUsuarioABC();
+                usuarios.Mostrar();
 
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
@@ -1185,6 +1228,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1200,8 +1244,10 @@ namespace Capa_Presentacion
         {
             panelDerecho.Visible = true;
             AbrirFormEnPanel<Cosechas>();
+            Cosechas cosechas = new Cosechas();
+            cosechas.MostrarCosechas();
 
-
+            AlertaCalendario();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1215,7 +1261,8 @@ namespace Capa_Presentacion
         private void btnFertilizantes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Fertilizantes>();
-
+            Fertilizantes ferilizantes = new Fertilizantes();
+            ferilizantes.MostrarFertilizantes();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1223,6 +1270,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
 
         private void picClimaHoy_MouseHover(object sender, EventArgs e)
@@ -1260,6 +1308,10 @@ namespace Capa_Presentacion
             //btnDatAtmos = true;
             AbrirFormEnPanel<Datos_Atmosfericos>();
             panelClima.Visible = false;
+            Datos_Atmosfericos datosatmosfericos = new Datos_Atmosfericos();
+           // datosatmosfericos.Mostrardatosatmosfericos();
+
+
 
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -1267,6 +1319,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
             //Datos_Atmosfericos datos = new Datos_Atmosfericos();
             //datos.Visible = true;
 
@@ -1282,6 +1335,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
+            AlertaCalendario();
         }
 
         private void panelClima_Paint(object sender, PaintEventArgs e)
@@ -1332,10 +1386,12 @@ namespace Capa_Presentacion
 
         private void BunifuFlatButtonAlmacen_Click(object sender, EventArgs e)
         {
+          
             try
             {
                 AbrirFormEnPanel<Almacen>();
-
+                AdministrarCultivos admincultivos = new AdministrarCultivos();
+                admincultivos.MostrarCultivos();
                 lblTemp.Visible = true;
                 panelClima.Visible = false;
                 lblCentigrados.Visible = true;
@@ -1343,6 +1399,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1364,6 +1421,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1385,6 +1443,7 @@ namespace Capa_Presentacion
                 lblEstado.Visible = true;
                 lblPrecipitacion.Visible = true;
                 lblPrecipitacionmm.Visible = true;
+                AlertaCalendario();
             }
             catch (Exception a)
             {
@@ -1400,11 +1459,13 @@ namespace Capa_Presentacion
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
             AbrirFormEnPanel<CalendarioAct>();
+            AlertaCalendario();
         }
 
         private void btnAlarmas_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Alarmas>();
+            AlertaCalendario();
 
         }
 
@@ -1421,6 +1482,20 @@ namespace Capa_Presentacion
                 return false;
             }
         }
+
+        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AbrirFormEnPanel<CalendarioAct>();
+            AlertaCalendario();
+        }
+
+        private void bunifuFlatButton4_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel<Insecticidas>();
+
+        }
+
+
         private void ActivarAlarmas()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();

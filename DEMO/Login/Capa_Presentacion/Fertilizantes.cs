@@ -39,7 +39,7 @@ namespace Capa_Presentacion
             }
         }
 
-        private void MostrarFertilizantes()
+        public void MostrarFertilizantes()
         {
             try
             {

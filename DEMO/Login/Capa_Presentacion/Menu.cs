@@ -1492,7 +1492,9 @@ namespace Capa_Presentacion
         private void bunifuFlatButton4_Click_1(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Insecticidas>();
+
         }
+
 
         private void ActivarAlarmas()
         {

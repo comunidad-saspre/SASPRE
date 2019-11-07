@@ -121,7 +121,12 @@ namespace Capa_Presentacion
         }
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-           llenarReporte();
+         
+        }
+
+        private void Reportes_Load(object sender, EventArgs e)
+        {
+            llenarReporte();
         }
     }
 }

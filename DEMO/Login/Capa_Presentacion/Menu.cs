@@ -78,7 +78,10 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
-
+        public void cerrar()
+        {
+            AbrirFormEnPanel<Insecticidas>();
+        }
 
         public struct MARGINS
         {

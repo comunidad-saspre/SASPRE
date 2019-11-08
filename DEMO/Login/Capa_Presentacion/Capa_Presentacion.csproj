@@ -193,6 +193,12 @@
     <Compile Include="alertCalendario.Designer.cs">
       <DependentUpon>alertCalendario.cs</DependentUpon>
     </Compile>
+    <Compile Include="alertInsecticida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertInsecticida.Designer.cs">
+      <DependentUpon>alertInsecticida.cs</DependentUpon>
+    </Compile>
     <Compile Include="Almacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="alertCalendario.resx">
       <DependentUpon>alertCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alertInsecticida.resx">
+      <DependentUpon>alertInsecticida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Almacen.resx">
       <DependentUpon>Almacen.cs</DependentUpon>

@@ -43,9 +43,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.myPanel1 = new Capa_Presentacion.MyPanel();
             this.panelDerecho = new Capa_Presentacion.MyPanel();
-            this.textAlarma2 = new System.Windows.Forms.Label();
-            this.link = new System.Windows.Forms.LinkLabel();
-            this.textoAlarma = new System.Windows.Forms.Label();
             this.btnCer = new System.Windows.Forms.Button();
             this.btnMax = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
@@ -57,7 +54,7 @@
             this.lblCentigrados = new System.Windows.Forms.Label();
             this.btnRest = new System.Windows.Forms.Button();
             this.myPanel2 = new Capa_Presentacion.MyPanel();
-            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCostos = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAlarmas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -213,9 +210,6 @@
             // panelDerecho
             // 
             this.panelDerecho.BackColor = System.Drawing.Color.Transparent;
-            this.panelDerecho.Controls.Add(this.textAlarma2);
-            this.panelDerecho.Controls.Add(this.link);
-            this.panelDerecho.Controls.Add(this.textoAlarma);
             this.panelDerecho.Controls.Add(this.btnCer);
             this.panelDerecho.Controls.Add(this.btnMax);
             this.panelDerecho.Controls.Add(this.btnMin);
@@ -232,48 +226,6 @@
             this.panelDerecho.Size = new System.Drawing.Size(208, 720);
             this.panelDerecho.TabIndex = 27;
             this.panelDerecho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDerecho_Paint);
-            // 
-            // textAlarma2
-            // 
-            this.textAlarma2.AutoSize = true;
-            this.textAlarma2.BackColor = System.Drawing.Color.Transparent;
-            this.textAlarma2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAlarma2.ForeColor = System.Drawing.Color.White;
-            this.textAlarma2.Location = new System.Drawing.Point(24, 354);
-            this.textAlarma2.Name = "textAlarma2";
-            this.textAlarma2.Size = new System.Drawing.Size(178, 18);
-            this.textAlarma2.TabIndex = 36;
-            this.textAlarma2.Text = "actividades pendientes";
-            this.textAlarma2.Visible = false;
-            // 
-            // link
-            // 
-            this.link.AutoSize = true;
-            this.link.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link.ForeColor = System.Drawing.Color.White;
-            this.link.LinkColor = System.Drawing.SystemColors.MenuText;
-            this.link.Location = new System.Drawing.Point(30, 371);
-            this.link.Name = "link";
-            this.link.Size = new System.Drawing.Size(165, 18);
-            this.link.TabIndex = 35;
-            this.link.TabStop = true;
-            this.link.Text = "Revise su calendario";
-            this.link.Visible = false;
-            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
-            // 
-            // textoAlarma
-            // 
-            this.textoAlarma.AutoSize = true;
-            this.textoAlarma.BackColor = System.Drawing.Color.Transparent;
-            this.textoAlarma.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textoAlarma.ForeColor = System.Drawing.Color.White;
-            this.textoAlarma.Location = new System.Drawing.Point(38, 339);
-            this.textoAlarma.Name = "textoAlarma";
-            this.textoAlarma.Size = new System.Drawing.Size(151, 18);
-            this.textoAlarma.TabIndex = 32;
-            this.textoAlarma.Text = "El dia de hoy tiene ";
-            this.textoAlarma.Visible = false;
             // 
             // btnCer
             // 
@@ -422,7 +374,7 @@
             // myPanel2
             // 
             this.myPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
-            this.myPanel2.Controls.Add(this.bunifuFlatButton4);
+            this.myPanel2.Controls.Add(this.btnCostos);
             this.myPanel2.Controls.Add(this.btnAlarmas);
             this.myPanel2.Controls.Add(this.bunifuFlatButton3);
             this.myPanel2.Controls.Add(this.bunifuFlatButton2);
@@ -446,43 +398,43 @@
             this.myPanel2.Size = new System.Drawing.Size(200, 720);
             this.myPanel2.TabIndex = 20;
             // 
-            // bunifuFlatButton4
+            // btnCostos
             // 
-            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton4.BorderRadius = 0;
-            this.bunifuFlatButton4.ButtonText = "  Insecticidas";
-            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton4.ForeColor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
-            this.bunifuFlatButton4.Iconimage_right = null;
-            this.bunifuFlatButton4.Iconimage_right_Selected = null;
-            this.bunifuFlatButton4.Iconimage_Selected = null;
-            this.bunifuFlatButton4.IconMarginLeft = 0;
-            this.bunifuFlatButton4.IconMarginRight = 0;
-            this.bunifuFlatButton4.IconRightVisible = true;
-            this.bunifuFlatButton4.IconRightZoom = 0D;
-            this.bunifuFlatButton4.IconVisible = true;
-            this.bunifuFlatButton4.IconZoom = 60D;
-            this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(0, 597);
-            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
-            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
-            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.selected = false;
-            this.bunifuFlatButton4.Size = new System.Drawing.Size(250, 40);
-            this.bunifuFlatButton4.TabIndex = 68;
-            this.bunifuFlatButton4.Text = "  Insecticidas";
-            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click_1);
+            this.btnCostos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnCostos.BackColor = System.Drawing.Color.Transparent;
+            this.btnCostos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCostos.BorderRadius = 0;
+            this.btnCostos.ButtonText = "   Costos";
+            this.btnCostos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCostos.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCostos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCostos.ForeColor = System.Drawing.Color.White;
+            this.btnCostos.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCostos.Iconimage = global::Capa_Presentacion.Properties.Resources.cost_127px;
+            this.btnCostos.Iconimage_right = null;
+            this.btnCostos.Iconimage_right_Selected = null;
+            this.btnCostos.Iconimage_Selected = null;
+            this.btnCostos.IconMarginLeft = 0;
+            this.btnCostos.IconMarginRight = 0;
+            this.btnCostos.IconRightVisible = true;
+            this.btnCostos.IconRightZoom = 0D;
+            this.btnCostos.IconVisible = true;
+            this.btnCostos.IconZoom = 60D;
+            this.btnCostos.IsTab = false;
+            this.btnCostos.Location = new System.Drawing.Point(0, 600);
+            this.btnCostos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCostos.Name = "btnCostos";
+            this.btnCostos.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnCostos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
+            this.btnCostos.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCostos.selected = false;
+            this.btnCostos.Size = new System.Drawing.Size(250, 40);
+            this.btnCostos.TabIndex = 68;
+            this.btnCostos.Text = "   Costos";
+            this.btnCostos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCostos.Textcolor = System.Drawing.Color.White;
+            this.btnCostos.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCostos.Click += new System.EventHandler(this.btnCostos_Click);
             // 
             // btnAlarmas
             // 
@@ -718,13 +670,13 @@
             this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "   Administrar usuarios";
+            this.bunifuFlatButton1.ButtonText = "  Calculadora";
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.ForeColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
+            this.bunifuFlatButton1.Iconimage = global::Capa_Presentacion.Properties.Resources.calculator_127px;
             this.bunifuFlatButton1.Iconimage_right = null;
             this.bunifuFlatButton1.Iconimage_right_Selected = null;
             this.bunifuFlatButton1.Iconimage_Selected = null;
@@ -744,11 +696,10 @@
             this.bunifuFlatButton1.selected = false;
             this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 40);
             this.bunifuFlatButton1.TabIndex = 60;
-            this.bunifuFlatButton1.Text = "   Administrar usuarios";
+            this.bunifuFlatButton1.Text = "  Calculadora";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton1.Visible = false;
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click_1);
             // 
             // btnFertilizantes
@@ -1768,7 +1719,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.myPanel1);
             this.DoubleBuffered = true;
@@ -1901,9 +1851,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton btnAlarmas;
-        private System.Windows.Forms.Label textoAlarma;
-        private System.Windows.Forms.LinkLabel link;
-        private System.Windows.Forms.Label textAlarma2;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCostos;
     }
 }

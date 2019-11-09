@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculadora));
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.btnMin = new System.Windows.Forms.Button();
             this.btnCer = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +79,7 @@
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(173, 33);
             this.tbCantidad.TabIndex = 139;
+            this.tbCantidad.Text = "0";
             // 
             // label3
             // 
@@ -146,9 +149,9 @@
             this.lbTotal.Location = new System.Drawing.Point(112, 238);
             this.lbTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(23, 26);
+            this.lbTotal.Size = new System.Drawing.Size(67, 26);
             this.lbTotal.TabIndex = 142;
-            this.lbTotal.Text = "$";
+            this.lbTotal.Text = "$ 0.00";
             // 
             // panel1
             // 
@@ -203,9 +206,14 @@
             this.lbPrecio.Location = new System.Drawing.Point(112, 121);
             this.lbPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(23, 26);
+            this.lbPrecio.Size = new System.Drawing.Size(62, 26);
             this.lbPrecio.TabIndex = 144;
-            this.lbPrecio.Text = "$";
+            this.lbPrecio.Text = "$0.00";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Calculadora
             // 
@@ -249,5 +257,6 @@
         private System.Windows.Forms.Button btnCer;
         private System.Windows.Forms.Button btnMin;
         private System.Windows.Forms.Label lbPrecio;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -13,10 +13,12 @@ namespace Capa_Presentacion
 {
     public partial class Costos : Form
     {
-        String cultivo, opcion="";
+        String cultivo, opcion = "";
         double precio;
         int id;
         DataTable tablaCostos = new DataTable();
+        DataTable tablaCultivo = new DataTable();
+
         private CN_Costos _Costos = new CN_Costos();
 
         public Costos()
@@ -26,92 +28,56 @@ namespace Capa_Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            desbloquear();
-            opcion = "agregar";
+            cultivo = cbCultivo.Text;
+            if (Evaluar(cultivo) == true)
+            {
+                precio = Convert.ToDouble(tbPrecio.Text);
+                _Costos.InsertarCostos(cultivo, precio);
+                alert.Show("Se agrego exitosamente el costo", Alertype.succes);
+            }
+            else
+            {
+                alert.Show("No se puede agregar costo a un cultivo que ya a sido registrado", Alertype.warning);
+            }
+            
+            tbPrecio.Text = "0";
+            MostraCostos();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            desbloquear();
-            opcion = "modificar";
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            bloquear();
-
-            switch (opcion)
-            {
-                case "agregar":
-                    cultivo = cbCultivo.Text;
-                    if (Evaluar(cultivo) == true)
-                    {
-                        precio = Convert.ToDouble(tbPrecio.Text);
-                        _Costos.InsertarCostos(cultivo, precio);
-                        alert.Show("Se agrego exitosamente el costo", Alertype.succes);
-                        Limpiar();
-                    }
-                    else
-                    {
-                        alert.Show("No se puede agregar costo a un cultivo que ya a sido registrado", Alertype.warning);
-                        Limpiar();
-                    }
-                    break;
-
-                case "modificar":
-                    cultivo = cbCultivo.Text;
-                    if (Evaluar(cultivo) == false)
-                    {
-
-                        precio = Convert.ToDouble(tbPrecio.Text);
-
-                        _Costos.ModificarCostos (cultivo, precio);
-
-                        alert.Show("Se ha modificado el costo", Alertype.succes);
-                        Limpiar();
-                    }
-                    else
-                    {
-                        alert.Show("No se encontro el cultivo", Alertype.warning);
-                        Limpiar();
-                    }
-                    break;
-            }
-        }
-
-        private void btnElimiar_Click(object sender, EventArgs e)
-        {
-
             cultivo = cbCultivo.Text;
             if (Evaluar(cultivo) == false)
             {
-                _Costos.ElimiarCostos(cultivo);
-                alert.Show("Se ha eliminado el costo", Alertype.succes);
-                Limpiar();
+
+                precio = Convert.ToDouble(tbPrecio.Text);
+
+                _Costos.ModificarCostos(cultivo, precio);
+
+                alert.Show("Se ha modificado el costo", Alertype.succes);
             }
             else
             {
                 alert.Show("No se encontro el cultivo", Alertype.warning);
-                Limpiar();
             }
-        }
-
-        public void bloquear()
-        {
-            lbCultivo.Enabled = false;
-            lbPrecio.Enabled = false;
-            cbCultivo.Enabled = false;
-            tbPrecio.Enabled = false;
-            btnAceptar.Enabled = false;
+            MostraCostos();
 
         }
-        public void desbloquear()
+
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            lbCultivo.Enabled = true;
-            lbPrecio.Enabled = true;
-            cbCultivo.Enabled = true;
-            tbPrecio.Enabled = true;
-            btnAceptar.Enabled = true;
+            
+        }
+
+        private void btnElimiar_Click(object sender, EventArgs e)
+        {
+            cultivo = cbCultivo.Text;
+            _Costos.ElimiarCostos(cultivo);
+            MostraCostos();
+            alert.Show("Se ha eliminado el costo", Alertype.succes);
+            tbPrecio.Text = "";
+            cbCultivo.Text = "";
+            
         }
 
         private Boolean Evaluar(String cultivo)
@@ -121,7 +87,7 @@ namespace Capa_Presentacion
 
             foreach (DataRow row in tablaCostos.Rows)
             {
-                nombre = row["cultivo"].ToString();
+                nombre = row["nombreCultivoCostos"].ToString();
                 if (nombre == cultivo)
                 {
                     return false;
@@ -130,24 +96,41 @@ namespace Capa_Presentacion
             return true;
         }
 
+        private void MostraCostos()
+        {
+                    
+           CN_Costos _Costos = new CN_Costos();
+
+        dgvCultivo.DataSource = null;
+            dgvCultivo.DataSource = _Costos.MostrarCostos();
+        }
+
         private void Costos_Load(object sender, EventArgs e)
         {
-            
-            tablaCostos = _Costos.MostrarCostos();
-           // cbCultivo.SelectedIndex = 0;
+            MostraCostos();
+            tablaCultivo = _Costos.MostrarCultivo();
+            // cbCultivo.SelectedIndex = 0;
             cbCultivo.Items.Clear();
 
-            foreach (DataRow row in tablaCostos.Rows)
+            foreach (DataRow row in tablaCultivo.Rows)
             {
-                cbCultivo.Items.Add(row["cultivo"].ToString());
-                
+                cbCultivo.Items.Add(row["Cultivo"].ToString());
             }
         }
 
-        public void Limpiar()
+
+
+        private void dgvCultivo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            tbPrecio.Text = "";
-            cbCultivo.SelectedIndex = 0;
+
+            cbCultivo.Text = dgvCultivo.CurrentRow.Cells["nombreCultivoCostos"].Value.ToString();
+            tbPrecio.Text = dgvCultivo.CurrentRow.Cells["precioCultivoXtonelada"].Value.ToString();
+
+            tbPrecio.Enabled = true;
+            btnEditar.Enabled = true;
+            btnElimiar.Enabled = true;
         }
+
+        
     }
 }

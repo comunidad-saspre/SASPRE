@@ -43,7 +43,6 @@
             this.cbCultivo = new System.Windows.Forms.ComboBox();
             this.lbCultivo = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +123,7 @@
             this.dgvCultivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCultivo.Size = new System.Drawing.Size(910, 367);
             this.dgvCultivo.TabIndex = 134;
+            this.dgvCultivo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCultivo_CellDoubleClick);
             // 
             // btnAgregar
             // 
@@ -176,7 +176,6 @@
             // 
             this.lbPrecio.AutoSize = true;
             this.lbPrecio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbPrecio.Enabled = false;
             this.lbPrecio.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrecio.ForeColor = System.Drawing.Color.DimGray;
             this.lbPrecio.Location = new System.Drawing.Point(39, 557);
@@ -189,7 +188,6 @@
             // cbCultivo
             // 
             this.cbCultivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCultivo.Enabled = false;
             this.cbCultivo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.cbCultivo.FormattingEnabled = true;
             this.cbCultivo.Location = new System.Drawing.Point(134, 506);
@@ -201,7 +199,6 @@
             // 
             this.lbCultivo.AutoSize = true;
             this.lbCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbCultivo.Enabled = false;
             this.lbCultivo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCultivo.ForeColor = System.Drawing.Color.DimGray;
             this.lbCultivo.Location = new System.Drawing.Point(39, 506);
@@ -213,28 +210,12 @@
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Enabled = false;
             this.tbPrecio.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrecio.Location = new System.Drawing.Point(134, 557);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(173, 33);
             this.tbPrecio.TabIndex = 140;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
-            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAceptar.Enabled = false;
-            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.ForeColor = System.Drawing.Color.White;
-            this.btnAceptar.Location = new System.Drawing.Point(162, 618);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(145, 40);
-            this.btnAceptar.TabIndex = 143;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.tbPrecio.Text = "0";
             // 
             // Costos
             // 
@@ -242,7 +223,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
-            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.cbCultivo);
             this.Controls.Add(this.lbCultivo);
@@ -275,6 +255,5 @@
         private System.Windows.Forms.ComboBox cbCultivo;
         private System.Windows.Forms.Label lbCultivo;
         private System.Windows.Forms.TextBox tbPrecio;
-        private System.Windows.Forms.Button btnAceptar;
     }
 }

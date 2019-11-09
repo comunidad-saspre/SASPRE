@@ -52,9 +52,9 @@ namespace Capa_Presentacion
         {
             foreach (DataRow row in tablaCostos.Rows)
             {
-                if (row["cultivo"].ToString().Equals(cbCultivo.Text))
+                if (row["nombreCultivoCostos"].ToString().Equals(cbCultivo.Text))
                 {
-                    precio = Convert.ToDouble( row["precio"].ToString());
+                    precio = Convert.ToDouble( row["precioCultivoXtonelada"].ToString());
                     lbPrecio.Text = " $ " + precio;
                 }
             }
@@ -63,19 +63,19 @@ namespace Capa_Presentacion
         private void Calculadora_Load(object sender, EventArgs e)
         {
             tablaCostos = _Costos.MostrarCostos();
-            cbCultivo.SelectedIndex = 0;
+            // cbCultivo.SelectedIndex = 0;
             cbCultivo.Items.Clear();
 
             foreach (DataRow row in tablaCostos.Rows)
             {
-                cbCultivo.Items.Add(row["cultivo"].ToString());
+                cbCultivo.Items.Add(row["nombreCultivoCostos"].ToString());
             }
-            
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+            cantidad = Convert.ToDouble(tbCantidad.Text.ToString());
             total = precio * cantidad;
             lbTotal.Text = "$ " + total;
         }

@@ -13,6 +13,7 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlCommand comando = new MySqlCommand();
         DataTable tablaCostos = new DataTable();
+        DataTable tablaCultivo = new DataTable();
 
         MySqlDataReader leer;
         //Da de alta las alarmas a la base de datos
@@ -58,8 +59,6 @@ namespace Capa_Datos
 
         public DataTable MostrarCostos()
         {
-            
-
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "verCostos";
@@ -71,7 +70,20 @@ namespace Capa_Datos
             return tablaCostos;
         }
 
-        
+        public DataTable MostrarCultivo()
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "verCultivo";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tablaCultivo.Load(leer);
+            conexion.CerrarConexion();
+
+            return tablaCultivo;
+        }
+
+
     }
 }
  

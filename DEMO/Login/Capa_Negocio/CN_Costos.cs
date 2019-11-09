@@ -11,6 +11,8 @@ namespace Capa_Negocio
     public class CN_Costos
     {
         DataTable tablaCostos = new DataTable();
+        DataTable tablaCultivo = new DataTable();
+
         private CD_Costos _Costos = new CD_Costos();
 
         public void InsertarCostos(String cultivo, double precio)
@@ -18,9 +20,9 @@ namespace Capa_Negocio
             _Costos.InsertarCostos(cultivo, precio);
         }
 
-        public void ElimiarCostos(String nombreAlarma)
+        public void ElimiarCostos(String cultivo)
         {
-            _Costos.ELimiarCostos(nombreAlarma);
+            _Costos.ELimiarCostos(cultivo);
         }
 
         public void ModificarCostos(String cultivo, double precio)
@@ -34,6 +36,11 @@ namespace Capa_Negocio
             return tablaCostos;
         }
 
-        
+        public DataTable MostrarCultivo()
+        {
+            tablaCultivo = _Costos.MostrarCultivo();
+            return tablaCultivo;
+        }
+
     }
 }

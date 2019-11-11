@@ -146,7 +146,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Capa_Presentacion.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(549, 123);
+            this.pictureBox1.Location = new System.Drawing.Point(548, 141);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(177, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -167,7 +167,7 @@
             this.lblbienvenido.BackColor = System.Drawing.Color.Transparent;
             this.lblbienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbienvenido.ForeColor = System.Drawing.Color.Black;
-            this.lblbienvenido.Location = new System.Drawing.Point(544, 66);
+            this.lblbienvenido.Location = new System.Drawing.Point(543, 84);
             this.lblbienvenido.Name = "lblbienvenido";
             this.lblbienvenido.Size = new System.Drawing.Size(189, 24);
             this.lblbienvenido.TabIndex = 4;
@@ -179,8 +179,8 @@
             this.lblSASPRE.AutoSize = true;
             this.lblSASPRE.BackColor = System.Drawing.Color.Transparent;
             this.lblSASPRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSASPRE.ForeColor = System.Drawing.Color.White;
-            this.lblSASPRE.Location = new System.Drawing.Point(553, 340);
+            this.lblSASPRE.ForeColor = System.Drawing.Color.Black;
+            this.lblSASPRE.Location = new System.Drawing.Point(552, 358);
             this.lblSASPRE.Name = "lblSASPRE";
             this.lblSASPRE.Size = new System.Drawing.Size(170, 31);
             this.lblSASPRE.TabIndex = 5;
@@ -200,7 +200,7 @@
             this.txtNickname.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtNickname.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtNickname.LineThickness = 3;
-            this.txtNickname.Location = new System.Drawing.Point(547, 418);
+            this.txtNickname.Location = new System.Drawing.Point(548, 468);
             this.txtNickname.Margin = new System.Windows.Forms.Padding(4);
             this.txtNickname.Name = "txtNickname";
             this.txtNickname.Size = new System.Drawing.Size(209, 35);
@@ -224,7 +224,7 @@
             this.txtContra.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtContra.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.txtContra.LineThickness = 3;
-            this.txtContra.Location = new System.Drawing.Point(547, 467);
+            this.txtContra.Location = new System.Drawing.Point(548, 517);
             this.txtContra.Margin = new System.Windows.Forms.Padding(4);
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(210, 35);
@@ -258,7 +258,7 @@
             this.btnIngresar.IconVisible = false;
             this.btnIngresar.IconZoom = 90D;
             this.btnIngresar.IsTab = false;
-            this.btnIngresar.Location = new System.Drawing.Point(569, 574);
+            this.btnIngresar.Location = new System.Drawing.Point(570, 624);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
@@ -278,7 +278,7 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.pictureBox2.Image = global::Capa_Presentacion.Properties.Resources.usuarioprueba;
-            this.pictureBox2.Location = new System.Drawing.Point(512, 418);
+            this.pictureBox2.Location = new System.Drawing.Point(513, 468);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -290,7 +290,7 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.pictureBox3.Image = global::Capa_Presentacion.Properties.Resources.candado3;
-            this.pictureBox3.Location = new System.Drawing.Point(512, 467);
+            this.pictureBox3.Location = new System.Drawing.Point(513, 517);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(35, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -311,7 +311,7 @@
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.bunifuMaterialTextbox1.LineThickness = 3;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(547, 418);
+            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(548, 468);
             this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
             this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(209, 35);
@@ -329,7 +329,7 @@
             this.linklblcontrasena.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.linklblcontrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblcontrasena.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linklblcontrasena.Location = new System.Drawing.Point(563, 517);
+            this.linklblcontrasena.Location = new System.Drawing.Point(564, 567);
             this.linklblcontrasena.Name = "linklblcontrasena";
             this.linklblcontrasena.Size = new System.Drawing.Size(167, 18);
             this.linklblcontrasena.TabIndex = 11;
@@ -360,7 +360,7 @@
             this.btnEnviar.IconVisible = false;
             this.btnEnviar.IconZoom = 90D;
             this.btnEnviar.IsTab = false;
-            this.btnEnviar.Location = new System.Drawing.Point(636, 493);
+            this.btnEnviar.Location = new System.Drawing.Point(637, 543);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnEnviar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
@@ -397,7 +397,7 @@
             this.btnCancelar.IconVisible = false;
             this.btnCancelar.IconZoom = 90D;
             this.btnCancelar.IsTab = false;
-            this.btnCancelar.Location = new System.Drawing.Point(521, 493);
+            this.btnCancelar.Location = new System.Drawing.Point(522, 543);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.btnCancelar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(157)))), ((int)(((byte)(43)))));
@@ -415,7 +415,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Location = new System.Drawing.Point(512, 398);
+            this.pictureBox4.Location = new System.Drawing.Point(513, 448);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(245, 3);
             this.pictureBox4.TabIndex = 18;
@@ -424,7 +424,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Location = new System.Drawing.Point(512, 546);
+            this.pictureBox6.Location = new System.Drawing.Point(513, 596);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(245, 3);
             this.pictureBox6.TabIndex = 19;
@@ -433,7 +433,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Location = new System.Drawing.Point(511, 467);
+            this.pictureBox5.Location = new System.Drawing.Point(512, 517);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(245, 3);
             this.pictureBox5.TabIndex = 20;
@@ -445,8 +445,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::Capa_Presentacion.Properties.Resources.Imagen4;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::Capa_Presentacion.Properties.Resources.menu;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);

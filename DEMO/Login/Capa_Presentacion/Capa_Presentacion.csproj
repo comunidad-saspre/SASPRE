@@ -734,6 +734,7 @@
     <None Include="Resources\AddIMG.png" />
     <None Include="Resources\almacen.png" />
     <None Include="Resources\alarm_30px.png" />
+    <None Include="Resources\20191108_111538.jpg" />
     <Content Include="Resources\Alerta.png" />
     <None Include="Resources\Alerta1.png" />
     <Content Include="Resources\ARROW WHITE.png" />
@@ -760,6 +761,9 @@
     <None Include="Resources\Imagen4.png" />
     <None Include="Resources\icons8_design_90px_1.png" />
     <Content Include="Resources\LEAF WHITE.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\menuprin.png" />
+    <None Include="Resources\menuprin1.png" />
     <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />
     <None Include="Resources\Imagen1.png" />

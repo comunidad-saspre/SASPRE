@@ -63,6 +63,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20191108_111538 {
+            get {
+                object obj = ResourceManager.GetObject("20191108_111538", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _54516082_831687770532189_4577809296376463360_o {
             get {
                 object obj = ResourceManager.GetObject("54516082_831687770532189_4577809296376463360_o", resourceCulture);
@@ -663,6 +673,16 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu {
+            get {
+                object obj = ResourceManager.GetObject("menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MenuDerecho {
             get {
                 object obj = ResourceManager.GetObject("MenuDerecho", resourceCulture);
@@ -686,6 +706,26 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap MenuIzquierdoVerde {
             get {
                 object obj = ResourceManager.GetObject("MenuIzquierdoVerde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuprin {
+            get {
+                object obj = ResourceManager.GetObject("menuprin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menuprin1 {
+            get {
+                object obj = ResourceManager.GetObject("menuprin1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

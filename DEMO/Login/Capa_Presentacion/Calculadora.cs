@@ -40,7 +40,7 @@ namespace Capa_Presentacion
 
         private void btnCer_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btnMin_Click(object sender, EventArgs e)

@@ -43,6 +43,7 @@
             this.btnCer = new System.Windows.Forms.Button();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,6 +157,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnMin);
             this.panel1.Controls.Add(this.btnCer);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -215,6 +217,19 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 33);
+            this.label1.TabIndex = 145;
+            this.label1.Text = "Calculadora";
+            // 
             // Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +253,7 @@
             this.Load += new System.EventHandler(this.Calculadora_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Calculadora_MouseMove);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +274,6 @@
         private System.Windows.Forms.Button btnMin;
         private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label1;
     }
 }

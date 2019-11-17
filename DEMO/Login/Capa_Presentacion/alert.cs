@@ -18,13 +18,14 @@ namespace Capa_Presentacion
 
             message.Text = _message;
 
-            switch (type){
+            switch (type)
+            {
                 case Alertype.succes:
                     this.BackColor = Color.SeaGreen;
                     pictureBox.Image = imageList1.Images[0];
                     break;
                 case Alertype.info:
-                    this.BackColor = Color.FromArgb(31,139,188);
+                    this.BackColor = Color.FromArgb(31, 139, 188);
                     pictureBox.Image = imageList1.Images[1];
                     break;
                 case Alertype.warning:
@@ -68,10 +69,11 @@ namespace Capa_Presentacion
             close.Start();
         }
 
-        int interval=0;
+        int interval = 0;
         private void show_Tick(object sender, EventArgs e)
         {
-            if (this.Top<60){
+            if (this.Top < 60)
+            {
                 this.Top += interval;
                 interval += 2;
             }
@@ -86,7 +88,7 @@ namespace Capa_Presentacion
         {
             if (this.Opacity > 0)
             {
-                this.Opacity-=0.1;
+                this.Opacity -= 0.1;
             }
             else
             {

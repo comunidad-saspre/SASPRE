@@ -769,6 +769,7 @@ namespace Capa_Presentacion
         }
         public void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             panelDerecho.BackColor = Color.Transparent;
             CerrarFormEnPanel<AdministrarCultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
@@ -791,7 +792,7 @@ namespace Capa_Presentacion
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
             ActivarAlarmas();
-            
+            Cursor.Current = Cursors.Default;
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -1126,7 +1127,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[9];
 
                         // Despejado
-                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado")) return Vectores.Images[16];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado") || texto.Contains("Despejado") || texto.Contains("despejado")) return Vectores.Images[16];
 
                         // Nublado, lluvia ligera
                         if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche") || texto.Equals("Chubascos") || texto.Equals("Chubascos matinales") || texto.Contains("Chubascos")) return Vectores.Images[3];
@@ -1153,7 +1154,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[11];
 
                         // Despejado
-                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado")) return Vectores.Images[17];
+                        else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado") || texto.Contains("Despejado") || texto.Contains("despejado")) return Vectores.Images[17];
 
                         // Nublado, lluvia ligera
                         if (texto.Equals("Tormentas dispersas") || texto.Equals("Tormentas aisladas") || texto.Equals("Chubascos por la tarde") || texto.Equals("Chubascos por la mañana") || texto.Equals("Chubascos por la noche") || texto.Equals("Chubascos") || texto.Equals("Chubascos matinales") || texto.Contains("Chubascos")) return Vectores.Images[5];

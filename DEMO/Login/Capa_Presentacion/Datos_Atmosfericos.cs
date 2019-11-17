@@ -44,7 +44,10 @@ namespace Capa_Presentacion
                 //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
                 leercsv(rutadirectorio);
                 _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
+               
                 button1_Click_1(null, e);
+                
+
             }
             catch (MySqlException ex)
             {
@@ -170,6 +173,7 @@ namespace Capa_Presentacion
                     salir = false;
                 }
             }
+            InsertarDatosClimaMes();
         }
 
         private void filtrar_Click(object sender, EventArgs e)

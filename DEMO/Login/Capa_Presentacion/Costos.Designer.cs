@@ -178,12 +178,12 @@
             this.lbPrecio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbPrecio.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrecio.ForeColor = System.Drawing.Color.DimGray;
-            this.lbPrecio.Location = new System.Drawing.Point(39, 557);
+            this.lbPrecio.Location = new System.Drawing.Point(39, 560);
             this.lbPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(77, 26);
+            this.lbPrecio.Size = new System.Drawing.Size(81, 26);
             this.lbPrecio.TabIndex = 142;
-            this.lbPrecio.Text = "Precio t";
+            this.lbPrecio.Text = "Precio $";
             // 
             // cbCultivo
             // 
@@ -201,7 +201,7 @@
             this.lbCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCultivo.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCultivo.ForeColor = System.Drawing.Color.DimGray;
-            this.lbCultivo.Location = new System.Drawing.Point(39, 506);
+            this.lbCultivo.Location = new System.Drawing.Point(39, 509);
             this.lbCultivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCultivo.Name = "lbCultivo";
             this.lbCultivo.Size = new System.Drawing.Size(71, 26);

@@ -730,7 +730,7 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<AdministrarCultivos>();
+            AbrirFormEnPanel<Cultivos>();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -771,7 +771,7 @@ namespace Capa_Presentacion
         {
             Cursor.Current = Cursors.WaitCursor;
             panelDerecho.BackColor = Color.Transparent;
-            CerrarFormEnPanel<AdministrarCultivos>();
+            CerrarFormEnPanel<Cultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel<FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();

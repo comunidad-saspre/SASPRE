@@ -13,14 +13,14 @@ using Microsoft.VisualBasic;
 
 namespace Capa_Presentacion
 {
-    public partial class AdministrarCultivos : Form
+    public partial class Cultivos : Form
     {
         private CN_Cultivos _Cultivo = new CN_Cultivos();
         private CN_Cosechas _Cosechas = new CN_Cosechas();
         private CN_Plagas _Plagas = new CN_Plagas();
         DataTable tablaCultivos;
 
-        public AdministrarCultivos()
+        public Cultivos()
         {
             InitializeComponent();
         }
@@ -539,7 +539,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    MessageBox.Show("No hay datos climaticos de estas fechas");
+                    //MessageBox.Show("No hay datos climaticos de estas fechas");
                 }
                 MostrarCultivos();
             }

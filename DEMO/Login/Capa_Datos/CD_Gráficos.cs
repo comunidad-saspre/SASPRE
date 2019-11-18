@@ -18,6 +18,7 @@ namespace Capa_Datos
 
         public DataTable MostrarPoligonos(String cargo, String usuario)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             if (cargo == "Admin")
@@ -35,10 +36,9 @@ namespace Capa_Datos
             return tablaPoligono;
         }
 
-        int ultimoId = 0;
         public int ObtenerUltimoId()
-        { 
-            
+        {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT DISTINCT MAX(Identificador) AS 'valor' FROM Graficos";
@@ -66,6 +66,7 @@ namespace Capa_Datos
 
         public DataTable PoligonosExistentes()
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT DISTINCT Identificador AS 'valor' FROM Graficos";
@@ -78,6 +79,7 @@ namespace Capa_Datos
 
         public void AgregarPoligono(int identificador,string latitud,string longitud, string color,string nombredelterreno,string usuario,string cultivo,string fechaplantado,string fechacosecha,double cantidad, string estado)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "INSERT INTO graficos (Identificador,Latitud,Longitud,Color,NombreDelTerreno,Usuario,Cultivo,FechaPlantado,FechaCosecha,Cantidad,Estado) VALUES (@identificador,@latitud,@longitud,@color,@cultivo,@usuario,@cultivo,@fechaplantado,@fechacosecha,@cantidad,@estado);";
@@ -101,6 +103,7 @@ namespace Capa_Datos
 
         public void BorrarPoligono(int identificador)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "DELETE FROM graficos WHERE Identificador=@identificador;";

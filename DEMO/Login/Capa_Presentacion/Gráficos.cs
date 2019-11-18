@@ -353,6 +353,7 @@ namespace Capa_Presentacion
 
             }
             cbPoligonos.DataSource = g.ObtenerPoligonosExistentes();
+           
             cbPoligonos.DisplayMember = "valor";
             cbPoligonos.ValueMember = "valor";
             pnlBorrarPoligono.Visible = true;
@@ -450,19 +451,16 @@ namespace Capa_Presentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             g.BorrarGraficos(cbPoligonos.SelectedValue.ToString());
             //Actualizar el mapa
-            Poligono.Markers.Clear();
             gMapControl1.Visible = false;
             gMapControl1.PolygonsEnabled = false;
             gMapControl1.Dispose();
             poligonoPuntos.Clear();
             poligonoPuntos.Dispose();
             CargarPoligonos();
-            gMapControl1.MapProvider = GMapProviders.GoogleHybridMap;
-            gMapControl1.Update();
             gMapControl1.Visible = true;
-            CargarPoligonos();
             MessageBox.Show("Se ha eliminado el polígono #"+ cbPoligonos.SelectedValue.ToString()+" correctamente");
             pnlBorrarPoligono.Visible = false;
             pnlDetallesAgregar.Visible = false;

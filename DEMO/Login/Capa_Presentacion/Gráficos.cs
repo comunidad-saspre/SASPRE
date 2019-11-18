@@ -283,7 +283,7 @@ namespace Capa_Presentacion
 
             //Ahora agregamos el mapa y el marcador al map control
             //gMapControl1.Overlays.Add(markerOverlay); //Descomentar esto si quieres tener posiciones
-           //ESTO LE MOVI  GMapOverlay Poligono = new GMapOverlay("Poligono");
+            GMapOverlay Poligono = new GMapOverlay("Poligono");
             List<PointLatLng> puntos = new List<PointLatLng>();
 
             //variables para almacenar los datos
@@ -341,6 +341,9 @@ namespace Capa_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            
+            
             btnAgregarPoligono.Visible = false;
             btnBorrarPoligono.Visible = false;
 
@@ -353,9 +356,10 @@ namespace Capa_Presentacion
 
             }
             cbPoligonos.DataSource = g.ObtenerPoligonosExistentes();
-           
             cbPoligonos.DisplayMember = "valor";
             cbPoligonos.ValueMember = "valor";
+
+           
             pnlBorrarPoligono.Visible = true;
 
 
@@ -451,16 +455,13 @@ namespace Capa_Presentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
-
             g.BorrarGraficos(cbPoligonos.SelectedValue.ToString());
             //Actualizar el mapa
             gMapControl1.Visible = false;
-            gMapControl1.PolygonsEnabled = false;
-            gMapControl1.Dispose();
-            poligonoPuntos.Clear();
-            poligonoPuntos.Dispose();
-            CargarPoligonos();
+            gMapControl1.PolygonsEnabled = false;   
+            gMapControl1.Update();
             gMapControl1.Visible = true;
+            CargarPoligonos();
             MessageBox.Show("Se ha eliminado el polígono #"+ cbPoligonos.SelectedValue.ToString()+" correctamente");
             pnlBorrarPoligono.Visible = false;
             pnlDetallesAgregar.Visible = false;
@@ -481,6 +482,11 @@ namespace Capa_Presentacion
             {
                 panel1.Width = 0;
             }
+        }
+
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

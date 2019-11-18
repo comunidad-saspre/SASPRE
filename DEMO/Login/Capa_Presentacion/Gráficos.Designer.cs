@@ -108,7 +108,7 @@
             this.btnAgregarPoligono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarPoligono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarPoligono.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarPoligono.Location = new System.Drawing.Point(-69, 28);
+            this.btnAgregarPoligono.Location = new System.Drawing.Point(-67, 28);
             this.btnAgregarPoligono.Name = "btnAgregarPoligono";
             this.btnAgregarPoligono.Size = new System.Drawing.Size(134, 45);
             this.btnAgregarPoligono.TabIndex = 165;
@@ -123,7 +123,7 @@
             this.btnBorrarPoligono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBorrarPoligono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarPoligono.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarPoligono.Location = new System.Drawing.Point(-69, 79);
+            this.btnBorrarPoligono.Location = new System.Drawing.Point(-67, 79);
             this.btnBorrarPoligono.Name = "btnBorrarPoligono";
             this.btnBorrarPoligono.Size = new System.Drawing.Size(134, 45);
             this.btnBorrarPoligono.TabIndex = 133;
@@ -194,7 +194,7 @@
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Image = global::Capa_Presentacion.Properties.Resources.MenuGraficosBlanco;
-            this.btnMenu.Location = new System.Drawing.Point(910, 4);
+            this.btnMenu.Location = new System.Drawing.Point(1110, 4);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(40, 40);
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -228,6 +228,7 @@
             this.gMapControl1.Size = new System.Drawing.Size(953, 642);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
+            this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             this.gMapControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseDoubleClick);
             // 
             // pnlBorrarPoligono
@@ -238,7 +239,7 @@
             this.pnlBorrarPoligono.Controls.Add(this.label9);
             this.pnlBorrarPoligono.Controls.Add(this.cbPoligonos);
             this.pnlBorrarPoligono.Controls.Add(this.label8);
-            this.pnlBorrarPoligono.Location = new System.Drawing.Point(-134, 12);
+            this.pnlBorrarPoligono.Location = new System.Drawing.Point(-132, 12);
             this.pnlBorrarPoligono.Name = "pnlBorrarPoligono";
             this.pnlBorrarPoligono.Size = new System.Drawing.Size(271, 204);
             this.pnlBorrarPoligono.TabIndex = 157;
@@ -329,7 +330,7 @@
             this.pnlDetallesAgregar.Controls.Add(this.txtEstado);
             this.pnlDetallesAgregar.Controls.Add(this.rtxtestado);
             this.pnlDetallesAgregar.Controls.Add(this.button2);
-            this.pnlDetallesAgregar.Location = new System.Drawing.Point(-139, 12);
+            this.pnlDetallesAgregar.Location = new System.Drawing.Point(-137, 12);
             this.pnlDetallesAgregar.Name = "pnlDetallesAgregar";
             this.pnlDetallesAgregar.Size = new System.Drawing.Size(278, 511);
             this.pnlDetallesAgregar.TabIndex = 167;
@@ -551,7 +552,7 @@
             this.pnlAgregarPoligono.Controls.Add(this.dataGridView1);
             this.pnlAgregarPoligono.Controls.Add(this.btnAgregar);
             this.pnlAgregarPoligono.Controls.Add(this.btnEditar);
-            this.pnlAgregarPoligono.Location = new System.Drawing.Point(-134, 12);
+            this.pnlAgregarPoligono.Location = new System.Drawing.Point(-132, 12);
             this.pnlAgregarPoligono.Name = "pnlAgregarPoligono";
             this.pnlAgregarPoligono.Size = new System.Drawing.Size(264, 435);
             this.pnlAgregarPoligono.TabIndex = 156;
@@ -620,9 +621,9 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(4, 43);
+            this.btnAgregar.Location = new System.Drawing.Point(63, 43);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(123, 34);
+            this.btnAgregar.Size = new System.Drawing.Size(125, 34);
             this.btnAgregar.TabIndex = 130;
             this.btnAgregar.Text = "Agregar punto";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -641,6 +642,7 @@
             this.btnEditar.TabIndex = 129;
             this.btnEditar.Text = "Remover punto";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Visible = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // Gráficos

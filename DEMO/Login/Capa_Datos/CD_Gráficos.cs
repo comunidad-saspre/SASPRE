@@ -13,6 +13,7 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
         DataTable tablaPoligono = new DataTable();
+        DataTable tablaPoligonoExistentes = new DataTable();
         MySqlCommand comando;
 
         public DataTable MostrarPoligonos(String cargo, String usuario)
@@ -46,10 +47,33 @@ namespace Capa_Datos
             int salida = 0 ;
             if (leer.Read() == true)
             {
-                salida = Convert.ToInt32(leer["valor"]);
+                if(!DBNull.Value.Equals(leer["valor"]))
+                {
+                    salida = Convert.ToInt32(leer["valor"]);
+                }
+                else
+                {
+                    return salida;
+                }
+                
+
             }
             conexion.CerrarConexion();
             return salida;
+        }
+
+        
+
+        public DataTable PoligonosExistentes()
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT DISTINCT Identificador AS 'valor' FROM Graficos";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaPoligonoExistentes.Load(leer);
+            conexion.CerrarConexion();
+            return tablaPoligonoExistentes;
         }
 
         public void AgregarPoligono(int identificador,string latitud,string longitud, string color,string nombredelterreno,string usuario,string cultivo,string fechaplantado,string fechacosecha,double cantidad, string estado)

@@ -740,6 +740,7 @@
     <None Include="Resources\Imagen4.png" />
     <None Include="Resources\icons8_design_90px_1.png" />
     <Content Include="Resources\LEAF WHITE.png" />
+    <None Include="Resources\MenuGraficosBlanco.png" />
     <Content Include="Resources\PLANT WHITE.png" />
     <None Include="Resources\cielo.jpg" />
     <None Include="Resources\Imagen1.png" />

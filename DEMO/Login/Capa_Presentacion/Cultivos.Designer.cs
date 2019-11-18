@@ -238,6 +238,7 @@
             this.lblNombreCientifico.Size = new System.Drawing.Size(78, 20);
             this.lblNombreCientifico.TabIndex = 55;
             this.lblNombreCientifico.Text = "Zea Mays";
+            this.lblNombreCientifico.Visible = false;
             // 
             // label2
             // 
@@ -384,6 +385,7 @@
             this.label9.Size = new System.Drawing.Size(131, 20);
             this.label9.TabIndex = 44;
             this.label9.Text = "Nombre científico";
+            this.label9.Visible = false;
             // 
             // label6
             // 
@@ -446,7 +448,7 @@
             this.picCultivo.TabIndex = 32;
             this.picCultivo.TabStop = false;
             // 
-            // AdministrarCultivos
+            // Cultivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -475,7 +477,7 @@
             this.Controls.Add(this.dgvCultivo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AdministrarCultivos";
+            this.Name = "Cultivos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCultivos2";
             this.Load += new System.EventHandler(this.AdministrarCultivos2_Load);

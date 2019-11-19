@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseDeDatos", "BaseDeDatos"
 	ProjectSection(SolutionItems) = preProject
 		BD161119.sql = BD161119.sql
 		BD181019.sql = BD181019.sql
+		BD191119.sql = BD191119.sql
 		BD201019.sql = BD201019.sql
 		BD211019.sql = BD211019.sql
 		BD260919.sql = BD260919.sql

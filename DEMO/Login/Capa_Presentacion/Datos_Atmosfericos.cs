@@ -43,9 +43,13 @@ namespace Capa_Presentacion
                 //Guardar informacion
                 //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
                 leercsv(rutadirectorio);
-                dtgDatosElMante.Columns[2].Visible = false;
-                dtgDatosElMante.Columns[10].Visible = false;
-                dtgDatosElMante.Columns[11].Visible = false;
+                if(dtgDatosElMante.Columns.Count != 0)
+                {
+                    dtgDatosElMante.Columns[2].Visible = false;
+                    dtgDatosElMante.Columns[10].Visible = false;
+                    dtgDatosElMante.Columns[11].Visible = false;
+                }
+                
                 _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
                
                 button1_Click_1(null, e);

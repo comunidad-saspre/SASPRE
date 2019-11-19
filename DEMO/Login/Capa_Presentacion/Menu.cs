@@ -175,6 +175,7 @@ namespace Capa_Presentacion
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if(btnDatAtmos == true)
                 {
                     panelDerecho.Visible = false;
@@ -214,6 +215,7 @@ namespace Capa_Presentacion
                     }
 
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception a)
             {

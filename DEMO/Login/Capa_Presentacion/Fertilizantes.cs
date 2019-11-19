@@ -31,6 +31,8 @@ namespace Capa_Presentacion
                 LlenarComboCultivo();
                 LlenarComboPlaga();
                 loaded = true;
+                comboPlaga.SelectedIndex = 0;
+                comboCultivo.SelectedIndex = 0;
             }
             catch (Exception a)
             {
@@ -111,12 +113,21 @@ namespace Capa_Presentacion
         {
             try
             {
-                DataView dv = tablaFertilizantes.DefaultView;
-                var query = "Plaga like '%{0}%'";
-                query += " or `Nombre Comercial` like '%{0}%'";
-                query += " or `Epoca de Control` like '%{0}%'";
-                dv.RowFilter = string.Format(query, txtBuscar.Text);
-                dgvFertilizantes.DataSource = dv.ToTable();
+                if(txtBuscar.Text.Equals("Buscar") || txtBuscar.Text.Equals(""))
+                {
+                    MostrarFertilizantes();
+                }
+                else
+                {
+                    DataView dv = tablaFertilizantes.DefaultView;
+                    var query = "Plaga like '%{0}%'";
+                    query += " or `Nombre Comercial` like '%{0}%'";
+                    query += " or `Epoca de Control` like '%{0}%'";
+                    query += " or Cultivo like '%{0}%'";
+                    dv.RowFilter = string.Format(query, txtBuscar.Text);
+                    dgvFertilizantes.DataSource = dv.ToTable();
+                }
+                
             }
             catch (Exception a)
             {
@@ -222,6 +233,7 @@ namespace Capa_Presentacion
             private void Fertilizantes_Load(object sender, EventArgs e)
             {
                 IniciarComponentes();
+
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Capa_Datos;
+using MySql.Data.MySqlClient;
 
 namespace Capa_Negocio
 {
@@ -30,6 +31,11 @@ namespace Capa_Negocio
         public void BorrarAlmacen(String IDAlmacen)
         {
             _CD_Almacen.BorrarAlmacen(Convert.ToInt32(IDAlmacen));
+        }
+
+        public MySqlDataReader DisponibleCultivo(String cultivo)
+        {
+            return _CD_Almacen.DisponibleCultivo(cultivo);
         }
     }
 }

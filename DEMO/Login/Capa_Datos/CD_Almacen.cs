@@ -82,5 +82,15 @@ namespace Capa_Datos
             conexion.CerrarConexion();
         }
 
+        public MySqlDataReader DisponibleCultivo(String cultivo)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT sum(cantidadObjeto) FROM almacen WHERE nombreObjeto = '"+cultivo+"'";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            return leer;
+        }
+
     }
 }

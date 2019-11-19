@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,25 +46,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(44, 454);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "IDInsecticida";
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(44, 493);
+            this.label2.Location = new System.Drawing.Point(44, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 26);
             this.label2.TabIndex = 2;
@@ -77,7 +64,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(44, 532);
+            this.label3.Location = new System.Drawing.Point(44, 488);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 26);
             this.label3.TabIndex = 3;
@@ -89,7 +76,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(44, 571);
+            this.label4.Location = new System.Drawing.Point(44, 527);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(163, 26);
             this.label4.TabIndex = 4;
@@ -100,16 +87,17 @@
             this.idInsecticida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.idInsecticida.Enabled = false;
             this.idInsecticida.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.idInsecticida.Location = new System.Drawing.Point(227, 451);
+            this.idInsecticida.Location = new System.Drawing.Point(227, 608);
             this.idInsecticida.Name = "idInsecticida";
             this.idInsecticida.Size = new System.Drawing.Size(257, 33);
             this.idInsecticida.TabIndex = 5;
+            this.idInsecticida.Visible = false;
             // 
             // nombre
             // 
             this.nombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nombre.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.nombre.Location = new System.Drawing.Point(227, 490);
+            this.nombre.Location = new System.Drawing.Point(227, 446);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(257, 33);
             this.nombre.TabIndex = 6;
@@ -118,7 +106,7 @@
             // 
             this.precio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.precio.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.precio.Location = new System.Drawing.Point(227, 529);
+            this.precio.Location = new System.Drawing.Point(227, 485);
             this.precio.MaxLength = 8;
             this.precio.Name = "precio";
             this.precio.Size = new System.Drawing.Size(257, 33);
@@ -157,7 +145,7 @@
             "Araña roja",
             "Gusano elotero",
             "Gallina ciega"});
-            this.comboBox1.Location = new System.Drawing.Point(227, 568);
+            this.comboBox1.Location = new System.Drawing.Point(227, 524);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(257, 34);
             this.comboBox1.TabIndex = 8;
@@ -283,7 +271,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Insecticidas";
             this.Text = "Insecticidas";
@@ -295,7 +282,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

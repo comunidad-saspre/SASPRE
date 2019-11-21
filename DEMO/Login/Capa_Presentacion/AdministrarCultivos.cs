@@ -332,8 +332,34 @@ namespace Capa_Presentacion
             }
 
         }
-
-        private void btnExportar_Click(object sender, EventArgs e)
+        public String[] obtenercultivo()
+        {
+            String[] cultivos = new String[dgvCultivo.Rows.Count];
+            for (int i = 0; i < dgvCultivo.Rows.Count; i++)
+            {
+                cultivos[i] = dgvCultivo[2, i].Value.ToString();
+            }
+            return cultivos;
+        }
+        public String[] obtenerfplantado()
+        {
+            String[] plantado = new String[dgvCultivo.Rows.Count];
+            for (int i = 0; i < dgvCultivo.Rows.Count; i++)
+            {
+                plantado[i] = dgvCultivo[3, i].Value.ToString();
+            }
+            return plantado;
+        }
+        public String[] obtenerfcosecha()
+        {
+            String[] cosecha = new String[dgvCultivo.Rows.Count];
+            for (int i = 0; i < dgvCultivo.Rows.Count; i++)
+            {
+                cosecha[i] = dgvCultivo[4, i].Value.ToString();
+            }
+            return cosecha;
+        }
+        public void filtrar_y_exportar(String cultivo,String fplantado,String fcosecha  )
         {
             if (dgvCultivo.Rows.Count == 0)
             {
@@ -345,6 +371,9 @@ namespace Capa_Presentacion
                 int filas = dgvCultivo.Rows.Count;
                 for (int i = 0; i < filas; i++)
                 {
+                    // MessageBox.Show(dgvCultivo[2, i].Value.ToString());
+                    if (cultivo.Equals("Todos")&& fplantado.Equals("Todos")&& fcosecha.Equals("Todos"))
+                    {
                     Ds.Tables[0].Rows.Add(new object[] {
                     dgvCultivo[1,i].Value.ToString(),
                     dgvCultivo[2,i].Value.ToString(),
@@ -352,6 +381,109 @@ namespace Capa_Presentacion
                     dgvCultivo[4,i].Value.ToString(),
                     dgvCultivo[5,i].Value.ToString(),
                     dgvCultivo[6,i].Value.ToString()});
+                    }
+                    if (!cultivo.Equals("Todos") && fplantado.Equals("Todos") && fcosecha.Equals("Todos"))
+                    {
+                        if (cultivo.Equals(dgvCultivo[2, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+                      
+                    }
+                    if (cultivo.Equals("Todos") && !fplantado.Equals("Todos") && fcosecha.Equals("Todos"))
+                    {
+                        if (fplantado.Equals(dgvCultivo[3, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+                    if (cultivo.Equals("Todos") && fplantado.Equals("Todos") && !fcosecha.Equals("Todos"))
+                    {
+                        if (fcosecha.Equals(dgvCultivo[4, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+                    //dobles filtros
+                    if (!cultivo.Equals("Todos") && !fplantado.Equals("Todos") && fcosecha.Equals("Todos"))
+                    {
+                        if (cultivo.Equals(dgvCultivo[2, i].Value.ToString())&& fplantado.Equals(dgvCultivo[3, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+                    if (cultivo.Equals("Todos") && !fplantado.Equals("Todos") &&!fcosecha.Equals("Todos"))
+                    {
+                        if (fcosecha.Equals(dgvCultivo[4, i].Value.ToString()) && fplantado.Equals(dgvCultivo[3, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+                    if (!cultivo.Equals("Todos") && fplantado.Equals("Todos") && !fcosecha.Equals("Todos"))
+                    {
+                        if (fcosecha.Equals(dgvCultivo[4, i].Value.ToString()) && cultivo.Equals(dgvCultivo[2, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+                    if (!cultivo.Equals("Todos") && !fplantado.Equals("Todos") && !fcosecha.Equals("Todos"))
+                    {
+                        if (fcosecha.Equals(dgvCultivo[4, i].Value.ToString()) && cultivo.Equals(dgvCultivo[2, i].Value.ToString())&& fplantado.Equals(dgvCultivo[3, i].Value.ToString()))
+                        {
+                            Ds.Tables[0].Rows.Add(new object[] {
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),
+                    dgvCultivo[3,i].Value.ToString(),
+                    dgvCultivo[4,i].Value.ToString(),
+                    dgvCultivo[5,i].Value.ToString(),
+                    dgvCultivo[6,i].Value.ToString()});
+                        }
+
+                    }
+
+
+
                 }
                 Reportes r = new Reportes();
                 r.setData(Ds);
@@ -359,6 +491,13 @@ namespace Capa_Presentacion
                 DialogResult resultado = new DialogResult();
                 resultado = r.ShowDialog();
             }
+        }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+            FRM_FiltroCultivos filtro = new FRM_FiltroCultivos();
+           // filtrar_y_exportar("","","");
+            filtro.Visible = true;
         }
         
         DataTable tablaDatosClimaMes;

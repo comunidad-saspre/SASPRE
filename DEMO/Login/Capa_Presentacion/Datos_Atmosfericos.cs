@@ -411,11 +411,11 @@ namespace Capa_Presentacion
             int filas = dtgDatosElMante.Rows.Count;
             for (int i = 0; i < filas; i++)
             {
-                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[1,i].Value.ToString(),
+                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[0,i].Value.ToString(),
+                    dtgDatosElMante[5,i].Value.ToString(),
                     dtgDatosElMante[7,i].Value.ToString(),
                     dtgDatosElMante[8,i].Value.ToString(),
-                    dtgDatosElMante[9,i].Value.ToString(),
-                    dtgDatosElMante[10,i].Value.ToString()});
+                    dtgDatosElMante[9,i].Value.ToString()});
             }
             Reportes r = new Reportes();
             r.setData(Ds);

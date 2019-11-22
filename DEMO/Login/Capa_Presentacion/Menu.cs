@@ -784,6 +784,7 @@ namespace Capa_Presentacion
             CerrarFormEnPanel<Almacen>();
             CerrarFormEnPanel<Gastos>();
             CerrarFormEnPanel<Alarmas>();
+            CerrarFormEnPanel<Insecticidas>();
             CerrarFormEnPanel<Gráficos>();
 
             panelDerecho.Visible = true;
@@ -1433,6 +1434,11 @@ namespace Capa_Presentacion
         private void btnCostos_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel<Costos>();
+        }
+
+        private void bunifuFlatButton1_Click_2(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel < Insecticidas>();
         }
 
         private void ActivarAlarmas()

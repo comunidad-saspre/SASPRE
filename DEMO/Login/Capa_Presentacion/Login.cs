@@ -266,6 +266,7 @@ namespace Capa_Presentacion
 
         private void Login_Load(object sender, EventArgs e)
         {
+            txtNickname.Focus();
             if (HayInternet() == true)
             {
 

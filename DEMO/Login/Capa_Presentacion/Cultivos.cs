@@ -13,14 +13,14 @@ using Microsoft.VisualBasic;
 
 namespace Capa_Presentacion
 {
-    public partial class AdministrarCultivos : Form
+    public partial class Cultivos : Form
     {
         private CN_Cultivos _Cultivo = new CN_Cultivos();
         private CN_Cosechas _Cosechas = new CN_Cosechas();
         private CN_Plagas _Plagas = new CN_Plagas();
         DataTable tablaCultivos;
 
-        public AdministrarCultivos()
+        public Cultivos()
         {
             InitializeComponent();
         }
@@ -316,7 +316,7 @@ namespace Capa_Presentacion
             try
             {
                 DateTime fechaplantado;
-                String Usuario_Cultivo, Cultivo, FechaPlantado, fechacosecha,estado;
+                String Usuario_Cultivo, Cultivo, fechacosecha,estado;
 
                 Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
                 Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
@@ -589,7 +589,7 @@ namespace Capa_Presentacion
             }
             else
             {
-                MessageBox.Show("No hay datos climaticos de estas fechas");
+               // MessageBox.Show("No hay datos climaticos de estas fechas");
             }
             MostrarCultivos();
         }
@@ -597,8 +597,28 @@ namespace Capa_Presentacion
         private void btnCalcularEstado_Click(object sender, EventArgs e)
         {
             CalcularPlaga();
+            buscarPlaga();
         }
 
+        public void buscarPlaga()
+        {
+            DataTable tablaInsecticidas = new DataTable();
+            CN_Insecticidas _Insecticidas = new CN_Insecticidas();
+            tablaInsecticidas = _Insecticidas.MostrarInsecticidas(Program.cargo, Program.nickname);
+            alertCalendario obj = new alertCalendario();
+            alertInsecticida obj2 = new alertInsecticida();
+
+            foreach (DataRow row in tablaCultivos.Rows) {
+                if (row["Estado"].ToString() == "Sin estado") {
+                    obj2.ShowDialog();
+                }
+                else
+                {
+                    obj.ShowDialog();
+                }
+                
+            }
+        }
         private void CalcularPlagaAutomatico()
         {
             foreach (DataGridViewRow item in dgvCultivo.Rows)
@@ -678,7 +698,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    MessageBox.Show("No hay datos climaticos de estas fechas");
+                    //MessageBox.Show("No hay datos climaticos de estas fechas");
                 }
                 MostrarCultivos();
             }

@@ -50,33 +50,55 @@ namespace Capa_Presentacion
 
         private void agregar_Click(object sender, EventArgs e)
         {
-            _Insecticidas.AgregarInsecticida(Program.nickname,nombre.Text, precio.Text, comboBox1.Text);
-            MostrarInsecticidas();
-            limpiar();
-            agregar.Enabled = true;
-            eliminar.Enabled = false;
-            editar.Enabled = false;
-
+            if (MessageBox.Show("¿Desea agregar?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (nombre.Text == " " || precio.Text == " ")
+                {
+                    MessageBox.Show("Complete todos los campos");
+                }
+                else
+                {
+                    _Insecticidas.AgregarInsecticida(Program.nickname, nombre.Text, precio.Text, comboBox1.Text);
+                    MostrarInsecticidas();
+                    limpiar();
+                    agregar.Enabled = true;
+                    eliminar.Enabled = false;
+                    editar.Enabled = false;
+                }
+            }
         }
 
         private void eliminar_Click(object sender, EventArgs e)
         {
-            _Insecticidas.EliminarInsecticida(idInsecticida.Text);
-            MostrarInsecticidas();
-            limpiar();
-            agregar.Enabled = true;
-            eliminar.Enabled = false;
-            editar.Enabled = false;
+            if (MessageBox.Show("¿Desea elimnar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _Insecticidas.EliminarInsecticida(idInsecticida.Text);
+                MostrarInsecticidas();
+                limpiar();
+                agregar.Enabled = true;
+                eliminar.Enabled = false;
+                editar.Enabled = false;
+            }
         }
 
         private void editar_Click(object sender, EventArgs e)
         {
-            _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text);
-            MostrarInsecticidas();
-            limpiar();
-            agregar.Enabled = true;
-            eliminar.Enabled = false;
-            editar.Enabled = false;
+            if (MessageBox.Show("¿Desea editar?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (nombre.Text == " " || precio.Text == " ")
+                {
+                    MessageBox.Show("Complete todos los campos");
+                }
+                else
+                {
+                    _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text);
+                    MostrarInsecticidas();
+                    limpiar();
+                    agregar.Enabled = true;
+                    eliminar.Enabled = false;
+                    editar.Enabled = false;
+                }
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -77,7 +77,10 @@ namespace Capa_Presentacion
             int nWidthEllipse,
             int nHeightEllipse
             );
-
+        public void cerrar()
+        {
+            AbrirFormEnPanel<Insecticidas>();
+        }
 
         public struct MARGINS
         {
@@ -730,7 +733,7 @@ namespace Capa_Presentacion
         }
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel<AdministrarCultivos>();
+            AbrirFormEnPanel<Cultivos>();
             panelClima.Visible = false;
             lblTemp.Visible = true;
             lblCentigrados.Visible = true;
@@ -771,7 +774,7 @@ namespace Capa_Presentacion
         {
             Cursor.Current = Cursors.WaitCursor;
             panelDerecho.BackColor = Color.Transparent;
-            CerrarFormEnPanel<AdministrarCultivos>();
+            CerrarFormEnPanel<Cultivos>();
             CerrarFormEnPanel<HistorialDePlagas>();
             CerrarFormEnPanel<FromUsuarioABC>();
             CerrarFormEnPanel<Fertilizantes>();
@@ -1116,7 +1119,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[14];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("Nubes por la mañana / Sol por la tarde")) return Vectores.Images[14];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[14];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1124,7 +1127,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[0];
 
                         // Nublado
-                        else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[9];
+                        else if (texto.Equals("Nublado") || texto.Equals("Mayormente nublado")) return Vectores.Images[9];
 
                         // Despejado
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado") || texto.Contains("Despejado") || texto.Contains("despejado")) return Vectores.Images[16];
@@ -1143,7 +1146,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes
-                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("n100")) return Vectores.Images[15];
+                        else if (texto.Equals("Parcialmente nublado") || texto.Equals("Nubes por la mañana / Sol por la tarde")) return Vectores.Images[15];
                         else if (texto.Equals("d200") || texto.Equals("n200")) return Vectores.Images[15];
 
                         // Parcialmente nublado, lluvia ligera
@@ -1151,7 +1154,7 @@ namespace Capa_Presentacion
                         else if (texto.Equals("d220") || texto.Equals("n220")) return Vectores.Images[2];
 
                         // Nublado
-                        else if (texto.Equals("Nublado") || texto.Equals("n300")) return Vectores.Images[11];
+                        else if (texto.Equals("Nublado") || texto.Equals("Mayormente nublado")) return Vectores.Images[11];
 
                         // Despejado
                         else if (texto.Equals("Mayormente soleado") || texto.Equals("Soleado") || texto.Contains("Despejado") || texto.Contains("despejado")) return Vectores.Images[17];

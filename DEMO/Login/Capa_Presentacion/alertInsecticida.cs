@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace Capa_Presentacion
 {
-    public partial class alertCalendario : Form
+    public partial class alertInsecticida : Form
     {
-        public alertCalendario()
+        public alertInsecticida()
         {
             InitializeComponent();
-
-
-
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-       
     }
 }

@@ -45,7 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -69,7 +68,7 @@
             // 
             this.nombre.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.nombre.ForeColor = System.Drawing.Color.Gray;
-            this.nombre.Location = new System.Drawing.Point(216, 110);
+            this.nombre.Location = new System.Drawing.Point(216, 75);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(180, 33);
             this.nombre.TabIndex = 2;
@@ -78,7 +77,7 @@
             // 
             this.descripcion.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.descripcion.ForeColor = System.Drawing.Color.Gray;
-            this.descripcion.Location = new System.Drawing.Point(216, 149);
+            this.descripcion.Location = new System.Drawing.Point(216, 114);
             this.descripcion.Name = "descripcion";
             this.descripcion.Size = new System.Drawing.Size(180, 33);
             this.descripcion.TabIndex = 3;
@@ -116,10 +115,11 @@
             this.id.Enabled = false;
             this.id.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.id.ForeColor = System.Drawing.Color.Gray;
-            this.id.Location = new System.Drawing.Point(216, 71);
+            this.id.Location = new System.Drawing.Point(216, 203);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(180, 33);
             this.id.TabIndex = 8;
+            this.id.Visible = false;
             // 
             // monthCalendar1
             // 
@@ -236,22 +236,11 @@
             this.label6.TabIndex = 70;
             this.label6.Text = "Calendario actividades";
             // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(39, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 26);
-            this.label7.TabIndex = 71;
-            this.label7.Text = "IdActividad:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(36, 116);
+            this.label8.Location = new System.Drawing.Point(36, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(174, 26);
             this.label8.TabIndex = 72;
@@ -262,7 +251,7 @@
             // 
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(39, 152);
+            this.label9.Location = new System.Drawing.Point(39, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(174, 26);
             this.label9.TabIndex = 73;
@@ -277,7 +266,6 @@
             this.ClientSize = new System.Drawing.Size(953, 642);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
@@ -314,7 +302,6 @@
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dataGridView1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
     }

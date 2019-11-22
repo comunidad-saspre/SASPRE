@@ -130,9 +130,6 @@ namespace Capa_Presentacion
          
         }
 
-        private void Reportes_Load(object sender, EventArgs e)
-        {
-            llenarReporte();
-        }
+       
     }
 }

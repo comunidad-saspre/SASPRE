@@ -25,17 +25,20 @@ namespace Capa_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nombre.Text == "" || descripcion.Text == "")
+            if (MessageBox.Show("¿Desea agregar?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Favor de completar los campos vacios");
-            }
-            else
-            {
+                if (nombre.Text == "" || descripcion.Text == "")
+                {
+                    MessageBox.Show("Favor de completar los campos vacios");
+                }
+                else
+                {
 
-                _calendario.AgregarCalendario(Program.nickname, nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"));
-                //fechaInicio.Value.ToString("yy-MM-dd"), fechaFin.Value.ToString("yy-MM-dd"), id.Text
-                MostrarCalendario();
-                limpiar();
+                    _calendario.AgregarCalendario(Program.nickname, nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"));
+                    //fechaInicio.Value.ToString("yy-MM-dd"), fechaFin.Value.ToString("yy-MM-dd"), id.Text
+                    MostrarCalendario();
+                    limpiar();
+                }
             }
         }
 
@@ -84,30 +87,36 @@ namespace Capa_Presentacion
 
         private void editar_Click(object sender, EventArgs e)
         {
-            if (nombre.Text == "" || descripcion.Text == "")
+            if (MessageBox.Show("¿Desea editar?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Favor de completar los campos vacios");
-            }
-            else
-            {
+                if (nombre.Text == "" || descripcion.Text == "")
+                {
+                    MessageBox.Show("Favor de completar los campos vacios");
+                }
+                else
+                {
 
-                _calendario.EditarCalendario(nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"), id.Text);
+                    _calendario.EditarCalendario(nombre.Text, descripcion.Text, monthCalendar1.SelectionRange.Start.ToString("yy-MM-dd"), monthCalendar2.SelectionRange.Start.ToString("yy-MM-dd"), id.Text);
+                    MostrarCalendario();
+                    limpiar();
+                    editar.Enabled = false;
+                    eliminar.Enabled = false;
+                    agregar.Enabled = true;
+                }
+            }
+        }
+
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea eliminar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _calendario.EliminarCalendario(id.Text);
                 MostrarCalendario();
                 limpiar();
                 editar.Enabled = false;
                 eliminar.Enabled = false;
                 agregar.Enabled = true;
             }
-        }
-
-        private void eliminar_Click(object sender, EventArgs e)
-        {
-            _calendario.EliminarCalendario(id.Text);
-            MostrarCalendario();
-            limpiar();
-            editar.Enabled = false;
-            eliminar.Enabled = false;
-            agregar.Enabled = true;
         }
         public void limpiar() {
             id.Text = "";

@@ -19,14 +19,14 @@ namespace Capa_Presentacion
 
         private void btn_crear_reporte_Click(object sender, EventArgs e)
         {
-            AdministrarCultivos cultivos = new AdministrarCultivos();
+            Cultivos cultivos = new Cultivos();
             cultivos.MostrarCultivos();
             cultivos.filtrar_y_exportar(cmb_cultivo.Text, cmb_plantado.Text, cmb_cosecha.Text);
         }
 
         private void FRM_FiltroCultivos_Load(object sender, EventArgs e)
         {
-            AdministrarCultivos cultivos = new AdministrarCultivos();
+            Cultivos cultivos = new Cultivos();
             cultivos.MostrarCultivos();
             String[] cultivo = cultivos.obtenercultivo();
             String[] plantado = cultivos.obtenerfplantado();

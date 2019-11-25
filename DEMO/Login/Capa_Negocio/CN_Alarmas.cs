@@ -13,6 +13,7 @@ namespace Capa_Negocio
         DataTable tablaNombresCultivos = new DataTable();
         DataTable tablaNombresAlarmas = new DataTable();
         DataTable tablaAlarmas = new DataTable();
+        DataTable tablaReportesAlarmas = new DataTable();
         private CD_Alarmas _Alarmas = new CD_Alarmas();
 
         public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
@@ -46,6 +47,18 @@ namespace Capa_Negocio
         {
             tablaNombresAlarmas = _Alarmas.MostrarNombreAlarmas();
             return tablaNombresAlarmas;
+        }
+
+        public void InsertarReportesAlarmas(String nombreAlarma, double temperaturaMaxima, double temperaturaMinima, String fechaInicio, String fechaFin, String fechaActivada, String alarmaActivada)
+        {
+            _Alarmas.InsertarReportesAlarmas(nombreAlarma, temperaturaMaxima, temperaturaMinima, fechaInicio, fechaFin, fechaActivada, alarmaActivada);
+        }
+
+        public DataTable MostrarReportesAlarmas()
+        {
+            tablaReportesAlarmas = _Alarmas.MostrarReportesAlarmas();
+
+            return tablaReportesAlarmas;
         }
     }
 }

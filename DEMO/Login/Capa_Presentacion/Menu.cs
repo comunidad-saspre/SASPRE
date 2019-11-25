@@ -796,9 +796,6 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
-            textoAlarma.Visible = false;
-            textAlarma2.Visible = false;
-            link.Visible = false;
             //ActivarAlarmas();
 
 

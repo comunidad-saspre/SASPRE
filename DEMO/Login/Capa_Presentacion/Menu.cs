@@ -26,6 +26,8 @@ namespace Capa_Presentacion
         ThreadStart delegado;
         Thread hilo;
 
+        double climaActual;
+
         WebBrowser navegador = new WebBrowser();
 
         private bool Drag;
@@ -794,6 +796,13 @@ namespace Capa_Presentacion
             lblEstado.Visible = false;
             lblPrecipitacion.Visible = false;
             lblPrecipitacionmm.Visible = false;
+            textoAlarma.Visible = false;
+            textAlarma2.Visible = false;
+            link.Visible = false;
+            //ActivarAlarmas();
+
+
+
             ActivarAlarmas();
             Cursor.Current = Cursors.Default;
         }
@@ -945,6 +954,7 @@ namespace Capa_Presentacion
             if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 00 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
                 MostrarClima();
+                AlarmaPorHora();
             }
             //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
@@ -1435,6 +1445,20 @@ namespace Capa_Presentacion
             AbrirFormEnPanel<Costos>();
         }
 
+        private void AlarmaPorHora()
+        {
+            if (climaActual >= TEMPERATURA_MAXIMA_PERMITIDA)
+            {
+                //MessageBox.Show("La temperatura actual ha " + "\nrebasado el limite maximo ");
+                alert.Show("La temperatura actual ha " + "\nrebasado el limite maximo: " + TEMPERATURA_MAXIMA_PERMITIDA, Alertype.info);
+            }
+            if (climaActual <= TEMPERATURA_MINIMA_PERMITIDA)
+            {
+                alert.Show("La temperatura actual ha " + "\nrebasado el limite maximo: " + TEMPERATURA_MINIMA_PERMITIDA, Alertype.info);
+            }
+        }
+
+
         private void ActivarAlarmas()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
@@ -1442,6 +1466,8 @@ namespace Capa_Presentacion
 
             DataTable tablaDatosClima = new DataTable();
             DataTable tablaAlarmas = new DataTable();
+
+            String fechaInicial = "", fechaFinal = "";
 
             int horas = 24;
             String nombreAlarma, fecha1, fecha2;
@@ -1501,7 +1527,15 @@ namespace Capa_Presentacion
                             {
 
                                 alert.Show("La temperautra maxima ha sido" + "\nrebasada " + limiteTemperaturaMax + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMax, Alertype.error);
+                                fechaFinal = Convert.ToString(tablaDatosClima.Rows[i += -limiteHoras + i]["Fecha_Local"]);
+                                fechaInicial = Convert.ToString(tablaDatosClima.Rows[i = 1]["Fecha_Local"]);
+
                                 i = recorrerDias;
+
+                                String alarmaActivada = "Sobrepaso la temperatura maxima";
+                                String fechaActivada = DateTime.Now.ToString("dd/MM/yy");
+
+                                InsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
                             }
                         }
                     }
@@ -1513,7 +1547,6 @@ namespace Capa_Presentacion
 
                 contadorDias = 0;
                 limiteHoras = 0;
-                Thread.Sleep(2000);
                 //Este for es para encontrar la temperatura minima
                 for (int i = 0; i < recorrerDias; i++)
                 {
@@ -1540,7 +1573,14 @@ namespace Capa_Presentacion
                             {
 
                                 alert.Show("La temperatura ha disminuido por"+ "\ndebajo del limite establecido " +"\n"+limiteTemperaturaMin + " C" + "\npara la alarma: " + "\n" + nombreAlarma + " " + temperaturaMin, Alertype.info);
+                                fechaFinal = Convert.ToString(tablaDatosClima.Rows[i += -limiteHoras + i]["Fecha_Local"]);
+                                fechaInicial = Convert.ToString(tablaDatosClima.Rows[i = 1]["Fecha_Local"]);
                                 i = recorrerDias;
+
+                                String alarmaActivada = "Disminuyo la temperatura limite";
+                                String fechaActivada = DateTime.Now.ToString("dd/MM/yy");
+
+                                InsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
                             }
                         }
                     }
@@ -1550,6 +1590,65 @@ namespace Capa_Presentacion
                     }
                 }
             }
+        }
+
+        private void InsertarReportesAlarmas(String nombreAlarma, double temperaturaMaxima, double temperaturaMinima, String fechaInicio, String fechaFin, String fechaActivada, String alarmaActivada)
+        {
+
+            CN_Alarmas _Alarmas = new CN_Alarmas();
+            //MessageBox.Show("Funciona?");
+            DataTable tablaReportesAlarmas = new DataTable();
+            tablaReportesAlarmas = _Alarmas.MostrarReportesAlarmas(); //Aqui deja de funcionar el sistema
+            String fecha, nombre;
+            int contador = 0;
+
+            if (Evaluar(nombreAlarma, fechaActivada) == true)
+            {
+                _Alarmas.InsertarReportesAlarmas(nombreAlarma, temperaturaMaxima, temperaturaMinima, fechaInicio, fechaFin, fechaActivada, alarmaActivada);
+            }
+            /*
+            foreach (DataRow row in tablaReportesAlarmas.Rows)
+            {
+                fecha = row["fechaActivada"].ToString();
+                nombre = row["nombreAlarma"].ToString();
+
+                if (fecha != fechaActivada ||  nombre!=nombreAlarma)
+                {
+                    _Alarmas.InsertarReportesAlarmas(nombreAlarma, temperaturaMaxima, temperaturaMinima, fechaInicio, fechaFin, fechaActivada, alarmaActivada);
+                }
+                else
+                {
+
+                }
+                contador = 1;
+            }
+            */
+            /*
+            if (contador == 0)
+            {
+                
+                _Alarmas.InsertarReportesAlarmas(nombreAlarma, temperaturaMaxima, temperaturaMinima, fechaInicio, fechaFin, fechaActivada, alarmaActivada);
+            }
+            */
+        }
+        private Boolean Evaluar(String nombreAlarma, String fechaActivada)
+        {
+            String nombre, fecha;
+            CN_Alarmas _Alarmas = new CN_Alarmas();
+            //MessageBox.Show("Funciona?");
+            DataTable tablaReportesAlarmas = new DataTable();
+            tablaReportesAlarmas = _Alarmas.MostrarReportesAlarmas();
+
+            foreach (DataRow row in tablaReportesAlarmas.Rows)
+            {
+                nombre = row["nombreAlarma"].ToString();
+                fecha = row["fechaActivada"].ToString();
+                if (nombre == nombreAlarma && fecha == fechaActivada)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

@@ -46,7 +46,14 @@ namespace Capa_Datos
             int salida = 0 ;
             if (leer.Read() == true)
             {
-                salida = Convert.ToInt32(leer["valor"]);
+                if (leer["valor"] == DBNull.Value)
+                {
+                    salida = 0;
+                }
+                else
+                {
+                    salida = Convert.ToInt32(leer["valor"]);
+                }
             }
             conexion.CerrarConexion();
             return salida;

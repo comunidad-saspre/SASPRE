@@ -107,6 +107,7 @@ namespace Capa_Presentacion
 
         private void Costos_Load(object sender, EventArgs e)
         {
+            bool ban1 = false;
             MostraCostos();
             tablaCultivo = _Costos.MostrarCultivo();
             // cbCultivo.SelectedIndex = 0;
@@ -114,7 +115,23 @@ namespace Capa_Presentacion
 
             foreach (DataRow row in tablaCultivo.Rows)
             {
-                cbCultivo.Items.Add(row["Cultivo"].ToString());
+                foreach(var item in cbCultivo.Items)
+                {
+                    if (item.ToString().Equals(row["Cultivo"].ToString()))
+                    {
+                        ban1 = true;
+                    }
+                }
+
+                if (ban1 == false)
+                {
+                    cbCultivo.Items.Add(row["Cultivo"].ToString());
+                    ban1 = false;
+                }
+                else
+                {
+                    ban1 = false;
+                }
             }
         }
 

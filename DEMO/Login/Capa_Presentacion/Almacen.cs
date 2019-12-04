@@ -53,12 +53,42 @@ namespace Capa_Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            bool existeCultivo = false;
             if ((cbTipoObjeto.Text.Equals("Cultivo") && cbTipoSiembra.Text != "" && txtCantidad.Text != "" && txtPrecio.Text != "")
                 || ((cbTipoObjeto.Text.Equals("Fertilizante") || cbTipoObjeto.Text.Equals("Otro")) && cbNombre.Text != "" && txtCantidad.Text != "" && txtPrecio.Text != ""))
             {
-                _CN_Almacen.AgregarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"), Program.nickname);
-                MostrarAlmacen();
-                limpiarCampos();
+                if (cbTipoObjeto.Text.Equals("Cultivo"))
+                {
+                    String idCultivoBan = null;
+                    int cantidadObjetoBan = 0;
+                    foreach (DataGridViewRow dgvCultivo in dgvAlmacen.Rows)
+                    {
+                        if (cbNombre.Text.Equals(dgvCultivo.Cells["nombreObjeto"].Value.ToString()))
+                        {
+                            MessageBox.Show("Este cultivo ya existe");
+                            existeCultivo = true;
+                            idCultivoBan = dgvCultivo.Cells["IDAlmacen"].Value.ToString();
+                            cantidadObjetoBan = Convert.ToInt32(dgvCultivo.Cells["cantidadObjeto"].Value.ToString());
+                            break;
+                        }
+                    }
+                    if(existeCultivo == true)
+                    {
+                        _CN_Almacen.EditarAlmacen(idCultivoBan, cbTipoObjeto.Text, cbNombre.Text, Convert.ToString(Convert.ToInt32(txtCantidad.Text) + cantidadObjetoBan), cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"));
+                    }
+                    else
+                    {
+                        _CN_Almacen.AgregarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"), Program.nickname);
+                        MostrarAlmacen();
+                        limpiarCampos();
+                    }
+                }
+                else
+                {
+                    _CN_Almacen.AgregarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"), Program.nickname);
+                    MostrarAlmacen();
+                    limpiarCampos();
+                }
             }
             else
             {

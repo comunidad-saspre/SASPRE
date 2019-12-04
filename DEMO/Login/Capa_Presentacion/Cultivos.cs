@@ -32,7 +32,7 @@ namespace Capa_Presentacion
 
         private void bunifuCustomDataGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         //METODO PARA ABRIR FORM DENTRO DE PANEL-----------------------------------------------------

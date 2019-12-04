@@ -13,7 +13,9 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
         DataTable tablaAlmacen = new DataTable();
+        DataTable tablaBitacoraAlmacen = new DataTable();
         MySqlCommand comando;
+
 
         public DataTable MostrarAlmacen(String cargo, String usuario)
         {
@@ -92,5 +94,42 @@ namespace Capa_Datos
             return leer;
         }
 
+        public DataTable MostrarBitacoraAlmacen(String cargo, String usuario)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            if (cargo == "Admin")
+            {
+                comando.CommandText = "verBitacoraAlmacen";
+            }
+            else
+            {
+                comando.CommandText = "verBitacoraAlmacenUsuario";
+                comando.Parameters.AddWithValue("_usuarioAlmacen", usuario);
+            }
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tablaAlmacen.Load(leer);
+            conexion.CerrarConexion();
+            return tablaAlmacen;
+        }
+
+        public void AgregarBitacoraAlmacen(String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso, String usuarioAlmacen)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "altaBitacoraAlmacen";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_tipoObjeto", tipoObjeto);
+            comando.Parameters.AddWithValue("_nombreObjeto", nombreObjeto);
+            comando.Parameters.AddWithValue("_cantidadObjeto", cantidadObjeto);
+            comando.Parameters.AddWithValue("_tipoSiembra", tipoSiembra);
+            comando.Parameters.AddWithValue("_precio", precio);
+            comando.Parameters.AddWithValue("_fechaIngreso", fechaIngreso);
+            comando.Parameters.AddWithValue("_usuarioAlmacen", usuarioAlmacen);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
     }
 }

@@ -114,7 +114,6 @@ namespace Capa_Datos
             leer = comando.ExecuteReader();
             tablaReportesAlarmas.Load(leer);
             conexion.CerrarConexion();
-
             return tablaReportesAlarmas;
         }
 

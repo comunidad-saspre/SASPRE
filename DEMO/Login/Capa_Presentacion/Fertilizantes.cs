@@ -56,7 +56,8 @@ namespace Capa_Presentacion
 
         private void LlenarComboPlaga()
         {
-            try {
+            try
+            {
                 DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
                 foreach (DataRow row in tablaControlPlagas.Rows)
                 {
@@ -71,7 +72,9 @@ namespace Capa_Presentacion
                 {
                     comboPlaga.Items.Add(item.ToString());
                 }
-            } catch (Exception a)
+                comboPlaga.SelectedIndex = 0;
+            }
+            catch (Exception a)
             {
 
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -80,7 +83,8 @@ namespace Capa_Presentacion
 
         private void LlenarComboCultivo()
         {
-            try {
+            try
+            {
                 DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
                 foreach (DataRow row in tablaControlPlagas.Rows)
                 {
@@ -95,7 +99,9 @@ namespace Capa_Presentacion
                 {
                     comboCultivo.Items.Add(item.ToString());
                 }
-            } catch (Exception a)
+                comboCultivo.SelectedIndex = 0;
+            }
+            catch (Exception a)
             {
 
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -132,13 +138,15 @@ namespace Capa_Presentacion
 
         private void txtBuscar_Leave(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (txtBuscar.Text.Equals(""))
                 {
                     txtBuscar.Text = "Buscar";
                     txtBuscar.ForeColor = Color.Gray;
                 }
-            } catch (Exception a)
+            }
+            catch (Exception a)
             {
 
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -147,13 +155,15 @@ namespace Capa_Presentacion
 
         private void txtBuscar_Enter(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (txtBuscar.Text.Equals("Buscar"))
                 {
                     txtBuscar.Text = "";
                     txtBuscar.ForeColor = Color.Black;
                 }
-            } catch (Exception a)
+            }
+            catch (Exception a)
             {
 
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -164,7 +174,8 @@ namespace Capa_Presentacion
 
         private void comboPlaga_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 DataView dv = tablaFertilizantes.DefaultView;
                 var query = "Plaga like '%{0}%'";
                 var index = comboPlaga.SelectedIndex;
@@ -174,7 +185,8 @@ namespace Capa_Presentacion
                     dv.RowFilter = string.Format(query, value);
                     dgvFertilizantes.DataSource = dv.ToTable();
                 }
-            } catch (Exception a)
+            }
+            catch (Exception a)
             {
 
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -183,7 +195,8 @@ namespace Capa_Presentacion
 
         private void comboCultivo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 DataView dv = tablaFertilizantes.DefaultView;
                 var query = "Cultivo like '%{0}%'";
                 var index = comboCultivo.SelectedIndex;
@@ -193,7 +206,8 @@ namespace Capa_Presentacion
                     dv.RowFilter = string.Format(query, value);
                     dgvFertilizantes.DataSource = dv.ToTable();
                 }
-            } catch (Exception a)
+            }
+            catch (Exception a)
             {
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -219,10 +233,10 @@ namespace Capa_Presentacion
             resultado = r.ShowDialog();
         }
 
-            private void Fertilizantes_Load(object sender, EventArgs e)
-            {
-                IniciarComponentes();
-            }
+        private void Fertilizantes_Load(object sender, EventArgs e)
+        {
+            IniciarComponentes();
         }
     }
+}
 

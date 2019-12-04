@@ -226,7 +226,7 @@ namespace Capa_Presentacion
             }
         }
 
-        private void CerrarFormEnPanel<Forms>() where Forms : Form, new()
+        public void CerrarFormEnPanel<Forms>() where Forms : Form, new()
         {
             try
             {

@@ -36,5 +36,11 @@ namespace Capa_Negocio
         {
             CD_Gráficos.BorrarPoligono(Convert.ToInt32(Indentificador));
         }
+
+        public DataTable ObtenerPoligonosExistentes()
+        {
+            return CD_Gráficos.PoligonosExistentes();
+        }
+
     }
 }

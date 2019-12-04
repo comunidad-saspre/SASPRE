@@ -13,10 +13,12 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
         DataTable tablaPoligono = new DataTable();
+        DataTable tablaPoligonoExistentes = new DataTable();
         MySqlCommand comando;
 
         public DataTable MostrarPoligonos(String cargo, String usuario)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             if (cargo == "Admin")
@@ -34,10 +36,9 @@ namespace Capa_Datos
             return tablaPoligono;
         }
 
-        int ultimoId = 0;
         public int ObtenerUltimoId()
-        { 
-            
+        {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT DISTINCT MAX(Identificador) AS 'valor' FROM Graficos";
@@ -46,21 +47,39 @@ namespace Capa_Datos
             int salida = 0 ;
             if (leer.Read() == true)
             {
-                if (leer["valor"] == DBNull.Value)
-                {
-                    salida = 0;
-                }
-                else
+                if(!DBNull.Value.Equals(leer["valor"]))
                 {
                     salida = Convert.ToInt32(leer["valor"]);
                 }
+                else
+                {
+                    return salida;
+                }
+                
+
             }
             conexion.CerrarConexion();
             return salida;
         }
 
+        
+
+        public DataTable PoligonosExistentes()
+        {
+            conexion.CerrarConexion();
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT DISTINCT Identificador AS 'valor' FROM Graficos";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaPoligonoExistentes.Load(leer);
+            conexion.CerrarConexion();
+            return tablaPoligonoExistentes;
+        }
+
         public void AgregarPoligono(int identificador,string latitud,string longitud, string color,string nombredelterreno,string usuario,string cultivo,string fechaplantado,string fechacosecha,double cantidad, string estado)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "INSERT INTO graficos (Identificador,Latitud,Longitud,Color,NombreDelTerreno,Usuario,Cultivo,FechaPlantado,FechaCosecha,Cantidad,Estado) VALUES (@identificador,@latitud,@longitud,@color,@cultivo,@usuario,@cultivo,@fechaplantado,@fechacosecha,@cantidad,@estado);";
@@ -84,6 +103,7 @@ namespace Capa_Datos
 
         public void BorrarPoligono(int identificador)
         {
+            conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "DELETE FROM graficos WHERE Identificador=@identificador;";

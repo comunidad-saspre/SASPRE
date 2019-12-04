@@ -770,6 +770,7 @@
     <None Include="Resources\Imagen4.png" />
     <None Include="Resources\icons8_design_90px_1.png" />
     <Content Include="Resources\LEAF WHITE.png" />
+    <None Include="Resources\MenuGraficosBlanco.png" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\menuprin.png" />
     <None Include="Resources\menuprin1.png" />

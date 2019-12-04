@@ -79,6 +79,9 @@ namespace Capa_Presentacion
 
         private void Gráficos_Load(object sender, EventArgs e)
         {
+
+            
+            
             dt = new DataTable();
             dt.Columns.Add(new DataColumn("Punto", typeof(string)));
             dt.Columns.Add(new DataColumn("Lat", typeof(double)));
@@ -91,11 +94,14 @@ namespace Capa_Presentacion
             dataGridView1.Columns[1].Visible = true;
             dataGridView1.Columns[2].Visible = true;
 
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            gMapControl1.CacheLocation = @"cache";
+            gMapControl1.ShowCenter = false;
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
             gMapControl1.MapProvider = GMapProviders.GoogleHybridMap;
             gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
-            gMapControl1.MinZoom = 0;
+            gMapControl1.MinZoom = 10;
             gMapControl1.MaxZoom = 24;
             gMapControl1.Zoom = 18;
             gMapControl1.AutoScroll = true;
@@ -157,6 +163,8 @@ namespace Capa_Presentacion
             {
                 GMapOverlay Poligono = new GMapOverlay("Poligono");
                 List<PointLatLng> puntos = new List<PointLatLng>();
+                puntos.Clear();
+                Poligono.Clear();
 
                 //variables para almacenar los datos
                 double lng = 0, lat = 0;
@@ -300,7 +308,7 @@ namespace Capa_Presentacion
                 lng = Convert.ToDouble(dataGridView1.Rows[filas].Cells[2].Value);
                 puntos.Add(new PointLatLng(lat, lng));
 
-                g.AgregarGraficos(txtid.Text,Convert.ToString(lat), Convert.ToString(lng),colorActual.ToString(),txtnombreterreno.Text,txtusuario.Text,txtcultivo.Text,txtfechaplantado.Text,txtfechacosecha.Text,txtcantidad.Text,txtEstado.Text);
+                g.AgregarGraficos(txtid.Text,Convert.ToString(lat), Convert.ToString(lng),colorActual.ToString(),txtnombreterreno.Text,txtusuario.Text,txtcultivo.Text,txtfechaplantado.Text,txtfechacosecha.Text,txtcantidad.Text, rtxtestado.Text);
 
             }
 
@@ -312,7 +320,7 @@ namespace Capa_Presentacion
 
             Poligono.Polygons.Add(poligonoPuntos);
             gMapControl1.Overlays.Add(Poligono);
-            Poligono.Markers.Add(new GMarkerCross(new PointLatLng(lat, lng)) { ToolTipText = "\nIdentificador #:"+txtid.Text+"\n"+txtnombreterreno.Text + "\nAgregado por:"+txtusuario.Text + "\nTipo de cultivo:"+txtcultivo.Text + "\nFecha plantado:"+txtfechaplantado.Text + "\nFecha cosecha:"+txtfechacosecha.Text + "\nCantidad:"+txtcantidad.Text + /*"\nÁrea(m²):" + calcularArea(puntos) +*/ "\nEstado:" +rtxtestado.Text, IsVisible = true, ToolTipMode = MarkerTooltipMode.Always });
+            Poligono.Markers.Add(new GMarkerCross(new PointLatLng(lat, lng)) { ToolTipText = "\nIdentificador #:"+txtid.Text+"\n"+txtnombreterreno.Text + "\nAgregado por:"+txtusuario.Text + "\nTipo de cultivo:"+txtcultivo.Text + "\nFecha plantado:"+txtfechaplantado.Text + "\nFecha cosecha:"+txtfechacosecha.Text + "\nCantidad:"+txtcantidad.Text + /*"\nÁrea(m²):" + calcularArea(puntos) +*/ "\nEstado:" +rtxtestado.Text, IsVisible = true, ToolTipMode = MarkerTooltipMode.Always});
 
             //Actualizar el mapa
             gMapControl1.Zoom = gMapControl1.Zoom + 1;
@@ -453,16 +461,23 @@ namespace Capa_Presentacion
             btnBorrarPoligono.Visible = true;
         }
 
+        Menu menu = new Menu();
         private void button4_Click(object sender, EventArgs e)
         {
             g.BorrarGraficos(cbPoligonos.SelectedValue.ToString());
             //Actualizar el mapa
-            gMapControl1.Visible = false;
-            gMapControl1.PolygonsEnabled = false;   
-            gMapControl1.Update();
-            gMapControl1.Visible = true;
-            CargarPoligonos();
+
+
+            reiniciarMapa();
+
             MessageBox.Show("Se ha eliminado el polígono #"+ cbPoligonos.SelectedValue.ToString()+" correctamente");
+
+
+            cbPoligonos.DataSource = g.ObtenerPoligonosExistentes();
+            cbPoligonos.DisplayMember = "valor";
+            cbPoligonos.ValueMember = "valor";
+
+
             pnlBorrarPoligono.Visible = false;
             pnlDetallesAgregar.Visible = false;
             pnlAgregarPoligono.Visible = false;
@@ -487,6 +502,37 @@ namespace Capa_Presentacion
         private void gMapControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void reiniciarMapa()
+        {
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            gMapControl1.CacheLocation = @"cache";
+            gMapControl1.ShowCenter = false;
+            gMapControl1.DragButton = MouseButtons.Left;
+            gMapControl1.CanDragMap = true;
+            gMapControl1.MapProvider = GMapProviders.GoogleHybridMap;
+            gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
+            gMapControl1.MinZoom = 10;
+            gMapControl1.MaxZoom = 24;
+            gMapControl1.Zoom = 18;
+            gMapControl1.AutoScroll = true;
+           
+
+            //Marcador
+
+            markerOverlay = new GMapOverlay("Marcador");
+            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.white_small);
+            markerOverlay.Markers.Add(marker); //Agregamos al mapa
+
+            //Agregamos un tooltip de texto a los marcadores
+
+            marker.ToolTipMode = MarkerTooltipMode.Always;
+            //marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud{1}", LatInicial, LongInicial);
+
+            //Ahora agregamos el mapa y el marcador al map control
+            gMapControl1.Overlays.Add(markerOverlay);
+            CargarPoligonos();
         }
     }
 

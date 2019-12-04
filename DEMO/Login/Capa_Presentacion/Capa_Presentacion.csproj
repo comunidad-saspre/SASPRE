@@ -169,6 +169,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoraAlmacen.Designer.cs">
+      <DependentUpon>BitacoraAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cultivos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,9 @@
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
     <Compile Include="WebScraping\ScrapperClima.cs" />
+    <EmbeddedResource Include="BitacoraAlmacen.resx">
+      <DependentUpon>BitacoraAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cultivos.resx">
       <DependentUpon>Cultivos.cs</DependentUpon>
       <SubType>Designer</SubType>

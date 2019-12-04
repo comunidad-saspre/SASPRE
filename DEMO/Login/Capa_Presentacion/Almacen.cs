@@ -79,9 +79,11 @@ namespace Capa_Presentacion
                     else
                     {
                         _CN_Almacen.AgregarAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"), Program.nickname);
-                        MostrarAlmacen();
-                        limpiarCampos();
+                        
                     }
+                    _CN_Almacen.AgregarBitacoraAlmacen(cbTipoObjeto.Text, cbNombre.Text, txtCantidad.Text, cbTipoSiembra.Text, txtPrecio.Text, dtpFechaAgregado.Value.ToString("yy-MM-dd"), Program.nickname);
+                    MostrarAlmacen();
+                    limpiarCampos();
                 }
                 else
                 {
@@ -184,6 +186,12 @@ namespace Capa_Presentacion
         private void Label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnBitacora_Click(object sender, EventArgs e)
+        {
+            BitacoraAlmacen _BitacoraAlmacen = new BitacoraAlmacen();
+            _BitacoraAlmacen.ShowDialog();
         }
     }
 }

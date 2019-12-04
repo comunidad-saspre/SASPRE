@@ -109,9 +109,9 @@ namespace Capa_Datos
             }
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
-            tablaAlmacen.Load(leer);
+            tablaBitacoraAlmacen.Load(leer);
             conexion.CerrarConexion();
-            return tablaAlmacen;
+            return tablaBitacoraAlmacen;
         }
 
         public void AgregarBitacoraAlmacen(String tipoObjeto, String nombreObjeto, double cantidadObjeto, String tipoSiembra, double precio, String fechaIngreso, String usuarioAlmacen)

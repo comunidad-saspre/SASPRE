@@ -53,6 +53,9 @@ namespace Capa_Presentacion
             }
         }
 
+        private void BtnExportar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

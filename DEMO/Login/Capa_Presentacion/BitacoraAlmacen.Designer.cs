@@ -217,6 +217,7 @@
             this.btnExportar.TabIndex = 146;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
             // 
             // BitacoraAlmacen
             // 

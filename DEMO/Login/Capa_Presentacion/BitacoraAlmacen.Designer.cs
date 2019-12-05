@@ -45,6 +45,7 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
@@ -132,14 +133,14 @@
             this.dgvAlmacen.EnableHeadersVisualStyles = false;
             this.dgvAlmacen.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.dgvAlmacen.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvAlmacen.Location = new System.Drawing.Point(9, 48);
+            this.dgvAlmacen.Location = new System.Drawing.Point(9, 96);
             this.dgvAlmacen.Name = "dgvAlmacen";
             this.dgvAlmacen.ReadOnly = true;
             this.dgvAlmacen.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvAlmacen.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAlmacen.RowHeadersVisible = false;
             this.dgvAlmacen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlmacen.Size = new System.Drawing.Size(882, 390);
+            this.dgvAlmacen.Size = new System.Drawing.Size(882, 342);
             this.dgvAlmacen.TabIndex = 145;
             this.dgvAlmacen.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dgvAlmacen_MouseMove);
             // 
@@ -202,12 +203,28 @@
             this.fechaIngreso.Name = "fechaIngreso";
             this.fechaIngreso.ReadOnly = true;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportar.FlatAppearance.BorderSize = 0;
+            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportar.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.Location = new System.Drawing.Point(782, 61);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(109, 29);
+            this.btnExportar.TabIndex = 146;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = false;
+            // 
             // BitacoraAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(906, 449);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.dgvAlmacen);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -235,5 +252,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

@@ -80,8 +80,8 @@ namespace Capa_Presentacion
         private void Gráficos_Load(object sender, EventArgs e)
         {
 
-            
-            
+            txtcultivo.SelectedIndex = 0;
+            panel1.Width = 0;
             dt = new DataTable();
             dt.Columns.Add(new DataColumn("Punto", typeof(string)));
             dt.Columns.Add(new DataColumn("Lat", typeof(double)));
@@ -284,66 +284,6 @@ namespace Capa_Presentacion
         }
 
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            
-
-
-            //Ahora agregamos el mapa y el marcador al map control
-            //gMapControl1.Overlays.Add(markerOverlay); //Descomentar esto si quieres tener posiciones
-            GMapOverlay Poligono = new GMapOverlay("Poligono");
-            List<PointLatLng> puntos = new List<PointLatLng>();
-
-            //variables para almacenar los datos
-
-            double lng = 0, lat = 0;
-
-
-            //agarramos los datos del grid
-
-            for (int filas = 0; filas < dataGridView1.Rows.Count; filas++)
-            {
-
-                lat = Convert.ToDouble(dataGridView1.Rows[filas].Cells[1].Value);
-                lng = Convert.ToDouble(dataGridView1.Rows[filas].Cells[2].Value);
-                puntos.Add(new PointLatLng(lat, lng));
-
-                g.AgregarGraficos(txtid.Text,Convert.ToString(lat), Convert.ToString(lng),colorActual.ToString(),txtnombreterreno.Text,txtusuario.Text,txtcultivo.Text,txtfechaplantado.Text,txtfechacosecha.Text,txtcantidad.Text, rtxtestado.Text);
-
-            }
-
-
-            GMapPolygon poligonoPuntos = new GMapPolygon(puntos, "Poligono");
-            poligonoPuntos.Fill = new SolidBrush(colorActual);
-            poligonoPuntos.Stroke = new Pen(colorActual, 1);
-            poligonoPuntos.IsHitTestVisible = true;
-
-            Poligono.Polygons.Add(poligonoPuntos);
-            gMapControl1.Overlays.Add(Poligono);
-            Poligono.Markers.Add(new GMarkerCross(new PointLatLng(lat, lng)) { ToolTipText = "\nIdentificador #:"+txtid.Text+"\n"+txtnombreterreno.Text + "\nAgregado por:"+txtusuario.Text + "\nTipo de cultivo:"+txtcultivo.Text + "\nFecha plantado:"+txtfechaplantado.Text + "\nFecha cosecha:"+txtfechacosecha.Text + "\nCantidad:"+txtcantidad.Text + /*"\nÁrea(m²):" + calcularArea(puntos) +*/ "\nEstado:" +rtxtestado.Text, IsVisible = true, ToolTipMode = MarkerTooltipMode.Always});
-
-            //Actualizar el mapa
-            gMapControl1.Zoom = gMapControl1.Zoom + 1;
-            gMapControl1.Zoom = gMapControl1.Zoom - 1;
-
-            MessageBox.Show("Se ha guardado correctamente");
-            txtid.Text = Convert.ToString(Convert.ToInt32(txtid.Text) + 1);
-
-            DataTable dt = (DataTable)dataGridView1.DataSource;
-
-            if (dataGridView1.Rows.Count > 0)
-            {
-                contador = 0;
-                dt.Clear();
-            }
-
-            pnlAgregarPoligono.Visible = false;
-            pnlDetallesAgregar.Visible = false;
-            pnlBorrarPoligono.Visible = false;
-            btnAgregarPoligono.Visible = true;
-            btnBorrarPoligono.Visible = true;
-
-        }
 
         List<int> poligonosExistentes = new List<int>();
 
@@ -407,7 +347,7 @@ namespace Capa_Presentacion
         }
 
 
-        Color colorActual;
+        Color colorActual = Color.FromArgb(50,255,0,0);
         private void button2_Click(object sender, EventArgs e)
         {
             if (Colores.ShowDialog() == DialogResult.OK)
@@ -443,8 +383,16 @@ namespace Capa_Presentacion
 
         private void btnDetallesAgregar_Click(object sender, EventArgs e)
         {
-            pnlDetallesAgregar.Visible = true;
-            pnlAgregarPoligono.Visible = false;
+            if(dataGridView1.Rows.Count >= 3)
+            {
+                pnlDetallesAgregar.Visible = true;
+                pnlAgregarPoligono.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Debe agregar al menos 3 puntos");
+            }
+            
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -487,7 +435,7 @@ namespace Capa_Presentacion
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-
+            //MessageBox.Show("alav");
 
             if (panel1.Width == 0 )
             {
@@ -533,6 +481,74 @@ namespace Capa_Presentacion
             //Ahora agregamos el mapa y el marcador al map control
             gMapControl1.Overlays.Add(markerOverlay);
             CargarPoligonos();
+        }
+
+        private void BtnAgregarTerreno_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtnombreterreno.Text) || String.IsNullOrWhiteSpace(txtcantidad.Text))
+            {
+                MessageBox.Show("Por favor llene por completo todos los campos");
+            }
+            else
+            {
+                //Ahora agregamos el mapa y el marcador al map control
+                //gMapControl1.Overlays.Add(markerOverlay); //Descomentar esto si quieres tener posiciones
+                GMapOverlay Poligono = new GMapOverlay("Poligono");
+                List<PointLatLng> puntos = new List<PointLatLng>();
+
+                //variables para almacenar los datos
+
+                double lng = 0, lat = 0;
+
+
+                //agarramos los datos del grid
+
+                for (int filas = 0; filas < dataGridView1.Rows.Count; filas++)
+                {
+
+                    lat = Convert.ToDouble(dataGridView1.Rows[filas].Cells[1].Value);
+                    lng = Convert.ToDouble(dataGridView1.Rows[filas].Cells[2].Value);
+                    puntos.Add(new PointLatLng(lat, lng));
+
+                    g.AgregarGraficos(txtid.Text, Convert.ToString(lat), Convert.ToString(lng), colorActual.ToString(), txtnombreterreno.Text, txtusuario.Text, txtcultivo.Text, txtfechaplantado.Text, txtfechacosecha.Text, txtcantidad.Text, null);
+
+                }
+
+
+                GMapPolygon poligonoPuntos = new GMapPolygon(puntos, "Poligono");
+                poligonoPuntos.Fill = new SolidBrush(colorActual);
+                poligonoPuntos.Stroke = new Pen(colorActual, 1);
+                poligonoPuntos.IsHitTestVisible = true;
+
+                Poligono.Polygons.Add(poligonoPuntos);
+                gMapControl1.Overlays.Add(Poligono);
+                Poligono.Markers.Add(new GMarkerCross(new PointLatLng(lat, lng)) { ToolTipText = "\nIdentificador #:" + txtid.Text + "\n" + txtnombreterreno.Text + "\nAgregado por:" + txtusuario.Text + "\nTipo de cultivo:" + txtcultivo.Text + "\nFecha plantado:" + txtfechaplantado.Text + "\nFecha cosecha:" + txtfechacosecha.Text + "\nCantidad:" + txtcantidad.Text + /*"\nÁrea(m²):" + calcularArea(puntos) +*/ "\nEstado:", IsVisible = true, ToolTipMode = MarkerTooltipMode.Always });
+
+                //Actualizar el mapa
+                gMapControl1.Zoom = gMapControl1.Zoom + 1;
+                gMapControl1.Zoom = gMapControl1.Zoom - 1;
+
+                MessageBox.Show("Se ha guardado correctamente");
+                txtid.Text = Convert.ToString(Convert.ToInt32(txtid.Text) + 1);
+                txtnombreterreno.Clear();
+                txtcantidad.Clear();
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    contador = 0;
+                    dt.Clear();
+                }
+
+                pnlAgregarPoligono.Visible = false;
+                pnlDetallesAgregar.Visible = false;
+                pnlBorrarPoligono.Visible = false;
+                btnAgregarPoligono.Visible = true;
+                btnBorrarPoligono.Visible = true;
+            }
+
+
+            
         }
     }
 

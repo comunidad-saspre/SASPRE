@@ -43,9 +43,13 @@ namespace Capa_Presentacion
                 //Guardar informacion
                 //getArchivo("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ");
                 leercsv(rutadirectorio);
-                dtgDatosElMante.Columns[2].Visible = false;
-                dtgDatosElMante.Columns[10].Visible = false;
-                dtgDatosElMante.Columns[11].Visible = false;
+                if(dtgDatosElMante.Columns.Count != 0)
+                {
+                    dtgDatosElMante.Columns[2].Visible = false;
+                    dtgDatosElMante.Columns[10].Visible = false;
+                    dtgDatosElMante.Columns[11].Visible = false;
+                }
+                
                 _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
                
                 button1_Click_1(null, e);
@@ -414,11 +418,16 @@ namespace Capa_Presentacion
             int filas = dtgDatosElMante.Rows.Count;
             for (int i = 0; i < filas; i++)
             {
-                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[1,i].Value.ToString(),
+                Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[0,i].Value.ToString(),
+                    dtgDatosElMante[9,i].Value.ToString(),
                     dtgDatosElMante[7,i].Value.ToString(),
                     dtgDatosElMante[8,i].Value.ToString(),
-                    dtgDatosElMante[9,i].Value.ToString(),
-                    dtgDatosElMante[10,i].Value.ToString()});
+                    dtgDatosElMante[5,i].Value.ToString()});
+                /* Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[0,i].Value.ToString(),
+                    dtgDatosElMante[5,i].Value.ToString(),
+                    dtgDatosElMante[7,i].Value.ToString(),
+                    dtgDatosElMante[8,i].Value.ToString(),
+                    dtgDatosElMante[9,i].Value.ToString()});*/
             }
             Reportes r = new Reportes();
             r.setData(Ds);

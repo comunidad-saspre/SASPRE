@@ -60,6 +60,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbNombre = new System.Windows.Forms.ComboBox();
             this.cbTipoObjeto = new System.Windows.Forms.ComboBox();
+            this.btnBitacora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -414,12 +415,28 @@
             this.cbTipoObjeto.TabIndex = 126;
             this.cbTipoObjeto.SelectedIndexChanged += new System.EventHandler(this.CbTipoObjeto_SelectedIndexChanged);
             // 
+            // btnBitacora
+            // 
+            this.btnBitacora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.btnBitacora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBitacora.ForeColor = System.Drawing.Color.White;
+            this.btnBitacora.Location = new System.Drawing.Point(788, 23);
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.Size = new System.Drawing.Size(145, 40);
+            this.btnBitacora.TabIndex = 127;
+            this.btnBitacora.Text = "Bitácora";
+            this.btnBitacora.UseVisualStyleBackColor = false;
+            this.btnBitacora.Click += new System.EventHandler(this.BtnBitacora_Click);
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.btnBitacora);
             this.Controls.Add(this.cbTipoObjeto);
             this.Controls.Add(this.cbNombre);
             this.Controls.Add(this.label7);
@@ -479,5 +496,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadObjeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
+        private System.Windows.Forms.Button btnBitacora;
     }
 }

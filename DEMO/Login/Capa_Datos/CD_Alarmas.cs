@@ -16,6 +16,7 @@ namespace Capa_Datos
         DataTable tablaNombresCultivos = new DataTable();
         DataTable tablaNombresAlarmas = new DataTable();
         DataTable tablaAlarmas = new DataTable();
+        DataTable tablaReportesAlarmas = new DataTable();
         MySqlDataReader leer;
         //Da de alta las alarmas a la base de datos
         public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
@@ -102,6 +103,36 @@ namespace Capa_Datos
             conexion.CerrarConexion();
 
             return tablaNombresAlarmas;
+        }
+
+        public DataTable MostrarReportesAlarmas()
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "mostrarReportesAlarmas";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tablaReportesAlarmas.Load(leer);
+            conexion.CerrarConexion();
+            return tablaReportesAlarmas;
+        }
+
+        public void InsertarReportesAlarmas(String nombreAlarma, double temperaturaMaxima, double temperaturaMinima, String fechaInicio, String fechaFin, String fechaActivada, String alarmaActivada)
+        {
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "AltaReportesAlarmas";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("_nombreAlarma", nombreAlarma);
+            comando.Parameters.AddWithValue("_temperaturaMaxima", temperaturaMaxima);
+            comando.Parameters.AddWithValue("_temperaturaMinima", temperaturaMinima);
+            comando.Parameters.AddWithValue("_fechaInicio", fechaInicio);
+            comando.Parameters.AddWithValue("_fechaFin", fechaFin);
+            comando.Parameters.AddWithValue("_fechaActivada", fechaActivada);
+            comando.Parameters.AddWithValue("_alarmaActivada", alarmaActivada);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
     }
 }

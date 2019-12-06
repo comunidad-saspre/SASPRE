@@ -254,10 +254,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsBitacoraAlmacen.cs">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBitacoraAlmacen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsCosechas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCultivos.cs">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsCultivos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -390,6 +401,12 @@
       <DependentUpon>ReporteUsuario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rpt_BitacoraAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_BitacoraAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -505,6 +522,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteUsuario.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rpt_BitacoraAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_BitacoraAlmacen.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,6 +539,17 @@
     </None>
     <None Include="dsAtmosfericos.xss">
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
+    </None>
+    <None Include="dsBitacoraAlmacen.xsc">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsBitacoraAlmacen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBitacoraAlmacen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBitacoraAlmacen.xss">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
     </None>
     <None Include="dsCosechas.xsc">
       <DependentUpon>dsCosechas.xsd</DependentUpon>

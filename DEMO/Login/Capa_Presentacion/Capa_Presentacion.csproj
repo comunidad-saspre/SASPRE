@@ -288,6 +288,12 @@
     <Compile Include="Envio_Correo.Designer.cs">
       <DependentUpon>Envio_Correo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fertilizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fertilizaciones.Designer.cs">
+      <DependentUpon>Fertilizaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fertilizantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Envio_Correo.resx">
       <DependentUpon>Envio_Correo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fertilizaciones.resx">
+      <DependentUpon>Fertilizaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fertilizantes.resx">
       <DependentUpon>Fertilizantes.cs</DependentUpon>

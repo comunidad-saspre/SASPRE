@@ -249,15 +249,33 @@
     <Compile Include="Datos_Atmosfericos.Designer.cs">
       <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
     </Compile>
+    <Compile Include="dsAlmacen.cs">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsAlmacen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsAtmosfericos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCalendario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsCosechas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCostos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCostos.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsCultivos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -360,10 +378,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCalendario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCalendario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReporteCosechas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteCosechas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCostos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCostos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReporteCultivo.cs">
@@ -491,9 +527,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReporteAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAlmacen.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCalendario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCalendario.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteCosechas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteCosechas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCostos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCostos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteCultivo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -517,6 +565,17 @@
     <EmbeddedResource Include="Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsAlmacen.xsc">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsAlmacen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAlmacen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAlmacen.xss">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </None>
     <None Include="dsAtmosfericos.xsc">
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
     </None>
@@ -528,6 +587,17 @@
     <None Include="dsAtmosfericos.xss">
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
     </None>
+    <None Include="dsCalendario.xsc">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </None>
+    <None Include="dsCalendario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCalendario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCalendario.xss">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </None>
     <None Include="dsCosechas.xsc">
       <DependentUpon>dsCosechas.xsd</DependentUpon>
     </None>
@@ -538,6 +608,17 @@
     </None>
     <None Include="dsCosechas.xss">
       <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostos.xsc">
+      <DependentUpon>dsCostos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCostos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCostos.xss">
+      <DependentUpon>dsCostos.xsd</DependentUpon>
     </None>
     <None Include="dsCultivos.xsc">
       <DependentUpon>dsCultivos.xsd</DependentUpon>

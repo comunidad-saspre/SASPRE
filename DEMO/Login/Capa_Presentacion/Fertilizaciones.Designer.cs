@@ -31,12 +31,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvFertilizaciones = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.idFertilizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.necesitaNPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tieneNPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaCalculado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -52,11 +57,7 @@
             this.npk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFertilizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.necesitaNPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tieneNPK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diaCalculado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCalcular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapas)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +112,44 @@
             this.dgvFertilizaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFertilizaciones.Size = new System.Drawing.Size(350, 252);
             this.dgvFertilizaciones.TabIndex = 54;
+            // 
+            // idFertilizacion
+            // 
+            this.idFertilizacion.DataPropertyName = "idFertilizacion";
+            this.idFertilizacion.HeaderText = "ID Fertilizacion";
+            this.idFertilizacion.Name = "idFertilizacion";
+            this.idFertilizacion.ReadOnly = true;
+            this.idFertilizacion.Visible = false;
+            // 
+            // cultivo
+            // 
+            this.cultivo.DataPropertyName = "cultivo";
+            this.cultivo.HeaderText = "Cultivo";
+            this.cultivo.Name = "cultivo";
+            this.cultivo.ReadOnly = true;
+            // 
+            // necesitaNPK
+            // 
+            this.necesitaNPK.DataPropertyName = "necesitaNPK";
+            this.necesitaNPK.HeaderText = "NPK Necesario";
+            this.necesitaNPK.Name = "necesitaNPK";
+            this.necesitaNPK.ReadOnly = true;
+            // 
+            // tieneNPK
+            // 
+            this.tieneNPK.DataPropertyName = "tieneNPK";
+            dataGridViewCellStyle3.NullValue = "0,0,0";
+            this.tieneNPK.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tieneNPK.HeaderText = "NPK Actual";
+            this.tieneNPK.Name = "tieneNPK";
+            this.tieneNPK.ReadOnly = true;
+            // 
+            // diaCalculado
+            // 
+            this.diaCalculado.DataPropertyName = "diaCalculado";
+            this.diaCalculado.HeaderText = "Día";
+            this.diaCalculado.Name = "diaCalculado";
+            this.diaCalculado.ReadOnly = true;
             // 
             // label6
             // 
@@ -270,7 +309,6 @@
             this.dgvEtapas.HeaderForeColor = System.Drawing.Color.White;
             this.dgvEtapas.Location = new System.Drawing.Point(405, 67);
             this.dgvEtapas.Name = "dgvEtapas";
-            this.dgvEtapas.ReadOnly = true;
             this.dgvEtapas.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvEtapas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvEtapas.RowHeadersVisible = false;
@@ -282,7 +320,6 @@
             // 
             this.Etapa.HeaderText = "Etapa";
             this.Etapa.Name = "Etapa";
-            this.Etapa.ReadOnly = true;
             // 
             // Dias
             // 
@@ -292,69 +329,45 @@
             this.Dias.DefaultCellStyle = dataGridViewCellStyle7;
             this.Dias.HeaderText = "Días";
             this.Dias.Name = "Dias";
-            this.Dias.ReadOnly = true;
             // 
             // npk
             // 
             this.npk.HeaderText = "N     P     K";
             this.npk.Name = "npk";
-            this.npk.ReadOnly = true;
             // 
             // kgPorDia
             // 
             this.kgPorDia.HeaderText = "Kg por día";
             this.kgPorDia.Name = "kgPorDia";
-            this.kgPorDia.ReadOnly = true;
             // 
             // kgPorEtapa
             // 
             this.kgPorEtapa.HeaderText = "Kg por etapa";
             this.kgPorEtapa.Name = "kgPorEtapa";
-            this.kgPorEtapa.ReadOnly = true;
             // 
-            // idFertilizacion
+            // btnCalcular
             // 
-            this.idFertilizacion.DataPropertyName = "idFertilizacion";
-            this.idFertilizacion.HeaderText = "ID Fertilizacion";
-            this.idFertilizacion.Name = "idFertilizacion";
-            this.idFertilizacion.ReadOnly = true;
-            this.idFertilizacion.Visible = false;
-            // 
-            // cultivo
-            // 
-            this.cultivo.DataPropertyName = "cultivo";
-            this.cultivo.HeaderText = "Cultivo";
-            this.cultivo.Name = "cultivo";
-            this.cultivo.ReadOnly = true;
-            // 
-            // necesitaNPK
-            // 
-            this.necesitaNPK.DataPropertyName = "necesitaNPK";
-            this.necesitaNPK.HeaderText = "NPK Necesario";
-            this.necesitaNPK.Name = "necesitaNPK";
-            this.necesitaNPK.ReadOnly = true;
-            // 
-            // tieneNPK
-            // 
-            this.tieneNPK.DataPropertyName = "tieneNPK";
-            dataGridViewCellStyle3.NullValue = "0,0,0";
-            this.tieneNPK.DefaultCellStyle = dataGridViewCellStyle3;
-            this.tieneNPK.HeaderText = "NPK Actual";
-            this.tieneNPK.Name = "tieneNPK";
-            this.tieneNPK.ReadOnly = true;
-            // 
-            // diaCalculado
-            // 
-            this.diaCalculado.DataPropertyName = "diaCalculado";
-            this.diaCalculado.HeaderText = "Día";
-            this.diaCalculado.Name = "diaCalculado";
-            this.diaCalculado.ReadOnly = true;
+            this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcular.FlatAppearance.BorderSize = 0;
+            this.btnCalcular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(176)))), ((int)(((byte)(115)))));
+            this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCalcular.ForeColor = System.Drawing.Color.White;
+            this.btnCalcular.Location = new System.Drawing.Point(618, 342);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(132, 40);
+            this.btnCalcular.TabIndex = 80;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = false;
             // 
             // Fertilizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.dgvEtapas);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNPKNecesario);
@@ -400,5 +413,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn necesitaNPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn tieneNPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn diaCalculado;
+        private System.Windows.Forms.Button btnCalcular;
     }
 }

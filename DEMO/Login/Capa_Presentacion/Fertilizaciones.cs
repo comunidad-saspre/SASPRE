@@ -22,6 +22,7 @@ namespace Capa_Presentacion
         private void Fertilizaciones_Load(object sender, EventArgs e)
         {
             //MessageBox.Show(DateTime.Now.ToString("MM/dd/yyyy"));
+            cbCultivo.SelectedIndex = 0;
             MostrarFertilizaciones();
             agregarFilas();
         }

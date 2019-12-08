@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.BtnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agregar.ForeColor = System.Drawing.Color.White;
-            this.agregar.Location = new System.Drawing.Point(471, 590);
+            this.agregar.Location = new System.Drawing.Point(333, 590);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(145, 40);
             this.agregar.TabIndex = 1;
@@ -88,7 +89,7 @@
             this.editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editar.ForeColor = System.Drawing.Color.White;
-            this.editar.Location = new System.Drawing.Point(622, 590);
+            this.editar.Location = new System.Drawing.Point(487, 590);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(145, 40);
             this.editar.TabIndex = 6;
@@ -102,7 +103,7 @@
             this.eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
             this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eliminar.ForeColor = System.Drawing.Color.White;
-            this.eliminar.Location = new System.Drawing.Point(786, 590);
+            this.eliminar.Location = new System.Drawing.Point(638, 590);
             this.eliminar.Name = "eliminar";
             this.eliminar.Size = new System.Drawing.Size(145, 40);
             this.eliminar.TabIndex = 7;
@@ -258,12 +259,27 @@
             this.label9.Text = "Descripción:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BtnExportar
+            // 
+            this.BtnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.BtnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExportar.ForeColor = System.Drawing.Color.White;
+            this.BtnExportar.Location = new System.Drawing.Point(786, 590);
+            this.BtnExportar.Name = "BtnExportar";
+            this.BtnExportar.Size = new System.Drawing.Size(145, 40);
+            this.BtnExportar.TabIndex = 74;
+            this.BtnExportar.Text = "Exportar";
+            this.BtnExportar.UseVisualStyleBackColor = false;
+            this.BtnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
+            // 
             // CalendarioAct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(953, 642);
+            this.Controls.Add(this.BtnExportar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -304,5 +320,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnExportar;
     }
 }

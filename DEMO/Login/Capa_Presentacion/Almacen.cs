@@ -193,5 +193,28 @@ namespace Capa_Presentacion
             BitacoraAlmacen _BitacoraAlmacen = new BitacoraAlmacen();
             _BitacoraAlmacen.ShowDialog();
         }
+
+        private void BtnExportar_Click(object sender, EventArgs e)
+        {
+            dsAlmacen Ds = new dsAlmacen();
+            int filas = dgvAlmacen.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dgvAlmacen[0,i].Value.ToString(),
+                    dgvAlmacen[1,i].Value.ToString(),
+                    dgvAlmacen[2,i].Value.ToString(),
+                    dgvAlmacen[3,i].Value.ToString(),
+                    dgvAlmacen[4,i].Value.ToString(),
+                    dgvAlmacen[5,i].Value.ToString(),
+                    dgvAlmacen[6,i].Value.ToString(),
+                    dgvAlmacen[7,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(7);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
+            //r.Show();
+        }
     }
 }

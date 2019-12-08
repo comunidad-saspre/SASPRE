@@ -288,17 +288,24 @@ namespace Capa_Presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Reportes c = new Reportes();
-            c.setReporte(1);
+            dsUsuario Ds = new dsUsuario();
+            int filas = dgvUsers.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dgvUsers[0,i].Value.ToString(),
+                    dgvUsers[1,i].Value.ToString(),
+                    dgvUsers[2,i].Value.ToString(),
+                    dgvUsers[3,i].Value.ToString(),
+                    dgvUsers[4,i].Value.ToString(),
+                    dgvUsers[5,i].Value.ToString(),
+                    dgvUsers[6,i].Value.ToString()});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(1);
             DialogResult resultado = new DialogResult();
-            resultado = c.ShowDialog();
-            if (resultado == DialogResult.OK)
-            {
-            }
-            else
-            {
-
-            }
+            resultado = r.ShowDialog();
+            //r.Show();
         }
 
         private void TableLayoutPanel4_Paint(object sender, PaintEventArgs e)

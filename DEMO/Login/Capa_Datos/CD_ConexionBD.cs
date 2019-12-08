@@ -30,7 +30,7 @@ namespace Capa_Datos
             }
             catch (Exception ex)
             {
-                ex.ToString();
+                ex.ToString();//C:\Users\garci\Source\Repos\SASPRE\DEMO\Login\Capa_Datos\CD_ConexionBD.cs
                 throw;
             }
             return Conexion;

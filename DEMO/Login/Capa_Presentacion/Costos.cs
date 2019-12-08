@@ -24,6 +24,7 @@ namespace Capa_Presentacion
         public Costos()
         {
             InitializeComponent();
+            BtnExp.Enabled=true;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -148,6 +149,22 @@ namespace Capa_Presentacion
             btnElimiar.Enabled = true;
         }
 
-        
+        private void BtnExportar(object sender,EventArgs e)
+        {
+            dsCostos Ds = new dsCostos();
+            int filas = dgvCultivo.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dgvCultivo[0,i].Value.ToString(),
+                    dgvCultivo[1,i].Value.ToString(),
+                    dgvCultivo[2,i].Value.ToString(),});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(8);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
+            //r.Show();
+        }
     }
 }

@@ -47,5 +47,26 @@ namespace Capa_Presentacion
           
 
         }
+
+        private void btnCer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        int posX = 0;
+        int posY = 0;
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
     }
 }

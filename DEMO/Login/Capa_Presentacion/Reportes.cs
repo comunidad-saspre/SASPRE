@@ -49,7 +49,8 @@ namespace Capa_Presentacion
         {
             if (reporte == 1)
             {
-                var rptPractica61 = new ReporteUsuario();
+                ReporteUsuario rptPractica61 = new ReporteUsuario();
+                rptPractica61.SetDataSource(DS);
                 rptPractica61.SetParameterValue("Nombre", Program.nombre.ToString());
                 rptPractica61.SetParameterValue("correo", Program.correo.ToString());
                 rptPractica61.SetParameterValue("cargo", Program.cargo.ToString());
@@ -107,6 +108,38 @@ namespace Capa_Presentacion
                 if (reporte == 6)
                 {
                     ReporteDatosAtmosfericos crpt = new ReporteDatosAtmosfericos();
+                    crpt.SetDataSource(DS);
+                    crpt.SetParameterValue("Nombre", Program.nombre.ToString());
+                    crpt.SetParameterValue("correo", Program.correo.ToString());
+                    crpt.SetParameterValue("cargo", Program.cargo.ToString());
+                    crpt.SetParameterValue("apellido", Program.apellidos.ToString());
+                    this.crystalReportViewer1.ReportSource = crpt;
+                    this.crystalReportViewer1.Show();
+                }
+                if(reporte == 7)
+                {
+                    ReporteAlmacen crpt = new ReporteAlmacen();
+                    crpt.SetDataSource(DS);
+                    crpt.SetParameterValue("Nombre", Program.nombre.ToString());
+                    crpt.SetParameterValue("correo", Program.correo.ToString());
+                    crpt.SetParameterValue("cargo", Program.cargo.ToString());
+                    crpt.SetParameterValue("apellido", Program.apellidos.ToString());
+                    this.crystalReportViewer1.ReportSource = crpt;
+                    this.crystalReportViewer1.Show();
+                }
+                if(reporte == 8)
+                {
+                    ReporteCostos crpt = new ReporteCostos();
+                    crpt.SetDataSource(DS);
+                    crpt.SetParameterValue("Nombre", Program.nombre.ToString());
+                    crpt.SetParameterValue("correo", Program.correo.ToString());
+                    crpt.SetParameterValue("cargo", Program.cargo.ToString());
+                    crpt.SetParameterValue("apellido", Program.apellidos.ToString());
+                    this.crystalReportViewer1.ReportSource = crpt;
+                    this.crystalReportViewer1.Show();
+                }
+                if(reporte == 9){
+                    ReporteCalendario crpt = new ReporteCalendario();
                     crpt.SetDataSource(DS);
                     crpt.SetParameterValue("Nombre", Program.nombre.ToString());
                     crpt.SetParameterValue("correo", Program.correo.ToString());

@@ -43,6 +43,7 @@
             this.cbCultivo = new System.Windows.Forms.ComboBox();
             this.lbCultivo = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.TextBox();
+            this.BtnExp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +133,7 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(492, 618);
+            this.btnAgregar.Location = new System.Drawing.Point(341, 603);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(145, 40);
             this.btnAgregar.TabIndex = 136;
@@ -148,7 +149,7 @@
             this.btnElimiar.Enabled = false;
             this.btnElimiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnElimiar.ForeColor = System.Drawing.Color.White;
-            this.btnElimiar.Location = new System.Drawing.Point(794, 618);
+            this.btnElimiar.Location = new System.Drawing.Point(643, 603);
             this.btnElimiar.Name = "btnElimiar";
             this.btnElimiar.Size = new System.Drawing.Size(145, 40);
             this.btnElimiar.TabIndex = 137;
@@ -164,7 +165,7 @@
             this.btnEditar.Enabled = false;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(643, 618);
+            this.btnEditar.Location = new System.Drawing.Point(492, 603);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(145, 40);
             this.btnEditar.TabIndex = 135;
@@ -217,12 +218,29 @@
             this.tbPrecio.TabIndex = 140;
             this.tbPrecio.Text = "0";
             // 
+            // BtnExp
+            // 
+            this.BtnExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnExp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(143)))), ((int)(((byte)(39)))));
+            this.BtnExp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExp.Enabled = false;
+            this.BtnExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExp.ForeColor = System.Drawing.Color.White;
+            this.BtnExp.Location = new System.Drawing.Point(794, 603);
+            this.BtnExp.Name = "BtnExp";
+            this.BtnExp.Size = new System.Drawing.Size(145, 40);
+            this.BtnExp.TabIndex = 143;
+            this.BtnExp.Text = "Exportar";
+            this.BtnExp.UseVisualStyleBackColor = false;
+            this.BtnExp.Click += new System.EventHandler(this.BtnExportar);
+            // 
             // Costos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.BtnExp);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.cbCultivo);
             this.Controls.Add(this.lbCultivo);
@@ -255,5 +273,6 @@
         private System.Windows.Forms.ComboBox cbCultivo;
         private System.Windows.Forms.Label lbCultivo;
         private System.Windows.Forms.TextBox tbPrecio;
+        private System.Windows.Forms.Button BtnExp;
     }
 }

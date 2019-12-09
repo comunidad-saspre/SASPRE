@@ -140,5 +140,26 @@ namespace Capa_Presentacion
         {
             monthCalendar2.MinDate = monthCalendar1.SelectionRange.Start;
         }
+
+        private void BtnExportar_Click(object sender, EventArgs e)
+        {
+            dsCalendario Ds = new dsCalendario();
+            int filas = dataGridView1.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                Ds.Tables[0].Rows.Add(new object[] { dataGridView1[0,i].Value.ToString(),
+                    dataGridView1[1,i].Value.ToString(),
+                    dataGridView1[2,i].Value.ToString(),
+                    dataGridView1[3,i].Value.ToString(),
+                    dataGridView1[4,i].Value.ToString(),
+                    dataGridView1[5,i].Value.ToString(),});
+            }
+            Reportes r = new Reportes();
+            r.setData(Ds);
+            r.setReporte(9);
+            DialogResult resultado = new DialogResult();
+            resultado = r.ShowDialog();
+            //r.Show();
+        }
     }
 }

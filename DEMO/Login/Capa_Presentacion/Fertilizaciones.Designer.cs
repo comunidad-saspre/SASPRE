@@ -52,12 +52,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNPKNecesario = new System.Windows.Forms.TextBox();
             this.dgvEtapas = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.Etapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.npk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCalcular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapas)).BeginInit();
             this.SuspendLayout();
@@ -316,35 +316,6 @@
             this.dgvEtapas.Size = new System.Drawing.Size(547, 252);
             this.dgvEtapas.TabIndex = 79;
             // 
-            // Etapa
-            // 
-            this.Etapa.HeaderText = "Etapa";
-            this.Etapa.Name = "Etapa";
-            // 
-            // Dias
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.Dias.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Dias.HeaderText = "Días";
-            this.Dias.Name = "Dias";
-            // 
-            // npk
-            // 
-            this.npk.HeaderText = "N     P     K";
-            this.npk.Name = "npk";
-            // 
-            // kgPorDia
-            // 
-            this.kgPorDia.HeaderText = "Kg por día";
-            this.kgPorDia.Name = "kgPorDia";
-            // 
-            // kgPorEtapa
-            // 
-            this.kgPorEtapa.HeaderText = "Kg por etapa";
-            this.kgPorEtapa.Name = "kgPorEtapa";
-            // 
             // btnCalcular
             // 
             this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -361,6 +332,38 @@
             this.btnCalcular.TabIndex = 80;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = false;
+            this.btnCalcular.Click += new System.EventHandler(this.BtnCalcular_Click);
+            // 
+            // Etapa
+            // 
+            this.Etapa.HeaderText = "Etapa";
+            this.Etapa.Name = "Etapa";
+            this.Etapa.ReadOnly = true;
+            // 
+            // Dias
+            // 
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.Dias.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Dias.HeaderText = "Días";
+            this.Dias.Name = "Dias";
+            // 
+            // npk
+            // 
+            this.npk.HeaderText = "N     P     K";
+            this.npk.Name = "npk";
+            this.npk.ReadOnly = true;
+            // 
+            // kgPorDia
+            // 
+            this.kgPorDia.HeaderText = "Kg por día";
+            this.kgPorDia.Name = "kgPorDia";
+            // 
+            // kgPorEtapa
+            // 
+            this.kgPorEtapa.HeaderText = "Kg por etapa";
+            this.kgPorEtapa.Name = "kgPorEtapa";
+            this.kgPorEtapa.ReadOnly = true;
             // 
             // Fertilizaciones
             // 
@@ -403,16 +406,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNPKNecesario;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvEtapas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Etapa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn npk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kgPorDia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kgPorEtapa;
         private System.Windows.Forms.DataGridViewTextBoxColumn idFertilizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn cultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn necesitaNPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn tieneNPK;
         private System.Windows.Forms.DataGridViewTextBoxColumn diaCalculado;
         private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Etapa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn npk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kgPorDia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kgPorEtapa;
     }
 }

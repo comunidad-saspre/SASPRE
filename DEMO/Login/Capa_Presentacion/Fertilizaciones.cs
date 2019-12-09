@@ -29,11 +29,11 @@ namespace Capa_Presentacion
 
         private void agregarFilas()
         {
-            dgvEtapas.Rows.Add("Siembra","0");
-            dgvEtapas.Rows.Add("Floración", "0");
-            dgvEtapas.Rows.Add("Floración a Fructificación", "0");
-            dgvEtapas.Rows.Add("Fructificación a cosecha", "0");
-            dgvEtapas.Rows.Add("Cosecha", "0");
+            dgvEtapas.Rows.Add("Siembra","0", "", "0");
+            dgvEtapas.Rows.Add("Floración", "0","","0");
+            dgvEtapas.Rows.Add("Floración a Fructificación", "0", "", "0");
+            dgvEtapas.Rows.Add("Fructificación a cosecha", "0", "", "0");
+            dgvEtapas.Rows.Add("Cosecha", "0", "", "0");
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -67,6 +67,15 @@ namespace Capa_Presentacion
         {
             CN_Fertilizaciones _CN_Fertilizaciones = new CN_Fertilizaciones();
             dgvFertilizaciones.DataSource = _CN_Fertilizaciones.MostrarFertilizaciones();
+        }
+
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+            int kgetapa = 0;
+            foreach (DataGridViewRow row in dgvFertilizaciones.Rows)
+            {
+                kgetapa = Convert.ToInt32(row.Cells[1].Value);
+            }
         }
     }
 }

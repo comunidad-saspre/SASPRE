@@ -26,7 +26,7 @@ namespace Capa_Presentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Fertilizaciones());
+            Application.Run(new Login());
             //Application.Run(new CalendarioAct());
             
         }

@@ -79,7 +79,7 @@ namespace Capa_Presentacion
             }
             Reportes r = new Reportes();
             r.setData(Ds);
-            r.setReporte(7);
+            r.setReporte(10);
             DialogResult resultado = new DialogResult();
             resultado = r.ShowDialog();
         }

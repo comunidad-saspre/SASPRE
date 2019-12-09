@@ -115,14 +115,14 @@ namespace Capa_Presentacion
                     this.crystalReportViewer1.ReportSource = crpt;
                     this.crystalReportViewer1.Show();
                 }
-                if (reporte == 7)
+                if (reporte == 10)
                 {
                     rpt_BitacoraAlmacen crpt = new rpt_BitacoraAlmacen();
                     crpt.SetDataSource(DS);
-                   /* crpt.SetParameterValue("Nombre", Program.nombre.ToString());
-                    crpt.SetParameterValue("correo", Program.correo.ToString());
-                    crpt.SetParameterValue("cargo", Program.cargo.ToString());
-                    crpt.SetParameterValue("apellido", Program.apellidos.ToString());*/
+                    crpt.SetParameterValue("Nombre", Program.nombre.ToString());
+                    crpt.SetParameterValue("Correo", Program.correo.ToString());
+                    crpt.SetParameterValue("Cargo", Program.cargo.ToString());
+                    crpt.SetParameterValue("Apellido", Program.apellidos.ToString());
                     this.crystalReportViewer1.ReportSource = crpt;
                     this.crystalReportViewer1.Show();
                 }

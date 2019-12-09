@@ -69,13 +69,30 @@ namespace Capa_Presentacion
             dgvFertilizaciones.DataSource = _CN_Fertilizaciones.MostrarFertilizaciones();
         }
 
+        double total = 0;
         private void BtnCalcular_Click(object sender, EventArgs e)
         {
-            int kgetapa = 0;
-            foreach (DataGridViewRow row in dgvFertilizaciones.Rows)
+            total = 0;
+            double kgetapa = 0;
+            double kgpordias = 0;
+            foreach (DataGridViewRow row in dgvEtapas.Rows)
             {
-                kgetapa = Convert.ToInt32(row.Cells[1].Value);
+                kgetapa = Convert.ToDouble(row.Cells[1].Value.ToString());
+                kgpordias = Convert.ToDouble(row.Cells[3].Value.ToString());
+                row.Cells[4].Value = kgetapa * kgpordias;
+                total += Convert.ToDouble(row.Cells[4].Value.ToString());
             }
+
+            foreach (DataGridViewRow row in dgvEtapas.Rows)
+            {
+                row.Cells[5].Value = calcularPorcentaje(Convert.ToDouble(row.Cells[4].Value.ToString()));
+
+            }
+        }
+
+        private double calcularPorcentaje(double kgetapa)
+        {
+            return (kgetapa * 100) / total;
         }
     }
 }

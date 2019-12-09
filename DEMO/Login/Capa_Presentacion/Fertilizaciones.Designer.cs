@@ -58,6 +58,7 @@
             this.npk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kgPorEtapa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapas)).BeginInit();
             this.SuspendLayout();
@@ -293,7 +294,8 @@
             this.Dias,
             this.npk,
             this.kgPorDia,
-            this.kgPorEtapa});
+            this.kgPorEtapa,
+            this.porcentaje});
             this.dgvEtapas.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
@@ -365,6 +367,11 @@
             this.kgPorEtapa.Name = "kgPorEtapa";
             this.kgPorEtapa.ReadOnly = true;
             // 
+            // porcentaje
+            // 
+            this.porcentaje.HeaderText = "Porcentaje";
+            this.porcentaje.Name = "porcentaje";
+            // 
             // Fertilizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,5 +424,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn npk;
         private System.Windows.Forms.DataGridViewTextBoxColumn kgPorDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn kgPorEtapa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porcentaje;
     }
 }

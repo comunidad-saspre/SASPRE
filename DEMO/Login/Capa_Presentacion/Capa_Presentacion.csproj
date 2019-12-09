@@ -262,6 +262,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCalendario.cs">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsCalendario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

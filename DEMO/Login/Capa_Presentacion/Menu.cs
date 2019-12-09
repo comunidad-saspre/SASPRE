@@ -1288,7 +1288,7 @@ namespace Capa_Presentacion
 
         private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
         {
-            /*AbrirFormEnPanel<CalculoDePlagas>();
+            AbrirFormEnPanel<Fertilizaciones>();
             lblTemp.Visible = true;
             panelClima.Visible = false;
             lblCentigrados.Visible = true;
@@ -1296,10 +1296,7 @@ namespace Capa_Presentacion
             lblEstado.Visible = true;
             lblPrecipitacion.Visible = true;
             lblPrecipitacionmm.Visible = true;
-            */
-
-            Calculadora objCal = new Calculadora();
-            objCal.Show();
+           
             }
 
         private void panelClima_Paint(object sender, PaintEventArgs e)
@@ -1636,6 +1633,13 @@ namespace Capa_Presentacion
             }
             */
         }
+
+        private void BtnCalculator_Click(object sender, EventArgs e)
+        {
+            Calculadora objCal = new Calculadora();
+            objCal.Show();
+        }
+
         private Boolean Evaluar(String nombreAlarma, String fechaActivada)
         {
             String nombre, fecha;

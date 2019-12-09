@@ -69,9 +69,6 @@
             this.dgvFertilizaciones.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvFertilizaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFertilizaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFertilizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFertilizaciones.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvFertilizaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -309,13 +306,13 @@
             this.dgvEtapas.EnableHeadersVisualStyles = false;
             this.dgvEtapas.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.dgvEtapas.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvEtapas.Location = new System.Drawing.Point(405, 67);
+            this.dgvEtapas.Location = new System.Drawing.Point(459, 67);
             this.dgvEtapas.Name = "dgvEtapas";
             this.dgvEtapas.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvEtapas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvEtapas.RowHeadersVisible = false;
             this.dgvEtapas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapas.Size = new System.Drawing.Size(547, 252);
+            this.dgvEtapas.Size = new System.Drawing.Size(493, 252);
             this.dgvEtapas.TabIndex = 79;
             // 
             // btnCalcular
@@ -328,7 +325,7 @@
             this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnCalcular.ForeColor = System.Drawing.Color.White;
-            this.btnCalcular.Location = new System.Drawing.Point(618, 342);
+            this.btnCalcular.Location = new System.Drawing.Point(660, 342);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(132, 40);
             this.btnCalcular.TabIndex = 80;
@@ -352,7 +349,7 @@
             // 
             // npk
             // 
-            this.npk.HeaderText = "N     P     K";
+            this.npk.HeaderText = "N P K";
             this.npk.Name = "npk";
             this.npk.ReadOnly = true;
             // 
